@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://du6cj4sel1rxc"]
+
+[ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
+[ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
+[ext_resource type="Script" path="res://Actor/Player/States/Walk.gd" id="3"]
+[ext_resource type="Script" path="res://Actor/Player/States/Jump.gd" id="4"]
+[ext_resource type="Script" path="res://Actor/Player/States/Fall.gd" id="6"]
+[ext_resource type="Script" path="res://Actor/Player/States/DashSide.gd" id="6_66fel"]
+[ext_resource type="Script" path="res://Actor/Player/States/Idle.gd" id="8"]
+[ext_resource type="Script" path="res://Actor/Player/States/Apex.gd" id="8_ytsre"]
+[ext_resource type="Script" path="res://Actor/Player/States/Spawn.gd" id="9"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(48, 88)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 64
+script = ExtResource( "2" )
+
+[node name="CharacterRig" type="Node2D" parent="."]
+
+[node name="Body" type="ColorRect" parent="CharacterRig"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -128.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.403922, 0, 0.564706, 1)
+
+[node name="Eye" type="ColorRect" parent="CharacterRig"]
+offset_left = 8.0
+offset_top = -112.0
+offset_right = 16.0
+offset_bottom = -104.0
+
+[node name="Mouth" type="ColorRect" parent="CharacterRig"]
+offset_top = -88.0
+offset_right = 30.0
+offset_bottom = -80.0
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -44)
+shape = SubResource( "1" )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( "1" )
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource( "9" )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( "8" )
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource( "3" )
+
+[node name="DashSide" type="Node" parent="StateMachine"]
+script = ExtResource( "6_66fel" )
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource( "4" )
+
+[node name="Apex" type="Node" parent="StateMachine"]
+script = ExtResource( "8_ytsre" )
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource( "6" )
+
+[node name="State" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -152.0
+offset_right = 30.0
+offset_bottom = -129.0
+
+[node name="Velocity" type="Label" parent="."]
+offset_left = -30.0
+offset_top = -184.0
+offset_right = 30.0
+offset_bottom = -161.0
