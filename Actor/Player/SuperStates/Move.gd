@@ -11,7 +11,8 @@ var moveSpeed: int = 7 * Globals.TILE_SIZE
 func enter() -> void:
 	super.enter()
 
-	
+	if lastDirection.x == 0:
+		lastDirection.x = player.characterRig.scale.x
 
 
 func exit() -> void:
@@ -40,7 +41,7 @@ func handle_input(_event: InputEvent) -> int:
 		return newState
 
 	if Input.is_action_just_pressed("dash"):
-		return State.Dash
+		return State.DashSide
 
 	return State.Null
 

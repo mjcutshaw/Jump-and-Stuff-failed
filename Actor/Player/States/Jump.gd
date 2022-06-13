@@ -1,10 +1,11 @@
 extends AirState
-
+#TODO: Create jump superstate
 
 func enter() -> void:
 	super.enter()
 
 	player.velocity.y = jumpVelocityMax
+	player.consume(player.a.Jump , 1)
 
 
 func exit() -> void:
@@ -18,6 +19,9 @@ func physics(_delta) -> void:
 
 	velocity_logic(moveSpeed)
 	gravity_logic(gravityJump, _delta)
+	
+	if player.test_move(player.global_transform, Vector2(0, player.velocity.y * _delta)):
+		player.attempt_horizontal_corner_correction(player.jumpCornerCorrectionHorizontal, _delta)
 
 
 func visual(_delta) -> void:

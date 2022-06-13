@@ -13,23 +13,30 @@ extends Node
 
 var currentState: BaseState
 var previousState: BaseState
+var currentStateName: String
+var previousStateName: String
+@onready var player: Player = get_parent()
 
 
 func change_state(newState: int) -> void:
-	if currentState:
+	if currentState:  
 		currentState.exit()
 		previousState = currentState
+		previousStateName = previousState.name
 
 	currentState = states[newState]
 	currentState.enter()
-	print(currentState)
+	currentStateName = currentState.name
+#	print(previousStateName + " from " + currentStateName)
+	player.stateLabel.text = currentStateName
+	player.currentState = currentState.name
 
 
 func init(player: Player) -> void:
 	for child in get_children():
 		child.player = player
 
-	change_state(BaseState.State.Idle)
+	change_state(BaseState.State.Spawn)
 
 
 

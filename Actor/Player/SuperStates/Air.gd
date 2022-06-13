@@ -42,7 +42,8 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	
+	if player.test_move(player.global_transform, Vector2(player.velocity.x * _delta, 0)):
+		player.attempt_vertical_corner_correction(player.jumpCornerCorrectionVertical, _delta)
 
 
 func visual(_delta) -> void:
@@ -56,7 +57,13 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump"):
+		if !player.coyoteTimer.is_stopped():
+			player.coyoteTimer.stop()
+			print("coyote jump")
+			return State.Jump
+		else:
+			player.jumpBufferTimer.start()
 
 	return State.Null
 

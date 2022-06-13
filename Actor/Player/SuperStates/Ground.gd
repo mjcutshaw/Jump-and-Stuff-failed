@@ -13,7 +13,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	
+	player.coyoteTimer.start()
 
 
 func physics(_delta) -> void:
@@ -26,7 +26,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	player.characterRig.scale.x = lastDirection.x
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -34,6 +34,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
+#TODO: turn into jump held like function callable from player script
 	if Input.is_action_just_pressed("jump"):
 		return State.Jump
 
@@ -45,6 +46,10 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
+	if !player.jumpBufferTimer.is_stopped():
+		player.jumpBufferTimer.stop()
+		print("buffer jump")
+		return State.Jump
 	if !player.is_on_floor():
 		return State.Fall
 

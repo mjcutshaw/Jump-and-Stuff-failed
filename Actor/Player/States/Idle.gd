@@ -30,12 +30,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-		return State.Walk
-	elif Input.is_action_just_pressed("jump"):
-		return State.Jump
-	elif Input.is_action_just_pressed("dash"):
-		return State.Dash
+	
 
 	return State.Null
 
@@ -47,5 +42,7 @@ func state_check(_delta: float) -> int:
 
 	if !player.is_on_floor():
 		return State.Fall
+	elif moveDirection.x != 0:
+		return State.Walk
 
 	return State.Null

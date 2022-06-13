@@ -54,9 +54,7 @@ func state_check(_delta: float) -> int:
 	if current_dash_time > 0:
 		return State.Null
 
-	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		if Input.is_action_pressed("run"):
-			return State.Run
+	if moveDirection.x != 0:
 		return State.Walk
 	return State.Idle
 

@@ -40,6 +40,7 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if moveDirection.x == 0:
+		return State.Idle
 
 	return State.Null
