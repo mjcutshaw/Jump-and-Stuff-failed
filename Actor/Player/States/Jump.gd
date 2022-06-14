@@ -8,6 +8,7 @@ func enter() -> void:
 	player.velocity.y = jumpVelocityMax
 	player.consume(player.a.Jump , 1)
 	player.soundJump.play()
+	player.particlesJump.restart()
 
 
 func exit() -> void:
@@ -29,6 +30,12 @@ func physics(_delta) -> void:
 
 func visual(_delta) -> void:
 	super.visual(_delta)
+
+	
+
+
+func sound(_delta: float) -> void:
+	super.sound(_delta)
 
 	
 

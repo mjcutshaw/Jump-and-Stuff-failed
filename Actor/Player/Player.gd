@@ -15,6 +15,7 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var soundWalk: AudioStreamPlayer2D = $Sounds/SoundWalk
 @onready var particlesWalking: GPUParticles2D = $CharacterRig/ParticlesWalking
 @onready var particlesLand: GPUParticles2D = $CharacterRig/ParticlesLand
+@onready var particlesJump: GPUParticles2D = $CharacterRig/ParticlesJump
 
 enum a {
 	All,

@@ -53,7 +53,7 @@ func state_check(_delta: float) -> int:
 
 	if player.is_on_floor():
 		landed(previousVelocity)
-		player.particlesLand.emitting = true
+		player.particlesLand.restart()
 		player.soundLand.play()
 		if moveDirection.x != 0:
 			return State.Walk
@@ -73,3 +73,5 @@ func gravity_logic(amount, _delta) -> void:
 
 func fall_speed_logic(amount) -> void:
 	player.velocity.y = min(player.velocity.y, amount)
+
+
