@@ -28,6 +28,9 @@ func handle_input(_event: InputEvent) -> int:
 func visual(_delta: float) -> void:
 	pass
 
+func sound(_delta: float) -> void:
+	pass
+
 func physics(_delta: float) -> void:
 	pass
 

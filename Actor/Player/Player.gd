@@ -10,6 +10,11 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var coyoteTimer: Timer = $Timers/CoyoteTimer
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var characterRig: Node2D = $CharacterRig
+@onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
+@onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
+@onready var soundWalk: AudioStreamPlayer2D = $Sounds/SoundWalk
+@onready var particlesWalking: GPUParticles2D = $CharacterRig/ParticlesWalking
+@onready var particlesLand: GPUParticles2D = $CharacterRig/ParticlesLand
 
 enum a {
 	All,
@@ -43,7 +48,7 @@ var remainingDashDown: int
 
 
 func _ready() -> void:
-	sm.init(self)
+	sm.init()
 	set_timers()
 
 
@@ -60,6 +65,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	sm.visual(_delta)
+	sm.sound(_delta)
 
 
 func set_timers():

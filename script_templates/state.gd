@@ -25,6 +25,12 @@ func visual(_delta) -> void:
 	
 
 
+func sound(_delta: float) -> void:
+	super.sound(_delta)
+
+	
+
+
 func handle_input(_event: InputEvent) -> int:
 	var newState = super.handle_input(_event)
 	if newState:

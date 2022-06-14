@@ -4,9 +4,23 @@ extends BaseState
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO
+var previousVelocity: Vector2 = Vector2.ZERO
 
 var moveSpeed: int = 7 * Globals.TILE_SIZE
 
+var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE
+var jumpHeightMin: int = 10
+var jumpTimeToPeak: float = 0.5
+var jumpTimeToDescent: float = 0.3
+var jumpTimeAtApex: float = 0.8
+var jumpApexHeight: float = 40
+@onready var gravityJump: float = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
+@onready var gravityFall: float = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
+@onready var gravityApex: float = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
+@onready var jumpVelocityMax: float = -sqrt(2 * gravityJump * jumpHeightMax)
+@onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
+var terminalVelocity: int = 20 * Globals.TILE_SIZE
+var moveSpeedApex: int = 10 * Globals.TILE_SIZE
 
 func enter() -> void:
 	super.enter()
@@ -32,7 +46,8 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	squash_and_strech(_delta)
+	speed_bend()
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -58,12 +73,44 @@ func state_check(_delta: float):
 
 func move_direction_logic() -> void:
 	#TODO: look into get_axis
+	#FIXME: moveDirection is randomly change when held
 	moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	
 	if moveDirection.x != 0:
 		lastDirection = moveDirection
 
+
 func move_strength_logic() -> void:
 	moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
 	moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
+
+
+func facing() -> void:
+	#todo: turn into variables
+	if moveDirection.x != 0:
+		player.characterRig.scale.x = moveDirection.x
+	else:
+		player.characterRig.scale.x = lastDirection.x
+
+
+func squash_and_strech(_delta):
+	#TODO: not squishing the on the x
+	if !player.is_on_floor():
+		player.characterRig.scale.y = range_lerp(abs(player.velocity.y), 0, abs(jumpVelocityMax), 0.75, 1.25)
+		player.characterRig.scale.x = range_lerp(abs(player.velocity.y), 0, abs(jumpVelocityMax), 1.25, 0.75)
+	
+	player.characterRig.scale.x = lerp(player.characterRig.scale.x, 1.0, 1.0 - pow(0.01, _delta))
+	player.characterRig.scale.y = lerp(player.characterRig.scale.y, 1.0, 1.0 - pow(0.01, _delta))
+
+
+func landed(fallVelocity):
+	#FIXME: change previous velocity to fall speed
+	player.characterRig.scale.x = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 1.2, 1.25)
+	player.characterRig.scale.y = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 0.8, 0.5)
+
+
+func speed_bend():
+	#TODO: variable to decide direction
+	#TODO: need to move smoothly back to zero
+	player.characterRig.skew = range_lerp(-player.velocity.x, 0, abs(moveSpeed), 0.0, 0.1)

@@ -73,6 +73,13 @@ window/size/height=720
 
 enabled=PackedStringArray()
 
+[importer_defaults]
+
+oggvorbisstr={
+"loop": false,
+"loop_offset": 0
+}
+
 [input]
 
 move_left={

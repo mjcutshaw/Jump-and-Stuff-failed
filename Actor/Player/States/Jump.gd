@@ -4,14 +4,17 @@ extends AirState
 func enter() -> void:
 	super.enter()
 
+	player.coyoteTimer.stop()
 	player.velocity.y = jumpVelocityMax
 	player.consume(player.a.Jump , 1)
+	player.soundJump.play()
 
 
 func exit() -> void:
 	super.exit()
 
-	
+	player.soundJump.stop()
+	previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
@@ -49,9 +52,5 @@ func state_check(_delta: float) -> int:
 
 	if player.velocity.y > -jumpApexHeight:
 		return State.Apex
-	if player.is_on_floor():
-		if moveDirection.x != 0:
-			return State.Walk
-		return State.Idle
 
 	return State.Null

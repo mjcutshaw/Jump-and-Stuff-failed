@@ -27,12 +27,12 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-#	print(previousStateName + " from " + currentStateName)
+	print(previousStateName + " to " + currentStateName)
 	player.stateLabel.text = currentStateName
 	player.currentState = currentState.name
 
 
-func init(player: Player) -> void:
+func init() -> void:
 	for child in get_children():
 		child.player = player
 
@@ -50,7 +50,6 @@ func physics(_delta) -> void:
 	currentState.physics(_delta)
 
 
-
 func state_check(_delta) -> void:
 	var newState = currentState.state_check(_delta)
 	if newState != BaseState.State.Null:
@@ -59,4 +58,6 @@ func state_check(_delta) -> void:
 
 func visual(_delta) -> void:
 	currentState.visual(_delta)
-	
+
+func sound(_delta) -> void:
+	currentState.sound(_delta)

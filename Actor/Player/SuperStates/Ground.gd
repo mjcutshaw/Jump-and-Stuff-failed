@@ -26,7 +26,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	player.characterRig.scale.x = lastDirection.x
+	facing()
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -34,7 +34,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-#TODO: turn into jump held like function callable from player script
+
 	if Input.is_action_just_pressed("jump"):
 		return State.Jump
 

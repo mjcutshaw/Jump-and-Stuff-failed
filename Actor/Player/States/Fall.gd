@@ -1,7 +1,5 @@
 extends AirState
 
-#export (float) var move_speed = 60
-
 
 func enter() -> void:
 	super.enter()
@@ -12,7 +10,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	
+	previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
@@ -44,10 +42,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.is_on_floor():
-		if moveDirection.x != 0:
-			return State.Walk
-		else:
-			return State.Idle
+	
 
 	return State.Null

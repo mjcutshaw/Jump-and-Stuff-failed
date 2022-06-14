@@ -2,29 +2,7 @@ class_name AirState
 extends MoveState
 
 
-var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE
-var jumpHeightMin: int = 10
-var jumpTimeToPeak: float = 0.5
-var jumpTimeToDescent: float = 0.3
-var jumpTimeAtApex: float = 0.8
-var jumpApexHeight: float = 40
-@onready var gravityJump: float = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
-@onready var gravityFall: float = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
-@onready var gravityApex: float = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
-@onready var gravityGlide: float = gravityFall/10
-@onready var gravityGroundPound: float = gravityFall * 2
-@onready var jumpVelocityMax: float = -sqrt(2 * gravityJump * jumpHeightMax)
-@onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
-var groundPoundJumpHeight: float = jumpVelocityMax * 1.75
-@onready var doubleJumpHeight: float = jumpVelocityMax * 1.25
-@onready var tripleJumpHeight: float = jumpVelocityMax * 1.5
-var slowFallModifier: float = 3.0
-var terminalVelocity: int = 20 * Globals.TILE_SIZE
-var terminalVelocitySlow: int = 10 * Globals.TILE_SIZE
-var terminalVelocityGroundPound: int = terminalVelocity * 2
-var wallJumpBoost: float = 1.25
-var moveSpeedApex: int = 10 * Globals.TILE_SIZE
-var moveSpeedLongJump: int = moveSpeed * 6
+
 
 
 func enter() -> void:
@@ -49,7 +27,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	facing()
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -58,7 +36,7 @@ func handle_input(_event: InputEvent) -> int:
 		return newState
 
 	if Input.is_action_just_pressed("jump"):
-		if !player.coyoteTimer.is_stopped():
+		if !player.coyoteTimer.is_stopped(): 
 			player.coyoteTimer.stop()
 			print("coyote jump")
 			return State.Jump
@@ -73,7 +51,14 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.is_on_floor():
+		landed(previousVelocity)
+		player.particlesLand.emitting = true
+		player.soundLand.play()
+		if moveDirection.x != 0:
+			return State.Walk
+		else:
+			return State.Idle
 
 	return State.Null
 
