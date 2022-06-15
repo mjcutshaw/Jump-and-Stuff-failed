@@ -29,6 +29,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Actor/Player/SuperStates/Ground.gd"
 }, {
+"base": "AirState",
+"class": &"JumpGround",
+"language": &"GDScript",
+"path": "res://Actor/Player/States/Jump.gd"
+}, {
+"base": "AirState",
+"class": &"JumpState",
+"language": &"GDScript",
+"path": "res://Actor/Player/SuperStates/JumpGroup.gd"
+}, {
 "base": "BaseState",
 "class": &"MoveState",
 "language": &"GDScript",
@@ -44,6 +54,8 @@ _global_script_class_icons={
 "BaseState": "",
 "DashState": "",
 "GroundState": "",
+"JumpGround": "",
+"JumpState": "",
 "MoveState": "",
 "Player": ""
 }

@@ -10,7 +10,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	previousVelocity = player.velocity
+	player.previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
@@ -42,7 +42,7 @@ func state_check(_delta: float) -> int:
 
 	if !player.is_on_floor():
 		return State.Fall
-	elif moveDirection.x != 0:
+	elif player.moveDirection.x != 0:
 		return State.Walk
 
 	return State.Null

@@ -57,9 +57,9 @@ func state_check(_delta: float) -> int:
 
 
 func velocity_logic() -> void:
-	if moveDirection.x != 0:
-		player.velocity.x = lerp(player.velocity.x, moveSpeed * moveStrength.x, acceleration)
-	elif moveDirection.x == 0:
+	if player.moveDirection.x != 0:
+		player.velocity.x = lerp(player.velocity.x, moveSpeed * player.moveStrength.x, acceleration)
+	elif player.moveDirection.x == 0:
 		player.velocity.x = lerp(player.velocity.x, 0, friction)
 	else:
 		print ("ground velocity error")

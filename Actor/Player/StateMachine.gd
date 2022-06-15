@@ -1,6 +1,8 @@
 extends Node
 
 
+
+
 @onready var states = {
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Idle: $Idle,
@@ -27,7 +29,7 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-	print(previousStateName + " to " + currentStateName)
+#	print(previousStateName + " to " + currentStateName)
 	player.stateLabel.text = currentStateName
 	player.currentState = currentState.name
 
@@ -37,7 +39,6 @@ func init() -> void:
 		child.player = player
 
 	change_state(BaseState.State.Spawn)
-
 
 
 func handle_input(_event: InputEvent) -> void:
@@ -59,5 +60,8 @@ func state_check(_delta) -> void:
 func visual(_delta) -> void:
 	currentState.visual(_delta)
 
+
 func sound(_delta) -> void:
 	currentState.sound(_delta)
+
+

@@ -54,7 +54,7 @@ func state_check(_delta: float) -> int:
 	if current_dash_time > 0:
 		return State.Null
 
-	if moveDirection.x != 0:
+	if player.moveDirection.x != 0:
 		return State.Walk
 	return State.Idle
 

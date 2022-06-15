@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=23 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -80,6 +80,48 @@ color = Color(0, 1, 0.152941, 1)
 hue_variation_min = -0.12
 hue_variation_max = 0.19
 
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_mgm5j"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(35, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 92.16
+gravity = Vector3(0, 10, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 3.54
+damping_max = 14.16
+scale_min = 0.0
+scale_max = 20.0
+scale_curve = SubResource( "CurveTexture_vjq7j" )
+color = Color(0, 1, 0.152941, 1)
+hue_variation_min = -0.12
+hue_variation_max = 0.19
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_7otqd"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(35, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 92.16
+gravity = Vector3(0, 10, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 3.54
+damping_max = 14.16
+scale_min = 0.0
+scale_max = 20.0
+scale_curve = SubResource( "CurveTexture_vjq7j" )
+color = Color(0, 1, 0.152941, 1)
+hue_variation_min = -0.12
+hue_variation_max = 0.19
+
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(48, 88)
 
@@ -150,6 +192,25 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( "ParticlesMaterial_utr8e" )
 
+[node name="ParticlesJumpDouble" type="GPUParticles2D" parent="CharacterRig"]
+emitting = false
+amount = 150
+lifetime = 0.9
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.9
+local_coords = false
+process_material = SubResource( "ParticlesMaterial_mgm5j" )
+
+[node name="ParticlesJumpTriple" type="GPUParticles2D" parent="CharacterRig"]
+emitting = false
+amount = 200
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.7
+local_coords = false
+process_material = SubResource( "ParticlesMaterial_7otqd" )
+
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -44)
@@ -198,16 +259,7 @@ offset_bottom = -161.0
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
-
-[node name="Timers" type="Node" parent="."]
-
-[node name="CoyoteTimer" type="Timer" parent="Timers"]
-one_shot = true
-
-[node name="JumpBufferTimer" type="Timer" parent="Timers"]
-one_shot = true
-
-[node name="Timer3" type="Timer" parent="Timers"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -223,3 +275,19 @@ pitch_scale = 0.51
 [node name="SoundWalk" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( "12_pn3dh" )
 volume_db = -30.0
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="JumpConsectutiveTimer" type="Timer" parent="Timers"]
+
+[node name="Timer4" type="Timer" parent="Timers"]
+
+[node name="Timer5" type="Timer" parent="Timers"]
+
+[connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

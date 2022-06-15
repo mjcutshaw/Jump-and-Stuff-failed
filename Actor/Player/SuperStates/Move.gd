@@ -1,10 +1,9 @@
 class_name MoveState
 extends BaseState
 
-var moveDirection: Vector2 = Vector2.ZERO
-var lastDirection: Vector2 = Vector2.ZERO
-var moveStrength: Vector2 = Vector2.ZERO
-var previousVelocity: Vector2 = Vector2.ZERO
+
+
+
 
 var moveSpeed: int = 7 * Globals.TILE_SIZE
 
@@ -25,8 +24,8 @@ var moveSpeedApex: int = 10 * Globals.TILE_SIZE
 func enter() -> void:
 	super.enter()
 
-	if lastDirection.x == 0:
-		lastDirection.x = player.characterRig.scale.x
+	if player.lastDirection.x == 0:
+		player.lastDirection.x = player.characterRig.scale.x
 
 
 func exit() -> void:
@@ -74,24 +73,24 @@ func state_check(_delta: float):
 func move_direction_logic() -> void:
 	#TODO: look into get_axis
 	#FIXME: moveDirection is randomly change when held
-	moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
-	moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
+	player.moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
+	player.moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	
-	if moveDirection.x != 0:
-		lastDirection = moveDirection
+	if player.moveDirection.x != 0:
+		player.lastDirection = player.moveDirection
 
 
 func move_strength_logic() -> void:
-	moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
-	moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
+	player.moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
+	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
 
 
 func facing() -> void:
 	#todo: turn into variables
-	if moveDirection.x != 0:
-		player.characterRig.scale.x = moveDirection.x
+	if player.moveDirection.x != 0:
+		player.characterRig.scale.x = player.moveDirection.x
 	else:
-		player.characterRig.scale.x = lastDirection.x
+		player.characterRig.scale.x = player.lastDirection.x
 
 
 func squash_and_strech(_delta):
@@ -104,7 +103,7 @@ func squash_and_strech(_delta):
 	player.characterRig.scale.y = lerp(player.characterRig.scale.y, 1.0, 1.0 - pow(0.01, _delta))
 
 
-func landed(fallVelocity):
+func landed_visuals(fallVelocity):
 	#FIXME: change previous velocity to fall speed
 	player.characterRig.scale.x = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 1.2, 1.25)
 	player.characterRig.scale.y = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 0.8, 0.5)

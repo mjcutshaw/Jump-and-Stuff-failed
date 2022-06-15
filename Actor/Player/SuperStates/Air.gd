@@ -5,6 +5,7 @@ extends MoveState
 
 
 
+
 func enter() -> void:
 	super.enter()
 
@@ -52,10 +53,11 @@ func state_check(_delta: float) -> int:
 		return newState
 
 	if player.is_on_floor():
-		landed(previousVelocity)
+		landed_visuals(player.previousVelocity)
 		player.particlesLand.restart()
 		player.soundLand.play()
-		if moveDirection.x != 0:
+		consecutive_jump_logic()
+		if player.moveDirection.x != 0:
 			return State.Walk
 		else:
 			return State.Idle
@@ -64,7 +66,7 @@ func state_check(_delta: float) -> int:
 
 
 func velocity_logic(speed) -> void:
-	player.velocity.x = moveStrength.x * speed
+	player.velocity.x = player.moveStrength.x * speed
 
 
 func gravity_logic(amount, _delta) -> void:
@@ -75,3 +77,12 @@ func fall_speed_logic(amount) -> void:
 	player.velocity.y = min(player.velocity.y, amount)
 
 
+func consecutive_jump_logic():
+	if player.jumped:
+		player.canJumpDouble = true
+		player.jumped = false
+		player.jumpConsectutiveTimer.start()
+	elif player.jumpedDouble:
+		player.canJumpTriple = true
+		player.jumpedDouble = false
+		player.jumpConsectutiveTimer.start()

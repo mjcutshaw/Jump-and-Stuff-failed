@@ -1,5 +1,6 @@
 class_name Player
 extends CharacterBody2D
+#TODO: raycast to the ground to put a drop shadow on the ground
 #TODO: camera needs to lead the player
 var gravity = 4  * Globals.TILE_SIZE
 #TODO change to a global gravity
@@ -7,8 +8,6 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var sm = $StateMachine
 @onready var velocityLabel: Label = $VelocityLabel
 @onready var stateLabel: Label = $StateLabel
-@onready var coyoteTimer: Timer = $Timers/CoyoteTimer
-@onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
 @onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
@@ -16,6 +15,26 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var particlesWalking: GPUParticles2D = $CharacterRig/ParticlesWalking
 @onready var particlesLand: GPUParticles2D = $CharacterRig/ParticlesLand
 @onready var particlesJump: GPUParticles2D = $CharacterRig/ParticlesJump
+@onready var particlesJumpDouble: GPUParticles2D = $CharacterRig/ParticlesJumpDouble
+@onready var particlesJumpTriple: GPUParticles2D = $CharacterRig/ParticlesJumpTriple
+@onready var coyoteTimer: Timer = $Timers/CoyoteTimer
+@onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
+@onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
+
+var moveDirection: Vector2 = Vector2.ZERO
+var lastDirection: Vector2 = Vector2.ZERO
+var moveStrength: Vector2 = Vector2.ZERO
+var previousVelocity: Vector2 = Vector2.ZERO
+
+var jumpBufferTime: float = 0.1
+var coyoteTime: float = 0.1
+var jumpConsectutiveTime: float = .5
+
+var jumped: bool = false
+var jumpedDouble: bool = false
+var jumpedTriple: bool = false
+var canJumpDouble: bool = false
+var canJumpTriple: bool = false
 
 enum a {
 	All,
@@ -27,9 +46,6 @@ enum a {
 }
 
 var currentState
-
-var jumpBufferTime: float = 0.1
-var coyoteTime: float = 0.1
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
@@ -75,6 +91,10 @@ func set_timers():
 	
 	jumpBufferTimer.wait_time = jumpBufferTime
 	jumpBufferTimer.one_shot = true
+	
+	jumpConsectutiveTimer.wait_time = jumpConsectutiveTime
+	jumpConsectutiveTimer.one_shot = true
+
 
 
 func consume(ability: int, amount: int) -> void:
@@ -199,3 +219,11 @@ func attempt_horizontal_corner_correction(amount, delta):
 				if velocity.x * j < 0: velocity.x = 0
 				print("pushed side")
 				return
+
+
+func _on_jump_consectutive_timer_timeout():
+	jumped = false
+	jumpedDouble = false
+	jumpedTriple = false
+	canJumpDouble = false
+	canJumpTriple = false

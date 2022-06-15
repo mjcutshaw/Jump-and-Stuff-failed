@@ -10,7 +10,8 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	previousVelocity = player.velocity
+	player.previousVelocity = player.velocity
+	
 
 
 func physics(_delta) -> void:

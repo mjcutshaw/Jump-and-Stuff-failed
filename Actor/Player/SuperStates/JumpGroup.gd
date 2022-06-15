@@ -1,5 +1,5 @@
 extends AirState
-
+class_name JumpState
 
 func enter() -> void:
 	super.enter()
@@ -10,18 +10,23 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.previousVelocity = player.velocity
+	
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeedApex)
-	gravity_logic(gravityApex, _delta)
+	
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
+
+	
+
+
+func sound(_delta: float) -> void:
+	super.sound(_delta)
 
 	
 
@@ -41,7 +46,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.velocity.y > jumpApexHeight:
-		return State.Fall
+	
 
 	return State.Null
