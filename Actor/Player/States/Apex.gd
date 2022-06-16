@@ -16,7 +16,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeedApex)
+	velocity_logic(moveSpeed)
 	gravity_logic(gravityApex, _delta)
 
 

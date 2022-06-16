@@ -6,6 +6,7 @@ enum State {
 	Spawn,
 	Idle,
 	Walk,
+	Crouch,
 	Jump,
 	Apex,
 	Fall,

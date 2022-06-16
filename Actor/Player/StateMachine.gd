@@ -7,6 +7,7 @@ extends Node
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Idle: $Idle,
 	BaseState.State.Walk: $Walk,
+	BaseState.State.Crouch: $Crouch,
 	BaseState.State.Jump: $Jump,
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
@@ -29,7 +30,7 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-#	print(previousStateName + " to " + currentStateName)
+	print(previousStateName + " to " + currentStateName)
 	player.stateLabel.text = currentStateName
 	player.currentState = currentState.name
 

@@ -1,14 +1,18 @@
 extends AirState
 class_name JumpGround
 #TODO: Create jump superstate
+#TODO: flip player in direction when jump flip
 
 func enter() -> void:
 	super.enter()
 
 	player.coyoteTimer.stop()
+	if player.jumpFlip:
+		print("side jump")
+		player.jumpFlip = false
 	jump_ground_logic()
-#	player.consume(player.a.Jump , 1)
 	
+#	player.consume(player.a.Jump , 1)
 
 
 func exit() -> void:
@@ -18,7 +22,7 @@ func exit() -> void:
 	player.soundJump.pitch_scale = 1
 	player.previousVelocity = player.velocity
 	player.characterRig.rotation = 0 * PI
-
+	player.jumpFlip = false
 
 
 func physics(_delta) -> void:
@@ -50,8 +54,8 @@ func handle_input(_event: InputEvent) -> int:
 
 	if Input.is_action_just_released("jump"):
 		if player.jumpedDouble or player.jumpedTriple:
-			#TODO: figure out a better way to push the minium hight for these jumps
-			player.velocity.y = max(player.velocity.y, jumpHeightMin *5)
+			#FIXME: figure out a better way to push the minium hight for these jumps
+			player.velocity.y = max(player.velocity.y, jumpHeightMin * 5)
 		else: 
 			player.velocity.y = max(player.velocity.y, jumpHeightMin)
 		jump_canceled()
@@ -65,17 +69,36 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.velocity.y > -jumpApexHeight:
-		
+	if player.is_on_ceiling():
+		jump_canceled()
+		return State.Apex
+	elif player.velocity.y > -jumpApexHeight:
 		return State.Apex
 
 	return State.Null
 
 
 func jump_ground_logic():
-	if player.canJumpDouble:
-		player.velocity.y = jumpVelocityMax * 1.25
-		player.soundJump.pitch_scale = 1.5
+	#TODO: particles for long and crouch 
+	if player.jumpLong:
+		player.velocity.y = jumpVelocityMax
+		player.velocity.x = moveSpeed * 2.5 * player.moveDirection.x
+		player.particlesJumpTriple.restart()
+		player.soundJump.pitch_scale = 0.5
+		player.soundJump.play()
+		player.jumpLong = false
+		print("crouch jump")
+	elif player.jumpCrouch:
+		player.velocity.y = jumpVelocityMax * jumpCrouchVelocityModifier
+		player.velocity.x = 0
+		player.particlesJumpTriple.restart()
+		player.soundJump.pitch_scale = 2
+		player.soundJump.play()
+		player.jumpCrouch = false
+		print("crouch jump")
+	elif player.canJumpDouble:
+		player.velocity.y = jumpVelocityMax * jumpDoubleVelocityModifier
+		player.soundJump.pitch_scale = 1.25
 		player.particlesJumpDouble.restart()
 		player.soundJump.play()
 		player.jumpConsectutiveTimer.stop()
@@ -83,8 +106,8 @@ func jump_ground_logic():
 		player.canJumpDouble = false
 		print("double jump")
 	elif player.canJumpTriple:
-		player.velocity.y = jumpVelocityMax * 1.5
-		player.soundJump.pitch_scale = 2.0
+		player.velocity.y = jumpVelocityMax * jumpTripleVelocityModifier
+		player.soundJump.pitch_scale = 1.5
 		flip()
 		player.particlesJumpTriple.restart()
 		player.soundJump.play()

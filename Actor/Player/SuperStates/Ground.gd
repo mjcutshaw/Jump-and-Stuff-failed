@@ -1,8 +1,11 @@
 class_name GroundState
 extends MoveState
 
-var acceleration: float = 0.4
-var friction: float = 0.6
+
+var acceleration: float = 0.2
+var friction: float = 0.1
+var crouchFriction: float = 0.02
+
 
 func enter() -> void:
 	super.enter()
@@ -20,7 +23,16 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	player.velocity.y += player.gravity
-	velocity_logic()
+	
+#	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
+#		await get_tree().create_timer(.1).timeout
+#		if Input.is_action_pressed("jump"):
+#			print("jump flip phyics")
+#			player.jumpFlip = true
+#		else:
+#			velocity_logic()
+#	else:
+#		velocity_logic()
 
 
 func visual(_delta) -> void:
@@ -34,9 +46,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-
-	if Input.is_action_just_pressed("jump"):
-		return State.Jump
+	
 
 	return State.Null
 
@@ -56,10 +66,10 @@ func state_check(_delta: float) -> int:
 	return State.Null
 
 
-func velocity_logic() -> void:
-	if player.moveDirection.x != 0:
-		player.velocity.x = lerp(player.velocity.x, moveSpeed * player.moveStrength.x, acceleration)
-	elif player.moveDirection.x == 0:
-		player.velocity.x = lerp(player.velocity.x, 0, friction)
-	else:
-		print ("ground velocity error")
+#func velocity_logic() -> void:
+#	if player.moveDirection.x != 0:
+#		player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+#	elif player.moveDirection.x == 0:
+#		player.velocity.x = lerp(player.velocity.x, 0, friction)
+#	else:
+#		print ("ground velocity error")

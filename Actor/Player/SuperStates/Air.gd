@@ -1,11 +1,7 @@
 class_name AirState
 extends MoveState
 
-
-
-
-
-
+#TODO: will need locks/grace period to switch movedirction to velocity direction after being redirected
 func enter() -> void:
 	super.enter()
 
@@ -66,7 +62,7 @@ func state_check(_delta: float) -> int:
 
 
 func velocity_logic(speed) -> void:
-	player.velocity.x = player.moveStrength.x * speed
+	player.velocity.x = player.moveStrength.x * max(abs(speed), abs(player.velocity.x))
 
 
 func gravity_logic(amount, _delta) -> void:

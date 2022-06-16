@@ -35,6 +35,11 @@ var jumpedDouble: bool = false
 var jumpedTriple: bool = false
 var canJumpDouble: bool = false
 var canJumpTriple: bool = false
+var jumpFlip: bool = false
+var jumpCrouch: bool = false
+var jumpLong: bool = false
+
+var facing:int
 
 enum a {
 	All,
@@ -77,7 +82,7 @@ func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
 	velocityLabel.text = str(velocity.round())
-	
+	facing = characterRig.scale.x
 
 
 func _process(_delta: float) -> void:

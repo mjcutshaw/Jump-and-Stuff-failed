@@ -2,24 +2,25 @@ class_name MoveState
 extends BaseState
 
 
-
-
-
-var moveSpeed: int = 7 * Globals.TILE_SIZE
+var moveSpeed: int = 10 * Globals.TILE_SIZE
 
 var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE
 var jumpHeightMin: int = 10
 var jumpTimeToPeak: float = 0.5
-var jumpTimeToDescent: float = 0.3
+var jumpTimeToDescent: float = 0.25
 var jumpTimeAtApex: float = 0.8
 var jumpApexHeight: float = 40
+var jumpDoubleVelocityModifier: float = 1.25
+var jumpTripleVelocityModifier: float = 1.5
+var jumpCrouchVelocityModifier: float = 1.75
 @onready var gravityJump: float = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
 @onready var gravityFall: float = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
 @onready var gravityApex: float = 2 * jumpHeightMax / pow(jumpTimeAtApex, 2)
 @onready var jumpVelocityMax: float = -sqrt(2 * gravityJump * jumpHeightMax)
 @onready var jumpVelocityMin: float = -sqrt(2 * gravityJump * jumpHeightMin)
-var terminalVelocity: int = 20 * Globals.TILE_SIZE
-var moveSpeedApex: int = 10 * Globals.TILE_SIZE
+var terminalVelocity: int = 30 * Globals.TILE_SIZE
+var moveSpeedApex: int = 13 * Globals.TILE_SIZE
+
 
 func enter() -> void:
 	super.enter()
@@ -92,6 +93,7 @@ func facing() -> void:
 	else:
 		player.characterRig.scale.x = player.lastDirection.x
 
+#TODO: look into turning these into tweens
 
 func squash_and_strech(_delta):
 	#TODO: not squishing the on the x

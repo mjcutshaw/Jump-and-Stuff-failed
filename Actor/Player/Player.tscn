@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=24 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Jump.gd" id="4"]
 [ext_resource type="Script" path="res://Actor/Player/States/Fall.gd" id="6"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashSide.gd" id="6_66fel"]
+[ext_resource type="Script" path="res://Actor/Player/States/Crouch.gd" id="6_ckl38"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashDown.gd" id="7_dblma"]
 [ext_resource type="Script" path="res://Actor/Player/States/Idle.gd" id="8"]
 [ext_resource type="Script" path="res://Actor/Player/States/Apex.gd" id="8_ytsre"]
@@ -230,11 +231,8 @@ script = ExtResource( "8" )
 [node name="Walk" type="Node" parent="StateMachine"]
 script = ExtResource( "3" )
 
-[node name="DashSide" type="Node" parent="StateMachine"]
-script = ExtResource( "6_66fel" )
-
-[node name="DashDown" type="Node" parent="StateMachine"]
-script = ExtResource( "7_dblma" )
+[node name="Crouch" type="Node" parent="StateMachine"]
+script = ExtResource( "6_ckl38" )
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( "4" )
@@ -244,6 +242,12 @@ script = ExtResource( "8_ytsre" )
 
 [node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( "6" )
+
+[node name="DashSide" type="Node" parent="StateMachine"]
+script = ExtResource( "6_66fel" )
+
+[node name="DashDown" type="Node" parent="StateMachine"]
+script = ExtResource( "7_dblma" )
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -30.0
