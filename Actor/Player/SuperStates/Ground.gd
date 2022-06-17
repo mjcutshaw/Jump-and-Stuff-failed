@@ -2,14 +2,15 @@ class_name GroundState
 extends MoveState
 
 
-var acceleration: float = 0.2
-var friction: float = 0.1
+var acceleration: float = 0.3
+var friction: float = 0.2
 var crouchFriction: float = 0.02
 
 
 func enter() -> void:
 	super.enter()
 
+	player.reset(player.a.All)
 	
 
 
@@ -22,7 +23,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	player.velocity.y += player.gravity
+	player.velocity.y = 10
 	
 #	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
 #		await get_tree().create_timer(.1).timeout

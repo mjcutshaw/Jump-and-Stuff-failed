@@ -55,7 +55,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and player.can_use_ability(player.a.DashSide):
 		return State.DashSide
 
 	return State.Null

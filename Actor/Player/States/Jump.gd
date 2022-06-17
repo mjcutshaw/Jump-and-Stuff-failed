@@ -2,6 +2,7 @@ extends AirState
 class_name JumpGround
 #TODO: Create jump superstate
 #TODO: flip player in direction when jump flip
+#TODO: break out crouch jumps to own states
 
 func enter() -> void:
 	super.enter()
@@ -60,6 +61,8 @@ func handle_input(_event: InputEvent) -> int:
 			player.velocity.y = max(player.velocity.y, jumpHeightMin)
 		jump_canceled()
 		return State.Apex
+	if Input.is_action_just_pressed("ground_pound"):
+		return State.GroundPound
 
 	return State.Null
 

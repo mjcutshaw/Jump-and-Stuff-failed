@@ -12,11 +12,12 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
 @onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
 @onready var soundWalk: AudioStreamPlayer2D = $Sounds/SoundWalk
-@onready var particlesWalking: GPUParticles2D = $CharacterRig/ParticlesWalking
-@onready var particlesLand: GPUParticles2D = $CharacterRig/ParticlesLand
-@onready var particlesJump: GPUParticles2D = $CharacterRig/ParticlesJump
-@onready var particlesJumpDouble: GPUParticles2D = $CharacterRig/ParticlesJumpDouble
-@onready var particlesJumpTriple: GPUParticles2D = $CharacterRig/ParticlesJumpTriple
+@onready var particlesWalking: GPUParticles2D = $CharacterRig/Particles/ParticlesWalking
+@onready var particlesLand: GPUParticles2D = $CharacterRig/Particles/ParticlesLand
+@onready var particlesJump: GPUParticles2D = $CharacterRig/Particles/ParticlesJump
+@onready var particlesJumpDouble: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpDouble
+@onready var particlesJumpTriple: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpTriple
+@onready var particlesDashSide: GPUParticles2D =  $CharacterRig/Particles/ParticlesDashSide
 @onready var coyoteTimer: Timer = $Timers/CoyoteTimer
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
@@ -39,27 +40,33 @@ var jumpFlip: bool = false
 var jumpCrouch: bool = false
 var jumpLong: bool = false
 
-var facing:int
+var facing: int
 
-enum a {
-	All,
-	Jump,
-	Dash,
-	DashSide,
-	DashUp,
-	DashDown,
-}
+#TODO: turn into a reusable resource
+enum a {All, Jump, JumpAir, JumpLong, JumpCrouch, JumpWall, Dash, DashSide, DashUp, DashDown, DashWall, Glide, GroundPound, Grapple, Climb}
 
 var currentState
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
 
-var unlockedJump: bool = true
-var unlockedAbilities #todo: add all skills
+#TODO: turn into a reusable resource
+var unlockedJump: bool = false
+var unlockedJumpAir: bool = false
+var unlockedJumpCrouch: bool = false
+var unlockedJumpLong: bool = false
+var unlockedJumpWall: bool = false
+var unlockedDashSide: bool = false
+var unlockedDashUp: bool = false
+var unlockedDashDown: bool = true
+var unlockedDashWall: bool = false
+var unlockedGlide: bool = false
+var unlockedGroundPound: bool = false
+var unlockedGrapple: bool = false
+var unlockedClimb: bool = false
 
 var maxJump: int = 1
-var maxAirJump: int = 0
+var maxJumpAir: int = 0
 var maxDash: int = 1
 
 var remainingJump: int
@@ -101,15 +108,38 @@ func set_timers():
 	jumpConsectutiveTimer.one_shot = true
 
 
+func unlock_ability(ability: int) -> void:
+	if ability == a.All:
+		unlockedJump = true
+		set_dash(maxDash)
+	elif ability == a.Jump:
+		unlockedJump = true
+	elif ability == a.JumpAir:
+		set_jump_air(maxJump)
+	elif ability == a.Dash:
+		set_dash(maxDash)
+	elif ability == a.DashSide:
+		set_dash_side(maxDash)
+	elif ability ==  a.DashUp:
+		set_dash_up(maxDash)
+	elif ability == a.DashDown:
+		set_dash_down(maxDash)
+	else:
+		print("Null Ability Reset")
+
+
+func can_use_ability(ability: int) -> bool:
+	if ability == a.DashSide:
+		if use(ability) and unlockedDashSide:
+			return true
+	
+	return false
 
 func consume(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
 	if ability == a.All:
-		set_jump(-amount)
 		set_jump_air(-amount)
 		set_dash(-amount)
-	elif ability == a.Jump:
-		set_jump(-amount)
 	elif ability == a.JumpAir:
 		set_jump_air(-amount)
 	elif ability == a.Dash:
@@ -125,14 +155,12 @@ func consume(ability: int, amount: int) -> void:
 #	Signals.emit_signal("ability_check")
 
 
-func reset(ability):
+func reset(ability) -> void:
 	if ability == a.All:
-		set_jump(maxJump)
 		set_dash(maxDash)
-	elif ability == a.Jump:
-		set_jump(maxJump)
+		set_jump_air(maxJumpAir)
 	elif ability == a.JumpAir:
-		set_jump_air(maxJump)
+		set_jump_air(maxJumpAir)
 	elif ability == a.Dash:
 		set_dash(maxDash)
 	elif ability == a.DashSide:
@@ -146,7 +174,7 @@ func reset(ability):
 #	Signals.emit_signal("ability_check")
 
 
-func use(ability):
+func use(ability) -> bool:
 	if ability == a.Jump:
 		if remainingJump > 0:
 			return true
@@ -176,11 +204,8 @@ func use(ability):
 		print("Specify Dash")
 	else:
 		print("Null Ability Use")
+	return false
 #	Signals.emit_signal("ability_check")
-
-
-func set_jump(amount):
-	remainingJump = clamp(remainingJump + amount, 0, maxJump)
 
 
 func set_jump_air(amount):

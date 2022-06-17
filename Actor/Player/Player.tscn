@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=28 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Apex.gd" id="8_ytsre"]
 [ext_resource type="Script" path="res://Actor/Player/States/Spawn.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://0q1wp2okv2ph" path="res://Assests/Sounds/Actor/Player/error_007.ogg" id="11_xicl7"]
+[ext_resource type="Script" path="res://Actor/Player/States/GroundPound.gd" id="12_n7gfn"]
 [ext_resource type="AudioStream" uid="uid://beuo0eqvxuw5e" path="res://Assests/Sounds/Actor/Player/FOOTSTEPS (A) Walking Loop 01.ogg" id="12_pn3dh"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
@@ -123,6 +124,32 @@ color = Color(0, 1, 0.152941, 1)
 hue_variation_min = -0.12
 hue_variation_max = 0.19
 
+[sub_resource type="Curve" id="Curve_1cp4i"]
+_data = [Vector2(0, 1), 0.0, 3.0, 0, 0, Vector2(1, 0.3), 0.7, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sfigj"]
+curve = SubResource( "Curve_1cp4i" )
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_los0n"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 45, 1)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 40.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 14.35
+initial_velocity_max = 14.35
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 7.14
+damping_max = 18.75
+scale_min = 2.0
+scale_max = 10.0
+scale_curve = SubResource( "CurveTexture_sfigj" )
+color = Color(0.52549, 0.0392157, 1, 1)
+hue_variation_max = 1.0
+
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(48, 88)
 
@@ -136,6 +163,7 @@ packet_sequence = SubResource( "OGGPacketSequence_tmauh" )
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 64
+collision_mask = 129
 script = ExtResource( "2" )
 
 [node name="CharacterRig" type="Node2D" parent="."]
@@ -163,7 +191,9 @@ offset_top = -88.0
 offset_right = 30.0
 offset_bottom = -80.0
 
-[node name="ParticlesWalking" type="GPUParticles2D" parent="CharacterRig"]
+[node name="Particles" type="Node2D" parent="CharacterRig"]
+
+[node name="ParticlesWalking" type="GPUParticles2D" parent="CharacterRig/Particles"]
 position = Vector2(-30, 0)
 emitting = false
 amount = 80
@@ -173,7 +203,7 @@ local_coords = false
 trail_length_secs = 0.5
 process_material = SubResource( "ParticlesMaterial_u5g06" )
 
-[node name="ParticlesLand" type="GPUParticles2D" parent="CharacterRig"]
+[node name="ParticlesLand" type="GPUParticles2D" parent="CharacterRig/Particles"]
 emitting = false
 amount = 200
 lifetime = 0.7
@@ -183,7 +213,7 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( "ParticlesMaterial_kn76k" )
 
-[node name="ParticlesJump" type="GPUParticles2D" parent="CharacterRig"]
+[node name="ParticlesJump" type="GPUParticles2D" parent="CharacterRig/Particles"]
 emitting = false
 amount = 100
 lifetime = 0.7
@@ -193,7 +223,7 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( "ParticlesMaterial_utr8e" )
 
-[node name="ParticlesJumpDouble" type="GPUParticles2D" parent="CharacterRig"]
+[node name="ParticlesJumpDouble" type="GPUParticles2D" parent="CharacterRig/Particles"]
 emitting = false
 amount = 150
 lifetime = 0.9
@@ -203,7 +233,7 @@ explosiveness = 0.9
 local_coords = false
 process_material = SubResource( "ParticlesMaterial_mgm5j" )
 
-[node name="ParticlesJumpTriple" type="GPUParticles2D" parent="CharacterRig"]
+[node name="ParticlesJumpTriple" type="GPUParticles2D" parent="CharacterRig/Particles"]
 emitting = false
 amount = 200
 one_shot = true
@@ -211,6 +241,16 @@ speed_scale = 2.0
 explosiveness = 0.7
 local_coords = false
 process_material = SubResource( "ParticlesMaterial_7otqd" )
+
+[node name="ParticlesDashSide" type="GPUParticles2D" parent="CharacterRig/Particles"]
+position = Vector2(-14, -64)
+emitting = false
+amount = 1000
+lifetime = 0.5
+randomness = 0.08
+local_coords = false
+trail_length_secs = 1.0
+process_material = SubResource( "ParticlesMaterial_los0n" )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -248,6 +288,9 @@ script = ExtResource( "6_66fel" )
 
 [node name="DashDown" type="Node" parent="StateMachine"]
 script = ExtResource( "7_dblma" )
+
+[node name="GroundPound" type="Node" parent="StateMachine"]
+script = ExtResource( "12_n7gfn" )
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -30.0

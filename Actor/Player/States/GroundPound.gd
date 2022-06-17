@@ -4,26 +4,30 @@ extends AirState
 func enter() -> void:
 	super.enter()
 
-	
+	player.velocity.x = 0
 
 
 func exit() -> void:
 	super.exit()
 
-	player.previousVelocity = player.velocity
 	
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeed)
-	gravity_logic(gravityFall, _delta)
-	fall_speed_logic(terminalVelocity)
+	player.velocity.x = 0
+	player.velocity.y = 2000
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
+
+	
+
+
+func sound(_delta: float) -> void:
+	super.sound(_delta)
 
 	
 
@@ -33,8 +37,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("ground_pound"):
-		return State.GroundPound
+	
 
 	return State.Null
 

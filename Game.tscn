@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=4 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cqubfbjgd8a6v" path="res://Prefab/Interactables/Collectable.tscn" id="2_2c3h4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -19,6 +20,7 @@ size = Vector2(6400, 64)
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 32)
 shape = SubResource( "1" )
 
@@ -26,5 +28,9 @@ shape = SubResource( "1" )
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D2"]
-position = Vector2(3560, 32)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(4608, -160)
 shape = SubResource( "1" )
+
+[node name="Collectable" parent="." instance=ExtResource( "2_2c3h4" )]
+position = Vector2(96, 0)

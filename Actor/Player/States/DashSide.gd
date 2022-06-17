@@ -13,13 +13,13 @@ func enter() -> void:
 	current_dash_time = dash_time
 	dashDirection = player.moveDirection.x
 	player.velocity.x = player.facing * max(dashSpeed, abs(player.velocity.x))
-	
+	player.particlesDashSide.emitting = true
 
 
 func exit() -> void:
 	super.exit()
 
-	
+	player.particlesDashSide.emitting = false
 
 
 func physics(_delta) -> void:
