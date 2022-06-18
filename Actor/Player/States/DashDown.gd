@@ -4,19 +4,15 @@ extends DashState
 @export  var dash_time = 0.4
 
 var current_dash_time: float = 0
-var dash_direction: int = 0
-
+var dashSpeed: int = moveSpeed * 2
 
 
 func enter() -> void:
 	super.enter()
 
+	player.consume(PlayerAbilities.abiliyList.DashDown, 1)
 	current_dash_time = dash_time
-	
-#	if player.animations.flip_h:
-#		dash_direction = -1
-#	else:
-	dash_direction = 1
+	player.velocity.y = max(dashSpeed, abs(player.velocity.y))
 
 
 func exit() -> void:
@@ -29,6 +25,7 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	current_dash_time -= _delta
+	player.velocity.x = 0
 
 
 func visual(_delta) -> void:
@@ -55,8 +52,11 @@ func state_check(_delta: float) -> int:
 	if current_dash_time > 0:
 		return State.Null
 
-	if player.moveDirection.x != 0:
-		return State.Walk
-	return State.Idle
+	if player.is_on_floor():
+		if player.moveDirection.x != 0:
+			return State.Walk
+		return State.Idle
+	
+	return State.Fall
 
 #	return State.Null

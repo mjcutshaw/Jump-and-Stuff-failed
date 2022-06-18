@@ -12,6 +12,8 @@ extends Node
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
 	BaseState.State.DashSide: $DashSide,
+	BaseState.State.DashDown: $DashDown,
+	BaseState.State.DashUp: $DashUp,
 	BaseState.State.GroundPound: $GroundPound,
 }
 

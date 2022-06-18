@@ -11,7 +11,7 @@ output = NodePath("VBoxContainer/Output")
 offset_right = 802.0
 offset_bottom = 145.0
 
-[node name="Input" type="TextEdit" parent="VBoxContainer"]
+[node name="Input" type="LineEdit" parent="VBoxContainer"]
 minimum_size = Vector2(0, 50)
 offset_right = 802.0
 offset_bottom = 50.0

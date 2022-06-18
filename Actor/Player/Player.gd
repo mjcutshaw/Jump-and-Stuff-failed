@@ -89,6 +89,7 @@ func _physics_process(_delta: float) -> void:
 	sm.state_check(_delta)
 	velocityLabel.text = str(velocity.round())
 	facing = characterRig.scale.x
+	$AbilityLabel.text = str(remainingDashDown)
 
 
 func _process(_delta: float) -> void:
@@ -108,10 +109,12 @@ func set_timers():
 
 
 func can_use_ability(ability: int) -> bool:
-	if ability == PlayerAbilities.abiliyList.DashSide:
-		if remainingDashSide > 0 and PlayerAbilities.unlockedDashSide:
-			return true
-	
+	if ability == PlayerAbilities.abiliyList.DashSide and remainingDashSide > 0 and PlayerAbilities.unlockedDashSide:
+		return true
+	elif ability == PlayerAbilities.abiliyList.DashDown and remainingDashDown > 0 and PlayerAbilities.unlockedDashDown:
+		return true
+	elif ability == PlayerAbilities.abiliyList.DashUp and remainingDashUp > 0 and PlayerAbilities.unlockedDashUp:
+		return true
 	return false
 
 func consume(ability: int, amount: int) -> void:

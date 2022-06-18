@@ -28,7 +28,7 @@ var unlockedJumpLong: bool = false
 var unlockedJumpWall: bool = false
 var unlockedDashSide: bool = false
 var unlockedDashUp: bool = false
-var unlockedDashDown: bool = true
+var unlockedDashDown: bool = false
 var unlockedDashWall: bool = false
 var unlockedGlide: bool = false
 var unlockedGroundPound: bool = false
@@ -47,6 +47,7 @@ func unlock_ability(ability: int) -> void:
 		unlockedJumpAir = true
 		unlockedDashDown = true
 		unlockedDashSide = true
+		unlockedDashUp = true
 	elif ability == abiliyList.Jump:
 		unlockedJump = true
 	elif ability == abiliyList.JumpAir:

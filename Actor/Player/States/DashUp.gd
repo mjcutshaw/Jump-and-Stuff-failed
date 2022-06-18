@@ -1,41 +1,37 @@
 extends DashState
 
-#TODO: give actual variables and numbers(time is not the way to do it)
-#TODO: break into left and right for extra challange on rando
-@export  var dash_time = 0.7
+#TODO: dashing with a quick jump press to wave dash
+@export  var dash_time = 0.4
 
 var current_dash_time: float = 0
-var dashDirection: int = 0
 var dashSpeed: int = moveSpeed * 2
 
 
 func enter() -> void:
 	super.enter()
 
-	player.consume(PlayerAbilities.abiliyList.DashSide, 1)
+	player.consume(PlayerAbilities.abiliyList.DashUp, 1)
 	current_dash_time = dash_time
-	dashDirection = player.moveDirection.x
-	player.velocity.x = player.facing * max(dashSpeed, abs(player.velocity.x))
-	player.particlesDashSide.emitting = true
+	player.velocity.y = -max(dashSpeed, -abs(player.velocity.y))
 
 
 func exit() -> void:
 	super.exit()
 
-	player.particlesDashSide.emitting = false
+	
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
 	current_dash_time -= _delta
-	player.velocity.y = 0
+	player.velocity.x = 0
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	#TODO: 
+	
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -62,5 +58,4 @@ func state_check(_delta: float) -> int:
 		return State.Idle
 	
 	return State.Fall
-
 #	return State.Null

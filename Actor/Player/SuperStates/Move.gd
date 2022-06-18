@@ -55,8 +55,13 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("dash") and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
+	#TODO: figure a better way so it is not spammed
+	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
 		return State.DashSide
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(PlayerAbilities.abiliyList.DashDown):
+		return State.DashDown
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(PlayerAbilities.abiliyList.DashUp):
+		return State.DashUp
 
 	return State.Null
 

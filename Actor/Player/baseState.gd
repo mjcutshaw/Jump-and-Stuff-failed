@@ -11,6 +11,8 @@ enum State {
 	Apex,
 	Fall,
 	DashSide,
+	DashDown,
+	DashUp,
 	GroundPound,
 }
 
