@@ -14,7 +14,7 @@ enum State {
 	GroundPound,
 }
 
-
+var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
 var player: Player
 
 

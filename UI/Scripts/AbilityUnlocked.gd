@@ -11,26 +11,24 @@ func _ready() -> void:
 func text_reset() -> void:
 	await get_tree().create_timer(2).timeout
 	self.text = ""
-
-
-func _unlocked_dash_side() -> void:
-	self.text = "Side Dash Unlocked"
-	text_reset()
+	
 
 func ability_unlocked_announcement(ability: int) -> void:
-	if ability == PlayerAbilities.abiliyList.Jump:
-		self.text = "Jump Unlocked"
+	if ability == PlayerAbilities.abiliyList.All:
+		text = "All abilities unlocked"
+	elif ability == PlayerAbilities.abiliyList.Jump:
+		text = "Jump Unlocked"
 	elif ability == PlayerAbilities.abiliyList.JumpAir:
-		self.text = "Air Jump Unlocked"
+		text = "Air Jump Unlocked"
 	elif ability == PlayerAbilities.abiliyList.Dash:
-		self.text = "Dashes Unlocked"
+		text = "Dashes Unlocked"
 	elif ability == PlayerAbilities.abiliyList.DashSide:
-		self.text = "Side Dash Unlocked"
+		text = "Side Dash Unlocked"
 	elif ability ==  PlayerAbilities.abiliyList.DashUp:
-		self.text = "Up Dash Unlocked"
+		text = "Up Dash Unlocked"
 	elif ability == PlayerAbilities.abiliyList.DashDown:
-		self.text = "Down Dash Unlocked"
+		text = "Down Dash Unlocked"
 	else:
-		print("Null Ability Unlocked Announcement")
+		print("Null Ability Unlocked Announcement " + str(ability))
 	
 	text_reset()

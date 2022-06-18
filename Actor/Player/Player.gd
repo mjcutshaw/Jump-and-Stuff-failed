@@ -44,9 +44,6 @@ var jumpLong: bool = false
 
 var facing: int
 
-#TODO: turn into a reusable resource
-enum a {All, Jump, JumpAir, JumpLong, JumpCrouch, JumpWall, Dash, DashSide, DashUp, DashDown, DashWall, Glide, GroundPound, Grapple, Climb}
-
 var currentState
 
 var jumpCornerCorrectionVertical: int = 10
@@ -110,47 +107,27 @@ func set_timers():
 	jumpConsectutiveTimer.one_shot = true
 
 
-func unlock_ability(ability: int) -> void:
-	if ability == a.All:
-		unlockedJump = true
-		set_dash(maxDash)
-	elif ability == a.Jump:
-		unlockedJump = true
-	elif ability == a.JumpAir:
-		set_jump_air(maxJump)
-	elif ability == a.Dash:
-		set_dash(maxDash)
-	elif ability == a.DashSide:
-		set_dash_side(maxDash)
-	elif ability ==  a.DashUp:
-		set_dash_up(maxDash)
-	elif ability == a.DashDown:
-		set_dash_down(maxDash)
-	else:
-		print("Null Ability Reset")
-
-
 func can_use_ability(ability: int) -> bool:
-	if ability == a.DashSide:
-		if use(ability) and PlayerAbilities.unlockedDashSide:
+	if ability == PlayerAbilities.abiliyList.DashSide:
+		if remainingDashSide > 0 and PlayerAbilities.unlockedDashSide:
 			return true
 	
 	return false
 
 func consume(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
-	if ability == a.All:
+	if ability == PlayerAbilities.abiliyList.All:
 		set_jump_air(-amount)
 		set_dash(-amount)
-	elif ability == a.JumpAir:
+	elif ability == PlayerAbilities.abiliyList.JumpAir:
 		set_jump_air(-amount)
-	elif ability == a.Dash:
+	elif ability == PlayerAbilities.abiliyList.Dash:
 		set_dash(-amount)
-	elif ability == a.DashSide:
+	elif ability == PlayerAbilities.abiliyList.DashSide:
 		set_dash_side(-amount)
-	elif ability == a.DashUp:
+	elif ability == PlayerAbilities.abiliyList.DashUp:
 		set_dash_up(-amount)
-	elif ability == a.DashDown:
+	elif ability == PlayerAbilities.abiliyList.DashDown:
 		set_dash_down(-amount)
 	else:
 		print("Null Ability Consume")
@@ -158,55 +135,21 @@ func consume(ability: int, amount: int) -> void:
 
 
 func reset(ability) -> void:
-	if ability == a.All:
+	if ability == PlayerAbilities.abiliyList.All:
 		set_dash(maxDash)
 		set_jump_air(maxJumpAir)
-	elif ability == a.JumpAir:
+	elif ability == PlayerAbilities.abiliyList.JumpAir:
 		set_jump_air(maxJumpAir)
-	elif ability == a.Dash:
+	elif ability == PlayerAbilities.abiliyList.Dash:
 		set_dash(maxDash)
-	elif ability == a.DashSide:
+	elif ability == PlayerAbilities.abiliyList.DashSide:
 		set_dash_side(maxDash)
-	elif ability ==  a.DashUp:
+	elif ability ==  PlayerAbilities.abiliyList.DashUp:
 		set_dash_up(maxDash)
-	elif ability == a.DashDown:
+	elif ability == PlayerAbilities.abiliyList.DashDown:
 		set_dash_down(maxDash)
 	else:
 		print("Null Ability Reset")
-#	Signals.emit_signal("ability_check")
-
-
-func use(ability) -> bool:
-	if ability == a.Jump:
-		if remainingJump > 0:
-			return true
-		else:
-			return false
-	elif ability == a.JumpAir:
-		if remainingJumpAir > 0:
-			return true
-		else:
-			return false
-	elif ability == a.DashSide:
-		if remainingDashSide > 0:
-			return true
-		else:
-			return false
-	elif ability == a.DashUp:
-		if remainingDashUp > 0:
-			return true
-		else:
-			return false
-	elif ability == a.DashDown:
-		if remainingDashDown > 0:
-			return true
-		else:
-			return false
-	elif ability == a.Dash:
-		print("Specify Dash")
-	else:
-		print("Null Ability Use")
-	return false
 #	Signals.emit_signal("ability_check")
 
 

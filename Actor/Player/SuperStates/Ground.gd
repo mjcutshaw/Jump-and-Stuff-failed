@@ -10,8 +10,7 @@ var crouchFriction: float = 0.02
 func enter() -> void:
 	super.enter()
 
-	player.reset(player.a.All)
-	
+	player.reset(PlayerAbilities.abiliyList.All)
 
 
 func exit() -> void:
