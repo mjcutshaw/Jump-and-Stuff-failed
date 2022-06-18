@@ -48,6 +48,11 @@ _global_script_classes=[{
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://Actor/Player/Player.gd"
+}, {
+"base": "Resource",
+"class": &"PlayerAbilities",
+"language": &"GDScript",
+"path": "res://Actor/Player/Resources/PlayerAbilites.gd"
 }]
 _global_script_class_icons={
 "AirState": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "JumpGround": "",
 "JumpState": "",
 "MoveState": "",
-"Player": ""
+"Player": "",
+"PlayerAbilities": ""
 }
 
 [application]
@@ -70,6 +76,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Autoloads/Globals.gd"
+EventBus="*res://Autoloads/Signals.gd"
 
 [debug]
 
@@ -77,9 +84,11 @@ shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/size/width=1280
-window/size/height=720
+window/size/height=800
 
 [editor_plugins]
 

@@ -1,8 +1,12 @@
 extends Area2D
 
 
-var player: Player
+var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+@export var ability: PlayerAbilities.abiliyList
 
-#TODO: signal might be better
-func _on_collectable_body_entered(body):
-	body.unlockedDashSide = true
+
+func _on_collectable_body_entered(_body) -> void:
+	PlayerAbilities.unlock_ability(ability)
+	EventBus.emit_signal("ability_unlocked", ability)
+	$SoundUnlocked.play()
+	queue_free()

@@ -1,7 +1,6 @@
 extends Node
 
 #TODO: change to SignalBus
-#TODO: make Resource?
 
 signal jumped
 signal dashed
@@ -11,6 +10,8 @@ signal spun
 signal bonked
 
 signal ability_check
+signal ability_unlocked(data)
+signal unlocked_dash_side
 
 signal player_spawned
 signal player_died

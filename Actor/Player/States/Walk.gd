@@ -24,7 +24,7 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	if player.moveDirection.x == 0:
-		await get_tree().create_timer(.3).timeout
+		await get_tree().create_timer(.2).timeout
 		goIdle = true
 	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
 		await get_tree().create_timer(.1).timeout
@@ -32,7 +32,7 @@ func physics(_delta) -> void:
 			print("jump flip phyics")
 			player.jumpFlip = true
 		else:
-			player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+			player.velocity.x = moveSpeed * player.moveDirection.x
 	else:
 			player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
 

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ci1qnj0oxib8h"]
+
+[ext_resource type="Script" path="res://Actor/Player/Resources/PlayerAbilites.gd" id="1_mtna4"]
+
+[resource]
+script = ExtResource( "1_mtna4" )

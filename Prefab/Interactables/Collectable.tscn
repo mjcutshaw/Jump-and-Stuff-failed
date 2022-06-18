@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqubfbjgd8a6v"]
+[gd_scene load_steps=4 format=3 uid="uid://cqubfbjgd8a6v"]
 
 [ext_resource type="Script" path="res://Prefab/Interactables/Scripts/Collectable.gd" id="1_1683q"]
+[ext_resource type="AudioStream" uid="uid://cbqhwkm22pxi4" path="res://Assests/Sounds/Actor/Player/confirmation_002.ogg" id="2_lsbxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l5lw"]
 size = Vector2(64, 64)
@@ -14,5 +15,9 @@ script = ExtResource( "1_1683q" )
 modulate = Color(0, 0.141176, 1, 1)
 position = Vector2(0, -32)
 shape = SubResource( "RectangleShape2D_5l5lw" )
+
+[node name="SoundUnlocked" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( "2_lsbxv" )
+volume_db = -31.821
 
 [connection signal="body_entered" from="." to="." method="_on_collectable_body_entered"]

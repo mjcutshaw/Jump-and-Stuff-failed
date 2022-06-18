@@ -22,6 +22,8 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
 
+var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO
@@ -130,7 +132,7 @@ func unlock_ability(ability: int) -> void:
 
 func can_use_ability(ability: int) -> bool:
 	if ability == a.DashSide:
-		if use(ability) and unlockedDashSide:
+		if use(ability) and PlayerAbilities.unlockedDashSide:
 			return true
 	
 	return false
