@@ -1,0 +1,23 @@
+extends ColorRect
+
+
+@onready var buttonResume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume
+@onready var buttonOptions: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options
+@onready var buttonQuit: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	buttonResume.pressed.connect(unpause)
+
+#TODO: make tweens
+func unpause():
+	animPlayer.play("Unpause")
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func pause():
+	animPlayer.play("Pause")
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	await get_tree().create_timer(0.1).timeout
+	buttonResume.grab_focus()
