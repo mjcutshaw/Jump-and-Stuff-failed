@@ -5,13 +5,19 @@ extends Node2D
 @onready var raycastLeft: RayCast2D = $RayCast2D2
 @onready var shadow: Sprite2D = $Sprite2D
 
-
+var castLength: int = 500
 var collide1: int
 var collide2: int
 var collide3: int
 
+func _ready() -> void:
+	raycastLeft.target_position.y = castLength
+	raycastRight.target_position.y = castLength
+
+
 func _process(_delta: float) -> void:
-	shadow.scale.x = lerp(.5, shadow.position.y, .005)
+	shadow.scale.x = lerp(.5, shadow.position.y, .002)
+	shadow.scale.y = lerp(.05, shadow.position.y, .0005 )
 	
 	if raycastRight.is_colliding() or raycastLeft.is_colliding():
 		shadow.visible = true

@@ -214,7 +214,9 @@ metadata/_edit_lock_ = true
 
 [node name="CharacterRig" type="Node2D" parent="."]
 
-[node name="Body" type="ColorRect" parent="CharacterRig"]
+[node name="Body" type="Node2D" parent="CharacterRig"]
+
+[node name="Body" type="ColorRect" parent="CharacterRig/Body"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -226,13 +228,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.403922, 0, 0.564706, 1)
 
-[node name="Eye" type="ColorRect" parent="CharacterRig"]
+[node name="Eye" type="ColorRect" parent="CharacterRig/Body"]
 offset_left = 2.0
 offset_top = -52.0
 offset_right = 6.0
 offset_bottom = -48.0
 
-[node name="Mouth" type="ColorRect" parent="CharacterRig"]
+[node name="Mouth" type="ColorRect" parent="CharacterRig/Body"]
 offset_top = -40.0
 offset_right = 16.0
 offset_bottom = -36.0
@@ -393,6 +395,7 @@ offset_bottom = -161.0
 
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
+zoom = Vector2(0.75, 0.75)
 
 [node name="Sounds" type="Node2D" parent="."]
 

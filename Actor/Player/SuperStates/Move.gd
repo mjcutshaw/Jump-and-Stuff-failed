@@ -2,7 +2,7 @@ class_name MoveState
 extends BaseState
 
 
-var moveSpeed: int = 10 * Globals.TILE_SIZE
+var moveSpeed: int = 15 * Globals.TILE_SIZE
 
 var jumpHeightMax: float = 4.5 * Globals.TILE_SIZE
 var jumpHeightMin: int = 10

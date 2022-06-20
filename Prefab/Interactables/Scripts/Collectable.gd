@@ -10,4 +10,4 @@ func _on_collectable_body_entered(_body) -> void:
 	EventBus.emit_signal("ability_unlocked", ability)
 	$SoundUnlocked.play()
 	EventBus.emit_signal("ability_check")
-	queue_free()
+#	queue_free()
