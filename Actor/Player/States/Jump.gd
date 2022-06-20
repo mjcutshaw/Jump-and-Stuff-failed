@@ -82,8 +82,7 @@ func state_check(_delta: float) -> int:
 
 
 func jump_ground_logic():
-	#TODO: particles for long and crouch 
-	#TODO: change to variable
+	#TODO: particles for long, crouch and dash
 	if player.dashJumpBoost:
 		player.velocity.y = jumpVelocityMax
 		player.velocity.x = moveSpeed * dashJumpBoostVelocityModifier * player.moveDirection.x
