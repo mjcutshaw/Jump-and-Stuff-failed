@@ -67,9 +67,6 @@ var unlockedGroundPound: bool = false
 var unlockedGrapple: bool = false
 var unlockedClimb: bool = false
 
-var maxJump: int = 1
-var maxJumpAir: int = 0
-var maxDash: int = 1
 
 var remainingJump: int
 var remainingJumpAir: int
@@ -142,25 +139,25 @@ func consume(ability: int, amount: int) -> void:
 
 func reset(ability: int) -> void:
 	if ability == Abilities.abiliyList.All:
-		set_dash(maxDash)
-		set_jump_air(maxJumpAir)
+		set_dash(Abilities.maxDash)
+		set_jump_air(Abilities.maxJumpAir)
 	elif ability == Abilities.abiliyList.JumpAir:
-		set_jump_air(maxJumpAir)
+		set_jump_air(Abilities.maxJumpAir)
 	elif ability == Abilities.abiliyList.Dash:
-		set_dash(maxDash)
+		set_dash(Abilities.maxDash)
 	elif ability == Abilities.abiliyList.DashSide:
-		set_dash_side(maxDash)
+		set_dash_side(Abilities.maxDash)
 	elif ability ==  Abilities.abiliyList.DashUp:
-		set_dash_up(maxDash)
+		set_dash_up(Abilities.maxDash)
 	elif ability == Abilities.abiliyList.DashDown:
-		set_dash_down(maxDash)
+		set_dash_down(Abilities.maxDash)
 	else:
 		print("Null Ability Reset")
 	EventBus.emit_signal("ability_check")
 
 
 func set_jump_air(amount: int) -> void:
-	remainingJumpAir = clamp(remainingJumpAir + amount, 0, maxJump)
+	remainingJumpAir = clamp(remainingJumpAir + amount, 0, Abilities.maxJump)
 
 
 func set_dash(amount: int) -> void:
@@ -170,15 +167,15 @@ func set_dash(amount: int) -> void:
 
 
 func set_dash_side(amount: int) -> void:
-	remainingDashSide = clamp(remainingDashSide + amount, 0, maxDash)
+	remainingDashSide = clamp(remainingDashSide + amount, 0, Abilities.maxDash)
 
 
 func set_dash_up(amount: int) -> void:
-	remainingDashUp = clamp(remainingDashUp + amount, 0, maxDash)
+	remainingDashUp = clamp(remainingDashUp + amount, 0, Abilities.maxDash)
 
 
 func set_dash_down(amount: int) -> void:
-	remainingDashDown = clamp(remainingDashDown + amount, 0, maxDash)
+	remainingDashDown = clamp(remainingDashDown + amount, 0, Abilities.maxDash)
 
 
 func attempt_vertical_corner_correction(amount: int, delta) -> void:

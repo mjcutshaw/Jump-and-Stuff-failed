@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://btq65egxmwese"]
+[gd_scene load_steps=11 format=3 uid="uid://btq65egxmwese"]
 
 [ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_gyrlt"]
 [ext_resource type="Script" path="res://UI/Scripts/Pause_Menu.gd" id="2_3bbvq"]
@@ -10,12 +10,7 @@ shader = ExtResource( "1_gyrlt" )
 shader_param/blur = 0.0
 shader_param/brightness = 1.0
 
-[sub_resource type="InputEventAction" id="InputEventAction_jbmrq"]
-action = &"pause_menu"
-pressed = true
-
 [sub_resource type="Shortcut" id="Shortcut_4x1e4"]
-events = [SubResource( "InputEventAction_jbmrq" )]
 
 [sub_resource type="Animation" id="Animation_ki2uy"]
 resource_name = "Unpause"
@@ -240,7 +235,6 @@ offset_top = 106.0
 offset_right = 480.0
 offset_bottom = 148.0
 size_flags_vertical = 3
-shortcut = SubResource( "Shortcut_4x1e4" )
 text = "Reset"
 script = ExtResource( "3_ar1nt" )
 

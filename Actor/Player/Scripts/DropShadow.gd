@@ -1,9 +1,9 @@
 extends Node2D
 
-#TODO: find a way to change the size based on distance
+
 @onready var raycastRight: RayCast2D = $RayCast2D
 @onready var raycastLeft: RayCast2D = $RayCast2D2
-@onready var shadow: =$Sprite2D
+@onready var shadow: Sprite2D = $Sprite2D
 
 
 var collide1: int

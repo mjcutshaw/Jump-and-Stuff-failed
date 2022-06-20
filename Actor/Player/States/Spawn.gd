@@ -4,7 +4,8 @@ extends BaseState
 func enter() -> void:
 	super.enter()
 
-	
+	var tween = create_tween()
+	tween.tween_property(player.characterRig, "scale", Vector2(1,1), .4).from(Vector2(0,0))
 
 
 func exit() -> void:
@@ -22,7 +23,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	player.characterRig.scale.x = 1
+	
 
 
 func handle_input(_event: InputEvent) -> int:

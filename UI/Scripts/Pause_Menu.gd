@@ -9,15 +9,20 @@ extends ColorRect
 func _ready() -> void:
 	buttonResume.pressed.connect(unpause)
 
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause_menu"):
+		unpause()
+
 #TODO: make tweens
 func unpause():
 	animPlayer.play("Unpause")
 	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func pause():
 	animPlayer.play("Pause")
 	get_tree().paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	await get_tree().create_timer(0.1).timeout
 	buttonResume.grab_focus()
