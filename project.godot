@@ -86,7 +86,7 @@ shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 window/size/width=1280
 window/size/height=800
