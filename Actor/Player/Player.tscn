@@ -308,12 +308,6 @@ offset_top = -184.0
 offset_right = 30.0
 offset_bottom = -161.0
 
-[node name="AbilityLabel" type="Label" parent="."]
-offset_left = 46.0
-offset_top = -55.0
-offset_right = 106.0
-offset_bottom = -32.0
-
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
 

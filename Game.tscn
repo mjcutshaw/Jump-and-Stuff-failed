@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=7 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/Console.tscn" id="1_rqd1j"]
 [ext_resource type="PackedScene" uid="uid://cqubfbjgd8a6v" path="res://Prefab/Interactables/Collectable.tscn" id="2_2c3h4"]
+[ext_resource type="Script" path="res://UI/Scripts/InGameTimer.gd" id="3_8324u"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -13,21 +14,54 @@ size = Vector2(6400, 64)
 [node name="Console" parent="." instance=ExtResource( "1_rqd1j" )]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Gui" type="CanvasLayer" parent="."]
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+[node name="Annoucements" type="VBoxContainer" parent="Gui"]
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 20.0
-offset_bottom = 40.0
+offset_bottom = 47.0
 
-[node name="AbilityUnlocked" type="Label" parent="CanvasLayer/CenterContainer"]
-offset_left = 19.0
-offset_top = 8.0
-offset_right = 20.0
-offset_bottom = 31.0
+[node name="MarginContainer" type="MarginContainer" parent="Gui/Annoucements"]
+minimum_size = Vector2(0, 20)
+offset_right = 40.0
+offset_bottom = 20.0
+
+[node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 47.0
+horizontal_alignment = 1
 script = ExtResource( "1_fuyfm" )
+
+[node name="GameTimer" type="HBoxContainer" parent="Gui"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Gui/GameTimer"]
+offset_right = 96.0
+offset_bottom = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Gui/GameTimer/VBoxContainer"]
+minimum_size = Vector2(0, 20)
+offset_right = 96.0
+offset_bottom = 20.0
+
+[node name="Label" type="Label" parent="Gui/GameTimer/VBoxContainer"]
+offset_top = 24.0
+offset_right = 96.0
+offset_bottom = 50.0
+text = "00:00:00.000"
+script = ExtResource( "3_8324u" )
+
+[node name="MarginContainer" type="MarginContainer" parent="Gui/GameTimer"]
+minimum_size = Vector2(20, 0)
+offset_left = 100.0
+offset_right = 120.0
+offset_bottom = 50.0
 
 [node name="Playground" type="Node2D" parent="."]
 

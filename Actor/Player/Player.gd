@@ -89,7 +89,6 @@ func _physics_process(_delta: float) -> void:
 	sm.state_check(_delta)
 	velocityLabel.text = str(velocity.round())
 	facing = characterRig.scale.x
-	$AbilityLabel.text = str(remainingDashDown)
 
 
 func _process(_delta: float) -> void:
