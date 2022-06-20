@@ -1,6 +1,7 @@
 extends Resource
 class_name PlayerAbilities
 
+#TODO: move this into another script. shouldn't be reading resources
 enum abiliyList {
 	Null,
 	All,

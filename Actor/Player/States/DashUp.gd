@@ -4,7 +4,7 @@ extends DashState
 @export  var dash_time = 0.4
 
 var current_dash_time: float = 0
-var dashSpeed: int = moveSpeed * 2
+
 
 
 func enter() -> void:

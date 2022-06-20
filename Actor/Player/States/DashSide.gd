@@ -6,7 +6,7 @@ extends DashState
 
 var current_dash_time: float = 0
 var dashDirection: int = 0
-var dashSpeed: int = moveSpeed * 2
+
 
 
 func enter() -> void:

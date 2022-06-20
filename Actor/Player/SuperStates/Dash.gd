@@ -1,6 +1,8 @@
 class_name DashState
 extends MoveState
 
+var dashSpeed: int = moveSpeed * 1.25
+
 func enter() -> void:
 	super.enter()
 

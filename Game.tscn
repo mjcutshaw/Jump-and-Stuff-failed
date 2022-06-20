@@ -51,19 +51,18 @@ offset_bottom = 20.0
 [node name="VBoxContainer" type="HBoxContainer" parent="Gui/GameTimer"]
 offset_top = 24.0
 offset_right = 120.0
-offset_bottom = 50.0
+offset_bottom = 47.0
 
 [node name="Label" type="Label" parent="Gui/GameTimer/VBoxContainer"]
-offset_right = 96.0
-offset_bottom = 26.0
-text = "00:00:00.000"
+offset_right = 1.0
+offset_bottom = 23.0
 script = ExtResource( "3_8324u" )
 
 [node name="MarginContainer" type="MarginContainer" parent="Gui/GameTimer/VBoxContainer"]
 minimum_size = Vector2(20, 0)
-offset_left = 100.0
-offset_right = 120.0
-offset_bottom = 26.0
+offset_left = 5.0
+offset_right = 25.0
+offset_bottom = 23.0
 
 [node name="Playground" type="Node2D" parent="."]
 

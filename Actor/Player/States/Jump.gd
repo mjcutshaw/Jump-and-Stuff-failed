@@ -56,11 +56,11 @@ func handle_input(_event: InputEvent) -> int:
 	if Input.is_action_just_released("jump"):
 		if player.jumpedDouble or player.jumpedTriple:
 			#FIXME: figure out a better way to push the minium hight for these jumps
-			player.velocity.y = max(player.velocity.y, jumpHeightMin * 5)
+			player.velocity.y = max(player.velocity.y, jumpVelocityMin * 5)
 		else: 
-			player.velocity.y = max(player.velocity.y, jumpHeightMin)
+			player.velocity.y = max(player.velocity.y, jumpVelocityMin)
 		jump_canceled()
-		return State.Apex
+		return State.Fall
 	if Input.is_action_just_pressed("ground_pound"):
 		return State.GroundPound
 
