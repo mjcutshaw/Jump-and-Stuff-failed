@@ -18,11 +18,13 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var particlesJumpDouble: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpDouble
 @onready var particlesJumpTriple: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpTriple
 @onready var particlesDashSide: GPUParticles2D =  $CharacterRig/Particles/ParticlesDashSide
+@onready var particlesDashUp: GPUParticles2D =  $CharacterRig/Particles/ParticlesDashUp
+@onready var particlesDashDown: GPUParticles2D =  $CharacterRig/Particles/ParticlesDashDown
 @onready var coyoteTimer: Timer = $Timers/CoyoteTimer
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
 
-var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
 
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
@@ -41,6 +43,7 @@ var canJumpTriple: bool = false
 var jumpFlip: bool = false
 var jumpCrouch: bool = false
 var jumpLong: bool = false
+var dashJumpBoost: bool = false
 
 var facing: int
 
@@ -70,7 +73,7 @@ var maxDash: int = 1
 
 var remainingJump: int
 var remainingJumpAir: int
-var remainingDashSide: int
+var remainingDashSide: int = 0
 var remainingDashUp: int
 var remainingDashDown: int
 
@@ -78,6 +81,7 @@ var remainingDashDown: int
 func _ready() -> void:
 	sm.init()
 	set_timers()
+	EventBus.emit_signal("ability_check")
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -96,7 +100,7 @@ func _process(_delta: float) -> void:
 	sm.sound(_delta)
 
 
-func set_timers():
+func set_timers() -> void:
 	coyoteTimer.wait_time = coyoteTime
 	coyoteTimer.one_shot = true
 	
@@ -108,76 +112,76 @@ func set_timers():
 
 
 func can_use_ability(ability: int) -> bool:
-	if ability == PlayerAbilities.abiliyList.DashSide and remainingDashSide > 0 and PlayerAbilities.unlockedDashSide:
+	if ability == Abilities.abiliyList.DashSide and remainingDashSide > 0 and Abilities.unlockedDashSide:
 		return true
-	elif ability == PlayerAbilities.abiliyList.DashDown and remainingDashDown > 0 and PlayerAbilities.unlockedDashDown:
+	elif ability == Abilities.abiliyList.DashDown and remainingDashDown > 0 and Abilities.unlockedDashDown:
 		return true
-	elif ability == PlayerAbilities.abiliyList.DashUp and remainingDashUp > 0 and PlayerAbilities.unlockedDashUp:
+	elif ability == Abilities.abiliyList.DashUp and remainingDashUp > 0 and Abilities.unlockedDashUp:
 		return true
 	return false
 
 func consume(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
-	if ability == PlayerAbilities.abiliyList.All:
+	if ability == Abilities.abiliyList.All:
 		set_jump_air(-amount)
 		set_dash(-amount)
-	elif ability == PlayerAbilities.abiliyList.JumpAir:
+	elif ability == Abilities.abiliyList.JumpAir:
 		set_jump_air(-amount)
-	elif ability == PlayerAbilities.abiliyList.Dash:
+	elif ability == Abilities.abiliyList.Dash:
 		set_dash(-amount)
-	elif ability == PlayerAbilities.abiliyList.DashSide:
+	elif ability == Abilities.abiliyList.DashSide:
 		set_dash_side(-amount)
-	elif ability == PlayerAbilities.abiliyList.DashUp:
+	elif ability == Abilities.abiliyList.DashUp:
 		set_dash_up(-amount)
-	elif ability == PlayerAbilities.abiliyList.DashDown:
+	elif ability == Abilities.abiliyList.DashDown:
 		set_dash_down(-amount)
 	else:
 		print("Null Ability Consume")
-#	Signals.emit_signal("ability_check")
+	EventBus.emit_signal("ability_check")
 
 
-func reset(ability) -> void:
-	if ability == PlayerAbilities.abiliyList.All:
+func reset(ability: int) -> void:
+	if ability == Abilities.abiliyList.All:
 		set_dash(maxDash)
 		set_jump_air(maxJumpAir)
-	elif ability == PlayerAbilities.abiliyList.JumpAir:
+	elif ability == Abilities.abiliyList.JumpAir:
 		set_jump_air(maxJumpAir)
-	elif ability == PlayerAbilities.abiliyList.Dash:
+	elif ability == Abilities.abiliyList.Dash:
 		set_dash(maxDash)
-	elif ability == PlayerAbilities.abiliyList.DashSide:
+	elif ability == Abilities.abiliyList.DashSide:
 		set_dash_side(maxDash)
-	elif ability ==  PlayerAbilities.abiliyList.DashUp:
+	elif ability ==  Abilities.abiliyList.DashUp:
 		set_dash_up(maxDash)
-	elif ability == PlayerAbilities.abiliyList.DashDown:
+	elif ability == Abilities.abiliyList.DashDown:
 		set_dash_down(maxDash)
 	else:
 		print("Null Ability Reset")
-#	Signals.emit_signal("ability_check")
+	EventBus.emit_signal("ability_check")
 
 
-func set_jump_air(amount):
+func set_jump_air(amount: int) -> void:
 	remainingJumpAir = clamp(remainingJumpAir + amount, 0, maxJump)
 
 
-func set_dash(amount):
+func set_dash(amount: int) -> void:
 	set_dash_side(amount)
 	set_dash_up(amount)
 	set_dash_down(amount)
 
 
-func set_dash_side(amount):
+func set_dash_side(amount: int) -> void:
 	remainingDashSide = clamp(remainingDashSide + amount, 0, maxDash)
 
 
-func set_dash_up(amount):
+func set_dash_up(amount: int) -> void:
 	remainingDashUp = clamp(remainingDashUp + amount, 0, maxDash)
 
 
-func set_dash_down(amount):
+func set_dash_down(amount: int) -> void:
 	remainingDashDown = clamp(remainingDashDown + amount, 0, maxDash)
 
 
-func attempt_vertical_corner_correction(amount, delta):
+func attempt_vertical_corner_correction(amount: int, delta) -> void:
 	for i in range(1, amount*2+1):
 		for j in [-1.0, 1.0]:
 			if !test_move(global_transform.translated(Vector2(0, i * j / 2)), Vector2(velocity.x * delta, 0)):
@@ -188,7 +192,7 @@ func attempt_vertical_corner_correction(amount, delta):
 
 
 #TODO: look into make this only happen if player is moving the stick in that direction. or  bigger hop when do that
-func attempt_horizontal_corner_correction(amount, delta):
+func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 	for i in range(1, amount*2+1):
 		for j in [-1.0, 1.0]:
 			if !test_move(global_transform.translated(Vector2(i * j / 2, 0)), Vector2(0, velocity.y * delta)):
@@ -198,7 +202,7 @@ func attempt_horizontal_corner_correction(amount, delta):
 				return
 
 
-func _on_jump_consectutive_timer_timeout():
+func _on_jump_consectutive_timer_timeout() -> void:
 	jumped = false
 	jumpedDouble = false
 	jumpedTriple = false

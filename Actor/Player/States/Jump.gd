@@ -83,14 +83,23 @@ func state_check(_delta: float) -> int:
 
 func jump_ground_logic():
 	#TODO: particles for long and crouch 
-	if player.jumpLong:
+	#TODO: change to variable
+	if player.dashJumpBoost:
 		player.velocity.y = jumpVelocityMax
-		player.velocity.x = moveSpeed * 2.5 * player.moveDirection.x
+		player.velocity.x = moveSpeed * dashJumpBoostVelocityModifier * player.moveDirection.x
+		player.particlesJumpTriple.restart()
+		player.soundJump.pitch_scale = 0.25
+		player.soundJump.play()
+		player.dashJumpBoost = false
+		print("dash jump boost")
+	elif player.jumpLong:
+		player.velocity.y = jumpVelocityMax
+		player.velocity.x = moveSpeed * jumpLongVelocityModifier * player.moveDirection.x
 		player.particlesJumpTriple.restart()
 		player.soundJump.pitch_scale = 0.5
 		player.soundJump.play()
 		player.jumpLong = false
-		print("crouch jump")
+		print("long jump")
 	elif player.jumpCrouch:
 		player.velocity.y = jumpVelocityMax * jumpCrouchVelocityModifier
 		player.velocity.x = 0

@@ -2,10 +2,11 @@ extends DashState
 
 #TODO: give actual variables and numbers(time is not the way to do it)
 #TODO: break into left and right for extra challange on rando
-@export  var dash_time = 0.7
 
 var current_dash_time: float = 0
 var dashDirection: int = 0
+var jumpBoostTime: float = 0.10
+var currentjumpBoostTime: float = 0
 
 
 
@@ -13,10 +14,11 @@ func enter() -> void:
 	super.enter()
 
 	player.consume(PlayerAbilities.abiliyList.DashSide, 1)
-	current_dash_time = dash_time
+	current_dash_time = dashTime
+	
 	dashDirection = player.moveDirection.x
 	player.velocity.x = player.facing * max(dashSpeed, abs(player.velocity.x))
-	player.particlesDashSide.emitting = true
+	player.particlesDashSide.restart()
 
 
 func exit() -> void:
@@ -29,6 +31,7 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	current_dash_time -= _delta
+	currentjumpBoostTime -= _delta
 	player.velocity.y = 0
 
 
@@ -43,7 +46,9 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump"):
+		currentjumpBoostTime = jumpBoostTime
+		pass
 
 	return State.Null
 
@@ -55,7 +60,11 @@ func state_check(_delta: float) -> int:
 
 	if current_dash_time > 0:
 		return State.Null
-
+	
+	if currentjumpBoostTime > 0:
+		player.dashJumpBoost = true
+		return State.Jump
+	
 	if player.is_on_floor():
 		if player.moveDirection.x != 0:
 			return State.Walk

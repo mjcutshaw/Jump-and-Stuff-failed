@@ -1,5 +1,6 @@
 extends Label
 
+#TODO: Move to main node
 var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
 
 

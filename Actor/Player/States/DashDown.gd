@@ -1,24 +1,22 @@
 extends DashState
 
 #TODO: dashing with a quick jump press to wave dash
-@export  var dash_time = 0.4
-
 var current_dash_time: float = 0
-
 
 
 func enter() -> void:
 	super.enter()
 
 	player.consume(PlayerAbilities.abiliyList.DashDown, 1)
-	current_dash_time = dash_time
+	current_dash_time = dashTime
 	player.velocity.y = max(dashSpeed, abs(player.velocity.y))
+	player.particlesDashDown.restart()
 
 
 func exit() -> void:
 	super.exit()
 
-	
+	player.particlesDashDown.emitting = false
 
 
 func physics(_delta) -> void:

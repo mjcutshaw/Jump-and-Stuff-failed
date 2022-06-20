@@ -10,7 +10,7 @@ const VERSION: String = "0.0.1"
 #const DASH_SIDE: int = 4
 #const DASH_UP: int = 8
 #const DASH_DOWN: int = 16
-#const INTERACTABLE: int = 32
+#const INTERACTABLE: int = 128
 #const HAZARD: int = 128
 #const WATER: int = 256
 #const LAVA: int = 512
@@ -20,14 +20,14 @@ const VERSION: String = "0.0.1"
 
 
 #TODO: Move to settings
-#var dashSideColor: Color = Color.BLUE
-#var dashUpColor: Color = Color.RED
-#var dashDownColor: Color = Color.GREEN
-#var dashColor: Color = Color.LIGHT_BLUE #TODO: change to cycle through dash colors
-#var dashUsedColor: Color = Color.SLATE_GRAY
-#var grappleColor: Color = Color.PURPLE
-#var jumpColor: Color = Color.SADDLE_BROWN
-#var allColor: Color = Color.WHITE_SMOKE
-#var spinColor: Color = Color.ORANGE
-#var bashColor: Color = Color.YELLOW
+var dashSideColor: Color = Color.BLUE
+var dashUpColor: Color = Color.RED
+var dashDownColor: Color = Color.GREEN
+var dashColor: Color = Color.LIGHT_BLUE #TODO: change to cycle through dash colors
+var dashUsedColor: Color = Color.SLATE_GRAY
+var grappleColor: Color = Color.PURPLE
+var jumpColor: Color = Color.SADDLE_BROWN
+var allColor: Color = Color.WHITE_SMOKE
+var spinColor: Color = Color.ORANGE
+var bashColor: Color = Color.YELLOW
 #TODO: Add in airjump tracker

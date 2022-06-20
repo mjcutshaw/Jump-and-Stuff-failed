@@ -1,7 +1,9 @@
 class_name DashState
 extends MoveState
 
+var dashTime = 0.6
 var dashSpeed: int = moveSpeed * 1.25
+
 
 func enter() -> void:
 	super.enter()
@@ -42,6 +44,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	#TODO: move stuff from dash states once timer is added
 
 	return State.Null

@@ -1,9 +1,8 @@
 extends DashState
 
 #TODO: dashing with a quick jump press to wave dash
-@export  var dash_time = 0.4
 
-var current_dash_time: float = 0
+var currentDashTime: float = 0
 
 
 
@@ -11,20 +10,21 @@ func enter() -> void:
 	super.enter()
 
 	player.consume(PlayerAbilities.abiliyList.DashUp, 1)
-	current_dash_time = dash_time
+	currentDashTime = dashTime
 	player.velocity.y = -max(dashSpeed, -abs(player.velocity.y))
+	player.particlesDashUp.restart()
 
 
 func exit() -> void:
 	super.exit()
 
-	
+	player.particlesDashUp.emitting = false
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	current_dash_time -= _delta
+	currentDashTime -= _delta
 	player.velocity.x = 0
 
 
@@ -49,7 +49,7 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if current_dash_time > 0:
+	if currentDashTime > 0:
 		return State.Null
 
 	if player.is_on_floor():
