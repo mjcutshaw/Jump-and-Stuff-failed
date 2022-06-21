@@ -2,7 +2,7 @@ extends ColorRect
 
 
 @onready var buttonResume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume
-@onready var buttonOptions: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options
+@onready var buttonSettings: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options
 @onready var buttonQuit: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
 

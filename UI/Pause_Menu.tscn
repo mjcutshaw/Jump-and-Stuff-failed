@@ -243,7 +243,7 @@ offset_top = 152.0
 offset_right = 480.0
 offset_bottom = 194.0
 size_flags_vertical = 3
-text = "Options"
+text = "Settings"
 
 [node name="Quit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 offset_top = 198.0

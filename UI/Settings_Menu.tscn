@@ -1,0 +1,655 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfprvsnajjd16"]
+
+[ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_pki12"]
+[ext_resource type="Script" path="res://UI/Scripts/Settings_Menu.gd" id="2_cmpbl"]
+[ext_resource type="Script" path="res://UI/Scripts/AudioSettings.gd" id="2_j4nvg"]
+[ext_resource type="Script" path="res://UI/Buttons/Scripts/Quit.gd" id="3_2uqcl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
+shader = ExtResource( "1_pki12" )
+shader_param/blur = 1.77778
+shader_param/brightness = 0.822222
+
+[node name="SettingsMenu" type="ColorRect"]
+process_mode = 3
+material = SubResource( "ShaderMaterial_t38au" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( "2_cmpbl" )
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="H" type="HBoxContainer" parent="M"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 780.0
+
+[node name="ButtonMargins" type="MarginContainer" parent="M/H"]
+minimum_size = Vector2(250, 0)
+offset_right = 250.0
+offset_bottom = 760.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 100
+
+[node name="V" type="VBoxContainer" parent="M/H/ButtonMargins"]
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 225.0
+offset_bottom = 660.0
+
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V"]
+offset_right = 175.0
+offset_bottom = 481.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 30
+
+[node name="P" type="Panel" parent="M/H/ButtonMargins/V/M"]
+offset_right = 175.0
+offset_bottom = 451.0
+
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Buttons" type="VBoxContainer" parent="M/H/ButtonMargins/V/M/P/M"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 160.0
+offset_bottom = 436.0
+
+[node name="M5" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_right = 145.0
+offset_bottom = 66.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="Presets" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
+offset_right = 145.0
+offset_bottom = 51.0
+size_flags_vertical = 3
+text = "Presets
+"
+
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 70.0
+offset_right = 145.0
+offset_bottom = 137.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="General" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
+offset_right = 145.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+text = "General"
+
+[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 141.0
+offset_right = 145.0
+offset_bottom = 208.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="Difficulty" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
+offset_right = 145.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+text = "Difficulty"
+
+[node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 212.0
+offset_right = 145.0
+offset_bottom = 279.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="Video" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
+offset_right = 145.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+text = "Video"
+
+[node name="M4" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 283.0
+offset_right = 145.0
+offset_bottom = 350.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="Audio" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
+offset_right = 145.0
+offset_bottom = 52.0
+size_flags_vertical = 3
+text = "Audio"
+
+[node name="Keybindings" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 354.0
+offset_right = 145.0
+offset_bottom = 421.0
+size_flags_vertical = 3
+text = "Keybindings"
+
+[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V"]
+minimum_size = Vector2(0, 75)
+offset_top = 485.0
+offset_right = 175.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_layout_mode = 1
+
+[node name="P" type="Panel" parent="M/H/ButtonMargins/V/M2"]
+offset_right = 175.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="H" type="HBoxContainer" parent="M/H/ButtonMargins/V/M2/P/M"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 165.0
+offset_bottom = 65.0
+
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
+offset_right = 75.0
+offset_bottom = 55.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Back" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
+offset_left = 79.0
+offset_right = 155.0
+offset_bottom = 55.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Quit" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M2"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 50.0
+size_flags_horizontal = 3
+text = "Quit"
+script = ExtResource( "3_2uqcl" )
+
+[node name="M" type="MarginContainer" parent="M/H"]
+offset_left = 254.0
+offset_right = 1240.0
+offset_bottom = 760.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="P" type="Panel" parent="M/H/M"]
+offset_left = 25.0
+offset_top = 50.0
+offset_right = 936.0
+offset_bottom = 710.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="PresetSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/PresetSettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Presets Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/PresetSettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/PresetSettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/PresetSettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0
+
+[node name="GeneralSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+visible = false
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/GeneralSettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "General Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/GeneralSettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/GeneralSettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/GeneralSettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0
+
+[node name="DifficultySettings" type="VBoxContainer" parent="M/H/M/P/M"]
+visible = false
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/DifficultySettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Difficulty Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/DifficultySettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/DifficultySettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/DifficultySettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0
+
+[node name="VideoSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+visible = false
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/VideoSettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Video Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/VideoSettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/VideoSettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/VideoSettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0
+
+[node name="AudioSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+visible = false
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+script = ExtResource( "2_j4nvg" )
+
+[node name="Name" type="Label" parent="M/H/M/P/M/AudioSettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Audio Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/AudioSettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/AudioSettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 498.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/AudioSettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 438.0
+
+[node name="OverallVolume" type="MarginContainer" parent="M/H/M/P/M/AudioSettings/M/V"]
+offset_right = 791.0
+offset_bottom = 104.0
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume"]
+offset_right = 791.0
+offset_bottom = 84.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+text = "Overall Volume"
+horizontal_alignment = 1
+
+[node name="H" type="HBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V"]
+offset_top = 30.0
+offset_right = 791.0
+offset_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V/H"]
+offset_left = 361.0
+offset_right = 402.0
+offset_bottom = 26.0
+text = "Mute
+"
+
+[node name="MuteOverall" type="CheckBox" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V/H"]
+offset_left = 406.0
+offset_right = 430.0
+offset_bottom = 26.0
+
+[node name="SliderOverall" type="HSlider" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V"]
+minimum_size = Vector2(250, 0)
+offset_left = 270.0
+offset_top = 60.0
+offset_right = 520.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+value = -20.0
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/AudioSettings/M/V/OverallVolume/V"]
+minimum_size = Vector2(300, 0)
+offset_left = 245.0
+offset_top = 80.0
+offset_right = 545.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+
+[node name="MusicVolume" type="MarginContainer" parent="M/H/M/P/M/AudioSettings/M/V"]
+offset_top = 108.0
+offset_right = 791.0
+offset_bottom = 212.0
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume"]
+offset_right = 791.0
+offset_bottom = 84.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+text = "Music Volume
+"
+horizontal_alignment = 1
+
+[node name="H" type="HBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V"]
+offset_top = 30.0
+offset_right = 791.0
+offset_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V/H"]
+offset_left = 361.0
+offset_right = 402.0
+offset_bottom = 26.0
+text = "Mute
+"
+
+[node name="MuteMusic" type="CheckBox" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V/H"]
+offset_left = 406.0
+offset_right = 430.0
+offset_bottom = 26.0
+
+[node name="SliderMusic" type="HSlider" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V"]
+minimum_size = Vector2(250, 0)
+offset_left = 270.0
+offset_top = 60.0
+offset_right = 520.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+value = -20.0
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/AudioSettings/M/V/MusicVolume/V"]
+minimum_size = Vector2(300, 0)
+offset_left = 245.0
+offset_top = 80.0
+offset_right = 545.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+
+[node name="SFXVolume" type="MarginContainer" parent="M/H/M/P/M/AudioSettings/M/V"]
+offset_top = 216.0
+offset_right = 791.0
+offset_bottom = 320.0
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume"]
+offset_right = 791.0
+offset_bottom = 84.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+text = "SFX Volume
+"
+horizontal_alignment = 1
+
+[node name="H" type="HBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V"]
+offset_top = 30.0
+offset_right = 791.0
+offset_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V/H"]
+offset_left = 361.0
+offset_right = 402.0
+offset_bottom = 26.0
+text = "Mute
+"
+
+[node name="MuteSFX" type="CheckBox" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V/H"]
+offset_left = 406.0
+offset_right = 430.0
+offset_bottom = 26.0
+
+[node name="SliderSFX" type="HSlider" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V"]
+minimum_size = Vector2(250, 0)
+offset_left = 270.0
+offset_top = 60.0
+offset_right = 520.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+value = -20.0
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/AudioSettings/M/V/SFXVolume/V"]
+minimum_size = Vector2(300, 0)
+offset_left = 245.0
+offset_top = 80.0
+offset_right = 545.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+
+[node name="BackgroundVolume" type="MarginContainer" parent="M/H/M/P/M/AudioSettings/M/V"]
+offset_top = 324.0
+offset_right = 791.0
+offset_bottom = 428.0
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume"]
+offset_right = 791.0
+offset_bottom = 84.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+text = "Background Volume
+"
+horizontal_alignment = 1
+
+[node name="H" type="HBoxContainer" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V"]
+offset_top = 30.0
+offset_right = 791.0
+offset_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V/H"]
+offset_left = 361.0
+offset_right = 402.0
+offset_bottom = 26.0
+text = "Mute
+"
+
+[node name="MuteBackground" type="CheckBox" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V/H"]
+offset_left = 406.0
+offset_right = 430.0
+offset_bottom = 26.0
+
+[node name="SliderBackground" type="HSlider" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V"]
+minimum_size = Vector2(250, 0)
+offset_left = 270.0
+offset_top = 60.0
+offset_right = 520.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+value = -20.0
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/AudioSettings/M/V/BackgroundVolume/V"]
+minimum_size = Vector2(300, 0)
+offset_left = 245.0
+offset_top = 80.0
+offset_right = 545.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+
+[node name="Keybindings" type="VBoxContainer" parent="M/H/M/P/M"]
+visible = false
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/Keybindings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Keybindings Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/Keybindings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/Keybindings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/Keybindings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0

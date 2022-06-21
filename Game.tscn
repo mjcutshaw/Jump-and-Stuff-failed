@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=11 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://UI/Scripts/Gui.gd" id="2_gjups"]
 [ext_resource type="PackedScene" uid="uid://btq65egxmwese" path="res://UI/Pause_Menu.tscn" id="2_rq07h"]
 [ext_resource type="Script" path="res://UI/Scripts/InGameTimer.gd" id="3_8324u"]
+[ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -55,6 +56,9 @@ offset_top = 23.0
 offset_right = 100.0
 offset_bottom = 46.0
 script = ExtResource( "3_8324u" )
+
+[node name="SettingsMenu" parent="Gui" instance=ExtResource( "5_08yut" )]
+visible = false
 
 [node name="PauseMenu" parent="Gui" instance=ExtResource( "2_rq07h" )]
 
