@@ -14,6 +14,7 @@ enum State {
 	DashDown,
 	DashUp,
 	GroundPound,
+	Glide,
 }
 
 var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")

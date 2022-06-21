@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=36 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/DashUp.gd" id="12_hwflk"]
 [ext_resource type="Script" path="res://Actor/Player/States/GroundPound.gd" id="12_n7gfn"]
 [ext_resource type="AudioStream" uid="uid://beuo0eqvxuw5e" path="res://Assests/Sounds/Actor/Player/FOOTSTEPS (A) Walking Loop 01.ogg" id="12_pn3dh"]
+[ext_resource type="Script" path="res://Actor/Player/States/Glide.gd" id="16_xbsxy"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/DropShadow.gd" id="18_ef8so"]
 [ext_resource type="Texture2D" uid="uid://o2vgdxq42hhj" path="res://icon.png" id="19_fr5vg"]
 
@@ -380,6 +381,9 @@ script = ExtResource( "12_hwflk" )
 
 [node name="GroundPound" type="Node" parent="StateMachine"]
 script = ExtResource( "12_n7gfn" )
+
+[node name="Glide" type="Node" parent="StateMachine"]
+script = ExtResource( "16_xbsxy" )
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -30.0

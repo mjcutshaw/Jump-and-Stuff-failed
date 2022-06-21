@@ -15,6 +15,7 @@ extends Node
 	BaseState.State.DashDown: $DashDown,
 	BaseState.State.DashUp: $DashUp,
 	BaseState.State.GroundPound: $GroundPound,
+	BaseState.State.Glide: $Glide,
 }
 
 var currentState: BaseState

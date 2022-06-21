@@ -31,10 +31,10 @@ offset_bottom = -190.0
 text = "Dash"
 
 [node name="Crouch" type="Label" parent="."]
-offset_left = 320.0
-offset_top = -16.0
-offset_right = 376.0
-offset_bottom = 10.0
+offset_left = 168.0
+offset_top = 328.0
+offset_right = 224.0
+offset_bottom = 354.0
 text = "Crouch"
 
 [node name="Spin" type="Label" parent="."]
@@ -45,10 +45,10 @@ offset_bottom = 258.0
 text = "Spin"
 
 [node name="Charge" type="Label" parent="."]
-offset_left = 344.0
-offset_top = -88.0
-offset_right = 400.0
-offset_bottom = -62.0
+offset_left = 336.0
+offset_top = 304.0
+offset_right = 392.0
+offset_bottom = 330.0
 text = "Charge"
 
 [node name="Grapple" type="Label" parent="."]
@@ -59,11 +59,11 @@ offset_bottom = -262.0
 text = "Grapple"
 
 [node name="Burrow" type="Label" parent="."]
-offset_left = -408.0
-offset_top = -224.0
-offset_right = -346.0
-offset_bottom = -198.0
-text = "Burrow"
+offset_left = -200.0
+offset_top = 320.0
+offset_right = 78.0
+offset_bottom = 346.0
+text = "Burrow? maybe just a dash upgrade"
 
 [node name="Bash" type="Label" parent="."]
 offset_left = 376.0
@@ -73,10 +73,10 @@ offset_bottom = -126.0
 text = "Bash"
 
 [node name="Roll" type="Label" parent="."]
-offset_left = 496.0
-offset_top = -80.0
-offset_right = 566.0
-offset_bottom = -54.0
+offset_left = 472.0
+offset_top = 304.0
+offset_right = 542.0
+offset_bottom = 330.0
 text = "Roll/Dive"
 
 [node name="Glide" type="Label" parent="."]
