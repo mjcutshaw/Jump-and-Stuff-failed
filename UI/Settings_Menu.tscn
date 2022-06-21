@@ -653,3 +653,5 @@ offset_left = 30.0
 offset_top = 10.0
 offset_right = 821.0
 offset_bottom = 10.0
+
+[connection signal="pressed" from="M/H/ButtonMargins/V/M2/P/M/H/M2/Quit" to="M/H/ButtonMargins/V/M2/P/M/H/M2/Quit" method="_on_quit_pressed"]
