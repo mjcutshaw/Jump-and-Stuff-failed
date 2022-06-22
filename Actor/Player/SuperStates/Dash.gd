@@ -2,7 +2,7 @@ class_name DashState
 extends MoveState
 
 var dashTime = 0.6
-var dashSpeed: int = moveSpeed * 1.25
+var dashSpeed: int = moveSpeed * 2
 
 
 func enter() -> void:
@@ -14,7 +14,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	
+	player.velocity = player.previousVelocity
 
 
 func physics(_delta) -> void:

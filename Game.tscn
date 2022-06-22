@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=10 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -11,9 +11,6 @@
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_158wf"]
-size = Vector2(64, 64)
 
 [node name="Game" type="Node"]
 
@@ -83,33 +80,6 @@ collision_mask = 64
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource( "1" )
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Playground/Ground"]
-position = Vector2(382, -193)
-collision_mask = 64
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D3"]
-modulate = Color(0, 0, 0, 1)
-shape = SubResource( "RectangleShape2D_158wf" )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Playground/Ground"]
-position = Vector2(642, -200)
-collision_mask = 64
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D4"]
-modulate = Color(0, 0, 0, 1)
-shape = SubResource( "RectangleShape2D_158wf" )
-
-[node name="StaticBody2D5" type="StaticBody2D" parent="Playground/Ground"]
-position = Vector2(526, -152)
-collision_mask = 64
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D5"]
-modulate = Color(0, 0, 0, 1)
-shape = SubResource( "RectangleShape2D_158wf" )
 
 [node name="Collectable" parent="." instance=ExtResource( "2_2c3h4" )]
 position = Vector2(96, 0)
