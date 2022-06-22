@@ -5,6 +5,7 @@ extends Node
 
 @onready var states = {
 	BaseState.State.Spawn: $Spawn,
+	BaseState.State.Bonk: $Bonk,
 	BaseState.State.Idle: $Idle,
 	BaseState.State.Walk: $Walk,
 	BaseState.State.Crouch: $Crouch,

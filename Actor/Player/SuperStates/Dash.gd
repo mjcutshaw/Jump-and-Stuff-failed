@@ -2,13 +2,13 @@ class_name DashState
 extends MoveState
 
 var dashTime = 0.6
-var dashSpeed: int = moveSpeed * 2
+var dashSpeed: int = moveSpeed * 2.5
 
 
 func enter() -> void:
 	super.enter()
 
-	
+	player.soundDash.play()
 
 
 func exit() -> void:

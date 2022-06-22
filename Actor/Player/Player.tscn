@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=39 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Fall.gd" id="6"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashSide.gd" id="6_66fel"]
 [ext_resource type="Script" path="res://Actor/Player/States/Crouch.gd" id="6_ckl38"]
+[ext_resource type="Script" path="res://Actor/Player/States/Bonk.gd" id="6_kglgy"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashDown.gd" id="7_dblma"]
 [ext_resource type="Script" path="res://Actor/Player/States/Idle.gd" id="8"]
 [ext_resource type="Script" path="res://Actor/Player/States/Apex.gd" id="8_ytsre"]
@@ -20,6 +21,8 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Glide.gd" id="16_xbsxy"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/DropShadow.gd" id="18_ef8so"]
 [ext_resource type="Texture2D" uid="uid://o2vgdxq42hhj" path="res://icon.png" id="19_fr5vg"]
+[ext_resource type="AudioStream" uid="uid://bbxrjo4fj1yw0" path="res://Assests/Sounds/Actor/Player/SPLAT Crush 01.ogg" id="20_abo4x"]
+[ext_resource type="AudioStream" uid="uid://810lfw5sc68i" path="res://Assests/Sounds/Actor/Player/POP Echo Bouncer 01.ogg" id="21_1hbvx"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
 _data = [Vector2(0, 0.5), 0.0, 3.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -352,6 +355,9 @@ script = ExtResource( "1" )
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource( "9" )
 
+[node name="Bonk" type="Node" parent="StateMachine"]
+script = ExtResource( "6_kglgy" )
+
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( "8" )
 
@@ -415,6 +421,12 @@ pitch_scale = 0.51
 [node name="SoundWalk" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource( "12_pn3dh" )
 volume_db = -30.0
+
+[node name="SoundBonk" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( "20_abo4x" )
+
+[node name="SoundDash" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( "21_1hbvx" )
 
 [node name="Timers" type="Node" parent="."]
 

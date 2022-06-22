@@ -24,6 +24,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
+	squash_and_strech(_delta)
 	facing()
 
 
@@ -48,6 +49,9 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
+	if player.is_on_wall() and abs(player.previousVelocity.x) > moveSpeed:
+		return State.Bonk
+		
 	if player.is_on_floor():
 		landed_visuals(player.previousVelocity)
 		player.particlesLand.restart()

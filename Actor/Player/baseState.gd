@@ -4,6 +4,7 @@ extends Node
 enum State {
 	Null,
 	Spawn,
+	Bonk,
 	Idle,
 	Walk,
 	Crouch,

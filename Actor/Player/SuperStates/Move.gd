@@ -49,7 +49,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	squash_and_strech(_delta)
+#	squash_and_strech(_delta)
 	speed_bend()
 
 
