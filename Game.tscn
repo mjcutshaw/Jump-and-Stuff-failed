@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=12 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://btq65egxmwese" path="res://UI/Pause_Menu.tscn" id="2_rq07h"]
 [ext_resource type="Script" path="res://UI/Scripts/InGameTimer.gd" id="3_8324u"]
 [ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
+[ext_resource type="PackedScene" uid="uid://cb8ggieqgkdto" path="res://Prefab/AbilityBlocks/Ability_Wall.tscn" id="9_xekak"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -100,3 +101,7 @@ shape = SubResource( "1" )
 [node name="Collectable" parent="." instance=ExtResource( "2_2c3h4" )]
 position = Vector2(96, 0)
 ability = 1
+
+[node name="AbilityWall" parent="." instance=ExtResource( "9_xekak" )]
+position = Vector2(-185, -128)
+ability = 9

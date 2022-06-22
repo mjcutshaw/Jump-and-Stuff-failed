@@ -201,6 +201,11 @@ func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 				return
 
 
+func pass_through_collisions(collisionLayer, collisionBool):
+	coyoteTimer.stop()
+	self.set_collision_mask_value(collisionLayer, collisionBool)
+
+
 func _on_jump_consectutive_timer_timeout() -> void:
 	jumped = false
 	jumpedDouble = false

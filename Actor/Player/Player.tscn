@@ -212,7 +212,7 @@ packet_sequence = SubResource( "OGGPacketSequence_tmauh" )
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 64
-collision_mask = 129
+collision_mask = 447
 script = ExtResource( "2" )
 metadata/_edit_lock_ = true
 
@@ -449,11 +449,13 @@ script = ExtResource( "18_ef8so" )
 visible = false
 position = Vector2(16, 0)
 target_position = Vector2(0, 300)
+collision_mask = 63
 
 [node name="RayCast2D2" type="RayCast2D" parent="DropShadow"]
 visible = false
 position = Vector2(-16, 0)
 target_position = Vector2(0, 300)
+collision_mask = 63
 
 [node name="Sprite2D" type="Sprite2D" parent="DropShadow"]
 visible = false

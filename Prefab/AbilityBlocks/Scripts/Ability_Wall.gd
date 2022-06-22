@@ -1,9 +1,9 @@
 extends StaticBody2D
 
-
+#TODO: other ability blocks
 var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
 @export var ability: PlayerAbilities.abiliyList
-@onready var detector: Area2D = $Area2D/CollisionShape2D2
+@onready var detector: Area2D = $Area2D
 
 func _ready() -> void:
 	detector.body_entered.connect(destroy)
@@ -30,5 +30,6 @@ func _ready() -> void:
 func set_collission(collisionLayer, collisionBool):
 	set_collision_layer_value(collisionLayer, collisionBool)
 
-func destroy():
+func destroy(_body):
 	queue_free()
+	

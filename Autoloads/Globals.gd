@@ -5,13 +5,16 @@ const GAME_NAME: String = "Jump and Stuff"
 const CREATOR: String = "Matt"
 const VERSION: String = "0.0.1"
 
-#const GROUND: int = 1
-#const SEMISOLID: int = 2
-#const DASH_SIDE: int = 4
-#const DASH_UP: int = 8
-#const DASH_DOWN: int = 16
-#const INTERACTABLE: int = 128
-#const HAZARD: int = 128
+const GROUND: int = 1
+const SEMISOLID: int = 2
+const HAZARD: int = 3
+const DASH_SIDE: int = 4
+const DASH_UP: int = 5
+const DASH_DOWN: int = 6
+const PLAYER: int = 7
+const COLLECTABLE: int = 8
+const INTERACTABLE: int = 9
+
 #const WATER: int = 256
 #const LAVA: int = 512
 #const SAND: int = 1024

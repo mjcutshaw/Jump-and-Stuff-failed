@@ -14,8 +14,8 @@ func enter() -> void:
 	super.enter()
 
 	player.consume(PlayerAbilities.abiliyList.DashSide, 1)
+	player.pass_through_collisions(Globals.DASH_SIDE, false)
 	current_dash_time = dashTime
-	
 	dashDirection = player.moveDirection.x
 	player.velocity.x = player.facing * max(dashSpeed, abs(player.velocity.x))
 	player.particlesDashSide.restart()
@@ -24,6 +24,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
+	player.pass_through_collisions(Globals.DASH_SIDE, true)
 	player.particlesDashSide.emitting = false
 
 

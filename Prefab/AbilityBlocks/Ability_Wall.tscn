@@ -6,6 +6,8 @@
 size = Vector2(64, 64)
 
 [node name="AbilityWall" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource( "1_gb4mw" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
