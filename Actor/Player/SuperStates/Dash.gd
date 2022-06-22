@@ -1,6 +1,7 @@
 class_name DashState
 extends MoveState
 
+#TODO: create collision layers for abilities
 var dashTime = 0.6
 var dashSpeed: int = moveSpeed * 2.5
 

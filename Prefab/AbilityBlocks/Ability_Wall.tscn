@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb8ggieqgkdto"]
+
+[ext_resource type="Script" path="res://Prefab/AbilityBlocks/Scripts/Ability_Wall.gd" id="1_gb4mw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8v40"]
+size = Vector2(64, 64)
+
+[node name="AbilityWall" type="StaticBody2D"]
+script = ExtResource( "1_gb4mw" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource( "RectangleShape2D_o8v40" )
+
+[node name="Outline" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = -8.0
+offset_bottom = -56.0
+
+[node name="ColorRect3" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -8.0
+offset_right = -8.0
+
+[node name="ColorRect5" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -24.0
+offset_right = -24.0
+
+[node name="ColorRect6" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = -24.0
+offset_bottom = -40.0
+
+[node name="ColorRect7" type="ColorRect" parent="Outline"]
+offset_left = 24.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = -40.0
+
+[node name="ColorRect8" type="ColorRect" parent="Outline"]
+offset_left = 24.0
+offset_top = -24.0
+offset_right = 32.0
+
+[node name="ColorRect4" type="ColorRect" parent="Outline"]
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 32.0
+
+[node name="ColorRect2" type="ColorRect" parent="Outline"]
+offset_left = 8.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = -56.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -16.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 64
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource( "RectangleShape2D_o8v40" )

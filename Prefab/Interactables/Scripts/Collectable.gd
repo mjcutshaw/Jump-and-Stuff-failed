@@ -6,6 +6,7 @@ var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbi
 
 
 func _on_collectable_body_entered(_body) -> void:
+	#TODO: turn into signal
 	PlayerAbilities.unlock_ability(ability)
 	EventBus.emit_signal("ability_unlocked", ability)
 	$SoundUnlocked.play()

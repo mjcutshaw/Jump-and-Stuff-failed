@@ -233,6 +233,7 @@ pause_menu={
 2d_physics/layer_2="Semisolid"
 2d_physics/layer_7="Player"
 2d_physics/layer_8="Collectable"
+2d_physics/layer_9="Interactable"
 
 [physics]
 
