@@ -1,8 +1,9 @@
 extends AirState
 class_name JumpGround
-#TODO: Create jump superstate
+
+#TODO: Create jump superstate, will need to have special function made to read variables to send to proper dash
 #TODO: flip player in direction when jump flip
-#TODO: break out crouch jumps to own states
+#TODO: break out jumps to own states, will make  easier to preserve momentum when desired
 
 func enter() -> void:
 	super.enter()
