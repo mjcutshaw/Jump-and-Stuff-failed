@@ -35,7 +35,7 @@ offset_left = 168.0
 offset_top = 328.0
 offset_right = 224.0
 offset_bottom = 354.0
-text = "Crouch"
+text = "Crouch/ground pound"
 
 [node name="Spin" type="Label" parent="."]
 offset_left = -400.0

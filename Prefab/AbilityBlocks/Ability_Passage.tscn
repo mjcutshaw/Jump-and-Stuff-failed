@@ -1,11 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3002rk154nnb"]
+[gd_scene load_steps=3 format=3 uid="uid://b3002rk154nnb"]
+
+[ext_resource type="Script" path="res://Prefab/AbilityBlocks/Scripts/Ability_Passage.gd" id="1_0cktl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mws4"]
 size = Vector2(64, 64)
 
 [node name="AbilityPassage" type="StaticBody2D"]
+script = ExtResource( "1_0cktl" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource( "RectangleShape2D_1mws4" )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 64
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 visible = false
 position = Vector2(0, -32)
 shape = SubResource( "RectangleShape2D_1mws4" )
@@ -16,51 +28,61 @@ shape = SubResource( "RectangleShape2D_1mws4" )
 offset_left = -32.0
 offset_top = -64.0
 offset_right = -8.0
-offset_bottom = -56.0
+offset_bottom = -60.0
 
 [node name="ColorRect3" type="ColorRect" parent="Outline"]
 offset_left = -32.0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = -8.0
 
 [node name="ColorRect5" type="ColorRect" parent="Outline"]
 offset_left = -32.0
 offset_top = -24.0
-offset_right = -24.0
+offset_right = -28.0
 
 [node name="ColorRect6" type="ColorRect" parent="Outline"]
 offset_left = -32.0
 offset_top = -64.0
-offset_right = -24.0
+offset_right = -28.0
 offset_bottom = -40.0
 
 [node name="ColorRect7" type="ColorRect" parent="Outline"]
-offset_left = 24.0
+offset_left = 28.0
 offset_top = -64.0
 offset_right = 32.0
 offset_bottom = -40.0
 
 [node name="ColorRect8" type="ColorRect" parent="Outline"]
-offset_left = 24.0
+offset_left = 28.0
 offset_top = -24.0
 offset_right = 32.0
 
 [node name="ColorRect4" type="ColorRect" parent="Outline"]
 offset_left = 8.0
-offset_top = -8.0
+offset_top = -4.0
 offset_right = 32.0
 
 [node name="ColorRect2" type="ColorRect" parent="Outline"]
 offset_left = 8.0
 offset_top = -64.0
 offset_right = 32.0
-offset_bottom = -56.0
+offset_bottom = -60.0
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 256
-collision_mask = 64
+[node name="Indicator" type="Node2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(0, -32)
-shape = SubResource( "RectangleShape2D_1mws4" )
+[node name="ColorRect5" type="ColorRect" parent="Indicator"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -8.17157
+offset_top = -50.0
+offset_right = 15.8284
+offset_bottom = -46.0
+grow_vertical = 0
+rotation = 0.785398
+
+[node name="ColorRect6" type="ColorRect" parent="Indicator"]
+offset_left = -8.17157
+offset_top = -19.0
+offset_right = 13.8285
+offset_bottom = -15.0
+rotation = -0.785398

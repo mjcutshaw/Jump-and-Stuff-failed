@@ -11,7 +11,83 @@ collision_layer = 128
 collision_mask = 64
 script = ExtResource( "1_1683q" )
 
+[node name="Outline" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = -8.0
+offset_bottom = -60.0
+
+[node name="ColorRect3" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -4.0
+offset_right = -8.0
+
+[node name="ColorRect5" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -24.0
+offset_right = -28.0
+
+[node name="ColorRect6" type="ColorRect" parent="Outline"]
+offset_left = -32.0
+offset_top = -64.0
+offset_right = -28.0
+offset_bottom = -40.0
+
+[node name="ColorRect7" type="ColorRect" parent="Outline"]
+offset_left = 28.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = -40.0
+
+[node name="ColorRect8" type="ColorRect" parent="Outline"]
+offset_left = 28.0
+offset_top = -24.0
+offset_right = 32.0
+
+[node name="ColorRect4" type="ColorRect" parent="Outline"]
+offset_left = 8.0
+offset_top = -4.0
+offset_right = 32.0
+
+[node name="ColorRect2" type="ColorRect" parent="Outline"]
+offset_left = 8.0
+offset_top = -64.0
+offset_right = 32.0
+offset_bottom = -60.0
+
+[node name="Indicator" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Indicator"]
+offset_left = -16.0
+offset_top = -56.0
+offset_right = 16.0
+offset_bottom = -48.0
+
+[node name="ColorRect2" type="ColorRect" parent="Indicator"]
+offset_left = 8.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -32.0
+
+[node name="ColorRect3" type="ColorRect" parent="Indicator"]
+offset_top = -40.0
+offset_right = 8.0
+offset_bottom = -32.0
+
+[node name="ColorRect4" type="ColorRect" parent="Indicator"]
+offset_left = -8.0
+offset_top = -40.0
+offset_bottom = -16.0
+
+[node name="ColorRect5" type="ColorRect" parent="Indicator"]
+offset_top = -24.0
+offset_right = 8.0
+offset_bottom = -8.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 modulate = Color(0, 0.141176, 1, 1)
 position = Vector2(0, -32)
 shape = SubResource( "RectangleShape2D_5l5lw" )

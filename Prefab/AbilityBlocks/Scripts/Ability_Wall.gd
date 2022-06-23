@@ -1,6 +1,8 @@
 extends StaticBody2D
 
 #TODO: other ability blocks
+#TODO: let multiple abilities destroy blocks
+#TODO: scale the blocks
 var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
 @export var ability: PlayerAbilities.abiliyList
 @onready var detector: Area2D = $Area2D
