@@ -26,7 +26,7 @@ func visual(_delta) -> void:
 	super.visual(_delta)
 
 	squash_and_strech(_delta)
-	facing()
+
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -50,8 +50,11 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.is_on_wall() and abs(player.previousVelocity.x) > moveSpeed:
-		return State.Bonk
+	if player.is_on_wall():
+		if abs(player.previousVelocity.x) > moveSpeed:
+			return State.Bonk
+		else:
+			return State.WallSlide
 		
 	if player.is_on_floor():
 		landed_visuals(player.previousVelocity)
@@ -70,8 +73,7 @@ func velocity_logic(speed) -> void:
 	player.velocity.x = player.moveStrength.x * max(abs(speed), abs(player.velocity.x))
 
 
-func gravity_logic(amount, _delta) -> void:
-	player.velocity.y += amount * _delta
+
 
 
 func fall_speed_logic(amount) -> void:

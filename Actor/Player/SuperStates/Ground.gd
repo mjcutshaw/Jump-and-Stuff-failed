@@ -39,7 +39,6 @@ func visual(_delta) -> void:
 	super.visual(_delta)
 
 	squash_and_strech(_delta)
-	facing()	
 
 
 func handle_input(_event: InputEvent) -> int:

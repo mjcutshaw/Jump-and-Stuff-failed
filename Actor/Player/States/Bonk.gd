@@ -9,9 +9,8 @@ var bonkTime: float = 1.5
 func enter() -> void:
 	super.enter()
 
-	var wallDirection = player.get_wall_normal()
 	currentBonkTime = bonkTime
-	player.velocity = Vector2(300 * wallDirection.x, 800)
+	player.velocity = Vector2(300 * player.wallDirection.x, 800)
 	var tween = create_tween()
 	tween.tween_property(player.characterRig, "scale", Vector2(0.2, 0.8), .05)
 	player.soundBonk.play()
@@ -36,7 +35,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	facing(player.lastWallDirection.x)
 
 
 func sound(_delta: float) -> void:

@@ -45,6 +45,7 @@ func physics(_delta) -> void:
 	player.move_and_slide()
 	move_direction_logic()
 	move_strength_logic()
+	wall_direction_logic()
 
 
 func visual(_delta) -> void:
@@ -95,12 +96,16 @@ func move_strength_logic() -> void:
 	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
 
 
-func facing() -> void:
-	#todo: turn into variables
-	if player.moveDirection.x != 0:
-		player.characterRig.scale.x = player.moveDirection.x
-	else:
-		player.characterRig.scale.x = player.lastDirection.x
+func wall_direction_logic() -> void:
+	player.wallDirection = player.get_wall_normal()
+	
+	if player.wallDirection.x != 0:
+		player.lastWallDirection = player.wallDirection
+
+
+func facing(face) -> void:
+	player.characterRig.scale.x = face
+	player.facing = player.characterRig.scale.x
 
 #TODO: look into turning these into tweens
 
@@ -124,3 +129,7 @@ func speed_bend():
 	#TODO: variable to decide direction
 	#TODO: need to move smoothly back to zero
 	player.characterRig.skew = range_lerp(-player.velocity.x, 0, abs(moveSpeed), 0.0, 0.1)
+
+
+func gravity_logic(amount, _delta) -> void:
+	player.velocity.y += amount * _delta

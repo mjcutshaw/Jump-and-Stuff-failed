@@ -10,6 +10,8 @@ extends Node
 	BaseState.State.Walk: $Walk,
 	BaseState.State.Crouch: $Crouch,
 	BaseState.State.Jump: $Jump,
+	BaseState.State.JumpAir: $JumpAir,
+	BaseState.State.JumpWall: $JumpWall,
 	BaseState.State.Apex: $Apex,
 	BaseState.State.Fall: $Fall,
 	BaseState.State.DashSide: $DashSide,
@@ -17,6 +19,10 @@ extends Node
 	BaseState.State.DashUp: $DashUp,
 	BaseState.State.GroundPound: $GroundPound,
 	BaseState.State.Glide: $Glide,
+	BaseState.State.WallSlide: $WallSlide,
+	BaseState.State.WallGrab: $WallGrab,
+	BaseState.State.WallDash: $WallDash,
+	BaseState.State.WallClimb: $WallClimb,
 }
 
 var currentState: BaseState
@@ -35,7 +41,7 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-	print(previousStateName + " to " + currentStateName)
+#	print(previousStateName + " to " + currentStateName)
 	player.stateLabel.text = currentStateName
 	player.currentState = currentState.name
 

@@ -32,6 +32,8 @@ var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO
 var previousVelocity: Vector2 = Vector2.ZERO
+var wallDirection: Vector2 = Vector2.ZERO
+var lastWallDirection: Vector2 = Vector2.ZERO
 
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1

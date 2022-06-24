@@ -39,7 +39,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	#TODO: 
+	facing(dashDirection) 
 
 
 func handle_input(_event: InputEvent) -> int:

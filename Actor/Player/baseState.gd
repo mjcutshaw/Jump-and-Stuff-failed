@@ -9,13 +9,20 @@ enum State {
 	Walk,
 	Crouch,
 	Jump,
+	JumpAir,
+	JumpWall,
+	WallJump,
 	Apex,
 	Fall,
 	DashSide,
 	DashDown,
 	DashUp,
+	WallDash,
 	GroundPound,
 	Glide,
+	WallSlide,
+	WallGrab,
+	WallClimb,
 }
 
 var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")

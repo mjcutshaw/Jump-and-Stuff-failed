@@ -29,6 +29,7 @@ func visual(_delta) -> void:
 	super.visual(_delta)
 
 	player.characterRig.scale.y = 0.5
+#	facing(player.lastDirection.x)
 
 
 func sound(_delta: float) -> void:

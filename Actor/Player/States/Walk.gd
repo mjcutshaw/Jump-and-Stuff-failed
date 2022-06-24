@@ -4,6 +4,7 @@ extends GroundState
 #FIXME: jump flip is not correctly implemented and only works flipping from the right
 #TODO: create ledge dtop detection. to quickly stop in movedirection = 0 when coming to a ledge
 var goIdle: bool = false
+var rotation: float
 
 func enter() -> void:
 	super.enter()
@@ -22,6 +23,11 @@ func exit() -> void:
 
 func physics(_delta) -> void:
 	super.physics(_delta)
+	#TODO: https://kidscancode.org/godot_recipes/2d/2d_align_surface/
+#	rotation = player.get_floor_normal().angle() + PI/2
+#	player.set_up_direction(player.transform.y * 128)
+#	player.velocity = player.velocity.rotated(rotation)
+	
 
 	if player.moveDirection.x == 0:
 		await get_tree().create_timer(.2).timeout
@@ -39,6 +45,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
+	facing(player.lastDirection.x)
 	player.particlesWalking.emitting = true
 
 

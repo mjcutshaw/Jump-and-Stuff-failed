@@ -22,7 +22,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	facing(player.facing)
 
 
 func handle_input(_event: InputEvent) -> int:

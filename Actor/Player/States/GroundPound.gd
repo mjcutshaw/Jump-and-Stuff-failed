@@ -23,7 +23,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	
+	facing(player.lastDirection.x)
 
 
 func sound(_delta: float) -> void:

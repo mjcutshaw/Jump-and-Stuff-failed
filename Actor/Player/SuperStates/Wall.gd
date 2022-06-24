@@ -1,4 +1,6 @@
-extends AirState
+extends MoveState
+class_name WallState
+
 
 
 func enter() -> void:
@@ -10,20 +12,25 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.previousVelocity = player.velocity
+#	player.previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeed)
-	gravity_logic(gravityApex, _delta)
+	
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(player.lastDirection.x)
+	
+
+
+func sound(_delta: float) -> void:
+	super.sound(_delta)
+
+	
 
 
 func handle_input(_event: InputEvent) -> int:
@@ -31,8 +38,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("ground_pound"):
-		return State.GroundPound
+	
 
 	return State.Null
 
@@ -42,7 +48,15 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.velocity.y > jumpApexHeight:
+	if !player.is_on_wall():
 		return State.Fall
+	if  player.moveDirection.x < 0:
+		if player.facing == -1:
+			player.velocity += Vector2(-20,-10)
+			return State.Fall
+	elif player.moveDirection.x > 0:
+		if player.facing == 1:
+			player.velocity += Vector2(20, -10)
+			return State.Fall
 
 	return State.Null

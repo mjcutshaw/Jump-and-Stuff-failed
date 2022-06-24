@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=13 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -14,7 +14,10 @@
 size = Vector2(6400, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0cg8"]
-size = Vector2(64, 640)
+size = Vector2(64, 2000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmbc"]
+size = Vector2(64, 1500)
 
 [node name="Game" type="Node"]
 
@@ -79,21 +82,25 @@ shape = SubResource( "1" )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(4125, 733)
+position = Vector2(4449, 2001)
 shape = SubResource( "1" )
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Playground/Ground"]
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D3"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1393, 388)
+position = Vector2(1285, 1008)
 shape = SubResource( "RectangleShape2D_l0cg8" )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Playground/Ground"]
-collision_mask = 64
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1849, 796)
+shape = SubResource( "RectangleShape2D_3wmbc" )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D2"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-427, 15)
+shape = SubResource( "RectangleShape2D_3wmbc" )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource( "1" )
@@ -103,5 +110,5 @@ position = Vector2(96, 0)
 ability = 1
 
 [node name="AbilityWall" parent="." instance=ExtResource( "9_xekak" )]
-position = Vector2(-185, -128)
+position = Vector2(185, -124)
 ability = 9
