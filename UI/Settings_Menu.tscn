@@ -74,81 +74,100 @@ offset_bottom = 436.0
 
 [node name="M5" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
 offset_right = 145.0
-offset_bottom = 66.0
+offset_bottom = 56.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="PresetsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 51.0
+offset_bottom = 41.0
 size_flags_vertical = 3
 text = "Presets
 "
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 70.0
+offset_top = 60.0
 offset_right = 145.0
-offset_bottom = 137.0
+offset_bottom = 117.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="GeneralButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 52.0
+offset_bottom = 42.0
 size_flags_vertical = 3
 text = "General"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 141.0
+offset_top = 121.0
 offset_right = 145.0
-offset_bottom = 208.0
+offset_bottom = 178.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="DifficultyButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 52.0
+offset_bottom = 42.0
 size_flags_vertical = 3
 text = "Difficulty"
 
 [node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 212.0
+offset_top = 182.0
 offset_right = 145.0
-offset_bottom = 279.0
+offset_bottom = 238.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="VideoButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 52.0
+offset_bottom = 41.0
 size_flags_vertical = 3
 text = "Video"
 
 [node name="M4" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 283.0
+offset_top = 242.0
 offset_right = 145.0
-offset_bottom = 350.0
+offset_bottom = 299.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="AudioButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 52.0
+offset_bottom = 42.0
 size_flags_vertical = 3
 text = "Audio"
 
-[node name="KeybindingsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+[node name="M7" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 303.0
+offset_right = 145.0
+offset_bottom = 360.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="KeybindingsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M7"]
 unique_name_in_owner = true
-offset_top = 354.0
+offset_right = 145.0
+offset_bottom = 42.0
+size_flags_vertical = 3
+text = "Keybindings"
+
+[node name="M6" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 364.0
 offset_right = 145.0
 offset_bottom = 421.0
 size_flags_vertical = 3
-text = "Keybindings"
+
+[node name="DebugButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M6"]
+unique_name_in_owner = true
+offset_right = 145.0
+offset_bottom = 57.0
+size_flags_vertical = 3
+text = "Debug"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V"]
 minimum_size = Vector2(0, 75)
@@ -243,6 +262,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="PresetSettings" type="VBoxContainer" parent="M/H/M/P/M"]
 unique_name_in_owner = true
+visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
@@ -662,6 +682,39 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 
 [node name="V" type="VBoxContainer" parent="M/H/M/P/M/KeybindingsSettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 10.0
+
+[node name="DebugSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+
+[node name="Name" type="Label" parent="M/H/M/P/M/DebugSettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Debug Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/DebugSettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/DebugSettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 70.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/DebugSettings/M"]
 offset_left = 30.0
 offset_top = 10.0
 offset_right = 821.0

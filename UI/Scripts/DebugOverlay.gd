@@ -1,13 +1,14 @@
 extends CanvasLayer
 
 #TODO: clean up, to much in process
+#TODO: change to a margin to add to normal gui
 
 var stats = []
 
 func add_stat(stat_name, object, stat_ref):
 	stats.append([stat_name, object, stat_ref])
 
-func _process(_delta):
+func _process(delta):
 	var label_text = ""
 	
 	var fps = Engine.get_frames_per_second()
