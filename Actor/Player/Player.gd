@@ -6,8 +6,6 @@ var gravity = 4  * Globals.TILE_SIZE
 #TODO change to a global gravity
 
 @onready var sm = $StateMachine
-@onready var velocityLabel: Label = $VelocityLabel
-@onready var stateLabel: Label = $StateLabel
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
 @onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
@@ -85,7 +83,8 @@ func _ready() -> void:
 	sm.init()
 	set_timers()
 	EventBus.emit_signal("ability_check")
-
+	DebugOverlay.add_stat("Velocity", self, "velocity")
+	DebugOverlay.add_stat("State", self, "currentState")
 
 func _unhandled_input(_event: InputEvent) -> void:
 	sm.handle_input(_event)
@@ -94,13 +93,13 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
-	velocityLabel.text = str(velocity.round())
 	facing = characterRig.scale.x
 
 
 func _process(_delta: float) -> void:
 	sm.visual(_delta)
 	sm.sound(_delta)
+
 
 
 func set_timers() -> void:

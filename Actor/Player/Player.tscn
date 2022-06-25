@@ -472,18 +472,6 @@ script = ExtResource( "20_75ug7" )
 [node name="WallClimb" type="Node" parent="StateMachine"]
 script = ExtResource( "22_xu4ye" )
 
-[node name="StateLabel" type="Label" parent="."]
-offset_left = -30.0
-offset_top = -152.0
-offset_right = 30.0
-offset_bottom = -129.0
-
-[node name="VelocityLabel" type="Label" parent="."]
-offset_left = -30.0
-offset_top = -184.0
-offset_right = 30.0
-offset_bottom = -161.0
-
 [node name="Camera2D2" type="Camera2D" parent="."]
 current = true
 zoom = Vector2(0.75, 0.75)
