@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 #TODO: clean up, to much in process
-#TODO: change to a margin to add to normal gui
+#FIXME: change to a margin to add to normal gui, 
 
 var stats = []
 
@@ -26,7 +26,7 @@ func _process(delta):
 		label_text += str(s[0], ": ", value)
 		label_text += "\n"
 	
-	$MarginContainer2/MarginContainer/Label.text = label_text
+	$%Label.text = label_text
 
 
 #class Property:

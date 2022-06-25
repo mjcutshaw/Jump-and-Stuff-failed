@@ -1,6 +1,7 @@
 extends ColorRect
 
-
+#FIXME: esc key is taking you backto settings
+#TODO: find a better way to swap menus instead of loading them all
 @onready var buttonResume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Resume
 @onready var buttonSettings: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Options
 @onready var buttonQuit: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Quit

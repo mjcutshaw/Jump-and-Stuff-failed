@@ -1,0 +1,165 @@
+[gd_scene load_steps=4 format=3 uid="uid://drwlygfx7p5bv"]
+
+[ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_b2qdy"]
+[ext_resource type="Script" path="res://UI/DebugMenu/Scripts/DebugAbilities.gd" id="2_4ltwa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
+shader = ExtResource( "1_b2qdy" )
+shader_param/blur = 1.77778
+shader_param/brightness = 0.822222
+
+[node name="DevConsole" type="ColorRect"]
+material = SubResource( "ShaderMaterial_t38au" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 780.0
+
+[node name="MarginContainer" type="MarginContainer" parent="M/VBoxContainer"]
+offset_right = 1240.0
+offset_bottom = 71.0
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="M/VBoxContainer/MarginContainer"]
+offset_right = 1240.0
+offset_bottom = 51.0
+
+[node name="Buttons" type="MarginContainer" parent="M/VBoxContainer/MarginContainer"]
+offset_right = 1240.0
+offset_bottom = 51.0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="M/VBoxContainer/MarginContainer/Buttons"]
+offset_top = 10.0
+offset_right = 1240.0
+offset_bottom = 41.0
+alignment = 1
+
+[node name="AbilityButton" type="Button" parent="M/VBoxContainer/MarginContainer/Buttons/HBoxContainer"]
+offset_left = 521.0
+offset_right = 591.0
+offset_bottom = 31.0
+text = "Abilities"
+
+[node name="StatsButton" type="Button" parent="M/VBoxContainer/MarginContainer/Buttons/HBoxContainer"]
+offset_left = 595.0
+offset_right = 642.0
+offset_bottom = 31.0
+text = "Stats"
+
+[node name="TeleportButton" type="Button" parent="M/VBoxContainer/MarginContainer/Buttons/HBoxContainer"]
+offset_left = 646.0
+offset_right = 719.0
+offset_bottom = 31.0
+text = "Teleport"
+
+[node name="HSeparator" type="HSeparator" parent="M/VBoxContainer"]
+offset_top = 75.0
+offset_right = 1240.0
+offset_bottom = 79.0
+
+[node name="Options" type="MarginContainer" parent="M/VBoxContainer"]
+offset_top = 83.0
+offset_right = 1240.0
+offset_bottom = 274.0
+theme_override_constants/margin_top = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="M/VBoxContainer/Options"]
+offset_top = 20.0
+offset_right = 1240.0
+offset_bottom = 191.0
+
+[node name="Abilities" type="HBoxContainer" parent="M/VBoxContainer/Options/CenterContainer"]
+offset_left = 419.0
+offset_right = 820.0
+offset_bottom = 171.0
+script = ExtResource( "2_4ltwa" )
+
+[node name="AllButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
+unique_name_in_owner = true
+offset_right = 28.0
+offset_bottom = 171.0
+text = "All"
+
+[node name="Jumps" type="VBoxContainer" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
+offset_left = 32.0
+offset_right = 112.0
+offset_bottom = 171.0
+
+[node name="JumpsButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Jumps"]
+offset_right = 80.0
+offset_bottom = 31.0
+text = "All Jumps"
+
+[node name="JumpAirButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Jumps"]
+offset_top = 35.0
+offset_right = 80.0
+offset_bottom = 66.0
+text = "Jump Air"
+
+[node name="Dashes" type="VBoxContainer" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
+offset_left = 116.0
+offset_right = 212.0
+offset_bottom = 171.0
+
+[node name="DashesButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Dashes"]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "All Dashes"
+
+[node name="DashAirButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Dashes"]
+offset_top = 35.0
+offset_right = 96.0
+offset_bottom = 66.0
+text = "Dash Air"
+
+[node name="DashSideButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Dashes"]
+offset_top = 70.0
+offset_right = 96.0
+offset_bottom = 101.0
+text = "Dash Side"
+
+[node name="DashUpButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Dashes"]
+offset_top = 105.0
+offset_right = 96.0
+offset_bottom = 136.0
+text = "Dash Up"
+
+[node name="DashDownButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Dashes"]
+offset_top = 140.0
+offset_right = 96.0
+offset_bottom = 171.0
+text = "Dash Down"
+
+[node name="Grapples" type="VBoxContainer" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
+offset_left = 216.0
+offset_right = 317.0
+offset_bottom = 171.0
+
+[node name="GrapplesButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Grapples"]
+offset_right = 101.0
+offset_bottom = 31.0
+text = "All Grapples"
+
+[node name="Glide" type="VBoxContainer" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
+offset_left = 321.0
+offset_right = 401.0
+offset_bottom = 171.0
+
+[node name="GlideButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities/Glide"]
+offset_right = 80.0
+offset_bottom = 31.0
+text = "All Glides"

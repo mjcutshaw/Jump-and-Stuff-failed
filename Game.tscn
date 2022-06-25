@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
-[ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/Console.tscn" id="1_rqd1j"]
 [ext_resource type="PackedScene" uid="uid://cqubfbjgd8a6v" path="res://Prefab/Interactables/Collectable.tscn" id="2_2c3h4"]
 [ext_resource type="Script" path="res://UI/Scripts/Gui.gd" id="2_gjups"]
 [ext_resource type="PackedScene" uid="uid://btq65egxmwese" path="res://UI/Pause_Menu.tscn" id="2_rq07h"]
 [ext_resource type="Script" path="res://UI/Scripts/InGameTimer.gd" id="3_8324u"]
 [ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
+[ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
 [ext_resource type="PackedScene" uid="uid://cb8ggieqgkdto" path="res://Prefab/AbilityBlocks/Ability_Wall.tscn" id="9_xekak"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -20,9 +20,6 @@ size = Vector2(64, 2000)
 size = Vector2(64, 1500)
 
 [node name="Game" type="Node"]
-
-[node name="Console" parent="." instance=ExtResource( "1_rqd1j" )]
-visible = false
 
 [node name="Gui" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -65,6 +62,9 @@ script = ExtResource( "3_8324u" )
 visible = false
 
 [node name="PauseMenu" parent="Gui" instance=ExtResource( "2_rq07h" )]
+
+[node name="DevConsole" parent="Gui" instance=ExtResource( "6_3uhkl" )]
+visible = false
 
 [node name="Playground" type="Node2D" parent="."]
 
