@@ -396,7 +396,7 @@ trail_length_secs = 0.5
 process_material = SubResource( "ParticlesMaterial_xwlcx" )
 
 [node name="ParticlesWallClimb" type="GPUParticles2D" parent="CharacterRig/Particles"]
-position = Vector2(14, -31)
+position = Vector2(15, -32)
 emitting = false
 amount = 80
 speed_scale = 2.0

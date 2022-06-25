@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerAbilities
 
-#TODO: move this into another script. shouldn't be reading resources
+#TODO: 
 enum abiliyList {
 	Null,
 	All,
@@ -27,6 +27,13 @@ var unlockedJumpAir: bool = false
 var unlockedJumpCrouch: bool = false
 var unlockedJumpLong: bool = false
 var unlockedJumpWall: bool = false
+#var unlockedJumpWallLeft: bool = false
+#var unlockedJumpWallRight: bool = false
+#var unlockedJumpWallLeft: bool = false
+#var unlockedJumpWallRight: bool = false
+#var unlockedDashAir: bool = false
+#var unlockedDashLeft: bool = false
+#var unlockedDashRight: bool = false
 var unlockedDashSide: bool = false
 var unlockedDashUp: bool = false
 var unlockedDashDown: bool = false
@@ -35,6 +42,8 @@ var unlockedGlide: bool = false
 var unlockedGroundPound: bool = false
 var unlockedGrapple: bool = false
 var unlockedClimb: bool = false
+#var unlockedClimbLeft: bool = false
+#var unlockedClimbRight: bool = false
 
 
 var maxJump: int = 1
