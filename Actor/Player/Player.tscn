@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=47 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -205,6 +205,42 @@ scale_curve = SubResource( "CurveTexture_sfigj" )
 color = Color(0, 0.0352941, 1, 1)
 hue_variation_max = 0.02
 
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_xwlcx"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+particle_flag_disable_z = true
+direction = Vector3(-0.5, -1, 0)
+spread = 55.52
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 40.0
+angular_velocity_min = -80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 5.0
+scale_curve = SubResource( "CurveTexture_vjq7j" )
+color = Color(0, 0, 0, 1)
+hue_variation_min = -0.12
+hue_variation_max = 0.2
+
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_ran7y"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(1, 20, 1)
+particle_flag_disable_z = true
+direction = Vector3(-0.5, 1, 0)
+spread = 55.52
+gravity = Vector3(0, 80, 0)
+initial_velocity_max = 40.0
+angular_velocity_min = -80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 3.0
+scale_curve = SubResource( "CurveTexture_vjq7j" )
+color = Color(0, 0, 0, 1)
+hue_variation_min = -0.12
+hue_variation_max = 0.2
+
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(30, 48)
 
@@ -225,6 +261,7 @@ metadata/_edit_lock_ = true
 [node name="CharacterRig" type="Node2D" parent="."]
 
 [node name="Body" type="Node2D" parent="CharacterRig"]
+metadata/_edit_group_ = true
 
 [node name="Body" type="ColorRect" parent="CharacterRig/Body"]
 anchor_left = 0.5
@@ -248,6 +285,27 @@ offset_bottom = -48.0
 offset_top = -40.0
 offset_right = 16.0
 offset_bottom = -36.0
+
+[node name="AbilityTracker" type="Node2D" parent="CharacterRig"]
+script = ExtResource( "2_ethd7" )
+
+[node name="DashUp" type="ColorRect" parent="CharacterRig/AbilityTracker"]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -22.0
+
+[node name="DashSide" type="ColorRect" parent="CharacterRig/AbilityTracker"]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 16.0
+offset_bottom = -19.0
+
+[node name="DashDown" type="ColorRect" parent="CharacterRig/AbilityTracker"]
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 16.0
+offset_bottom = -16.0
 
 [node name="Particles" type="Node2D" parent="CharacterRig"]
 script = ExtResource( "2_woaqj" )
@@ -327,26 +385,25 @@ randomness = 0.13
 trail_length_secs = 1.0
 process_material = SubResource( "ParticlesMaterial_pw8w5" )
 
-[node name="AbilityTracker" type="Node2D" parent="CharacterRig"]
-script = ExtResource( "2_ethd7" )
+[node name="ParticlesWallSlide" type="GPUParticles2D" parent="CharacterRig/Particles"]
+position = Vector2(-16, -32)
+emitting = false
+amount = 80
+speed_scale = 2.0
+explosiveness = 0.17
+local_coords = false
+trail_length_secs = 0.5
+process_material = SubResource( "ParticlesMaterial_xwlcx" )
 
-[node name="DashUp" type="ColorRect" parent="CharacterRig/AbilityTracker"]
-offset_left = -16.0
-offset_top = -24.0
-offset_right = 16.0
-offset_bottom = -22.0
-
-[node name="DashSide" type="ColorRect" parent="CharacterRig/AbilityTracker"]
-offset_left = -16.0
-offset_top = -21.0
-offset_right = 16.0
-offset_bottom = -19.0
-
-[node name="DashDown" type="ColorRect" parent="CharacterRig/AbilityTracker"]
-offset_left = -16.0
-offset_top = -18.0
-offset_right = 16.0
-offset_bottom = -16.0
+[node name="ParticlesWallClimb" type="GPUParticles2D" parent="CharacterRig/Particles"]
+position = Vector2(14, -31)
+emitting = false
+amount = 80
+speed_scale = 2.0
+explosiveness = 0.55
+local_coords = false
+trail_length_secs = 0.5
+process_material = SubResource( "ParticlesMaterial_ran7y" )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

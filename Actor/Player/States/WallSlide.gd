@@ -8,12 +8,13 @@ var quickSlideSpeed: int = 12 * Globals.TILE_SIZE
 func enter() -> void:
 	super.enter()
 
-	
+	player.particlesWallSlide.restart()
 
 
 func exit() -> void:
 	super.exit()
 
+	player.particlesWallSlide.emitting = false
 #	player.previousVelocity = player.velocity
 
 

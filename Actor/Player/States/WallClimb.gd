@@ -5,12 +5,13 @@ extends WallState
 func enter() -> void:
 	super.enter()
 
-	
+	player.particlesWallClimb.restart()
 
 
 func exit() -> void:
 	super.exit()
 
+	player.particlesWallClimb.emitting = false
 #	player.previousVelocity = player.velocity
 
 
@@ -49,6 +50,7 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.moveDirection.y == 0:
+		return State.WallGrab
 
 	return State.Null
