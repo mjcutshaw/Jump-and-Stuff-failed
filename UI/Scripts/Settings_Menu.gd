@@ -1,19 +1,19 @@
 extends ColorRect
 
-@onready var buttonPreset: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/M5/Presets
-@onready var buttonGeneral: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/M/General
-@onready var buttonDifficutly: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/M2/Difficulty
-@onready var buttonVideo: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/M3/Video
-@onready var buttonAudio: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/M4/Audio
-@onready var buttonKeybindings: Button = $M/H/ButtonMargins/V/M/P/M/Buttons/Keybindings
-@onready var buttonBack: Button = $M/H/ButtonMargins/V/M2/P/M/H/M/Back
+@onready var buttonPreset: Button = $%PresetsButton
+@onready var buttonGeneral: Button = $%GeneralButton
+@onready var buttonDifficutly: Button = $%DifficultyButton
+@onready var buttonVideo: Button = $%VideoButton
+@onready var buttonAudio: Button = $%AudioButton
+@onready var buttonKeybindings: Button = $%KeybindingsButton
+@onready var buttonBack: Button = $%BackButton
 
-@onready var settingPreset: VBoxContainer = $M/H/M/P/M/PresetSettings
-@onready var settingGeneral: VBoxContainer = $M/H/M/P/M/GeneralSettings
-@onready var settingDifficulty: VBoxContainer = $M/H/M/P/M/DifficultySettings
-@onready var settingVideo: VBoxContainer = $M/H/M/P/M/VideoSettings
-@onready var settingAudio: VBoxContainer = $M/H/M/P/M/AudioSettings
-@onready var settingKeybinding: VBoxContainer = $M/H/M/P/M/Keybindings
+@onready var settingPreset: VBoxContainer = $%PresetSettings
+@onready var settingGeneral: VBoxContainer = $%GeneralSettings
+@onready var settingDifficulty: VBoxContainer = $%DifficultySettings
+@onready var settingVideo: VBoxContainer = $%VideoSettings
+@onready var settingAudio: VBoxContainer = $%AudioSettings
+@onready var settingKeybinding: VBoxContainer = $%KeybindingsSettings
 
 
 func _ready() -> void:

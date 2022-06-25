@@ -78,7 +78,8 @@ offset_bottom = 66.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
-[node name="Presets" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
+[node name="PresetsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
+unique_name_in_owner = true
 offset_right = 145.0
 offset_bottom = 51.0
 size_flags_vertical = 3
@@ -92,7 +93,8 @@ offset_bottom = 137.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
-[node name="General" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
+[node name="GeneralButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
+unique_name_in_owner = true
 offset_right = 145.0
 offset_bottom = 52.0
 size_flags_vertical = 3
@@ -105,7 +107,8 @@ offset_bottom = 208.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
-[node name="Difficulty" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
+[node name="DifficultyButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
+unique_name_in_owner = true
 offset_right = 145.0
 offset_bottom = 52.0
 size_flags_vertical = 3
@@ -118,7 +121,8 @@ offset_bottom = 279.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
-[node name="Video" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
+[node name="VideoButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
+unique_name_in_owner = true
 offset_right = 145.0
 offset_bottom = 52.0
 size_flags_vertical = 3
@@ -131,13 +135,15 @@ offset_bottom = 350.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
-[node name="Audio" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
+[node name="AudioButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
+unique_name_in_owner = true
 offset_right = 145.0
 offset_bottom = 52.0
 size_flags_vertical = 3
 text = "Audio"
 
-[node name="Keybindings" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+[node name="KeybindingsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+unique_name_in_owner = true
 offset_top = 354.0
 offset_right = 145.0
 offset_bottom = 421.0
@@ -183,7 +189,8 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Back" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M"]
+[node name="BackButton" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M"]
+unique_name_in_owner = true
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 70.0
@@ -201,7 +208,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Quit" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M2"]
+[node name="QuitButton" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M2"]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 71.0
@@ -235,6 +242,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="PresetSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
@@ -267,6 +275,7 @@ offset_right = 821.0
 offset_bottom = 10.0
 
 [node name="GeneralSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 visible = false
 offset_left = 30.0
 offset_top = 30.0
@@ -300,6 +309,7 @@ offset_right = 821.0
 offset_bottom = 10.0
 
 [node name="DifficultySettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 visible = false
 offset_left = 30.0
 offset_top = 30.0
@@ -333,6 +343,7 @@ offset_right = 821.0
 offset_bottom = 10.0
 
 [node name="VideoSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 visible = false
 offset_left = 30.0
 offset_top = 30.0
@@ -366,6 +377,7 @@ offset_right = 821.0
 offset_bottom = 10.0
 
 [node name="AudioSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 visible = false
 offset_left = 30.0
 offset_top = 30.0
@@ -621,26 +633,27 @@ offset_right = 545.0
 offset_bottom = 84.0
 size_flags_horizontal = 4
 
-[node name="Keybindings" type="VBoxContainer" parent="M/H/M/P/M"]
+[node name="KeybindingsSettings" type="VBoxContainer" parent="M/H/M/P/M"]
+unique_name_in_owner = true
 visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
 offset_bottom = 630.0
 
-[node name="Name" type="Label" parent="M/H/M/P/M/Keybindings"]
+[node name="Name" type="Label" parent="M/H/M/P/M/KeybindingsSettings"]
 offset_right = 851.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 32
 text = "Keybindings Settings"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/Keybindings"]
+[node name="HSeparator" type="HSeparator" parent="M/H/M/P/M/KeybindingsSettings"]
 offset_top = 52.0
 offset_right = 851.0
 offset_bottom = 56.0
 
-[node name="M" type="MarginContainer" parent="M/H/M/P/M/Keybindings"]
+[node name="M" type="MarginContainer" parent="M/H/M/P/M/KeybindingsSettings"]
 offset_top = 60.0
 offset_right = 851.0
 offset_bottom = 70.0
@@ -648,10 +661,10 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
 
-[node name="V" type="VBoxContainer" parent="M/H/M/P/M/Keybindings/M"]
+[node name="V" type="VBoxContainer" parent="M/H/M/P/M/KeybindingsSettings/M"]
 offset_left = 30.0
 offset_top = 10.0
 offset_right = 821.0
 offset_bottom = 10.0
 
-[connection signal="pressed" from="M/H/ButtonMargins/V/M2/P/M/H/M2/Quit" to="M/H/ButtonMargins/V/M2/P/M/H/M2/Quit" method="_on_quit_pressed"]
+[connection signal="pressed" from="M/H/ButtonMargins/V/M2/P/M/H/M2/QuitButton" to="M/H/ButtonMargins/V/M2/P/M/H/M2/QuitButton" method="_on_quit_pressed"]

@@ -1,7 +1,8 @@
 extends Resource
 class_name PlayerAbilities
 
-#TODO: 
+#TODO: add more conditions for unlocks
+#TODO: all abilities should get an upgrade and shartds/modifires/charms
 enum abiliyList {
 	Null,
 	All,
