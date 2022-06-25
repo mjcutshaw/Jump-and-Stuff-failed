@@ -1,7 +1,8 @@
 extends HBoxContainer
 
 #TODO: rest of abilities
-#TOD: need to be able to relock abilities
+#TODO: need to be able to relock abilities
+#TODO: change color of text depending on what is unlocked
 @onready var allAbilitiesButton: Button = $%AllButton
 
 @onready var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")

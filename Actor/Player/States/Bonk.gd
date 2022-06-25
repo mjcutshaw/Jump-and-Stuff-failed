@@ -1,5 +1,6 @@
 extends MoveState
 #TODO: turn off bonk in settings
+#FIXME: previous velocity doesn't work for this
 
 var currentBonkTime: float
 var bonkTime: float = 1.5
