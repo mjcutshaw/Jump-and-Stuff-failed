@@ -21,7 +21,7 @@ func _process(delta):
 	
 	for s in stats:
 		var value = null
-		
+		#FIXME: make readable code. breaks on reset
 		value = s[1].get(s[2])
 		label_text += str(s[0], ": ", value)
 		label_text += "\n"
