@@ -16,6 +16,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
+	#TODO: get momentun with neutral moveDirection
 	velocity_logic(moveSpeed/2)
 	gravity_logic(gravityGlide, _delta)
 	fall_speed_logic(terminalVelocity/6)

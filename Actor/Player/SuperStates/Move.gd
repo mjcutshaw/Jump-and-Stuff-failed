@@ -92,8 +92,21 @@ func move_direction_logic() -> void:
 
 
 func move_strength_logic() -> void:
+	#TODO: decide if movement strenght is needed
 	player.moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
 	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
+
+
+func velocity_logic(speed) -> void:
+	#TODO: variable to use moveDirection
+	player.velocity.x = player.moveDirection.x * speed
+
+
+func momentum_logic(speed, useMoveDirection: bool) -> void:
+	if useMoveDirection:
+		player.velocity.x = player.moveDirection.x * max(abs(speed), abs(player.velocity.x))
+	if !useMoveDirection:
+		player.velocity.x =  max(abs(speed), abs(player.velocity.x))
 
 
 func wall_direction_logic() -> void:

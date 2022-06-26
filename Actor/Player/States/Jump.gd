@@ -30,7 +30,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeed)
+	momentum_logic(moveSpeed, true)
 	gravity_logic(gravityJump, _delta)
 	
 	if player.test_move(player.global_transform, Vector2(0, player.velocity.y * _delta)):

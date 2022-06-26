@@ -69,13 +69,6 @@ func state_check(_delta: float) -> int:
 	return State.Null
 
 
-func velocity_logic(speed) -> void:
-	player.velocity.x = player.moveStrength.x * max(abs(speed), abs(player.velocity.x))
-	#FIXME: need to move to Move state, and create a new function for momentum
-
-
-
-
 func fall_speed_logic(amount) -> void:
 	player.velocity.y = min(player.velocity.y, amount)
 

@@ -13,17 +13,15 @@ func exit() -> void:
 	super.exit()
 
 	player.previousVelocity = player.velocity
-	player.neutralMoveDirection  = false
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
 	if !player.neutralMoveDirection:
-		player.velocity.x =  moveSpeed
+		velocity_logic(moveSpeed)
 	if player.neutralMoveDirection:
-		pass
-		#TODO: velocity needs to be here
+		momentum_logic(moveSpeed, false)
 	if player.moveDirection != Vector2.ZERO and player.neutralMoveDirection:
 		await get_tree().create_timer(.2).timeout
 		player.neutralMoveDirection = false
