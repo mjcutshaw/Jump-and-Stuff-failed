@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2byqkif24cuh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rvgj"]
+radius = 128.25
+
+[node name="SpinningWheel" type="AnimatableBody2D"]
+constant_angular_velocity = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "CircleShape2D_3rvgj" )

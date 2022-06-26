@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://behtbeeb2ujke"]
+
+[ext_resource type="Script" path="res://Prefab/Platform/Scripts/conveyor.gd" id="1_w77u4"]
+[ext_resource type="Texture2D" uid="uid://o2vgdxq42hhj" path="res://icon.png" id="2_g3ub6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j605d"]
+size = Vector2(640, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b2bb"]
+atlas = ExtResource( "2_g3ub6" )
+region = Rect2(0, 0, 640, 64)
+
+[node name="Conveyor" type="StaticBody2D"]
+collision_layer = 8192
+collision_mask = 64
+script = ExtResource( "1_w77u4" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "RectangleShape2D_j605d" )
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_repeat = 2
+texture = SubResource( "AtlasTexture_8b2bb" )

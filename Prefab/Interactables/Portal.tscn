@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bha7kwx2svrqh"]
+
+[ext_resource type="Script" path="res://Objects/AbilityBlocks/Scripts/portal.gd" id="1_h7485"]
+[ext_resource type="PackedScene" uid="uid://dr3bteg0ehgkq" path="res://Objects/Prefabs/Portal.tscn" id="2_g6apy"]
+
+[node name="Portals" type="Node2D"]
+script = ExtResource( "1_h7485" )
+
+[node name="Portal1" parent="." instance=ExtResource( "2_g6apy" )]
+script = null
+
+[node name="Portal2" parent="." instance=ExtResource( "2_g6apy" )]
+position = Vector2(80, 0)
+script = null
+
+[node name="Lock" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Portal1" to="." method="_on_portal_1_body_entered"]
+[connection signal="body_exited" from="Portal1" to="." method="_on_portal_1_body_exited"]
+[connection signal="body_entered" from="Portal2" to="." method="_on_portal_2_body_entered"]
+[connection signal="body_exited" from="Portal2" to="." method="_on_portal_2_body_exited"]
+[connection signal="timeout" from="Lock" to="." method="_on_lock_timeout"]
