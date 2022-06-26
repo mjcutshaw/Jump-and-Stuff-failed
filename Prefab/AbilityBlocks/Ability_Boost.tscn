@@ -6,6 +6,8 @@
 size = Vector2(64, 64)
 
 [node name="AbilityBoost" type="Area2D"]
+collision_layer = 256
+collision_mask = 64
 script = ExtResource( "1_bu0bd" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
