@@ -15,7 +15,11 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.velocity = player.previousVelocity
+	if player.moveDirection == Vector2.ZERO:
+		player.neutralMoveDirection = true
+	else:
+		player.neutralMoveDirection = false
+		player.velocity = player.previousVelocity
 
 
 func physics(_delta) -> void:

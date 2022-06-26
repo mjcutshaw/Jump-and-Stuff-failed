@@ -48,6 +48,7 @@ var jumpFlip: bool = false
 var jumpCrouch: bool = false
 var jumpLong: bool = false
 var dashJumpBoost: bool = false
+var neutralMoveDirection: bool = false
 
 var facing: int
 
@@ -55,21 +56,6 @@ var currentState
 
 var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
-
-#TODO: turn into a reusable resource
-var unlockedJump: bool = false
-var unlockedJumpAir: bool = false
-var unlockedJumpCrouch: bool = false
-var unlockedJumpLong: bool = false
-var unlockedJumpWall: bool = false
-var unlockedDashSide: bool = false
-var unlockedDashUp: bool = false
-var unlockedDashDown: bool = true
-var unlockedDashWall: bool = false
-var unlockedGlide: bool = false
-var unlockedGroundPound: bool = false
-var unlockedGrapple: bool = false
-var unlockedClimb: bool = false
 
 
 var remainingJump: int

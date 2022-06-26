@@ -1,23 +1,32 @@
 extends AirState
 
-
+#TODO: make friction when changing directions
 func enter() -> void:
 	super.enter()
 
-	
+	if player.moveDirection == Vector2.ZERO:
+		player.neutralMoveDirection = true
+		
 
 
 func exit() -> void:
 	super.exit()
 
 	player.previousVelocity = player.velocity
-	
+	player.neutralMoveDirection  = false
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	velocity_logic(moveSpeed)
+	if !player.neutralMoveDirection:
+		player.velocity.x =  moveSpeed
+	if player.neutralMoveDirection:
+		pass
+		#TODO: velocity needs to be here
+	if player.moveDirection != Vector2.ZERO and player.neutralMoveDirection:
+		await get_tree().create_timer(.2).timeout
+		player.neutralMoveDirection = false
 	gravity_logic(gravityFall, _delta)
 	fall_speed_logic(terminalVelocity)
 
