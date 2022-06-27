@@ -1,6 +1,6 @@
 extends MoveState
 #TODO: turn off bonk in settings
-#FIXME: previous velocity doesn't work for this
+#FIXME: previous velocity doesn't work for this, player currently needs to be in two states before bonking
 
 var currentBonkTime: float
 var bonkTime: float = 1.5

@@ -4,8 +4,7 @@ extends AirState
 func enter() -> void:
 	super.enter()
 
-	if player.moveDirection == Vector2.ZERO:
-		player.neutralMoveDirection = true
+	neutral_move_direction_logic()
 
 func exit() -> void:
 	super.exit()
@@ -16,7 +15,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	#TODO: add this to other places
+	#TODO: turn into a reusable function
 	if !player.neutralMoveDirection:
 		velocity_logic(moveSpeed)
 	if player.neutralMoveDirection:

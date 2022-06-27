@@ -60,6 +60,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
+	
 	#TODO: figure a better way so it is not spammed
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
 		return State.DashSide
@@ -110,6 +111,12 @@ func momentum_logic(speed, useMoveDirection: bool) -> void:
 			player.velocity.x =  player.velocity.x
 		else:
 			player.velocity.x =  max(abs(speed), abs(player.velocity.x))
+
+func neutral_move_direction_logic() -> void:
+	if player.moveDirection == Vector2.ZERO:
+		player.neutralMoveDirection = true
+	else:
+		player.neutralMoveDirection = false
 
 
 func wall_direction_logic() -> void:

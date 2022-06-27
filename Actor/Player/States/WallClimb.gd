@@ -1,6 +1,6 @@
 extends WallState
 
-#TODO: has a bad interaction with exiting into glide
+#TODO: ledge detection to climb up
 
 func enter() -> void:
 	super.enter()
@@ -12,7 +12,8 @@ func exit() -> void:
 	super.exit()
 
 	player.particlesWallClimb.emitting = false
-#	player.previousVelocity = player.velocity
+	if !player.is_on_wall():
+		player.velocity.y = 0
 
 
 func physics(_delta) -> void:

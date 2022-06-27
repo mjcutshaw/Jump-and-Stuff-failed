@@ -1,9 +1,7 @@
 extends DashState
 
-#TODO: dashing with a quick jump press to wave dash
 
 var currentDashTime: float = 0
-
 
 
 func enter() -> void:
