@@ -1,7 +1,7 @@
 extends Label
 
 #TODO: Move to main node
-var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 
 
 
@@ -16,22 +16,22 @@ func text_reset() -> void:
 
 #TODO: logic on increased dashes
 func ability_unlocked_announcement(ability: int) -> void:
-	if ability == PlayerAbilities.abiliyList.All:
+	if ability == Abilities.abiliyList.All:
 		text = "All abilities unlocked"
-	elif ability == PlayerAbilities.abiliyList.Jump:
+	elif ability == Abilities.abiliyList.Jump:
 		text = "Jump Unlocked"
-	elif ability == PlayerAbilities.abiliyList.JumpAir:
+	elif ability == Abilities.abiliyList.JumpAir:
 		if Abilities.maxJumpAir > 0:
 			text = "Air Jump +1"
 		else:
 			text = "Air Jump Unlocked"
-	elif ability == PlayerAbilities.abiliyList.Dash:
+	elif ability == Abilities.abiliyList.Dash:
 		text = "Dashes Unlocked"
-	elif ability == PlayerAbilities.abiliyList.DashSide:
+	elif ability == Abilities.abiliyList.DashSide:
 		text = "Side Dash Unlocked"
-	elif ability ==  PlayerAbilities.abiliyList.DashUp:
+	elif ability ==  Abilities.abiliyList.DashUp:
 		text = "Up Dash Unlocked"
-	elif ability == PlayerAbilities.abiliyList.DashDown:
+	elif ability == Abilities.abiliyList.DashDown:
 		text = "Down Dash Unlocked"
 	else:
 		print("Null Ability Unlocked Announcement " + str(ability))

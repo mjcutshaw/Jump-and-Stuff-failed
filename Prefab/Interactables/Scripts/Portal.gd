@@ -1,7 +1,6 @@
 extends Node2D
 class_name Portal
 
-#TODO: Change dash blocks to ability blocks
 #TODO: setting for multiple portals to one
 #TODO: move stuff to base portal script for less repeated code
 
@@ -22,13 +21,13 @@ func _ready():
 	if dashDirection == 0:
 		print("null Portal")
 	elif dashDirection == 1:
-		self.modulate = Global.dashSideColor
+		self.modulate = Globals.dashSideColor
 		add_to_group("PortalDashSide")
 	elif dashDirection == 2:
-		self.modulate = Global.dashUpColor
+		self.modulate = Globals.dashUpColor
 		add_to_group("PortalDashUp")
 	elif dashDirection == 3:
-		self.modulate = Global.dashDownColor
+		self.modulate = Globals.dashDownColor
 		add_to_group("PortalDashDown")
 	elif dashDirection == 4:
 		add_to_group("PortalAny")

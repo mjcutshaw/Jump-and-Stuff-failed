@@ -1,7 +1,7 @@
 extends Area2D
 
 #FIXME: kinda works really badly
-var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 @onready var raycastBoost: RayCast2D = $RayCast2D
 @export var ability: PlayerAbilities.abiliyList
 @export var rotateBlock: bool = false

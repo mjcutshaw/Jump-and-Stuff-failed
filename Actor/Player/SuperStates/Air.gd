@@ -1,8 +1,9 @@
 class_name AirState
 extends MoveState
 
-#TODO: if move direction is not used when entering a state let it carry momentom, once it is use that to control speed
+
 #TODO: will need locks/grace period to switch movedirction to velocity direction after being redirected
+
 func enter() -> void:
 	super.enter()
 

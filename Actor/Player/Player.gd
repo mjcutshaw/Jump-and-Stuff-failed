@@ -1,9 +1,7 @@
 class_name Player
 extends CharacterBody2D
-#TODO: raycast to the ground to put a drop shadow on the ground
-#TODO: camera needs to lead the player
-var gravity = 4  * Globals.TILE_SIZE
-#TODO change to a global gravity
+
+
 
 @onready var sm = $StateMachine
 @onready var characterRig: Node2D = $CharacterRig
@@ -26,7 +24,7 @@ var gravity = 4  * Globals.TILE_SIZE
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
 
-var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
@@ -82,7 +80,6 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	sm.visual(_delta)
 	sm.sound(_delta)
-
 
 
 func set_timers() -> void:
@@ -176,7 +173,6 @@ func attempt_vertical_corner_correction(amount: int, delta) -> void:
 				return
 
 
-#TODO: look into make this only happen if player is moving the stick in that direction. or  bigger hop when do that
 func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 	for i in range(1, amount*2+1):
 		for j in [-1.0, 1.0]:

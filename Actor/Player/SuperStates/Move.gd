@@ -62,11 +62,11 @@ func handle_input(_event: InputEvent) -> int:
 
 	
 	#TODO: figure a better way so it is not spammed
-	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
+	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(Abilities.abiliyList.DashSide):
 		return State.DashSide
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(PlayerAbilities.abiliyList.DashDown):
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(Abilities.abiliyList.DashDown):
 		return State.DashDown
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(PlayerAbilities.abiliyList.DashUp):
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(Abilities.abiliyList.DashUp):
 		return State.DashUp
 
 	return State.Null
@@ -93,7 +93,6 @@ func move_direction_logic() -> void:
 
 
 func move_strength_logic() -> void:
-	#TODO: decide if movement strenght is needed
 	player.moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
 	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
 

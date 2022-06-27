@@ -7,7 +7,7 @@ var currentDashTime: float = 0
 func enter() -> void:
 	super.enter()
 
-	player.consume(PlayerAbilities.abiliyList.DashDown, 1)
+	player.consume(Abilities.abiliyList.DashDown, 1)
 	player.pass_through_collisions(Globals.DASH_DOWN, false)
 	currentDashTime = dashTime
 	player.velocity.y = max(dashSpeed, abs(player.velocity.y))

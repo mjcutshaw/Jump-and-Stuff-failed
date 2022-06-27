@@ -37,9 +37,9 @@ func handle_input(_event: InputEvent) -> int:
 		return State.Jump
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
 		return State.DashSide
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(PlayerAbilities.abiliyList.DashDown):
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(Abilities.abiliyList.DashDown):
 		return State.DashDown
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(PlayerAbilities.abiliyList.DashUp):
+	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(Abilities.abiliyList.DashUp):
 		return State.DashUp
 	
 	return State.Null

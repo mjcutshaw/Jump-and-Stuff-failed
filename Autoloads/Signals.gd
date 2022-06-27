@@ -1,17 +1,14 @@
 extends Node
 
-#TODO: change to SignalBus
 
 signal jumped
 signal dashed
 signal spun
-#TODO: All abilities
 
 signal bonked
 
 signal ability_check
 signal ability_unlocked(data)
-signal unlocked_dash_side
 
 signal player_spawned
 signal player_died

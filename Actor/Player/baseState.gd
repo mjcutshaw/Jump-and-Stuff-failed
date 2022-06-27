@@ -28,7 +28,7 @@ enum State {
 	WallClimb,
 }
 
-var PlayerAbilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 var player: Player
 
 

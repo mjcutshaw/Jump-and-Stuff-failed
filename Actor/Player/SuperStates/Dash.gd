@@ -1,7 +1,7 @@
 class_name DashState
 extends MoveState
 
-#TODO: create collision layers for abilities
+
 var dashTime = 0.3
 var dashDistance: int = 10 * Globals.TILE_SIZE
 var dashSpeed: int = dashDistance/dashTime
@@ -50,6 +50,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	#TODO: move stuff from dash states once timer is added
+	
 
 	return State.Null

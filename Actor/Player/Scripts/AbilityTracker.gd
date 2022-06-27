@@ -5,34 +5,34 @@ extends Node2D
 @onready var dashDownTracker: ColorRect = $DashDown
 @onready var player: Player = get_parent().get_parent()
 
-var abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 
 
 func _ready() -> void:
-	if !abilities.unlockedDashSide:
+	if !Abilities.unlockedDashSide:
 		dashSideTracker.visible = false
-	if !abilities.unlockedDashUp:
+	if !Abilities.unlockedDashUp:
 		dashUpTracker.visible = false
-	if !abilities.unlockedDashDown:
+	if !Abilities.unlockedDashDown:
 		dashDownTracker.visible = false
 	EventBus.ability_check.connect(self.tracker_update)
 	EventBus.ability_unlocked.connect(self.tracker_visible)
 
 
 func tracker_visible(ability) -> void:
-	if ability == abilities.abiliyList.All:
+	if ability == Abilities.abiliyList.All:
 		dashSideTracker.visible = true
 		dashUpTracker.visible = true
 		dashDownTracker.visible = true
-	if ability == abilities.abiliyList.Dash:
+	if ability == Abilities.abiliyList.Dash:
 		dashSideTracker.visible = true
 		dashUpTracker.visible = true
 		dashDownTracker.visible = true
-	if ability == abilities.abiliyList.DashSide:
+	if ability == Abilities.abiliyList.DashSide:
 		dashSideTracker.visible = true
-	if ability == abilities.abiliyList.DashUp:
+	if ability == Abilities.abiliyList.DashUp:
 		dashUpTracker.visible = true
-	if ability == abilities.abiliyList.DashDown:
+	if ability == Abilities.abiliyList.DashDown:
 		dashDownTracker.visible = true
 
 

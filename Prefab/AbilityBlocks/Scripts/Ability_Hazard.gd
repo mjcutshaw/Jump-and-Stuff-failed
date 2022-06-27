@@ -1,7 +1,7 @@
 extends Area2D
 
 #TODO: hurts the player when enter, unless using ability
-var Abilities: Resource = preload ("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 @export var ability: PlayerAbilities.abiliyList
 
 # Called when the node enters the scene tree for the first time.

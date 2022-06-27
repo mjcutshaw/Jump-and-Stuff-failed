@@ -7,11 +7,10 @@ var jumpBoostTime: float = 0.10
 var currentjumpBoostTime: float = 0
 
 
-
 func enter() -> void:
 	super.enter()
 
-	player.consume(PlayerAbilities.abiliyList.DashSide, 1)
+	player.consume(Abilities.abiliyList.DashSide, 1)
 	player.pass_through_collisions(Globals.DASH_SIDE, false)
 	currentDashTime = dashTime
 	dashDirection = player.facing
