@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=51 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -14,11 +14,15 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Idle.gd" id="8"]
 [ext_resource type="Script" path="res://Actor/Player/States/Apex.gd" id="8_ytsre"]
 [ext_resource type="Script" path="res://Actor/Player/States/Spawn.gd" id="9"]
+[ext_resource type="Script" path="res://Actor/Player/States/JumpCrouch.gd" id="11_35x33"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpAir.gd" id="11_bak4t"]
 [ext_resource type="AudioStream" uid="uid://0q1wp2okv2ph" path="res://Assests/Sounds/Actor/Player/error_007.ogg" id="11_xicl7"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashUp.gd" id="12_hwflk"]
 [ext_resource type="Script" path="res://Actor/Player/States/GroundPound.gd" id="12_n7gfn"]
 [ext_resource type="AudioStream" uid="uid://beuo0eqvxuw5e" path="res://Assests/Sounds/Actor/Player/FOOTSTEPS (A) Walking Loop 01.ogg" id="12_pn3dh"]
+[ext_resource type="Script" path="res://Actor/Player/States/JumpDash.gd" id="12_rdy2p"]
+[ext_resource type="Script" path="res://Actor/Player/States/JumpFlip.gd" id="13_7jawe"]
+[ext_resource type="Script" path="res://Actor/Player/States/JumpLong.gd" id="13_gt4tq"]
 [ext_resource type="Script" path="res://Actor/Player/States/Glide.gd" id="16_xbsxy"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallSlide.gd" id="18_e75om"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/DropShadow.gd" id="18_ef8so"]
@@ -432,6 +436,18 @@ script = ExtResource( "6_ckl38" )
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( "4" )
+
+[node name="JumpCrouch" type="Node" parent="StateMachine"]
+script = ExtResource( "11_35x33" )
+
+[node name="JumpDash" type="Node" parent="StateMachine"]
+script = ExtResource( "12_rdy2p" )
+
+[node name="JumpLong" type="Node" parent="StateMachine"]
+script = ExtResource( "13_gt4tq" )
+
+[node name="JumpFlip" type="Node" parent="StateMachine"]
+script = ExtResource( "13_7jawe" )
 
 [node name="JumpAir" type="Node" parent="StateMachine"]
 script = ExtResource( "11_bak4t" )

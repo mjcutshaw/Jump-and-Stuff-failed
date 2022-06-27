@@ -47,7 +47,6 @@ func handle_input(_event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("jump"):
 		currentjumpBoostTime = jumpBoostTime
-		pass
 
 	return State.Null
 
@@ -61,8 +60,7 @@ func state_check(_delta: float) -> int:
 		return State.Null
 	
 	if currentjumpBoostTime > 0:
-		player.dashJumpBoost = true
-		return State.Jump
+		return State.JumpDash
 	
 	if player.is_on_floor():
 		if player.moveDirection.x != 0:

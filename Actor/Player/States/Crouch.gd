@@ -50,10 +50,10 @@ func handle_input(_event: InputEvent) -> int:
 			return State.Idle
 	if Input.is_action_just_pressed("jump"):
 		if abs(player.velocity.x) > 30:
-			player.jumpLong = true
+			return State.JumpLong
 		else:
-			player.jumpCrouch = true
-		return State.Jump
+			return State.JumpCrouch
+		
 
 	return State.Null
 

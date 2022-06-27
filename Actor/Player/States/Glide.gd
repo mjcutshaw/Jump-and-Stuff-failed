@@ -18,7 +18,6 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	#TODO: get momentun with neutral moveDirection
 	if !player.neutralMoveDirection:
 		velocity_logic(moveSpeed/glideSpeedModifier)
 	if player.neutralMoveDirection:

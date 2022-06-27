@@ -2,8 +2,9 @@ extends GroundState
 
 #TODO: looking into dampening the acceleration to get going fast, then takes longer to get to top speed
 #FIXME: jump flip is not correctly implemented and only works flipping from the right
-#TODO: create ledge dtop detection. to quickly stop in movedirection = 0 when coming to a ledge
+#TODO: create ledge stop detection. to quickly stop in movedirection = 0 when coming to a ledge
 #TODO: make friction when changing directions
+
 var goIdle: bool = false
 var rotation: float
 

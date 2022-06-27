@@ -45,9 +45,6 @@ var jumpedTriple: bool = false
 var canJumpDouble: bool = false
 var canJumpTriple: bool = false
 var jumpFlip: bool = false
-var jumpCrouch: bool = false
-var jumpLong: bool = false
-var dashJumpBoost: bool = false
 var neutralMoveDirection: bool = false
 
 var facing: int

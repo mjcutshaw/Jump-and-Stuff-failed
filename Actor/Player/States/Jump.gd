@@ -1,9 +1,6 @@
-extends AirState
-class_name JumpGround
+extends JumpState
 
-#TODO: Create jump superstate, will need to have special function made to read variables to send to proper dash
-#TODO: flip player in direction when jump flip
-#TODO: break out jumps to own states, will make  easier to preserve momentum when desired
+#TODO: bring back consecutive jumps?
 
 func enter() -> void:
 	super.enter()
@@ -12,17 +9,17 @@ func enter() -> void:
 	if player.jumpFlip:
 		print("side jump")
 		player.jumpFlip = false
-	jump_ground_logic()
-	
-#	player.consume(player.a.Jump , 1)
+#	jump_ground_logic()
+	player.velocity.y = jumpVelocityMax
+	player.jumped = true
+	player.soundJump.play()
+	player.particlesJump.restart()
+
 
 
 func exit() -> void:
 	super.exit()
 
-	player.soundJump.stop()
-	player.soundJump.pitch_scale = 1
-	player.previousVelocity = player.velocity
 	player.characterRig.rotation = 0 * PI
 	player.jumpFlip = false
 
@@ -31,16 +28,12 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	momentum_logic(moveSpeed, true)
-	gravity_logic(gravityJump, _delta)
-	
-	if player.test_move(player.global_transform, Vector2(0, player.velocity.y * _delta)):
-		player.attempt_horizontal_corner_correction(player.jumpCornerCorrectionHorizontal, _delta)
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(player.lastDirection.x)
+	
 
 
 func sound(_delta: float) -> void:
@@ -54,16 +47,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("jump"):
-		if player.jumpedDouble or player.jumpedTriple:
-			#FIXME: figure out a better way to push the minium hight for these jumps
-			player.velocity.y = max(player.velocity.y, jumpVelocityMin * 5)
-		else: 
-			player.velocity.y = max(player.velocity.y, jumpVelocityMin)
-		jump_canceled()
-		return State.Fall
-	if Input.is_action_just_pressed("ground_pound"):
-		return State.GroundPound
+	
 
 	return State.Null
 
@@ -83,32 +67,7 @@ func state_check(_delta: float) -> int:
 
 
 func jump_ground_logic():
-	#TODO: particles for long, crouch and dash
-	if player.dashJumpBoost:
-		player.velocity.y = jumpVelocityMax
-		player.velocity.x = moveSpeed * dashJumpBoostVelocityModifier * player.moveDirection.x
-		player.particlesJumpTriple.restart()
-		player.soundJump.pitch_scale = 0.25
-		player.soundJump.play()
-		player.dashJumpBoost = false
-		print("dash jump boost")
-	elif player.jumpLong:
-		player.velocity.y = jumpVelocityMax
-		player.velocity.x = moveSpeed * jumpLongVelocityModifier * player.moveDirection.x
-		player.particlesJumpTriple.restart()
-		player.soundJump.pitch_scale = 0.5
-		player.soundJump.play()
-		player.jumpLong = false
-		print("long jump")
-	elif player.jumpCrouch:
-		player.velocity.y = jumpVelocityMax * jumpCrouchVelocityModifier
-		player.velocity.x = 0
-		player.particlesJumpTriple.restart()
-		player.soundJump.pitch_scale = 2
-		player.soundJump.play()
-		player.jumpCrouch = false
-		print("crouch jump")
-	elif player.canJumpDouble:
+	if player.canJumpDouble:
 		player.velocity.y = jumpVelocityMax * jumpDoubleVelocityModifier
 		player.soundJump.pitch_scale = 1.25
 		player.particlesJumpDouble.restart()
@@ -133,12 +92,6 @@ func jump_ground_logic():
 		player.soundJump.play()
 		player.particlesJump.restart()
 		print("single jump")
-
-
-func jump_canceled():
-	player.jumped = false
-	player.jumpedDouble = false
-	player.jumpedTriple = false
 
 
 func flip():
