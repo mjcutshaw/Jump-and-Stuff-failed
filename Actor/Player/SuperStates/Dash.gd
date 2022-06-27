@@ -5,6 +5,11 @@ extends MoveState
 var dashTime = 0.6
 var dashSpeed: int = moveSpeed * 2.5
 
+#TODO:  convert to these
+var distance:= 6 * Globals.TILE_SIZE
+var duration:= 0.3
+@onready var speed:= distance/duration
+
 
 func enter() -> void:
 	super.enter()

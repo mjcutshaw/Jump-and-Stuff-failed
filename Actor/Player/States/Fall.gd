@@ -18,6 +18,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
+	#TODO: add this to other places
 	if !player.neutralMoveDirection:
 		velocity_logic(moveSpeed)
 	if player.neutralMoveDirection:

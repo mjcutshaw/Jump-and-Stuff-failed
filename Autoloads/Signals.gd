@@ -17,9 +17,10 @@ signal player_spawned
 signal player_died
 signal checkpoint(data)
 
-signal small_screen_shake
-signal medium_screen_shake
-signal large_screen_shake
+signal settings_update
+
+
+
 
 signal level_completed(data)
 signal level_started(data)
