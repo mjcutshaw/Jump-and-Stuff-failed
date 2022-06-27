@@ -106,7 +106,10 @@ func momentum_logic(speed, useMoveDirection: bool) -> void:
 	if useMoveDirection:
 		player.velocity.x = player.moveDirection.x * max(abs(speed), abs(player.velocity.x))
 	if !useMoveDirection:
-		player.velocity.x =  max(abs(speed), abs(player.velocity.x))
+		if player.velocity.x == 0:
+			player.velocity.x =  player.velocity.x
+		else:
+			player.velocity.x =  max(abs(speed), abs(player.velocity.x))
 
 
 func wall_direction_logic() -> void:

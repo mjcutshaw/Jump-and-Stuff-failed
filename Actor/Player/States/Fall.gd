@@ -6,8 +6,6 @@ func enter() -> void:
 
 	if player.moveDirection == Vector2.ZERO:
 		player.neutralMoveDirection = true
-		
-
 
 func exit() -> void:
 	super.exit()

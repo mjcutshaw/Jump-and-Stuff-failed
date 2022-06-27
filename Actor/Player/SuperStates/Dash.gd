@@ -2,13 +2,9 @@ class_name DashState
 extends MoveState
 
 #TODO: create collision layers for abilities
-var dashTime = 0.6
-var dashSpeed: int = moveSpeed * 2.5
-
-#TODO:  convert to these
-var distance:= 6 * Globals.TILE_SIZE
-var duration:= 0.3
-@onready var speed:= distance/duration
+var dashTime = 0.3
+var dashDistance: int = 10 * Globals.TILE_SIZE
+var dashSpeed: int = dashDistance/dashTime
 
 
 func enter() -> void:
@@ -24,7 +20,7 @@ func exit() -> void:
 		player.neutralMoveDirection = true
 	else:
 		player.neutralMoveDirection = false
-		player.velocity = player.previousVelocity
+		velocity_logic(moveSpeed)
 
 
 func physics(_delta) -> void:
