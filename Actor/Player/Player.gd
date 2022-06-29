@@ -2,7 +2,6 @@ class_name Player
 extends CharacterBody2D
 
 
-
 @onready var sm = $StateMachine
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
