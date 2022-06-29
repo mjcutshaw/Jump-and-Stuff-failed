@@ -7,12 +7,12 @@ script = ExtResource( "1_so3t6" )
 
 [node name="Music" type="Node2D" parent="."]
 
-[node name="Music1" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Music1" type="AudioStreamPlayer" parent="Music"]
 bus = &"Music"
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
-[node name="Background1" type="AudioStreamPlayer2D" parent="Backgrounds"]
+[node name="Background1" type="AudioStreamPlayer" parent="Backgrounds"]
 bus = &"Background"
 
 [node name="SFX" type="Node2D" parent="."]
@@ -25,13 +25,3 @@ bus = &"SFX"
 
 [node name="SFX3" type="AudioStreamPlayer2D" parent="SFX"]
 bus = &"SFX"
-
-[node name="Player" type="Node2D" parent="."]
-
-[node name="Player1" type="AudioStreamPlayer2D" parent="Player"]
-bus = &"Player"
-
-[node name="Enemy" type="Node2D" parent="."]
-
-[node name="Enemy1" type="AudioStreamPlayer2D" parent="Enemy"]
-bus = &"Enemy"

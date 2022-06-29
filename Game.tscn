@@ -98,7 +98,7 @@ shape = SubResource( "RectangleShape2D_3wmbc" )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-427, 15)
+position = Vector2(-427, 936)
 shape = SubResource( "RectangleShape2D_3wmbc" )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
