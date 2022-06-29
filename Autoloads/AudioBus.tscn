@@ -20,6 +20,12 @@ bus = &"Background"
 [node name="SFX1" type="AudioStreamPlayer2D" parent="SFX"]
 bus = &"SFX"
 
+[node name="SFX2" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
+
+[node name="SFX3" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
+
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player1" type="AudioStreamPlayer2D" parent="Player"]

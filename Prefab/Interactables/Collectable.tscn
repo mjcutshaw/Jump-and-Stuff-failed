@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqubfbjgd8a6v"]
+[gd_scene load_steps=3 format=3 uid="uid://b03yneqby6tot"]
 
 [ext_resource type="Script" path="res://Prefab/Interactables/Scripts/Collectable.gd" id="1_1683q"]
-[ext_resource type="AudioStream" uid="uid://d3v2iahf31qd0" path="res://Assests/Sounds/Actor/Player/SUCCESS PICKUP Collect Chime 01.ogg" id="2_tgeeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l5lw"]
 size = Vector2(64, 64)
@@ -91,9 +90,5 @@ visible = false
 modulate = Color(0, 0.141176, 1, 1)
 position = Vector2(0, -32)
 shape = SubResource( "RectangleShape2D_5l5lw" )
-
-[node name="SoundUnlocked" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( "2_tgeeq" )
-volume_db = -17.062
 
 [connection signal="body_entered" from="." to="." method="_on_collectable_body_entered"]

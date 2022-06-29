@@ -263,6 +263,7 @@ theme_override_constants/margin_bottom = 30
 
 [node name="PresetSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
+visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
@@ -417,7 +418,6 @@ offset_bottom = 10.0
 
 [node name="AudioSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
-visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
@@ -439,7 +439,7 @@ offset_bottom = 56.0
 [node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings"]
 offset_top = 60.0
 offset_right = 851.0
-offset_bottom = 498.0
+offset_bottom = 556.0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
@@ -448,11 +448,46 @@ theme_override_constants/margin_right = 30
 offset_left = 30.0
 offset_top = 10.0
 offset_right = 821.0
-offset_bottom = 438.0
+offset_bottom = 496.0
+
+[node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V"]
+offset_right = 791.0
+offset_bottom = 54.0
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M"]
+offset_right = 791.0
+offset_bottom = 34.0
+alignment = 1
+
+[node name="MusicPaused" type="HBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M/V/MusicPaused"]
+offset_left = 282.0
+offset_right = 480.0
+offset_bottom = 26.0
+text = "Mute music when paused"
+
+[node name="Toggle" type="CheckBox" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M/V/MusicPaused"]
+offset_left = 484.0
+offset_right = 508.0
+offset_bottom = 26.0
+
+[node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M/V"]
+minimum_size = Vector2(300, 0)
+offset_left = 245.0
+offset_top = 30.0
+offset_right = 545.0
+offset_bottom = 34.0
+size_flags_horizontal = 4
 
 [node name="OverallVolume" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V"]
+offset_top = 58.0
 offset_right = 791.0
-offset_bottom = 104.0
+offset_bottom = 162.0
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/OverallVolume"]
@@ -505,9 +540,9 @@ offset_bottom = 84.0
 size_flags_horizontal = 4
 
 [node name="MusicVolume" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V"]
-offset_top = 108.0
+offset_top = 166.0
 offset_right = 791.0
-offset_bottom = 212.0
+offset_bottom = 270.0
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/MusicVolume"]
@@ -561,9 +596,9 @@ offset_bottom = 84.0
 size_flags_horizontal = 4
 
 [node name="SFXVolume" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V"]
-offset_top = 216.0
+offset_top = 274.0
 offset_right = 791.0
-offset_bottom = 320.0
+offset_bottom = 378.0
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/SFXVolume"]
@@ -617,9 +652,9 @@ offset_bottom = 84.0
 size_flags_horizontal = 4
 
 [node name="BackgroundVolume" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V"]
-offset_top = 324.0
+offset_top = 382.0
 offset_right = 791.0
-offset_bottom = 428.0
+offset_bottom = 486.0
 theme_override_constants/margin_bottom = 20
 
 [node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/BackgroundVolume"]
