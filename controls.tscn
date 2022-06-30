@@ -66,18 +66,25 @@ offset_bottom = 346.0
 text = "Burrow? maybe just a dash upgrade"
 
 [node name="Bash" type="Label" parent="."]
-offset_left = 376.0
-offset_top = -152.0
-offset_right = 438.0
-offset_bottom = -126.0
+offset_left = 368.0
+offset_top = 272.0
+offset_right = 430.0
+offset_bottom = 298.0
 text = "Bash"
 
 [node name="Roll" type="Label" parent="."]
-offset_left = 472.0
-offset_top = 304.0
-offset_right = 542.0
-offset_bottom = 330.0
+offset_left = 312.0
+offset_top = -88.0
+offset_right = 382.0
+offset_bottom = -62.0
 text = "Roll/Dive"
+
+[node name="POGO" type="Label" parent="."]
+offset_left = 288.0
+offset_top = -16.0
+offset_right = 358.0
+offset_bottom = 10.0
+text = "POGO"
 
 [node name="Glide" type="Label" parent="."]
 offset_left = 272.0

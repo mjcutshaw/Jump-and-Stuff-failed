@@ -1,6 +1,7 @@
 
 # Godot-specific ignores
 Assests/
+assets/
 .godot/
 .import/
 addons/
