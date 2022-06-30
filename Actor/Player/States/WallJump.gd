@@ -1,15 +1,22 @@
 extends JumpState
 
+var wallHop: bool = false
 
 func enter() -> void:
 	super.enter()
 
-	
+	if player.moveDirection.y == -1 or player.moveDirection.x == -player.lastWallDirection.x:
+		player.velocity = Vector2(50 * player.lastWallDirection.x, jumpVelocityMax)
+		wallHop = true
+	else:
+		player.velocity.y = jumpVelocityMax
+		player.velocity.x = moveSpeed * player.lastWallDirection.x
 
 
 func exit() -> void:
 	super.exit()
 
+	wallHop = false
 #	player.previousVelocity = player.velocity
 
 
@@ -22,7 +29,10 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(-player.lastWallDirection.x)
+	if wallHop:
+		facing(-player.lastWallDirection.x)
+	else:
+		facing(player.lastWallDirection.x)
 
 
 func sound(_delta: float) -> void:

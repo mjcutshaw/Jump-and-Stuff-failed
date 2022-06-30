@@ -22,6 +22,8 @@ extends CharacterBody2D
 @onready var coyoteTimer: Timer = $Timers/CoyoteTimer
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
+@onready var wallCoyoteTimer: Timer = $Timers/WallCoyoteTimer
+@onready var statelabel: Label = $StateLabel
 
 var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 
@@ -52,19 +54,19 @@ var jumpCornerCorrectionVertical: int = 10
 var jumpCornerCorrectionHorizontal: int = 15
 
 
-var remainingJump: int
-var remainingJumpAir: int
+var remainingJump: int = 0
+var remainingJumpAir: int = 0
 var remainingDashSide: int = 0
-var remainingDashUp: int
-var remainingDashDown: int
+var remainingDashUp: int = 0
+var remainingDashDown: int = 0
 
 
 func _ready() -> void:
 	sm.init()
 	set_timers()
 	EventBus.emit_signal("ability_check")
-	DebugOverlay.add_stat("Velocity", self, "velocity")
-	DebugOverlay.add_stat("State", self, "currentState")
+#	DebugOverlay.add_stat("Velocity", self, "velocity")
+#	DebugOverlay.add_stat("State", self, "currentState")
 
 func _unhandled_input(_event: InputEvent) -> void:
 	sm.handle_input(_event)
@@ -83,13 +85,9 @@ func _process(_delta: float) -> void:
 
 func set_timers() -> void:
 	coyoteTimer.wait_time = coyoteTime
-	coyoteTimer.one_shot = true
-	
+	wallCoyoteTimer.wait_time = coyoteTime * 2
 	jumpBufferTimer.wait_time = jumpBufferTime
-	jumpBufferTimer.one_shot = true
-	
 	jumpConsectutiveTimer.wait_time = jumpConsectutiveTime
-	jumpConsectutiveTimer.one_shot = true
 
 
 func can_use_ability(ability: int) -> bool:

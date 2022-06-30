@@ -522,10 +522,13 @@ one_shot = true
 one_shot = true
 
 [node name="JumpConsectutiveTimer" type="Timer" parent="Timers"]
+one_shot = true
 
-[node name="Timer4" type="Timer" parent="Timers"]
+[node name="WallCoyoteTimer" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Timer5" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="DropShadow" type="Node2D" parent="."]
 script = ExtResource( "18_ef8so" )
@@ -549,5 +552,11 @@ position = Vector2(-4.76837e-07, 1.9108)
 scale = Vector2(0.53125, 0.0707703)
 texture = ExtResource( "19_fr5vg" )
 offset = Vector2(0, 5)
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -90.0
+offset_right = 22.0
+offset_bottom = -67.0
 
 [connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

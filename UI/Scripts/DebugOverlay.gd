@@ -1,32 +1,31 @@
-extends CanvasLayer
+extends MarginContainer
 
-#TODO: clean up, to much in process
-#FIXME: change to a margin to add to normal gui, 
+#TODO: create this
 
-var stats = []
-
-func add_stat(stat_name, object, stat_ref):
-	stats.append([stat_name, object, stat_ref])
-
-func _process(delta):
-	var label_text = ""
-	
-	var fps = Engine.get_frames_per_second()
-	label_text += str("FPS: ", fps)
-	label_text += "\n"
-	
-	var mem = OS.get_static_memory_usage()
-	label_text += str("Static Memory: ", String.humanize_size(mem))
-	label_text += "\n"
-	
-	for s in stats:
-		var value = null
-		#FIXME: make readable code. breaks on reset
-		value = s[1].get(s[2])
-		label_text += str(s[0], ": ", value)
-		label_text += "\n"
-	
-	$%Label.text = label_text
+#var stats = []
+#
+#func add_stat(stat_name, object, stat_ref):
+#	stats.append([stat_name, object, stat_ref])
+#
+#func _process(delta):
+#	var label_text = ""
+#
+#	var fps = Engine.get_frames_per_second()
+#	label_text += str("FPS: ", fps)
+#	label_text += "\n"
+#
+#	var mem = OS.get_static_memory_usage()
+#	label_text += str("Static Memory: ", String.humanize_size(mem))
+#	label_text += "\n"
+#
+#	for s in stats:
+#		var value = null
+#		#FIXME: make readable code. breaks on reset
+#		value = s[1].get(s[2])
+#		label_text += str(s[0], ": ", value)
+#		label_text += "\n"
+#
+#	$MarginContainer/Label.text = label_text
 
 
 #class Property:

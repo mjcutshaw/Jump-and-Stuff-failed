@@ -46,6 +46,7 @@ func change_state(newState: int) -> void:
 	currentStateName = currentState.name
 #	print(previousStateName + " to " + currentStateName)
 	player.currentState = currentState.name
+	player.statelabel.text = currentState.name
 
 
 func init() -> void:

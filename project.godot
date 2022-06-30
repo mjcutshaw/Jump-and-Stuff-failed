@@ -84,7 +84,6 @@ config/icon="res://icon.png"
 Globals="*res://Autoloads/Globals.gd"
 EventBus="*res://Autoloads/Signals.gd"
 GameStats="*res://Autoloads/GameStats.gd"
-DebugOverlay="*res://UI/DebugOverlay.tscn"
 AudioBus="*res://Autoloads/AudioBus.tscn"
 
 [debug]

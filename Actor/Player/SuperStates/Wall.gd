@@ -38,7 +38,8 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump"):
+		return State.JumpWall
 
 	return State.Null
 
@@ -49,14 +50,17 @@ func state_check(_delta: float) -> int:
 		return newState
 
 	if !player.is_on_wall():
+		player.wallCoyoteTimer.start()
 		return State.Fall
 	if  player.moveDirection.x < 0:
 		if player.facing == -1:
 			player.velocity += Vector2(-20,-10)
+			player.wallCoyoteTimer.start()
 			return State.Fall
 	elif player.moveDirection.x > 0:
 		if player.facing == 1:
 			player.velocity += Vector2(20, -10)
+			player.wallCoyoteTimer.start()
 			return State.Fall
 
 	return State.Null

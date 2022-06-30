@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=14 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UI/Scripts/InGameTimer.gd" id="3_8324u"]
 [ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
+[ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -67,6 +68,37 @@ visible = false
 [node name="DevConsole" parent="Gui" instance=ExtResource( "6_3uhkl" )]
 visible = false
 
+[node name="DebugOverlay" type="MarginContainer" parent="Gui"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+script = ExtResource( "8_sb0xg" )
+
+[node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 66.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Gui/DebugOverlay"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 66.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="Gui/DebugOverlay/MarginContainer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 36.0
+text = "Debug"
+
 [node name="Playground" type="Node2D" parent="."]
 
 [node name="Player" parent="Playground" instance=ExtResource( "1" )]
@@ -98,7 +130,7 @@ shape = SubResource( "RectangleShape2D_3wmbc" )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-480, 95)
+position = Vector2(-491, -686)
 shape = SubResource( "RectangleShape2D_3wmbc" )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
