@@ -4,7 +4,7 @@
 
 [node name="DebugOverlay" type="CanvasLayer"]
 layer = 0
-script = ExtResource( "1_ugcfh" )
+script = ExtResource("1_ugcfh")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 offset_right = 40.0

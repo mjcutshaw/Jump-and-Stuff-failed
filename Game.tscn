@@ -24,7 +24,7 @@ size = Vector2(64, 1500)
 
 [node name="Gui" type="CanvasLayer" parent="."]
 process_mode = 3
-script = ExtResource( "2_gjups" )
+script = ExtResource("2_gjups")
 
 [node name="Annoucements" type="MarginContainer" parent="Gui"]
 process_mode = 1
@@ -41,7 +41,7 @@ offset_right = 126.0
 offset_bottom = 46.0
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource( "1_fuyfm" )
+script = ExtResource("1_fuyfm")
 
 [node name="GameTimer" type="MarginContainer" parent="Gui"]
 process_mode = 1
@@ -52,20 +52,20 @@ offset_bottom = 50.0
 grow_horizontal = 0
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
-script = ExtResource( "3_8xw6d" )
+script = ExtResource("3_8xw6d")
 
 [node name="Label" type="Label" parent="Gui/GameTimer"]
 offset_top = 23.0
 offset_right = 100.0
 offset_bottom = 46.0
-script = ExtResource( "3_8324u" )
+script = ExtResource("3_8324u")
 
-[node name="SettingsMenu" parent="Gui" instance=ExtResource( "5_08yut" )]
+[node name="SettingsMenu" parent="Gui" instance=ExtResource("5_08yut")]
 visible = false
 
-[node name="PauseMenu" parent="Gui" instance=ExtResource( "2_rq07h" )]
+[node name="PauseMenu" parent="Gui" instance=ExtResource("2_rq07h")]
 
-[node name="DevConsole" parent="Gui" instance=ExtResource( "6_3uhkl" )]
+[node name="DevConsole" parent="Gui" instance=ExtResource("6_3uhkl")]
 visible = false
 
 [node name="DebugOverlay" type="MarginContainer" parent="Gui"]
@@ -74,7 +74,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-script = ExtResource( "8_sb0xg" )
+script = ExtResource("8_sb0xg")
 
 [node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
 offset_left = 20.0
@@ -101,7 +101,7 @@ text = "Debug"
 
 [node name="Playground" type="Node2D" parent="."]
 
-[node name="Player" parent="Playground" instance=ExtResource( "1" )]
+[node name="Player" parent="Playground" instance=ExtResource("1")]
 
 [node name="Ground" type="Node2D" parent="Playground"]
 
@@ -111,33 +111,33 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 32)
-shape = SubResource( "1" )
+shape = SubResource("1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4449, 2001)
-shape = SubResource( "1" )
+shape = SubResource("1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1285, 1008)
-shape = SubResource( "RectangleShape2D_l0cg8" )
+shape = SubResource("RectangleShape2D_l0cg8")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1849, 796)
-shape = SubResource( "RectangleShape2D_3wmbc" )
+shape = SubResource("RectangleShape2D_3wmbc")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-491, -686)
-shape = SubResource( "RectangleShape2D_3wmbc" )
+shape = SubResource("RectangleShape2D_3wmbc")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
-shape = SubResource( "1" )
+shape = SubResource("1")
 
-[node name="Collectable" parent="." instance=ExtResource( "2_2c3h4" )]
+[node name="Collectable" parent="." instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)
 ability = 1

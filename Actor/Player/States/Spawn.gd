@@ -6,6 +6,7 @@ func enter() -> void:
 
 	var tween = create_tween()
 	tween.tween_property(player.characterRig, "scale", Vector2(1,1), .4).from(Vector2(0,0))
+	
 
 
 func exit() -> void:
