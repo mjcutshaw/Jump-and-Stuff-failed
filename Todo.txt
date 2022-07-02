@@ -1,6 +1,7 @@
 #TODO 
 
-
+Second form with other abilities
+	burrow, sand dash
 
 bonk savers:
 	jump to reverse momentum

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c5ytpnhrbqusp"]
 
-[ext_resource type="Texture2D" uid="uid://bww3oe5kk5lcc" path="res://Assests/xboxone_android.svg" id="1_34tg8"]
+[ext_resource type="Texture2D" uid="uid://cxg7ok3hxbon6" path="res://Assests/XboxSeriesX_Diagram.png" id="1_djork"]
 
 [node name="Controls" type="Control"]
 offset_right = 40.0
@@ -13,21 +13,11 @@ offset_right = 616.0
 offset_bottom = 384.0
 color = Color(0, 0, 0, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( "1_34tg8" )
-
-[node name="Jump" type="Label" parent="."]
-offset_left = 304.0
-offset_top = 48.0
-offset_right = 345.0
-offset_bottom = 74.0
-text = "Jump"
-
 [node name="Dash" type="Label" parent="."]
-offset_left = 344.0
-offset_top = -216.0
-offset_right = 385.0
-offset_bottom = -190.0
+offset_left = 280.0
+offset_top = -240.0
+offset_right = 321.0
+offset_bottom = -214.0
 text = "Dash"
 
 [node name="Crouch" type="Label" parent="."]
@@ -38,57 +28,62 @@ offset_bottom = 354.0
 text = "Crouch/ground pound"
 
 [node name="Spin" type="Label" parent="."]
-offset_left = -400.0
-offset_top = 232.0
-offset_right = -344.0
-offset_bottom = 258.0
+offset_left = -304.0
+offset_top = 328.0
+offset_right = -248.0
+offset_bottom = 354.0
 text = "Spin"
 
 [node name="Charge" type="Label" parent="."]
-offset_left = 336.0
-offset_top = 304.0
-offset_right = 392.0
-offset_bottom = 330.0
+offset_left = 112.0
+offset_top = 280.0
+offset_right = 168.0
+offset_bottom = 306.0
 text = "Charge"
 
 [node name="Grapple" type="Label" parent="."]
-offset_left = -408.0
-offset_top = -288.0
-offset_right = -346.0
-offset_bottom = -262.0
+offset_left = -432.0
+offset_top = -312.0
+offset_right = -370.0
+offset_bottom = -286.0
 text = "Grapple"
 
 [node name="Burrow" type="Label" parent="."]
-offset_left = -200.0
-offset_top = 320.0
-offset_right = 78.0
-offset_bottom = 346.0
-text = "Burrow? maybe just a dash upgrade"
+offset_left = -456.0
+offset_top = -232.0
+offset_right = -178.0
+offset_bottom = -206.0
+text = "Burrow"
 
 [node name="Bash" type="Label" parent="."]
-offset_left = 368.0
-offset_top = 272.0
-offset_right = 430.0
-offset_bottom = 298.0
+offset_left = -80.0
+offset_top = 304.0
+offset_right = -18.0
+offset_bottom = 330.0
 text = "Bash"
 
 [node name="Roll" type="Label" parent="."]
-offset_left = 312.0
-offset_top = -88.0
-offset_right = 382.0
-offset_bottom = -62.0
+offset_left = 400.0
+offset_top = -16.0
+offset_right = 470.0
+offset_bottom = 10.0
 text = "Roll/Dive"
 
 [node name="POGO" type="Label" parent="."]
-offset_left = 288.0
-offset_top = -16.0
-offset_right = 358.0
-offset_bottom = 10.0
+offset_left = 112.0
+offset_top = -88.0
+offset_right = 182.0
+offset_bottom = -62.0
 text = "POGO"
 
 [node name="Glide" type="Label" parent="."]
-offset_left = 272.0
-offset_top = -296.0
-offset_right = 342.0
-offset_bottom = -270.0
+offset_left = 344.0
+offset_top = -320.0
+offset_right = 414.0
+offset_bottom = -294.0
 text = "Glide"
+
+[node name="XboxSeriesXDiagram" type="Sprite2D" parent="."]
+position = Vector2(-8, 8)
+scale = Vector2(0.789362, 0.789362)
+texture = ExtResource("1_djork")
