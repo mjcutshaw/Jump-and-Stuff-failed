@@ -1,13 +1,26 @@
-extends Node2D
+extends Area2D
 
+#TODO: create fade tween, can't figure out how to use alpha
 
 var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 @export var ability: PlayerAbilities.abiliyList
-@onready var detector: Area2D = $Area2D
+@onready var lockOutTimer: Timer = $LockOutTimer
+@export var lockOutTime: float = 4
+var tween = create_tween()
+
 
 func _ready() -> void:
-	detector.body_entered.connect(ability_rest)
+	body_entered.connect(ability_rest)
+	lockOutTimer.timeout.connect(cooldown)
+	lockOutTimer.wait_time = lockOutTime
 
 
 func ability_rest(body: Player) -> void:
 	body.reset(ability)
+	lockOutTimer.start()
+	visible = false
+	set_deferred("monitoring", false)
+
+func cooldown() -> void:
+	visible = true
+	set_deferred("monitoring", true)

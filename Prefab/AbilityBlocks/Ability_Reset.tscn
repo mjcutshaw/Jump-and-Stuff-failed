@@ -5,15 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rish"]
 size = Vector2(64, 64)
 
-[node name="AbilityReset" type="Node2D"]
-script = ExtResource("1_tuctf")
-
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="AbilityReset" type="Area2D"]
 collision_layer = 256
 collision_mask = 64
+script = ExtResource("1_tuctf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_1rish")
 
@@ -70,3 +68,8 @@ offset_right = 25.0
 offset_bottom = -6.0
 text = "Ability
 Reset"
+
+[node name="AbilityReset" type="Node2D" parent="."]
+
+[node name="LockOutTimer" type="Timer" parent="."]
+one_shot = true

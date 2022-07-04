@@ -104,7 +104,7 @@ text = "Debug"
 [node name="Playground" type="Node2D" parent="."]
 
 [node name="AbilityReset" parent="Playground" instance=ExtResource("9_gl0wl")]
-position = Vector2(387, -147)
+position = Vector2(375, -484)
 ability = 1
 
 [node name="Player" parent="Playground" instance=ExtResource("1")]
