@@ -9,5 +9,5 @@ func _ready() -> void:
 	detector.body_entered.connect(ability_rest)
 
 
-func ability_rest(body) -> void:
+func ability_rest(body: Player) -> void:
 	body.reset(ability)

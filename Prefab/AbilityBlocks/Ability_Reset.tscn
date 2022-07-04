@@ -6,7 +6,7 @@
 size = Vector2(64, 64)
 
 [node name="AbilityReset" type="Node2D"]
-script = ExtResource( "1_tuctf" )
+script = ExtResource("1_tuctf")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
@@ -15,7 +15,7 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -32)
-shape = SubResource( "RectangleShape2D_1rish" )
+shape = SubResource("RectangleShape2D_1rish")
 
 [node name="Outline" type="Node2D" parent="."]
 

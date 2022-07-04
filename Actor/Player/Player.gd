@@ -23,6 +23,7 @@ extends CharacterBody2D
 @onready var jumpBufferTimer: Timer = $Timers/JumpBufferTimer
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
 @onready var wallCoyoteTimer: Timer = $Timers/WallCoyoteTimer
+@onready var oneWayResetTimer: Timer = $Timers/OneWayTimer
 @onready var statelabel: Label = $StateLabel
 
 var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
@@ -36,7 +37,8 @@ var lastWallDirection: Vector2 = Vector2.ZERO
 
 var jumpBufferTime: float = 0.1
 var coyoteTime: float = 0.1
-var jumpConsectutiveTime: float = .5
+var jumpConsectutiveTime: float = 0.5
+var oneWayResetTime: float = 0.05
 
 var jumped: bool = false
 var jumpedDouble: bool = false
@@ -88,6 +90,9 @@ func set_timers() -> void:
 	wallCoyoteTimer.wait_time = coyoteTime * 2
 	jumpBufferTimer.wait_time = jumpBufferTime
 	jumpConsectutiveTimer.wait_time = jumpConsectutiveTime
+	oneWayResetTimer.wait_time = oneWayResetTime
+	
+	oneWayResetTimer.timeout.connect(one_way_reset_timeout)
 
 
 func can_use_ability(ability: int) -> bool:
@@ -191,3 +196,16 @@ func _on_jump_consectutive_timer_timeout() -> void:
 	jumpedTriple = false
 	canJumpDouble = false
 	canJumpTriple = false
+
+func one_way_reset() -> void:
+	if moveDirection.y == 1:
+		oneWayResetTimer.start()
+	else:
+		pass_through_collisions(Globals.SEMISOLID, true)
+
+
+func one_way_reset_timeout() -> void:
+	if moveDirection.y == 1:
+		oneWayResetTimer.start()
+	else:
+		pass_through_collisions(Globals.SEMISOLID, true)
