@@ -50,6 +50,7 @@ func visual(_delta) -> void:
 
 	facing(player.lastDirection.x)
 	player.particlesWalking.emitting = true
+	
 
 
 func sound(_delta: float) -> void:

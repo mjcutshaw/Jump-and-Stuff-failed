@@ -211,3 +211,13 @@ func one_way_reset_timeout() -> void:
 		oneWayResetTimer.start()
 	else:
 		pass_through_collisions(Globals.SEMISOLID, true)
+
+func align_with_floor() -> void:
+	#FIXME: change to character rig and might need to use raycast for ground detection
+	if is_on_floor():
+		characterRig.rotation = get_floor_normal().angle() + PI/2
+#	if !is_on_floor():
+#		rotation = 0
+#		if get_floor_normal().dot(Vector2.UP) < 0.9 and !is_input:
+#			velocity = Vector2.ZERO
+

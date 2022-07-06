@@ -53,6 +53,7 @@ func visual(_delta) -> void:
 
 #	squash_and_strech(_delta)
 	speed_bend()
+	player.align_with_floor()
 
 
 func handle_input(_event: InputEvent) -> int:

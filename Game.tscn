@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=17 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -20,6 +20,9 @@ size = Vector2(6400, 64)
 size = Vector2(64, 2000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wmbc"]
+size = Vector2(64, 1500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qon"]
 size = Vector2(64, 1500)
 
 [node name="Game" type="Node"]
@@ -133,6 +136,12 @@ shape = SubResource("RectangleShape2D_l0cg8")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1849, 796)
 shape = SubResource("RectangleShape2D_3wmbc")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(2265, -324)
+rotation = 1.1781
+shape = SubResource("RectangleShape2D_n5qon")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
