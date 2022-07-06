@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var particlesWalking: GPUParticles2D = $CharacterRig/Particles/ParticlesWalking
 @onready var particlesLand: GPUParticles2D = $CharacterRig/Particles/ParticlesLand
 @onready var particlesJump: GPUParticles2D = $CharacterRig/Particles/ParticlesJump
+@onready var particlesJumpWall: GPUParticles2D =  $CharacterRig/Particles/ParticlesJumpWall
 @onready var particlesJumpDouble: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpDouble
 @onready var particlesJumpTriple: GPUParticles2D = $CharacterRig/Particles/ParticlesJumpTriple
 @onready var particlesDashSide: GPUParticles2D =  $CharacterRig/Particles/ParticlesDashSide
@@ -78,6 +79,7 @@ func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
 	facing = characterRig.scale.x
+	#FIXME: this breaks on a few states
 
 
 func _process(_delta: float) -> void:

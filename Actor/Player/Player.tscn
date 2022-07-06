@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=51 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -244,6 +244,24 @@ color = Color(0, 0, 0, 1)
 hue_variation_min = -0.12
 hue_variation_max = 0.2
 
+[sub_resource type="ParticlesMaterial" id="ParticlesMaterial_lk21w"]
+lifetime_randomness = 0.08
+emission_shape = 3
+emission_box_extents = Vector3(1, 15, 1)
+particle_flag_disable_z = true
+direction = Vector3(-0.5, 1, 0)
+spread = 32.14
+gravity = Vector3(0, 80, 0)
+initial_velocity_max = 40.0
+angular_velocity_min = -80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_vjq7j")
+color = Color(0, 0, 0, 1)
+hue_variation_min = -0.12
+hue_variation_max = 0.2
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw7rg"]
 size = Vector2(30, 48)
 
@@ -407,6 +425,18 @@ explosiveness = 0.55
 local_coords = false
 trail_length_secs = 0.5
 process_material = SubResource("ParticlesMaterial_ran7y")
+
+[node name="ParticlesJumpWall" type="GPUParticles2D" parent="CharacterRig/Particles"]
+position = Vector2(-16, -16)
+emitting = false
+amount = 80
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.7
+local_coords = false
+trail_length_secs = 0.5
+process_material = SubResource("ParticlesMaterial_lk21w")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,6 +1,6 @@
 extends JumpState
 
-
+#FIXME: long jump broke in left direction
 func enter() -> void:
 	super.enter()
 

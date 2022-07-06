@@ -11,6 +11,7 @@ func enter() -> void:
 	else:
 		player.velocity.y = jumpVelocityMax
 		player.velocity.x = moveSpeed * player.lastWallDirection.x
+	player.particlesJumpWall.restart()
 
 
 func exit() -> void:
