@@ -5,6 +5,7 @@ var currentDashTime: float = 0
 var dashDirection: int = 0
 var jumpBoostTime: float = 0.10
 var currentjumpBoostTime: float = 0
+var groundDash: bool = false
 
 
 func enter() -> void:
@@ -16,6 +17,8 @@ func enter() -> void:
 	dashDirection = player.facing
 	player.velocity.x = dashDirection * max(dashSpeed, abs(player.velocity.x))
 	player.particlesDashSide.restart()
+	if player.is_on_floor():
+		groundDash = true
 
 
 func exit() -> void:
@@ -45,7 +48,10 @@ func handle_input(_event: InputEvent) -> int:
 		return newState
 
 	if Input.is_action_just_pressed("jump"):
-		currentjumpBoostTime = jumpBoostTime
+		if groundDash:
+			currentjumpBoostTime = jumpBoostTime
+		if player.can_use_ability(Abilities.abiliyList.JumpAir):
+			currentjumpBoostTime = jumpBoostTime
 
 	return State.Null
 

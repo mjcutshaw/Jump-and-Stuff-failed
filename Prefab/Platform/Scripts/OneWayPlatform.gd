@@ -1,7 +1,8 @@
 @tool
 extends StaticBody2D
 
-#TODO: tool script not updating size in editor
+#FIXME: tool script not updating size in editor
+# might need to make set get
 
 @onready var detectorCollision: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var collision: CollisionShape2D = $CollisionShape2D

@@ -6,6 +6,7 @@ func enter() -> void:
 
 	player.velocity.y = jumpVelocityMax
 	player.velocity.x = moveSpeed * dashJumpBoostVelocityModifier * player.facing
+	#FIXME: facing is reading wrong when going left
 	player.particlesJumpTriple.restart()
 	player.soundJump.pitch_scale = 0.25
 	player.soundJump.play()

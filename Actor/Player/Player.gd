@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-
+#TODO: make movement velocity, enviroment velocity. change state velocity to movement velocity
 @onready var sm = $StateMachine
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump

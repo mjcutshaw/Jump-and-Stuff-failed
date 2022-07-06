@@ -6,7 +6,6 @@ var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilitie
 @export var ability: PlayerAbilities.abiliyList
 @onready var lockOutTimer: Timer = $LockOutTimer
 @export var lockOutTime: float = 4
-var tween = create_tween()
 
 
 func _ready() -> void:
