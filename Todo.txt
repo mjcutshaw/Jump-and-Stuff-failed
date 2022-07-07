@@ -178,6 +178,9 @@ enemies
 	Charging chuck
 
 Blocks to add 
+	Sheepo blocks
+		enter then choose fire angle
+		lock character in launch direction
 	hold jump/press jump to get vertical momentum
 		an untold story red block
 	look at celeste helper mods for more ideas
