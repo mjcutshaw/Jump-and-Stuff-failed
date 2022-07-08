@@ -31,12 +31,15 @@ func enter() -> void:
 
 	if player.lastDirection.x == 0:
 		player.lastDirection.x = player.characterRig.scale.x
+	
+	neutral_move_direction_logic()
+	#TODO: remove from other states
 
 
 func exit() -> void:
 	super.exit()
 
-	
+	neutral_move_direction_logic()
 
 
 func physics(_delta) -> void:

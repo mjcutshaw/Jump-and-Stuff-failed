@@ -1,5 +1,5 @@
 extends AirState
-
+#TODO: probably get rid of this
 
 func enter() -> void:
 	super.enter()

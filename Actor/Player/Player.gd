@@ -213,7 +213,7 @@ func one_way_reset_timeout() -> void:
 		pass_through_collisions(Globals.SEMISOLID, true)
 
 func align_with_floor() -> void:
-	#FIXME: change to character rig and might need to use raycast for ground detection
+	#FIXME: change to character rig and might need to use raycast for ground detectionw
 	if is_on_floor():
 		characterRig.rotation = get_floor_normal().angle() + PI/2
 #	if !is_on_floor():
