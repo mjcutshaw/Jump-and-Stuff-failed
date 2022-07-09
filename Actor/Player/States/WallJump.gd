@@ -1,11 +1,13 @@
 extends JumpState
-
+#TODO: rename to jumpWall
 var wallHop: bool = false
 
 func enter() -> void:
 	super.enter()
 
-	if player.moveDirection.y == -1 or player.moveDirection.x == -player.lastWallDirection.x:
+#	if player.moveDirection.y == -1:
+		#TODO: make up jump different
+	if player.moveDirection.x == -player.lastWallDirection.x:
 		player.velocity = Vector2(50 * player.lastWallDirection.x, jumpVelocityMax)
 		wallHop = true
 	else:
@@ -24,16 +26,20 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	
+	if !wallHop:
+		if player.moveDirection.x == 0:
+			momentum_logic(moveSpeed, false)
+		else:
+			momentum_logic(moveSpeed, true)
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	if wallHop:
-		facing(-player.lastWallDirection.x)
-	else:
-		facing(player.lastWallDirection.x)
+#	if wallHop:
+#		facing(-player.lastWallDirection.x)
+#	else:
+#		facing(player.lastWallDirection.x)
 
 
 func sound(_delta: float) -> void:

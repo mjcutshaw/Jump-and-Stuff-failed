@@ -16,14 +16,20 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	momentum_logic(moveSpeed, true)
+	if player.neutralMoveDirection:
+		momentum_logic(moveSpeed, false)
+	if !player.neutralMoveDirection:
+		momentum_logic(moveSpeed, true)
 	gravity_logic(gravityApex, _delta)
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(player.lastDirection.x)
+	if player.moveDirection.x == 0:
+		facing(player.facing)
+	else:
+		facing(player.lastDirection.x)
 
 
 func handle_input(_event: InputEvent) -> int:

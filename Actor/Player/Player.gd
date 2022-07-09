@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 #TODO: make movement velocity, enviroment velocity. change state velocity to movement velocity
+#TODO: add hitbox and hurtbox
 @onready var sm = $StateMachine
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
@@ -78,9 +79,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
-	facing = characterRig.scale.x
+#	facing = characterRig.scale.x
 	$VelocityLabel.text = str(velocity.round())
-	#FIXME: this breaks on a few states
+#	$FacingLabel.text = str(facing)
 
 
 func _process(_delta: float) -> void:

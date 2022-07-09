@@ -20,6 +20,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
+	#TODO: might being the momentun logic here. if so might be better for air state
 	momentum_logic(moveSpeed, true)
 
 

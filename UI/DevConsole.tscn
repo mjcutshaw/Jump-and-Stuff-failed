@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://UI/DebugMenu/Scripts/DebugAbilities.gd" id="2_4ltwa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
-shader = ExtResource( "1_b2qdy" )
+shader = ExtResource("1_b2qdy")
 shader_param/blur = 1.77778
 shader_param/brightness = 0.822222
 
 [node name="DevConsole" type="ColorRect"]
-material = SubResource( "ShaderMaterial_t38au" )
+material = SubResource("ShaderMaterial_t38au")
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -86,7 +86,7 @@ offset_bottom = 191.0
 offset_left = 419.0
 offset_right = 820.0
 offset_bottom = 171.0
-script = ExtResource( "2_4ltwa" )
+script = ExtResource("2_4ltwa")
 
 [node name="AllButton" type="Button" parent="M/VBoxContainer/Options/CenterContainer/Abilities"]
 unique_name_in_owner = true

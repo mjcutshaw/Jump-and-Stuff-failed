@@ -18,7 +18,6 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	
 	gravity_logic(gravityJump, _delta)
 	
 	if player.test_move(player.global_transform, Vector2(0, player.velocity.y * _delta)):
@@ -28,7 +27,12 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(player.lastDirection.x)
+#	if wallHop:
+#		facing(-player.lastWallDirection.x)
+	if player.moveDirection.x == 0:
+		facing(player.facing)
+	else:
+		facing(player.lastDirection.x)
 
 
 func sound(_delta: float) -> void:
@@ -61,7 +65,11 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if player.is_on_ceiling():
+		jump_canceled()
+		return State.Apex
+	elif player.velocity.y > -jumpApexHeight:
+		return State.Apex
 
 	return State.Null
 
