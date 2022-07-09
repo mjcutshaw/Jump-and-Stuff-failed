@@ -111,9 +111,9 @@ func momentum_logic(speed, useMoveDirection: bool) -> void:
 		player.velocity.x = player.moveDirection.x * max(abs(speed), abs(player.velocity.x))
 	if !useMoveDirection:
 		if player.velocity.x == 0:
-			player.velocity.x =  player.velocity.x
+			player.velocity.x = player.velocity.x
 		else:
-			player.velocity.x =  max(abs(speed), abs(player.velocity.x))
+			player.velocity.x =  max(abs(speed), abs(player.velocity.x)) * player.facing
 
 func neutral_move_direction_logic() -> void:
 	if player.moveDirection == Vector2.ZERO:

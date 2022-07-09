@@ -586,4 +586,10 @@ offset_top = -90.0
 offset_right = 22.0
 offset_bottom = -67.0
 
+[node name="VelocityLabel" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -117.0
+offset_right = 22.0
+offset_bottom = -94.0
+
 [connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

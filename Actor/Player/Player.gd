@@ -79,6 +79,7 @@ func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
 	facing = characterRig.scale.x
+	$VelocityLabel.text = str(velocity.round())
 	#FIXME: this breaks on a few states
 
 
