@@ -5,6 +5,7 @@ extends GroundState
 #TODO: create ledge stop detection. to quickly stop in movedirection = 0 when coming to a ledge
 #TODO: make friction when changing directions
 #TODO: timer that slows the player down after being in it for too long
+#TODO: walk on fluids, might be its own state
 
 var goIdle: bool = false
 var rotation: float

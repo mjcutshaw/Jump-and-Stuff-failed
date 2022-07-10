@@ -1,5 +1,7 @@
 #TODO 
 
+item that guides through a maze
+
 Second form with other abilities
 	burrow, sand dash
 

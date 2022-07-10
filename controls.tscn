@@ -21,10 +21,10 @@ offset_bottom = -214.0
 text = "Dash"
 
 [node name="Crouch" type="Label" parent="."]
-offset_left = -80.0
-offset_top = -96.0
-offset_right = 92.0
-offset_bottom = -70.0
+offset_left = -224.0
+offset_top = 200.0
+offset_right = -52.0
+offset_bottom = 226.0
 text = "Crouch/ground pound"
 
 [node name="Spin" type="Label" parent="."]
@@ -89,6 +89,13 @@ offset_top = -320.0
 offset_right = 470.0
 offset_bottom = -294.0
 text = "Grab"
+
+[node name="Spoilers" type="Label" parent="."]
+offset_left = 480.0
+offset_top = -200.0
+offset_right = 814.0
+offset_bottom = -174.0
+text = "add spoiler button to hid unknown abilities"
 
 [node name="XboxSeriesXDiagram" type="Sprite2D" parent="."]
 position = Vector2(-8, 8)
