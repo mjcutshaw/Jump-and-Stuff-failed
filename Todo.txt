@@ -7,7 +7,8 @@ Second form with other abilities
 
 bonk savers:
 	jump to reverse momentum
-	grab to save from bonk
+	grab or wall jump to save from bonk (nuetral the wall jump for jump boost)
+	hitting roll just before hitting ground
 
 death rewind. on death can rewind to see what happened
 Change lots of things to resources

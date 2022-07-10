@@ -1,5 +1,6 @@
 extends AirState
 
+#TODO: hit box to break walls. ground pound enemy mid air to destroy walls
 
 func enter() -> void:
 	super.enter()
