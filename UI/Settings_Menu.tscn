@@ -1,24 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfprvsnajjd16"]
+[gd_scene load_steps=8 format=3 uid="uid://bfprvsnajjd16"]
 
 [ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_pki12"]
 [ext_resource type="Script" path="res://UI/Scripts/Settings_Menu.gd" id="2_cmpbl"]
 [ext_resource type="Script" path="res://UI/Scripts/AudioSettings.gd" id="2_j4nvg"]
 [ext_resource type="Script" path="res://UI/Buttons/Scripts/Quit.gd" id="3_2uqcl"]
 [ext_resource type="Script" path="res://UI/Scripts/GeneralSettings.gd" id="4_7pquy"]
+[ext_resource type="Script" path="res://UI/Scripts/AccessibilitySettings.gd" id="5_2c8k0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
-shader = ExtResource( "1_pki12" )
+shader = ExtResource("1_pki12")
 shader_param/blur = 1.77778
 shader_param/brightness = 0.822222
 
 [node name="SettingsMenu" type="ColorRect"]
 process_mode = 3
-material = SubResource( "ShaderMaterial_t38au" )
+material = SubResource("ShaderMaterial_t38au")
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource( "2_cmpbl" )
+script = ExtResource("2_cmpbl")
 
 [node name="M" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -35,7 +36,7 @@ offset_right = 1260.0
 offset_bottom = 780.0
 
 [node name="ButtonMargins" type="MarginContainer" parent="M/H"]
-minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(250, 0)
 offset_right = 250.0
 offset_bottom = 760.0
 theme_override_constants/margin_left = 50
@@ -51,13 +52,13 @@ offset_bottom = 660.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V"]
 offset_right = 175.0
-offset_bottom = 481.0
+offset_bottom = 556.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 30
 
 [node name="P" type="Panel" parent="M/H/ButtonMargins/V/M"]
 offset_right = 175.0
-offset_bottom = 451.0
+offset_bottom = 526.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P"]
 anchor_right = 1.0
@@ -71,108 +72,123 @@ theme_override_constants/margin_bottom = 15
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 160.0
-offset_bottom = 436.0
+offset_bottom = 511.0
 
 [node name="M5" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
 offset_right = 145.0
-offset_bottom = 56.0
+offset_bottom = 58.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="PresetsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 41.0
+offset_bottom = 43.0
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../../../../../../M2/P/M/H/M/BackButton")
 text = "Presets
 "
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 60.0
+offset_top = 62.0
 offset_right = 145.0
-offset_bottom = 117.0
+offset_bottom = 121.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="GeneralButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 42.0
+offset_bottom = 44.0
 size_flags_vertical = 3
 text = "General"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 121.0
+offset_top = 125.0
 offset_right = 145.0
-offset_bottom = 178.0
+offset_bottom = 183.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="DifficultyButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 42.0
+offset_bottom = 43.0
 size_flags_vertical = 3
 text = "Difficulty"
 
-[node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 182.0
+[node name="M8" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 187.0
 offset_right = 145.0
-offset_bottom = 238.0
+offset_bottom = 246.0
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 15
+
+[node name="AccessibilityButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M8"]
+unique_name_in_owner = true
+offset_right = 145.0
+offset_bottom = 44.0
+size_flags_vertical = 3
+text = "Accessibility"
+
+[node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
+offset_top = 250.0
+offset_right = 145.0
+offset_bottom = 308.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="VideoButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 41.0
+offset_bottom = 43.0
 size_flags_vertical = 3
 text = "Video"
 
 [node name="M4" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 242.0
+offset_top = 312.0
 offset_right = 145.0
-offset_bottom = 299.0
+offset_bottom = 371.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="AudioButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 42.0
+offset_bottom = 44.0
 size_flags_vertical = 3
 text = "Audio"
 
 [node name="M7" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 303.0
+offset_top = 375.0
 offset_right = 145.0
-offset_bottom = 360.0
+offset_bottom = 433.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="KeybindingsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M7"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 42.0
+offset_bottom = 43.0
 size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../../../../../../M2/P/M/H/M/BackButton")
 text = "Keybindings"
 
 [node name="M6" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 364.0
+offset_top = 437.0
 offset_right = 145.0
-offset_bottom = 421.0
+offset_bottom = 496.0
 size_flags_vertical = 3
 
 [node name="DebugButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M6"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 57.0
+offset_bottom = 59.0
 size_flags_vertical = 3
 text = "Debug"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V"]
-minimum_size = Vector2(0, 75)
-offset_top = 485.0
+offset_top = 560.0
 offset_right = 175.0
 offset_bottom = 560.0
 grow_horizontal = 2
@@ -181,7 +197,6 @@ metadata/_edit_layout_mode = 1
 
 [node name="P" type="Panel" parent="M/H/ButtonMargins/V/M2"]
 offset_right = 175.0
-offset_bottom = 75.0
 size_flags_horizontal = 3
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P"]
@@ -198,11 +213,11 @@ theme_override_constants/margin_bottom = 10
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 165.0
-offset_bottom = 65.0
+offset_bottom = 51.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
 offset_right = 75.0
-offset_bottom = 55.0
+offset_bottom = 41.0
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -214,14 +229,17 @@ unique_name_in_owner = true
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 70.0
-offset_bottom = 50.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../../M2/QuitButton")
+focus_neighbor_top = NodePath("../../../../../../M/P/M/Buttons/M7/KeybindingsButton")
+focus_neighbor_bottom = NodePath("../../../../../../M/P/M/Buttons/M5/PresetsButton")
 text = "Back"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
 offset_left = 79.0
 offset_right = 155.0
-offset_bottom = 55.0
+offset_bottom = 41.0
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -232,10 +250,13 @@ theme_override_constants/margin_bottom = 5
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 71.0
-offset_bottom = 50.0
+offset_bottom = 36.0
 size_flags_horizontal = 3
+focus_neighbor_top = NodePath("../../../../../../M/P/M/Buttons/M7/KeybindingsButton")
+focus_neighbor_right = NodePath("../../M/BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../M/P/M/Buttons/M5/PresetsButton")
 text = "Quit"
-script = ExtResource( "3_2uqcl" )
+script = ExtResource("3_2uqcl")
 
 [node name="SettingsMargins" type="MarginContainer" parent="M/H"]
 offset_left = 254.0
@@ -302,7 +323,7 @@ offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
 offset_bottom = 630.0
-script = ExtResource( "4_7pquy" )
+script = ExtResource("4_7pquy")
 
 [node name="Name" type="Label" parent="M/H/SettingsMargins/P/M/GeneralSettings"]
 offset_right = 851.0
@@ -342,8 +363,7 @@ offset_right = 427.0
 offset_bottom = 26.0
 text = "Show Timer"
 
-[node name="ButtonTimer" type="CheckBox" parent="M/H/SettingsMargins/P/M/GeneralSettings/M/V/Timer"]
-unique_name_in_owner = true
+[node name="Toggle" type="CheckBox" parent="M/H/SettingsMargins/P/M/GeneralSettings/M/V/Timer"]
 offset_left = 431.0
 offset_right = 455.0
 offset_bottom = 26.0
@@ -382,6 +402,73 @@ offset_top = 10.0
 offset_right = 821.0
 offset_bottom = 10.0
 
+[node name="AccessibilitySettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
+unique_name_in_owner = true
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 881.0
+offset_bottom = 630.0
+script = ExtResource("5_2c8k0")
+
+[node name="Name" type="Label" parent="M/H/SettingsMargins/P/M/AccessibilitySettings"]
+offset_right = 851.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 32
+text = "Accessibility Settings"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AccessibilitySettings"]
+offset_top = 52.0
+offset_right = 851.0
+offset_bottom = 56.0
+
+[node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings"]
+offset_top = 60.0
+offset_right = 851.0
+offset_bottom = 126.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+
+[node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M"]
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 821.0
+offset_bottom = 66.0
+
+[node name="Glide" type="HBoxContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V"]
+offset_right = 791.0
+offset_bottom = 26.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Glide"]
+offset_left = 334.0
+offset_right = 429.0
+offset_bottom = 26.0
+text = "Toggle Glide"
+
+[node name="Toggle" type="CheckBox" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Glide"]
+offset_left = 433.0
+offset_right = 457.0
+offset_bottom = 26.0
+
+[node name="Grab" type="HBoxContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V"]
+offset_top = 30.0
+offset_right = 791.0
+offset_bottom = 56.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Grab"]
+offset_left = 335.0
+offset_right = 428.0
+offset_bottom = 26.0
+text = "Toggle Grab"
+
+[node name="Toggle" type="CheckBox" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Grab"]
+offset_left = 432.0
+offset_right = 456.0
+offset_bottom = 26.0
+
 [node name="VideoSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
 visible = false
@@ -418,11 +505,12 @@ offset_bottom = 10.0
 
 [node name="AudioSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
+visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
 offset_bottom = 630.0
-script = ExtResource( "2_j4nvg" )
+script = ExtResource("2_j4nvg")
 
 [node name="Name" type="Label" parent="M/H/SettingsMargins/P/M/AudioSettings"]
 offset_right = 851.0
@@ -477,10 +565,9 @@ offset_right = 508.0
 offset_bottom = 26.0
 
 [node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/M/V"]
-minimum_size = Vector2(300, 0)
-offset_left = 245.0
+offset_left = 394.0
 offset_top = 30.0
-offset_right = 545.0
+offset_right = 397.0
 offset_bottom = 34.0
 size_flags_horizontal = 4
 
@@ -520,10 +607,9 @@ offset_right = 430.0
 offset_bottom = 26.0
 
 [node name="SliderOverall" type="HSlider" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/OverallVolume/V"]
-minimum_size = Vector2(250, 0)
-offset_left = 270.0
+offset_left = 391.0
 offset_top = 60.0
-offset_right = 520.0
+offset_right = 399.0
 offset_bottom = 76.0
 size_flags_horizontal = 4
 min_value = -80.0
@@ -532,10 +618,9 @@ step = 10.0
 value = -20.0
 
 [node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/OverallVolume/V"]
-minimum_size = Vector2(300, 0)
-offset_left = 245.0
+offset_left = 394.0
 offset_top = 80.0
-offset_right = 545.0
+offset_right = 397.0
 offset_bottom = 84.0
 size_flags_horizontal = 4
 
@@ -576,10 +661,9 @@ offset_right = 430.0
 offset_bottom = 26.0
 
 [node name="SliderMusic" type="HSlider" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/MusicVolume/V"]
-minimum_size = Vector2(250, 0)
-offset_left = 270.0
+offset_left = 391.0
 offset_top = 60.0
-offset_right = 520.0
+offset_right = 399.0
 offset_bottom = 76.0
 size_flags_horizontal = 4
 min_value = -80.0
@@ -588,10 +672,9 @@ step = 10.0
 value = -20.0
 
 [node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/MusicVolume/V"]
-minimum_size = Vector2(300, 0)
-offset_left = 245.0
+offset_left = 394.0
 offset_top = 80.0
-offset_right = 545.0
+offset_right = 397.0
 offset_bottom = 84.0
 size_flags_horizontal = 4
 
@@ -632,10 +715,9 @@ offset_right = 430.0
 offset_bottom = 26.0
 
 [node name="SliderSFX" type="HSlider" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/SFXVolume/V"]
-minimum_size = Vector2(250, 0)
-offset_left = 270.0
+offset_left = 391.0
 offset_top = 60.0
-offset_right = 520.0
+offset_right = 399.0
 offset_bottom = 76.0
 size_flags_horizontal = 4
 min_value = -80.0
@@ -644,10 +726,9 @@ step = 10.0
 value = -20.0
 
 [node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/SFXVolume/V"]
-minimum_size = Vector2(300, 0)
-offset_left = 245.0
+offset_left = 394.0
 offset_top = 80.0
-offset_right = 545.0
+offset_right = 397.0
 offset_bottom = 84.0
 size_flags_horizontal = 4
 
@@ -688,10 +769,9 @@ offset_right = 430.0
 offset_bottom = 26.0
 
 [node name="SliderBackground" type="HSlider" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/BackgroundVolume/V"]
-minimum_size = Vector2(250, 0)
-offset_left = 270.0
+offset_left = 391.0
 offset_top = 60.0
-offset_right = 520.0
+offset_right = 399.0
 offset_bottom = 76.0
 size_flags_horizontal = 4
 min_value = -80.0
@@ -700,10 +780,9 @@ step = 10.0
 value = -20.0
 
 [node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/AudioSettings/M/V/BackgroundVolume/V"]
-minimum_size = Vector2(300, 0)
-offset_left = 245.0
+offset_left = 394.0
 offset_top = 80.0
-offset_right = 545.0
+offset_right = 397.0
 offset_bottom = 84.0
 size_flags_horizontal = 4
 

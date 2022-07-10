@@ -1,7 +1,7 @@
 extends VBoxContainer
 
-@onready var buttonTimer: CheckBox = $%ButtonTimer
-var settings: Resource = preload("res://UI/Resources/Settings.tres")
+@onready var buttonTimer: CheckBox = $M/V/Timer/Toggle
+var settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
 
 func _ready() -> void:
 	buttonTimer.toggled.connect(show_timer)

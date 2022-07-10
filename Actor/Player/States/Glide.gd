@@ -47,7 +47,9 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("glide"):
+	if Input.is_action_just_released("glide") and !settings.toggleGlide:
+		return State.Fall
+	if Input.is_action_just_pressed("glide") and settings.toggleGlide:
 		return State.Fall
 
 	return State.Null

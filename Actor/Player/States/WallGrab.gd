@@ -36,7 +36,9 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("grab"):
+	if settings.toggleGrab and Input.is_action_just_pressed("grab"):
+		return State.WallSlide
+	if !settings.toggleGrab and Input.is_action_just_released("grab"):
 		return State.WallSlide
 
 	return State.Null

@@ -5,3 +5,8 @@ extends Resource
 
 ## General Settings ##
 var showTimer: bool = false
+
+
+## Accesibility Settings ##
+var toggleGlide: bool = false
+var toggleGrab: bool = false

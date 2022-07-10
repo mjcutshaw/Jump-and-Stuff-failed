@@ -1,6 +1,6 @@
 extends MarginContainer
 
-var settings: Resource = preload("res://UI/Resources/Settings.tres")
+var settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
 
 
 func _ready() -> void:

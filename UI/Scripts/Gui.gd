@@ -19,6 +19,7 @@ func _ready() -> void:
 func go_to_settings():
 	pauseMenu.visible = false
 	settingsMenu.visible = true
+	settingsMenu.buttonPreset.grab_focus()
 
 func go_to_pause():
 	settingsMenu.visible = false
