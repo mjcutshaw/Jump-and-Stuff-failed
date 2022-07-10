@@ -52,13 +52,13 @@ offset_bottom = 660.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V"]
 offset_right = 175.0
-offset_bottom = 556.0
+offset_bottom = 460.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 30
 
 [node name="P" type="Panel" parent="M/H/ButtonMargins/V/M"]
 offset_right = 175.0
-offset_bottom = 526.0
+offset_bottom = 430.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P"]
 anchor_right = 1.0
@@ -66,142 +66,102 @@ anchor_bottom = 1.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
 
 [node name="Buttons" type="VBoxContainer" parent="M/H/ButtonMargins/V/M/P/M"]
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 160.0
-offset_bottom = 511.0
-
-[node name="M5" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_right = 145.0
-offset_bottom = 58.0
-size_flags_vertical = 3
-theme_override_constants/margin_bottom = 15
-
-[node name="PresetsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M5"]
-unique_name_in_owner = true
-offset_right = 145.0
-offset_bottom = 43.0
-size_flags_vertical = 3
-focus_neighbor_top = NodePath("../../../../../../M2/P/M/H/M/BackButton")
-text = "Presets
-"
+offset_bottom = 430.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 62.0
 offset_right = 145.0
-offset_bottom = 121.0
+offset_bottom = 65.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="GeneralButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 44.0
+offset_bottom = 50.0
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../../../../../../M3/H/M/BackButton")
 text = "General"
 
 [node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 125.0
+offset_top = 69.0
 offset_right = 145.0
-offset_bottom = 183.0
+offset_bottom = 135.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="DifficultyButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M2"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 43.0
+offset_bottom = 51.0
 size_flags_vertical = 3
 text = "Difficulty"
 
 [node name="M8" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 187.0
+offset_top = 139.0
 offset_right = 145.0
-offset_bottom = 246.0
+offset_bottom = 205.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="AccessibilityButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M8"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 44.0
+offset_bottom = 51.0
 size_flags_vertical = 3
 text = "Accessibility"
 
 [node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 250.0
+offset_top = 209.0
 offset_right = 145.0
-offset_bottom = 308.0
+offset_bottom = 275.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="VideoButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M3"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 43.0
+offset_bottom = 51.0
 size_flags_vertical = 3
 text = "Video"
 
 [node name="M4" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 312.0
+offset_top = 279.0
 offset_right = 145.0
-offset_bottom = 371.0
+offset_bottom = 345.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="AudioButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M4"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 44.0
+offset_bottom = 51.0
 size_flags_vertical = 3
 text = "Audio"
 
 [node name="M7" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 375.0
+offset_top = 349.0
 offset_right = 145.0
-offset_bottom = 433.0
+offset_bottom = 415.0
 size_flags_vertical = 3
 theme_override_constants/margin_bottom = 15
 
 [node name="KeybindingsButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M7"]
 unique_name_in_owner = true
 offset_right = 145.0
-offset_bottom = 43.0
+offset_bottom = 51.0
 size_flags_vertical = 3
-focus_neighbor_bottom = NodePath("../../../../../../M2/P/M/H/M/BackButton")
+focus_neighbor_bottom = NodePath("../../../../../../M3/H/M/BackButton")
 text = "Keybindings"
 
-[node name="M6" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P/M/Buttons"]
-offset_top = 437.0
-offset_right = 145.0
-offset_bottom = 496.0
-size_flags_vertical = 3
-
-[node name="DebugButton" type="Button" parent="M/H/ButtonMargins/V/M/P/M/Buttons/M6"]
-unique_name_in_owner = true
-offset_right = 145.0
-offset_bottom = 59.0
-size_flags_vertical = 3
-text = "Debug"
-
-[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V"]
-offset_top = 560.0
+[node name="M3" type="MarginContainer" parent="M/H/ButtonMargins/V"]
+offset_top = 464.0
 offset_right = 175.0
-offset_bottom = 560.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_layout_mode = 1
-
-[node name="P" type="Panel" parent="M/H/ButtonMargins/V/M2"]
-offset_right = 175.0
-size_flags_horizontal = 3
-
-[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 525.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
@@ -209,13 +169,20 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="H" type="HBoxContainer" parent="M/H/ButtonMargins/V/M2/P/M"]
+[node name="P" type="Panel" parent="M/H/ButtonMargins/V/M3"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 165.0
+offset_bottom = 51.0
+size_flags_horizontal = 3
+
+[node name="H" type="HBoxContainer" parent="M/H/ButtonMargins/V/M3"]
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 165.0
 offset_bottom = 51.0
 
-[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
+[node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M3/H"]
 offset_right = 75.0
 offset_bottom = 41.0
 size_flags_horizontal = 3
@@ -224,7 +191,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="BackButton" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M"]
+[node name="BackButton" type="Button" parent="M/H/ButtonMargins/V/M3/H/M"]
 unique_name_in_owner = true
 offset_left = 5.0
 offset_top = 5.0
@@ -232,11 +199,11 @@ offset_right = 70.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../../M2/QuitButton")
-focus_neighbor_top = NodePath("../../../../../../M/P/M/Buttons/M7/KeybindingsButton")
-focus_neighbor_bottom = NodePath("../../../../../../M/P/M/Buttons/M5/PresetsButton")
+focus_neighbor_top = NodePath("../../../../M/P/M/Buttons/M7/KeybindingsButton")
+focus_neighbor_bottom = NodePath("../../../../M/P/M/Buttons/M/GeneralButton")
 text = "Back"
 
-[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M2/P/M/H"]
+[node name="M2" type="MarginContainer" parent="M/H/ButtonMargins/V/M3/H"]
 offset_left = 79.0
 offset_right = 155.0
 offset_bottom = 41.0
@@ -246,17 +213,29 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="QuitButton" type="Button" parent="M/H/ButtonMargins/V/M2/P/M/H/M2"]
+[node name="QuitButton" type="Button" parent="M/H/ButtonMargins/V/M3/H/M2"]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 71.0
 offset_bottom = 36.0
 size_flags_horizontal = 3
-focus_neighbor_top = NodePath("../../../../../../M/P/M/Buttons/M7/KeybindingsButton")
+focus_neighbor_top = NodePath("../../../../M/P/M/Buttons/M7/KeybindingsButton")
 focus_neighbor_right = NodePath("../../M/BackButton")
-focus_neighbor_bottom = NodePath("../../../../../../M/P/M/Buttons/M5/PresetsButton")
+focus_neighbor_bottom = NodePath("../../../../M/P/M/Buttons/M/GeneralButton")
 text = "Quit"
 script = ExtResource("3_2uqcl")
+
+[node name="M6" type="MarginContainer" parent="M/H/ButtonMargins/V"]
+offset_top = 529.0
+offset_right = 175.0
+offset_bottom = 560.0
+
+[node name="DebugButton" type="Button" parent="M/H/ButtonMargins/V/M6"]
+unique_name_in_owner = true
+offset_right = 175.0
+offset_bottom = 31.0
+size_flags_vertical = 3
+text = "Debug"
 
 [node name="SettingsMargins" type="MarginContainer" parent="M/H"]
 offset_left = 254.0
@@ -281,40 +260,6 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
-
-[node name="PresetSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
-unique_name_in_owner = true
-visible = false
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 881.0
-offset_bottom = 630.0
-
-[node name="Name" type="Label" parent="M/H/SettingsMargins/P/M/PresetSettings"]
-offset_right = 851.0
-offset_bottom = 48.0
-theme_override_font_sizes/font_size = 32
-text = "Presets Settings"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="M/H/SettingsMargins/P/M/PresetSettings"]
-offset_top = 52.0
-offset_right = 851.0
-offset_bottom = 56.0
-
-[node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P/M/PresetSettings"]
-offset_top = 60.0
-offset_right = 851.0
-offset_bottom = 70.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 30
-
-[node name="V" type="VBoxContainer" parent="M/H/SettingsMargins/P/M/PresetSettings/M"]
-offset_left = 30.0
-offset_top = 10.0
-offset_right = 821.0
-offset_bottom = 10.0
 
 [node name="GeneralSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
@@ -854,4 +799,4 @@ offset_top = 10.0
 offset_right = 821.0
 offset_bottom = 10.0
 
-[connection signal="pressed" from="M/H/ButtonMargins/V/M2/P/M/H/M2/QuitButton" to="M/H/ButtonMargins/V/M2/P/M/H/M2/QuitButton" method="_on_quit_pressed"]
+[connection signal="pressed" from="M/H/ButtonMargins/V/M3/H/M2/QuitButton" to="M/H/ButtonMargins/V/M3/H/M2/QuitButton" method="_on_quit_pressed"]
