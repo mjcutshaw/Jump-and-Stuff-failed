@@ -91,10 +91,10 @@ offset_bottom = -294.0
 text = "Grab"
 
 [node name="Spoilers" type="Label" parent="."]
-offset_left = 480.0
-offset_top = -200.0
-offset_right = 814.0
-offset_bottom = -174.0
+offset_left = -128.0
+offset_top = -344.0
+offset_right = 206.0
+offset_bottom = -318.0
 text = "add spoiler button to hid unknown abilities"
 
 [node name="XboxSeriesXDiagram" type="Sprite2D" parent="."]

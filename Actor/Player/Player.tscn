@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/JumpDash.gd" id="12_rdy2p"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpFlip.gd" id="13_7jawe"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpLong.gd" id="13_gt4tq"]
+[ext_resource type="Script" path="res://Actor/Player/States/JumpWall.gd" id="16_6bfyu"]
 [ext_resource type="Script" path="res://Actor/Player/States/Glide.gd" id="16_xbsxy"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallSlide.gd" id="18_e75om"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/DropShadow.gd" id="18_ef8so"]
@@ -30,7 +31,6 @@
 [ext_resource type="Script" path="res://Actor/Player/States/WallDash.gd" id="20_75ug7"]
 [ext_resource type="AudioStream" uid="uid://bbxrjo4fj1yw0" path="res://Assests/Sounds/Actor/Player/SPLAT Crush 01.ogg" id="20_abo4x"]
 [ext_resource type="AudioStream" uid="uid://810lfw5sc68i" path="res://Assests/Sounds/Actor/Player/POP Echo Bouncer 01.ogg" id="21_1hbvx"]
-[ext_resource type="Script" path="res://Actor/Player/States/WallJump.gd" id="21_itnto"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
@@ -482,7 +482,7 @@ script = ExtResource("13_7jawe")
 script = ExtResource("11_bak4t")
 
 [node name="JumpWall" type="Node" parent="StateMachine"]
-script = ExtResource("21_itnto")
+script = ExtResource("16_6bfyu")
 
 [node name="Apex" type="Node" parent="StateMachine"]
 script = ExtResource("8_ytsre")

@@ -1,5 +1,6 @@
 extends JumpState
 
+#TODO: probably remove
 
 func enter() -> void:
 	super.enter()

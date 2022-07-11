@@ -1,5 +1,6 @@
 extends JumpState
-#TODO: rename to jumpWall
+
+
 var wallHop: bool = false
 
 func enter() -> void:
