@@ -370,7 +370,7 @@ offset_bottom = 56.0
 [node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings"]
 offset_top = 60.0
 offset_right = 851.0
-offset_bottom = 126.0
+offset_bottom = 156.0
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
@@ -379,7 +379,7 @@ theme_override_constants/margin_right = 30
 offset_left = 30.0
 offset_top = 10.0
 offset_right = 821.0
-offset_bottom = 66.0
+offset_bottom = 96.0
 
 [node name="Glide" type="HBoxContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V"]
 offset_right = 791.0
@@ -413,6 +413,24 @@ text = "Toggle Grab"
 offset_left = 432.0
 offset_right = 456.0
 offset_bottom = 26.0
+
+[node name="Vibration" type="HBoxContainer" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V"]
+offset_top = 60.0
+offset_right = 791.0
+offset_bottom = 86.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Vibration"]
+offset_left = 304.0
+offset_right = 458.0
+offset_bottom = 26.0
+text = "Controller Vibration"
+
+[node name="Toggle" type="CheckBox" parent="M/H/SettingsMargins/P/M/AccessibilitySettings/M/V/Vibration"]
+offset_left = 462.0
+offset_right = 486.0
+offset_bottom = 26.0
+button_pressed = true
 
 [node name="VideoSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true

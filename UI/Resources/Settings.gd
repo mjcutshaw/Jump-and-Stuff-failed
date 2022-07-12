@@ -10,3 +10,4 @@ var showTimer: bool = false
 ## Accesibility Settings ##
 var toggleGlide: bool = false
 var toggleGrab: bool = false
+var toggleVibration: bool = true

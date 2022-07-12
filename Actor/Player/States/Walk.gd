@@ -42,9 +42,10 @@ func physics(_delta) -> void:
 			print("jump flip phyics")
 			player.jumpFlip = true
 		else:
-			player.velocity.x = moveSpeed * player.moveDirection.x
+			velocity_logic(moveSpeed)
 	else:
-			player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+		#change to reusable function
+		player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
 
 func visual(_delta) -> void:
 	super.visual(_delta)

@@ -87,8 +87,7 @@ func state_check(_delta: float):
 
 
 func move_direction_logic() -> void:
-	#TODO: look into get_axis
-	#FIXME: moveDirection is randomly change when held
+	#TODO: get_vector()
 	player.moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	player.moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	
@@ -97,6 +96,7 @@ func move_direction_logic() -> void:
 
 
 func move_strength_logic() -> void:
+	#TODO: look into get_axis()
 	player.moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
 	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
 
@@ -107,6 +107,7 @@ func velocity_logic(speed) -> void:
 
 
 func momentum_logic(speed, useMoveDirection: bool) -> void:
+	#TODO: need to get accel and deccel, lerp function
 	if useMoveDirection:
 		player.velocity.x = player.moveDirection.x * max(abs(speed), abs(player.velocity.x))
 	if !useMoveDirection:
@@ -149,6 +150,10 @@ func landed_visuals(fallVelocity):
 	#FIXME: change previous velocity to fall speed
 	player.characterRig.scale.x = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 1.2, 1.25)
 	player.characterRig.scale.y = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 0.8, 0.5)
+	
+	#TODO: find a better place for vibrations
+	if settings.toggleVibration:
+		Input.start_joy_vibration(0,0.5,0,0.2)
 
 
 func speed_bend():

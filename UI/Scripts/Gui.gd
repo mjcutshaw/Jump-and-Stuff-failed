@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+#FIXME: menu brakes with sub menu, need to figure out gui manager
+
 @onready var pauseMenu: ColorRect = $PauseMenu
 @onready var settingsMenu: ColorRect = $SettingsMenu
 @onready var devConsole: ColorRect = $DevConsole
