@@ -11,6 +11,7 @@ func enter() -> void:
 	super.enter()
 
 	player.soundDash.play()
+	GameStats.dashes += 1
 
 
 func exit() -> void:

@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+#TODO make a base ability block that others inherit from
+
 #TODO: other ability blocks
 #TODO: let multiple abilities destroy blocks
 #TODO: scale the blocks

@@ -19,6 +19,8 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
+	GameStats.timeInAir += _delta
+	
 	if player.test_move(player.global_transform, Vector2(player.velocity.x * _delta, 0)):
 		player.attempt_vertical_corner_correction(player.jumpCornerCorrectionVertical, _delta)
 

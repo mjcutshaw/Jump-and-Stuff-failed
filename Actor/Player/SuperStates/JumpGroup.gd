@@ -4,7 +4,7 @@ class_name JumpState
 func enter() -> void:
 	super.enter()
 
-	
+	GameStats.jumps += 1
 
 
 func exit() -> void:

@@ -30,6 +30,7 @@ enum State {
 
 var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
 var settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
+var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
 var player: Player
 
 
