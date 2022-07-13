@@ -1,6 +1,6 @@
 extends GroundState
 
-
+#TODO: if moveDirection == 0, then the friction is lower
 var crouchSpeedMin: int = 20
 
 
