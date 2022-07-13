@@ -32,14 +32,12 @@ func enter() -> void:
 	if player.lastDirection.x == 0:
 		player.lastDirection.x = player.characterRig.scale.x
 	
-	neutral_move_direction_logic()
-	#TODO: move where these are called. breaks ground momentom
 
 
 func exit() -> void:
 	super.exit()
 
-	neutral_move_direction_logic()
+	
 
 
 func physics(_delta) -> void:

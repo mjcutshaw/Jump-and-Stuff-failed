@@ -5,7 +5,7 @@ extends AirState
 func enter() -> void:
 	super.enter()
 
-	
+	neutral_move_direction_logic()
 
 func exit() -> void:
 	super.exit()

@@ -6,7 +6,7 @@ var glideFallSpeedModifier: int = 6
 func enter() -> void:
 	super.enter()
 
-#	neutral_move_direction_logic()
+	neutral_move_direction_logic()
 
 
 func exit() -> void:
