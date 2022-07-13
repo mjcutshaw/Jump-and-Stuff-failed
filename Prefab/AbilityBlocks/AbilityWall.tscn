@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://637l4lrhobsq"]
+
+[ext_resource type="Script" path="res://Prefab/AbilityBlocks/Scripts/AbilityWall.gd" id="1_2rejj"]
+[ext_resource type="PackedScene" uid="uid://qlfsj2r7gj6h" path="res://Prefab/AbilityBlocks/Outline.tscn" id="2_n6yf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8v40"]
+size = Vector2(64, 64)
+
+[node name="AbilityWall" type="Node2D"]
+script = ExtResource("1_2rejj")
+
+[node name="Block" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 56
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block"]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_o8v40")
+
+[node name="Detector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 256
+collision_mask = 64
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Detector"]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_o8v40")
+
+[node name="Outline" parent="." instance=ExtResource("2_n6yf5")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -16.0

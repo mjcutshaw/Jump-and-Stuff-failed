@@ -1,20 +1,18 @@
-extends StaticBody2D
+extends AbilityBlockBase
 
-#TODO make a base ability block that others inherit from
 
-#TODO: other ability blocks
 #TODO: let multiple abilities destroy blocks
 #TODO: scale the blocks
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
-@export var ability: PlayerAbilities.abiliyList
-@onready var detector: Area2D = $Area2D
+
+
+@onready var wall: StaticBody2D = $%Block
 
 func _ready() -> void:
 	detector.body_entered.connect(destroy)
 	
-	if ability == Abilities.abiliyList.Null:
-		print("null ability wall")
-	elif ability == Abilities.abiliyList.DashSide:
+	valid_block(get_name(), global_position)
+	
+	if ability == Abilities.abiliyList.DashSide:
 		set_collission(Globals.DASH_SIDE, true)
 		set_collission(Globals.DASH_UP, false)
 		set_collission(Globals.DASH_DOWN, false)
@@ -30,10 +28,10 @@ func _ready() -> void:
 		set_collission(Globals.DASH_SIDE, false)
 		self.modulate = Globals.dashDownColor
 
-
+#TODO: figure way to add to base class
 func set_collission(collisionLayer, collisionBool):
-	set_collision_layer_value(collisionLayer, collisionBool)
+	wall.set_collision_layer_value(collisionLayer, collisionBool)
+
 
 func destroy(_body):
 	queue_free()
-	

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://boyluuvyf4kq1"]
+
+[ext_resource type="Script" path="res://Prefab/AbilityBlocks/Scripts/AbilityReset.gd" id="1_tuctf"]
+[ext_resource type="PackedScene" uid="uid://qlfsj2r7gj6h" path="res://Prefab/AbilityBlocks/Outline.tscn" id="2_adnxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rish"]
+size = Vector2(64, 64)
+
+[node name="AbilityReset" type="Node2D"]
+script = ExtResource("1_tuctf")
+
+[node name="Detector" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 256
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_1rish")
+
+[node name="Outline" parent="." instance=ExtResource("2_adnxm")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = -58.0
+offset_right = 25.0
+offset_bottom = -6.0
+text = "Ability
+Reset"
+
+[node name="LockOutTimer" type="Timer" parent="."]
+one_shot = true

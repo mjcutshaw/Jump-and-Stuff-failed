@@ -33,7 +33,7 @@ func enter() -> void:
 		player.lastDirection.x = player.characterRig.scale.x
 	
 	neutral_move_direction_logic()
-	#TODO: remove from other states
+	#TODO: move where these are called. breaks ground momentom
 
 
 func exit() -> void:

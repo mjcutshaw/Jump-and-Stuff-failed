@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node2D",
+"class": &"AbilityBlockBase",
+"language": &"GDScript",
+"path": "res://Prefab/AbilityBlocks/Scripts/AbilityBlockBase.gd"
+}, {
 "base": "MoveState",
 "class": &"AirState",
 "language": &"GDScript",
@@ -60,6 +65,7 @@ _global_script_classes=[{
 "path": "res://Actor/Player/SuperStates/Wall.gd"
 }]
 _global_script_class_icons={
+"AbilityBlockBase": "",
 "AirState": "",
 "BaseState": "",
 "DashState": "",

@@ -50,6 +50,10 @@ func handle_input(_event: InputEvent) -> int:
 	if Input.is_action_just_pressed("jump"):
 		if Input.is_action_pressed("move_down"):
 				player.pass_through_collisions(Globals.SEMISOLID, false)
+		else:
+			if player.jumpFlip:
+				print("jump flip")
+			return State.Jump
 	
 
 	return State.Null

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ctfgo3l4i1w7u"]
+
+[node name="StatsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0

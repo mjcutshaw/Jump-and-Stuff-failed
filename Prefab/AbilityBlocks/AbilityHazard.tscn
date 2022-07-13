@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://ks171xwgymrt"]
+
+[ext_resource type="PackedScene" uid="uid://qlfsj2r7gj6h" path="res://Prefab/AbilityBlocks/Outline.tscn" id="1_0d4uu"]
+[ext_resource type="Script" path="res://Prefab/AbilityBlocks/Scripts/AbilityHazard.gd" id="1_jmbef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1mws4"]
+size = Vector2(64, 64)
+
+[node name="AbilityHazard" type="Node2D"]
+script = ExtResource("1_jmbef")
+
+[node name="Detector" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+visible = false
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_1mws4")
+
+[node name="Indicator" type="Node2D" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="Indicator"]
+offset_left = 7.0
+offset_top = -50.0
+offset_right = 31.0
+offset_bottom = -47.0
+rotation = 0.786711
+
+[node name="ColorRect4" type="ColorRect" parent="Indicator"]
+offset_left = 5.35189
+offset_top = -34.5099
+offset_right = 29.3519
+offset_bottom = -31.5099
+rotation = -0.998748
+
+[node name="ColorRect" type="ColorRect" parent="Indicator"]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 4.0
+offset_bottom = -47.0
+rotation = 0.632921
+
+[node name="ColorRect2" type="ColorRect" parent="Indicator"]
+offset_left = -23.0
+offset_top = -39.0
+offset_right = 1.0
+offset_bottom = -36.0
+rotation = -0.298453
+
+[node name="ColorRect5" type="ColorRect" parent="Indicator"]
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = -23.0
+rotation = 0.309547
+
+[node name="Outline" parent="." instance=ExtResource("1_0d4uu")]
