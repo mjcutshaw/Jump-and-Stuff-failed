@@ -263,7 +263,6 @@ theme_override_constants/margin_bottom = 30
 
 [node name="GeneralSettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
-visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0
@@ -349,6 +348,7 @@ offset_bottom = 10.0
 
 [node name="AccessibilitySettings" type="VBoxContainer" parent="M/H/SettingsMargins/P/M"]
 unique_name_in_owner = true
+visible = false
 offset_left = 30.0
 offset_top = 30.0
 offset_right = 881.0

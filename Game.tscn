@@ -148,20 +148,9 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource("1")
 
-[node name="OneWayPlatform" parent="Playground/Ground" instance=ExtResource("10_7chve")]
-position = Vector2(802, -151)
-width = 10
-halfBlock = true
-
 [node name="OneWayPlatform2" parent="Playground/Ground" instance=ExtResource("10_7chve")]
 position = Vector2(802, -333)
 width = 10
-halfBlock = true
-
-[node name="OneWayPlatform3" parent="Playground/Ground" instance=ExtResource("10_7chve")]
-position = Vector2(794, -555)
-width = 10
-halfBlock = true
 
 [node name="Collectable" parent="." instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)

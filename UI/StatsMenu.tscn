@@ -1,5 +1,369 @@
-[gd_scene format=3 uid="uid://ctfgo3l4i1w7u"]
+[gd_scene load_steps=4 format=3 uid="uid://ctfgo3l4i1w7u"]
+
+[ext_resource type="Script" path="res://UI/Scripts/StatsMenu.gd" id="1_c13f5"]
+[ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_igtpi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
+shader = ExtResource("1_igtpi")
+shader_param/blur = 1.77778
+shader_param/brightness = 0.822222
 
 [node name="StatsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource("1_c13f5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_t38au")
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="V" type="VBoxContainer" parent="M"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 780.0
+
+[node name="MarginContainer" type="MarginContainer" parent="M/V"]
+custom_minimum_size = Vector2(0, 150)
+offset_right = 1240.0
+offset_bottom = 150.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="M/V/MarginContainer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1220.0
+offset_bottom = 140.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer"]
+offset_left = 20.0
+offset_top = 56.0
+offset_right = 1220.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 32
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V"]
+visible = false
+offset_top = 154.0
+offset_right = 1240.0
+offset_bottom = 158.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="M/V"]
+offset_top = 154.0
+offset_right = 1240.0
+offset_bottom = 760.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel2" type="Panel" parent="M/V/MarginContainer2"]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 1220.0
+offset_bottom = 586.0
+
+[node name="MarginContainer" type="MarginContainer" parent="M/V/MarginContainer2"]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 1220.0
+offset_bottom = 586.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="M/V/MarginContainer2/MarginContainer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1180.0
+offset_bottom = 556.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TimePlay" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_right = 95.0
+offset_bottom = 84.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TimePlay" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimePlay"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimePlay/TimePlay"]
+offset_right = 75.0
+offset_bottom = 26.0
+text = "Play Time"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimePlay/TimePlay"]
+offset_top = 30.0
+offset_right = 75.0
+offset_bottom = 34.0
+
+[node name="TimePlayAmount" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimePlay/TimePlay"]
+unique_name_in_owner = true
+offset_top = 38.0
+offset_right = 75.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="TimeAir" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_left = 105.0
+offset_right = 215.0
+offset_bottom = 84.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TimeAir" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeAir"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeAir/TimeAir"]
+offset_right = 90.0
+offset_bottom = 26.0
+text = "Air Time"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeAir/TimeAir"]
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeAir/TimeAir"]
+offset_top = 38.0
+offset_right = 90.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="TimeGround" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_left = 225.0
+offset_right = 346.0
+offset_bottom = 84.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TimeGround" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeGround"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 111.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeGround/TimeGround"]
+offset_right = 101.0
+offset_bottom = 26.0
+text = "Ground Time"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeGround/TimeGround"]
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/TimeGround/TimeGround"]
+offset_top = 38.0
+offset_right = 101.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="Jumps" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_top = 94.0
+offset_right = 95.0
+offset_bottom = 178.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Jumps" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Jumps"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 74.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Jumps/Jumps"]
+offset_right = 75.0
+offset_bottom = 26.0
+text = "Jumps"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Jumps/Jumps"]
+offset_top = 30.0
+offset_right = 75.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Jumps/Jumps"]
+offset_top = 38.0
+offset_right = 75.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="JumpWall" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_left = 105.0
+offset_top = 94.0
+offset_right = 215.0
+offset_bottom = 178.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Jumps" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/JumpWall"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 74.0
+alignment = 1
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/JumpWall/Jumps"]
+offset_right = 90.0
+offset_bottom = 26.0
+text = "Wall Jumps"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/JumpWall/Jumps"]
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/JumpWall/Jumps"]
+offset_top = 38.0
+offset_right = 90.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="Dashes" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_left = 225.0
+offset_top = 94.0
+offset_right = 346.0
+offset_bottom = 178.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Dashes" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Dashes"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 111.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Dashes/Dashes"]
+offset_right = 101.0
+offset_bottom = 26.0
+text = "Dashes"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Dashes/Dashes"]
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Dashes/Dashes"]
+offset_top = 38.0
+offset_right = 101.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="Deaths" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_top = 188.0
+offset_right = 95.0
+offset_bottom = 272.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Deaths" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Deaths"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Deaths/Deaths"]
+offset_right = 75.0
+offset_bottom = 26.0
+text = "Deaths
+"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Deaths/Deaths"]
+offset_top = 30.0
+offset_right = 75.0
+offset_bottom = 34.0
+
+[node name="DeathAmount" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Deaths/Deaths"]
+unique_name_in_owner = true
+offset_top = 38.0
+offset_right = 75.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
+
+[node name="Completion" type="MarginContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer"]
+offset_left = 105.0
+offset_top = 188.0
+offset_right = 215.0
+offset_bottom = 272.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Completion" type="VBoxContainer" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Completion"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 74.0
+
+[node name="Label" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Completion/Completion"]
+offset_right = 90.0
+offset_bottom = 26.0
+text = "Completion"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Completion/Completion"]
+offset_top = 30.0
+offset_right = 90.0
+offset_bottom = 34.0
+
+[node name="Label2" type="Label" parent="M/V/MarginContainer2/MarginContainer/GridContainer/Completion/Completion"]
+offset_top = 38.0
+offset_right = 90.0
+offset_bottom = 64.0
+text = "test"
+horizontal_alignment = 1
