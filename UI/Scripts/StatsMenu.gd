@@ -1,10 +1,11 @@
 extends Control
 
 #TODO: need to process the delta time to readable for times, probably a global function
+#TODO: add to menus
 #TODO: grey out if ability not unlocked
 #TODO: look to moving to each label, make class to inherit from
 
-var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
+var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 
 @onready var timePlayAmount: Label = $%TimePlayedAmount
 @onready var timeOnGroundAmount: Label = $%TimeGroundAmount

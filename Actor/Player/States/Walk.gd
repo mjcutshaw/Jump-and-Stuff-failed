@@ -13,7 +13,7 @@ var rotation: float
 func enter() -> void:
 	super.enter()
 
-	
+	player.particlesWalking.emitting = true
 
 
 func exit() -> void:
@@ -51,7 +51,6 @@ func visual(_delta) -> void:
 	super.visual(_delta)
 
 	facing(player.lastDirection.x)
-	player.particlesWalking.emitting = true
 	
 
 

@@ -2,8 +2,8 @@ extends MarginContainer
 
 #TODO: change these to own scenes and canvas layers
 
-var Settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
-var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
+var Settings = ResourceLoader.load("res://Resources/Settings.tres")
+var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 
 @onready var playTimeLabel: Label = $Label
 

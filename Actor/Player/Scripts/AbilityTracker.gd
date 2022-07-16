@@ -5,7 +5,7 @@ extends Node2D
 @onready var dashDownTracker: ColorRect = $DashDown
 @onready var player: Player = get_parent().get_parent()
 
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
 
 func _ready() -> void:

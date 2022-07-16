@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dp68cbaoy6ixc"]
+
+[node name="Charms" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 80.0
+offset_top = 88.0
+offset_right = 784.0
+offset_bottom = 680.0
+select_mode = 1
+item_count = 2
+max_columns = 2
+item_0/text = "Test"
+item_1/text = "test2"

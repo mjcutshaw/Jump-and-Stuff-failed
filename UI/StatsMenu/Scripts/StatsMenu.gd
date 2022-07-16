@@ -4,7 +4,7 @@ extends Control
 #TODO: grey out if ability not unlocked
 #TODO: look to moving to each label, make class to inherit from
 
-var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
+var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 @onready var timePlayAmount: Label = $%TimePlayAmount
 @onready var deathAmount: Label = $%DeathAmount
 

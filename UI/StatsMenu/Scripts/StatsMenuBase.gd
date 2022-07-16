@@ -2,7 +2,7 @@ extends MarginContainer
 class_name StatsMenuBase
 
 #FIXME: see about trying to convert a enum to regular var
-var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
+var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 @onready var statNameLabel: Label = $%Name
 @onready var amountLabel: Label = $%Amount
 

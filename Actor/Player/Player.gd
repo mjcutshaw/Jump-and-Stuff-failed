@@ -29,7 +29,7 @@ extends CharacterBody2D
 @onready var oneWayResetTimer: Timer = $Timers/OneWayTimer
 @onready var statelabel: Label = $StateLabel
 
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO

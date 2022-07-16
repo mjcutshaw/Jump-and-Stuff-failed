@@ -41,7 +41,11 @@ func change_state(newState: int) -> void:
 		currentState.exit()
 		previousState = currentState
 		previousStateName = previousState.name
-
+		
+		#TODO: look into not calling super state exit if super states are the same
+		if currentState.get_groups() != previousState.get_groups():
+			print("different super state")
+	
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name

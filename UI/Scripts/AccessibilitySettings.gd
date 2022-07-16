@@ -4,7 +4,7 @@ extends VBoxContainer
 @onready var buttonToggleGlide: CheckBox = $M/V/Glide/Toggle
 @onready var buttonToggleGrab: CheckBox = $M/V/Grab/Toggle
 @onready var buttonToggleVibration: CheckBox = $M/V/Vibration/Toggle
-var settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
+var settings = ResourceLoader.load("res://Resources/Settings.tres")
 
 func _ready() -> void:
 	buttonToggleGlide.toggled.connect(toggle_glide)

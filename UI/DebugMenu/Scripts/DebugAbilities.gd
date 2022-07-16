@@ -5,7 +5,7 @@ extends HBoxContainer
 #TODO: change color of text depending on what is unlocked
 @onready var allAbilitiesButton: Button = $%AllButton
 
-@onready var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
 func _ready() -> void:
 	allAbilitiesButton.pressed.connect(all_abilities_toggle)

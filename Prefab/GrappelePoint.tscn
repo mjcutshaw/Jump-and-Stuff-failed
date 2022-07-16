@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cded301qj4v6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hw1j4"]
+
+[node name="GrapplePoints" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hw1j4")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

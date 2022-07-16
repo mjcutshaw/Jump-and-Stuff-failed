@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgfe6vps5m56f"]
+
+[ext_resource type="Texture2D" uid="uid://p1x0exhpy0ke" path="res://Assets/hook.png" id="1_7caub"]
+[ext_resource type="Script" path="res://Actor/Player/Grapple.gd" id="1_aj1w1"]
+[ext_resource type="Script" path="res://Actor/Player/Hook.gd" id="2_sy7td"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xmhw3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5igtr"]
+
+[node name="Grapple" type="Node2D"]
+script = ExtResource("1_aj1w1")
+
+[node name="Detector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CapsuleShape2D_xmhw3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CapsuleShape2D_5igtr")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Hook" type="Node2D" parent="."]
+script = ExtResource("2_sy7td")
+
+[node name="Tail" type="Line2D" parent="Hook"]
+position = Vector2(0.149001, -0.000159542)
+rotation = -0.00107074
+scale = Vector2(0.877723, 1)
+points = PackedVector2Array(18, 0.0192734, 8, 0.00856595)
+width = 2.0
+default_color = Color(0.101961, 0.188235, 0.235294, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Head" type="Sprite2D" parent="Hook"]
+position = Vector2(30, 0)
+rotation = 1.5708
+scale = Vector2(0.130303, 0.130303)
+texture = ExtResource("1_7caub")

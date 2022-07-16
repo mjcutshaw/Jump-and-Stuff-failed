@@ -1,7 +1,7 @@
 extends Area2D
 
 #TODO: send sound to audio bus
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 var sound = preload("res://Assests/Sounds/SUCCESS PICKUP Collect Chime 01.ogg")
 @export var ability: PlayerAbilities.abiliyList
 

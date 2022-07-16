@@ -28,10 +28,10 @@ enum State {
 	WallGrab,
 	WallClimb,
 }
-
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
-var settings = ResourceLoader.load("res://UI/Resources/Settings.tres")
-var GameStats = ResourceLoader.load("res://UI/Resources/GameStats.tres")
+#TODO: rename variables
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
+var settings = ResourceLoader.load("res://Resources/Settings.tres")
+var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 var player: Player
 
 

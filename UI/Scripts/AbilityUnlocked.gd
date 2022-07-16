@@ -1,7 +1,7 @@
 extends Label
 
 #TODO: Move to main node
-var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
 
 
