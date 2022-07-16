@@ -19,11 +19,11 @@ func show_timer():
 
 
 func _process(delta):
-	GameStats.playTime += delta
-	var mils = fmod(GameStats.playTime,1)*1000
-	var secs = fmod(GameStats.playTime,60)
-	var mins = fmod(GameStats.playTime, 3600) / 60
-	var hr = fmod(GameStats.playTime,3600 * 60) / 3600
+	GameStats.timePlayed += delta
+	var mils = fmod(GameStats.timePlayed,1)*1000
+	var secs = fmod(GameStats.timePlayed,60)
+	var mins = fmod(GameStats.timePlayed, 3600) / 60
+	var hr = fmod(GameStats.timePlayed,3600 * 60) / 3600
 	strTimeElapsed = "%02d : %02d : %02d . %03d" % [hr, mins, secs, mils]
 	
 	playTimeLabel.text = strTimeElapsed
