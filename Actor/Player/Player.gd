@@ -2,8 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 #TODO: make movement velocity, enviroment velocity. change state velocity to movement velocity
-#TODO: add hitbox and hurtbox
-@onready var sm = $StateMachine
+#TODO: add hitbox and hurtboxd
+#TODO: change collision shape to capsule and add ground detection raycasts
+@onready var sm: Node = $StateMachine
+@onready var aim: Node2D = $Aim
 @onready var characterRig: Node2D = $CharacterRig
 @onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
 @onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
@@ -34,6 +36,7 @@ var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO
+var aimDirection: Vector2 = Vector2.ZERO
 var previousVelocity: Vector2 = Vector2.ZERO
 var wallDirection: Vector2 = Vector2.ZERO
 var lastWallDirection: Vector2 = Vector2.ZERO
@@ -50,6 +53,7 @@ var canJumpDouble: bool = false
 var canJumpTriple: bool = false
 var jumpFlip: bool = false
 var neutralMoveDirection: bool = false
+var canGrapple: bool = false
 
 var facing: int
 

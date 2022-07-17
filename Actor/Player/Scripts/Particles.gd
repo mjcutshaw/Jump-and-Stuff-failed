@@ -1,5 +1,7 @@
 extends Node2D
 
+#TODO: get ground color for particles
+
 @onready var particleDashSide: GPUParticles2D = $ParticlesDashSide
 @onready var particleDashUp: GPUParticles2D = $ParticlesDashUp
 @onready var particleDashDown: GPUParticles2D = $ParticlesDashDown

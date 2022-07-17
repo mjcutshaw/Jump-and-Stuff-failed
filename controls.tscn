@@ -42,17 +42,17 @@ offset_bottom = 306.0
 text = "Charge"
 
 [node name="Grapple" type="Label" parent="."]
-offset_left = -432.0
-offset_top = -312.0
-offset_right = -370.0
-offset_bottom = -286.0
+offset_left = 120.0
+offset_top = 144.0
+offset_right = 182.0
+offset_bottom = 170.0
 text = "Grapple"
 
 [node name="Burrow" type="Label" parent="."]
-offset_left = -456.0
-offset_top = -232.0
-offset_right = -178.0
-offset_bottom = -206.0
+offset_left = -432.0
+offset_top = 72.0
+offset_right = -154.0
+offset_bottom = 98.0
 text = "Burrow"
 
 [node name="Bash" type="Label" parent="."]
