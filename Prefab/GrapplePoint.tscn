@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0b6lmqnsmloq"]
+[gd_scene load_steps=3 format=3 uid="uid://b0b6lmqnsmloq"]
+
+[ext_resource type="Script" path="res://Prefab/GrapplePoint.gd" id="1_3x5wy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hw1j4"]
 
 [node name="GrapplePoints" type="Area2D"]
+script = ExtResource("1_3x5wy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hw1j4")

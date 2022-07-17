@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=55 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -33,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://bbxrjo4fj1yw0" path="res://Assests/Sounds/Actor/Player/SPLAT Crush 01.ogg" id="20_abo4x"]
 [ext_resource type="AudioStream" uid="uid://810lfw5sc68i" path="res://Assests/Sounds/Actor/Player/POP Echo Bouncer 01.ogg" id="21_1hbvx"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
-[ext_resource type="PackedScene" uid="uid://dgfe6vps5m56f" path="res://Actor/Player/Grapple.tscn" id="34_np38j"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Aim.gd" id="35_v2wm8"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
@@ -453,10 +452,6 @@ process_material = SubResource("ParticlesMaterial_lk21w")
 visible = false
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_dw7rg")
-
-[node name="Grapple" parent="." instance=ExtResource("34_np38j")]
-visible = false
-position = Vector2(0, -32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

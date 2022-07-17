@@ -8,6 +8,7 @@ extends AbilityBlockBase
 
 
 func _ready() -> void:
+	modulate = Color.YELLOW
 	detector.body_entered.connect(ability_rest)
 	lockOutTimer.timeout.connect(cooldown)
 	lockOutTimer.wait_time = lockOutTime
@@ -21,9 +22,9 @@ func ability_rest(body: Player) -> void:
 	else:
 		body.reset(ability)
 		lockOutTimer.start()
-		visible = false
+		modulate = Color(Color.DARK_GRAY, .2)
 		set_deferred("monitoring", false)
 
 func cooldown() -> void:
-	visible = true
+	modulate = Color.YELLOW
 	set_deferred("monitoring", true)
