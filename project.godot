@@ -72,7 +72,7 @@ _global_script_classes=[{
 "base": "CollisionShape2D",
 "class": &"VisibleCollisionShape2D",
 "language": &"GDScript",
-"path": "res://Prefab/Platform/DrawCollision.gd"
+"path": "res://Utility/DrawCollision.gd"
 }, {
 "base": "MoveState",
 "class": &"WallState",

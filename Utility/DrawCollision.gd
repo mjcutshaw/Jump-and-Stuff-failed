@@ -2,6 +2,8 @@
 extends CollisionShape2D
 class_name VisibleCollisionShape2D
 
+#TODO: should be able to extend this for various scripts
+
 @export var color: Color = Color.BLACK:
 	get: return color
 	set(v):
