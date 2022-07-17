@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=18 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
 [ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
 [ext_resource type="PackedScene" uid="uid://bekwfmdjyl5tc" path="res://Prefab/Platform/OneWayPlatform.tscn" id="10_7chve"]
+[ext_resource type="Script" path="res://Prefab/Platform/DrawCollision.gd" id="10_kjq5h"]
 [ext_resource type="PackedScene" uid="uid://637l4lrhobsq" path="res://Prefab/AbilityBlocks/AbilityWall.tscn" id="11_lr6op"]
 [ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="12_t3s5q"]
 
@@ -113,6 +114,11 @@ text = "Debug"
 
 [node name="Ground" type="Node2D" parent="Playground"]
 
+[node name="OneWayPlatform" parent="Playground/Ground" instance=ExtResource("10_7chve")]
+position = Vector2(496, -98)
+width = 3
+halfBlock = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Playground/Ground"]
 collision_mask = 64
 
@@ -120,41 +126,44 @@ collision_mask = 64
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 32)
 shape = SubResource("1")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4449, 2001)
 shape = SubResource("1")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1285, 1008)
 shape = SubResource("RectangleShape2D_l0cg8")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(1849, 796)
 shape = SubResource("RectangleShape2D_3wmbc")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(2265, -324)
 rotation = 1.1781
 shape = SubResource("RectangleShape2D_n5qon")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(-491, -686)
 shape = SubResource("RectangleShape2D_3wmbc")
+script = ExtResource("10_kjq5h")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource("1")
-
-[node name="OneWayPlatform2" parent="Playground/Ground" instance=ExtResource("10_7chve")]
-position = Vector2(802, -333)
-width = 10
+script = ExtResource("10_kjq5h")
 
 [node name="Collectable" parent="." instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)

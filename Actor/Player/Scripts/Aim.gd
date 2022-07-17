@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = get_parent()
 @onready var raycast: RayCast2D = $RayCast2D
-@onready var aimIndicator: ColorRect = $AimIndicator
+@onready var aimIndicator: Node2D = $AimIndicator
 @onready var detector: Area2D = $Detector
 
 func _ready() -> void:
@@ -25,10 +25,11 @@ func _physics_process(delta: float) -> void:
 
 
 func aim_direction() -> void:
-	var input_strength: Vector2 =  Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+	player.aimStrength =  Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+	#todo: change deadzone to settings
 	var deadzone_radius: = 0.2
-	if input_strength.length() > deadzone_radius:
-		player.aimDirection = input_strength
+	if player.aimStrength.length() > deadzone_radius:
+		player.aimDirection = player.aimStrength
 	else:
 		player.aimDirection = Vector2.ZERO
 

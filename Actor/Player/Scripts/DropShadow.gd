@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var raycastRight: RayCast2D = $RayCast2D
 @onready var raycastLeft: RayCast2D = $RayCast2D2
+#TODO: change sdaow to draw 
 @onready var shadow: Sprite2D = $Sprite2D
 
 var castLength: int = 500

@@ -85,7 +85,7 @@ func state_check(_delta: float):
 
 
 func move_direction_logic() -> void:
-	#TODO: get_vector()
+	#TODO: get_vector(), check out aim node
 	player.moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	player.moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
 	

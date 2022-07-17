@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=56 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bbxrjo4fj1yw0" path="res://Assests/Sounds/Actor/Player/SPLAT Crush 01.ogg" id="20_abo4x"]
 [ext_resource type="AudioStream" uid="uid://810lfw5sc68i" path="res://Assests/Sounds/Actor/Player/POP Echo Bouncer 01.ogg" id="21_1hbvx"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
+[ext_resource type="Script" path="res://Actor/Player/Scripts/AimIndicator.gd" id="35_cjw02"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Aim.gd" id="35_v2wm8"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
@@ -618,17 +619,6 @@ script = ExtResource("35_v2wm8")
 [node name="RayCast2D" type="RayCast2D" parent="Aim"]
 target_position = Vector2(200, 0)
 
-[node name="AimIndicator" type="ColorRect" parent="Aim"]
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 35.0
-offset_top = -3.0
-offset_right = 41.0
-offset_bottom = 3.0
-grow_vertical = 2
-pivot_offset = Vector2(-35, 3)
-color = Color(0.137255, 1, 0.333333, 1)
-
 [node name="Detector" type="Area2D" parent="Aim"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aim/Detector"]
@@ -639,5 +629,10 @@ shape = SubResource("CapsuleShape2D_bvy8w")
 position = Vector2(98, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d1vwq")
+
+[node name="AimIndicator" type="Node2D" parent="Aim"]
+script = ExtResource("35_cjw02")
+color = Color(0, 0.917647, 0.517647, 1)
+width = 5
 
 [connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

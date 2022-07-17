@@ -8,15 +8,30 @@ extends StaticBody2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var detector: Area2D = $Area2D
 
-@export var width: int = 1
-@export var height: int = 1
-@export var halfBlock: bool = false
+@export var width: int = 1 :
+	get: return width
+	set(v):
+		width = v
+		set_shape()
+		update()
+
+@export var height: int = 1 :
+	get: return height
+	set(v):
+		height = v
+		set_shape()
+		update()
+
+@export var halfBlock: bool = false:
+	get: return halfBlock
+	set(v):
+		halfBlock = v
 
 var widthGrid: int
 var heightGrid
 
 
-func  _ready() -> void:
+func set_shape():
 	widthGrid = width * Globals.TILE_SIZE
 	
 	if halfBlock:
@@ -24,14 +39,20 @@ func  _ready() -> void:
 	else: 
 		heightGrid = height * Globals.TILE_SIZE
 		
-	collision.shape.size.x = widthGrid
-	collision.shape.size.y = heightGrid
+	$CollisionShape2D.shape.size.x = widthGrid
+	$CollisionShape2D.shape.size.y = heightGrid
 	
-	detectorCollision.shape = collision.shape
-	detectorCollision.shape.size = collision.shape.size
+	$Area2D/CollisionShape2D.shape = $CollisionShape2D.shape
+	$Area2D/CollisionShape2D.shape.size = $CollisionShape2D.shape.size
+
+
+
+
+func  _ready() -> void:
 	detector.body_entered.connect(player_enter)
 
 
 func player_enter(body: Player) -> void:
 	body.one_way_reset()
-	
+
+

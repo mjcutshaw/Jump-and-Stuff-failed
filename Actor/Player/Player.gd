@@ -36,6 +36,7 @@ var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO
+var aimStrength: Vector2 = Vector2.ZERO
 var aimDirection: Vector2 = Vector2.ZERO
 var previousVelocity: Vector2 = Vector2.ZERO
 var wallDirection: Vector2 = Vector2.ZERO
