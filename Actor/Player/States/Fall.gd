@@ -1,5 +1,5 @@
 extends AirState
-#FIXME: sometimes wall jumps keep momentum, some times fall immedialy
+
 #TODO: make friction when changing directions
 #TODO: only cap fall speed with neutral or only with holding down
 func enter() -> void:
