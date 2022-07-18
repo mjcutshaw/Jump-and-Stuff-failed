@@ -1,6 +1,7 @@
 @tool
 extends Node2D
 
+#TODO: accessability chnage size and make a line
 
 @export var center: Vector2 = Vector2(50, 0):
 	get: return center
@@ -29,4 +30,5 @@ extends Node2D
 
 func _draw():
 	draw_arc(center, radius, -360, 360, 3, color, width)
+	
 

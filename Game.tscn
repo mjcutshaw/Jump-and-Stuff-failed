@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
 [ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
-[ext_resource type="PackedScene" uid="uid://bekwfmdjyl5tc" path="res://Prefab/Platform/OneWayPlatform.tscn" id="10_7chve"]
 [ext_resource type="Script" path="res://Utility/DrawCollision.gd" id="10_pqpfw"]
 [ext_resource type="PackedScene" uid="uid://637l4lrhobsq" path="res://Prefab/AbilityBlocks/AbilityWall.tscn" id="11_lr6op"]
 [ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="12_t3s5q"]
@@ -25,6 +24,8 @@ size = Vector2(64, 1500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qon"]
 size = Vector2(64, 1500)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4asux"]
 
 [node name="Game" type="Node"]
 
@@ -110,14 +111,19 @@ text = "Debug"
 
 [node name="Playground" type="Node2D" parent="."]
 
-[node name="Player" parent="Playground" instance=ExtResource("1")]
+[node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
+position = Vector2(96, 0)
+ability = 1
+
+[node name="AbilityReset" parent="Playground" instance=ExtResource("12_t3s5q")]
+position = Vector2(402, -451)
+ability = 1
+
+[node name="AbilityWall" parent="Playground" instance=ExtResource("11_lr6op")]
+position = Vector2(242, -14)
+ability = 8
 
 [node name="Ground" type="Node2D" parent="Playground"]
-
-[node name="OneWayPlatform" parent="Playground/Ground" instance=ExtResource("10_7chve")]
-position = Vector2(496, -98)
-width = 3
-halfBlock = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Playground/Ground"]
 collision_mask = 64
@@ -165,14 +171,8 @@ position = Vector2(4608, -160)
 shape = SubResource("1")
 script = ExtResource("10_pqpfw")
 
-[node name="Collectable" parent="." instance=ExtResource("2_2c3h4")]
-position = Vector2(96, 0)
-ability = 1
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+position = Vector2(-276, -610)
+shape = SubResource("CircleShape2D_4asux")
 
-[node name="AbilityReset" parent="." instance=ExtResource("12_t3s5q")]
-position = Vector2(402, -451)
-ability = 1
-
-[node name="AbilityWall" parent="." instance=ExtResource("11_lr6op")]
-position = Vector2(242, -14)
-ability = 8
+[node name="Player" parent="Playground" instance=ExtResource("1")]

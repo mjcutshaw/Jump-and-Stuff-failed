@@ -29,7 +29,7 @@ extends CharacterBody2D
 @onready var jumpConsectutiveTimer: Timer = $Timers/JumpConsectutiveTimer
 @onready var wallCoyoteTimer: Timer = $Timers/WallCoyoteTimer
 @onready var oneWayResetTimer: Timer = $Timers/OneWayTimer
-@onready var statelabel: Label = $StateLabel
+@onready var statelabel: Label = $Labels/StateLabel
 
 var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
@@ -86,7 +86,7 @@ func _physics_process(_delta: float) -> void:
 	sm.physics(_delta)
 	sm.state_check(_delta)
 #	facing = characterRig.scale.x
-	$VelocityLabel.text = str(velocity.round())
+	$Labels/VelocityLabel.text = str(velocity.round())
 #	$FacingLabel.text = str(facing)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=57 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -35,6 +35,7 @@
 [ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/AimIndicator.gd" id="35_cjw02"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Aim.gd" id="35_v2wm8"]
+[ext_resource type="Script" path="res://Actor/Player/Scripts/HookableIndicator.gd" id="36_1t10s"]
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
 _data = [Vector2(0, 0.5), 0.0, 3.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -594,24 +595,6 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(-4.76837e-07, 1.9108)
 scale = Vector2(0.53125, 0.0707703)
 
-[node name="StateLabel" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -90.0
-offset_right = 22.0
-offset_bottom = -67.0
-
-[node name="VelocityLabel" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -117.0
-offset_right = 22.0
-offset_bottom = -94.0
-
-[node name="FacingLabel" type="Label" parent="."]
-offset_left = 19.0
-offset_top = -63.0
-offset_right = 58.0
-offset_bottom = -40.0
-
 [node name="Aim" type="Node2D" parent="."]
 position = Vector2(0, -32)
 script = ExtResource("35_v2wm8")
@@ -634,5 +617,27 @@ shape = SubResource("CapsuleShape2D_d1vwq")
 script = ExtResource("35_cjw02")
 color = Color(0, 0.917647, 0.517647, 1)
 width = 5
+
+[node name="HookableIndicator" type="Node2D" parent="Aim"]
+visible = false
+script = ExtResource("36_1t10s")
+
+[node name="Grapple" type="Line2D" parent="."]
+
+[node name="Labels" type="Control" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StateLabel" type="Label" parent="Labels"]
+offset_left = -17.0
+offset_top = -90.0
+offset_right = 22.0
+offset_bottom = -67.0
+
+[node name="VelocityLabel" type="Label" parent="Labels"]
+offset_left = -17.0
+offset_top = -117.0
+offset_right = 22.0
+offset_bottom = -94.0
 
 [connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

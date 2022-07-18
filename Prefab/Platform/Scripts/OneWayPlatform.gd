@@ -1,7 +1,8 @@
 @tool
 extends StaticBody2D
+class_name OneWayPlatform
 
-#FIXME: tool script not updating size in editor
+#FIXME: able to pull parts from classnames, but doesn't work bringing in the prefab
 # might need to make set get
 
 @onready var detectorCollision: CollisionShape2D = $Area2D/CollisionShape2D
