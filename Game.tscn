@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=17 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -24,8 +24,6 @@ size = Vector2(64, 1500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qon"]
 size = Vector2(64, 1500)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4asux"]
 
 [node name="Game" type="Node"]
 
@@ -113,10 +111,14 @@ text = "Debug"
 
 [node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)
-ability = 1
+ability = 2
+
+[node name="Collectable2" parent="Playground" instance=ExtResource("2_2c3h4")]
+position = Vector2(-253, -7)
+ability = 7
 
 [node name="AbilityReset" parent="Playground" instance=ExtResource("12_t3s5q")]
-position = Vector2(402, -451)
+position = Vector2(624, -167)
 ability = 1
 
 [node name="AbilityWall" parent="Playground" instance=ExtResource("11_lr6op")]
@@ -170,9 +172,5 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource("1")
 script = ExtResource("10_pqpfw")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
-position = Vector2(-276, -610)
-shape = SubResource("CircleShape2D_4asux")
 
 [node name="Player" parent="Playground" instance=ExtResource("1")]
