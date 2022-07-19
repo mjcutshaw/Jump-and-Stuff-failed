@@ -18,14 +18,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	if !player.neutralMoveDirection:
-		velocity_logic(moveSpeed/glideSpeedModifier)
-	if player.neutralMoveDirection:
-		momentum_logic(moveSpeed, false)
-	if player.moveDirection != Vector2.ZERO and player.neutralMoveDirection:
-		await get_tree().create_timer(.2).timeout
-		player.neutralMoveDirection = false
-	
+	neutral_air_momentum_logic()
 	gravity_logic(gravityGlide, _delta)
 	fall_speed_logic(terminalVelocity/glideFallSpeedModifier)
 

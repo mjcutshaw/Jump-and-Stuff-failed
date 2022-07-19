@@ -91,3 +91,13 @@ func consecutive_jump_logic():
 		player.canJumpTriple = true
 		player.jumpedDouble = false
 		player.jumpConsectutiveTimer.start()
+
+
+func neutral_air_momentum_logic():
+	if !player.neutralMoveDirection:
+		velocity_logic(moveSpeed)
+	if player.neutralMoveDirection: ## Carry momentum with nuetral moveDirection ##
+		momentum_logic(moveSpeed, false)
+	if player.moveDirection != Vector2.ZERO and player.neutralMoveDirection: ## Cancael out nuetral momentum
+		await get_tree().create_timer(0.1).timeout
+		player.neutralMoveDirection = false

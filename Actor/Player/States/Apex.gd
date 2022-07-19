@@ -16,10 +16,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	if player.neutralMoveDirection:
-		momentum_logic(moveSpeed, false)
-	if !player.neutralMoveDirection:
-		momentum_logic(moveSpeed, true)
+	neutral_air_momentum_logic()
 	gravity_logic(gravityApex, _delta)
 
 
