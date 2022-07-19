@@ -14,9 +14,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	aim_direction()
-	
-	
-	
 	if player.aimDirection == Vector2.ZERO:
 		aimIndicator.visible = false
 	else:

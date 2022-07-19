@@ -39,12 +39,13 @@ func physics(_delta) -> void:
 	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
 		await get_tree().create_timer(.1).timeout
 		if Input.is_action_pressed("jump"):
-			print("jump flip phyics")
+#			print("jump flip phyics")
+			#TODO: work on jump jumpflip
 			player.jumpFlip = true
 		else:
 			velocity_logic(moveSpeed)
 	else:
-		#change to reusable function
+		#TODO: change to reusable function
 		player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
 
 func visual(_delta) -> void:

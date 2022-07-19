@@ -1,6 +1,6 @@
 extends GroundState
 
-#TODO: if moveDirection == 0, then the friction is lower
+#TODO: if moveDirection == 0, then the friction is lower or only one ice
 var crouchSpeedMin: int = 20
 
 

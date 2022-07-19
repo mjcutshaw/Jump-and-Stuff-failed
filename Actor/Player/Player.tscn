@@ -450,6 +450,26 @@ local_coords = false
 trail_length_secs = 0.5
 process_material = SubResource("ParticlesMaterial_lk21w")
 
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Ground" type="Node2D" parent="Raycasts"]
+
+[node name="Right" type="RayCast2D" parent="Raycasts/Ground"]
+position = Vector2(16, 0)
+target_position = Vector2(0, 2)
+
+[node name="MRight" type="RayCast2D" parent="Raycasts/Ground"]
+position = Vector2(8, 0)
+target_position = Vector2(0, 2)
+
+[node name="MLeft" type="RayCast2D" parent="Raycasts/Ground"]
+position = Vector2(-8, 0)
+target_position = Vector2(0, 2)
+
+[node name="Left" type="RayCast2D" parent="Raycasts/Ground"]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 2)
+
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -24)
@@ -596,13 +616,16 @@ position = Vector2(-4.76837e-07, 1.9108)
 scale = Vector2(0.53125, 0.0707703)
 
 [node name="Aim" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 script = ExtResource("35_v2wm8")
 
 [node name="RayCast2D" type="RayCast2D" parent="Aim"]
+visible = false
 target_position = Vector2(200, 0)
 
 [node name="Detector" type="Area2D" parent="Aim"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aim/Detector"]
 position = Vector2(133, 1)

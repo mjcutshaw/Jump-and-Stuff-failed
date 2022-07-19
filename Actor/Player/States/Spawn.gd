@@ -1,5 +1,6 @@
 extends BaseState
 
+#TODO: visuals break on jump
 
 func enter() -> void:
 	super.enter()

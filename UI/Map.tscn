@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhf5qx0nkkigg"]
+
+[ext_resource type="Shader" path="res://UI/Shaders/Blur.gdshader" id="1_fi6oy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
+shader = ExtResource("1_fi6oy")
+shader_param/blur = 1.77778
+shader_param/brightness = 0.822222
+
+[node name="Map" type="ColorRect"]
+material = SubResource("ShaderMaterial_t38au")
+anchor_right = 1.0
+anchor_bottom = 1.0
