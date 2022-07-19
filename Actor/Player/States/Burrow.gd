@@ -1,6 +1,7 @@
 extends MoveState
 
 #TODO: sheepo burrow had you having to jump between burrowing locations and not losing the transformation
+#burrow dash our of ground for distance and break into places
 
 func enter() -> void:
 	super.enter()

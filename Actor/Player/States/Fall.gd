@@ -1,7 +1,6 @@
 extends AirState
 
 #TODO: make friction when changing directions
-#TODO: only cap fall speed with neutral or only with holding down
 func enter() -> void:
 	super.enter()
 
@@ -16,16 +15,10 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	#TODO: turn into a reusable function
-	if !player.neutralMoveDirection:
-		velocity_logic(moveSpeed)
-	if player.neutralMoveDirection:
-		momentum_logic(moveSpeed, false)
-	if player.moveDirection != Vector2.ZERO and player.neutralMoveDirection:
-		await get_tree().create_timer(0.1).timeout
-		player.neutralMoveDirection = false
+	nuetral_air_momentum_logic()
+	if player.moveDirection.y != 1: ## No velocity when holding down ##
+		fall_speed_logic(terminalVelocity)
 	gravity_logic(gravityFall, _delta)
-	fall_speed_logic(terminalVelocity)
 
 
 func visual(_delta) -> void:
