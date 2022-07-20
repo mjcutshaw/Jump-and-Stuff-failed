@@ -156,7 +156,7 @@ func landed_visuals(fallVelocity):
 
 func speed_bend():
 	#TODO: variable to decide direction
-	#TODO: need to move smoothly back to zero
+	#TODO: try using tween
 	player.characterRig.skew = range_lerp(-player.velocity.x, 0, abs(moveSpeed), 0.0, 0.1)
 
 

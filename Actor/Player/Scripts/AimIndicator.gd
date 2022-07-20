@@ -2,7 +2,6 @@
 extends Node2D
 
 #TODO: accessability chnage size and make a line
-#TODO: change to line 2D
 
 @export var center: Vector2 = Vector2(50, 0):
 	get: return center

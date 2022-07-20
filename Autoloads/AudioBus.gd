@@ -1,8 +1,6 @@
 extends Node
-#TODO: set up paused signals
-# probably only useful for nonpositional audio
+
 enum audioType {music, background, sfx}
-#TODO: add more types, fanfare?
 
 @onready var musicBus: Node = $Music
 @onready var backgroundBus: Node = $Backgrounds

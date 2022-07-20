@@ -1,7 +1,6 @@
 class_name DashState
 extends MoveState
 
-#TODO: look into using the right stick for aiming
 
 var dashTime = 0.3
 var dashDistance: int = 10 * Globals.TILE_SIZE
