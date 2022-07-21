@@ -36,6 +36,7 @@ var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
 var player: Player
 
 
+
 func enter() -> void:
 	pass
 
