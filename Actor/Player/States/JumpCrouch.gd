@@ -8,8 +8,8 @@ func enter() -> void:
 	player.velocity.y = jumpVelocityMax * jumpCrouchVelocityModifier
 	player.velocity.x = 0
 	player.particlesJumpTriple.restart()
-	player.soundJump.pitch_scale = 2
-	player.soundJump.play()
+	player.sounds.soundJump.pitch_scale = 2
+	player.sounds.soundJump.play()
 
 
 func exit() -> void:

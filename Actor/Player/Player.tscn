@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://du6cj4sel1rxc"]
+[gd_scene load_steps=58 format=3 uid="uid://du6cj4sel1rxc"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bbxrjo4fj1yw0" path="res://Assests/Sounds/Actor/Player/SPLAT Crush 01.ogg" id="20_abo4x"]
 [ext_resource type="AudioStream" uid="uid://810lfw5sc68i" path="res://Assests/Sounds/Actor/Player/POP Echo Bouncer 01.ogg" id="21_1hbvx"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
+[ext_resource type="Script" path="res://Actor/Player/Scripts/Sounds.gd" id="29_ki6s2"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/AimIndicator.gd" id="35_cjw02"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Aim.gd" id="35_v2wm8"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/HookableIndicator.gd" id="36_1t10s"]
@@ -458,17 +459,39 @@ process_material = SubResource("ParticlesMaterial_lk21w")
 position = Vector2(16, 0)
 target_position = Vector2(0, 2)
 
-[node name="MRight" type="RayCast2D" parent="Raycasts/Ground"]
+[node name="MidRight" type="RayCast2D" parent="Raycasts/Ground"]
 position = Vector2(8, 0)
 target_position = Vector2(0, 2)
 
-[node name="MLeft" type="RayCast2D" parent="Raycasts/Ground"]
+[node name="MidLeft" type="RayCast2D" parent="Raycasts/Ground"]
 position = Vector2(-8, 0)
 target_position = Vector2(0, 2)
 
 [node name="Left" type="RayCast2D" parent="Raycasts/Ground"]
 position = Vector2(-16, 0)
 target_position = Vector2(0, 2)
+
+[node name="Walls" type="Node2D" parent="Raycasts"]
+
+[node name="Left" type="Node2D" parent="Raycasts/Walls"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts/Walls/Left"]
+position = Vector2(-16, -48)
+target_position = Vector2(-10, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Walls/Left"]
+position = Vector2(-16, -8)
+target_position = Vector2(-10, 0)
+
+[node name="Right" type="Node2D" parent="Raycasts/Walls"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts/Walls/Right"]
+position = Vector2(16, -48)
+target_position = Vector2(10, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Walls/Right"]
+position = Vector2(16, -8)
+target_position = Vector2(10, 0)
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -557,6 +580,7 @@ current = true
 zoom = Vector2(0.75, 0.75)
 
 [node name="Sounds" type="Node2D" parent="."]
+script = ExtResource("29_ki6s2")
 
 [node name="SoundJump" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = SubResource("AudioStreamOGGVorbis_rp22o")
@@ -636,6 +660,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_d1vwq")
 
 [node name="AimIndicator" type="Node2D" parent="Aim"]
+visible = false
 script = ExtResource("35_cjw02")
 color = Color(0, 0.917647, 0.517647, 1)
 width = 5

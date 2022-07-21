@@ -2,11 +2,14 @@ extends Node2D
 
 #TODO: get ground color for particles
 
-@onready var particleDashSide: GPUParticles2D = $ParticlesDashSide
-@onready var particleDashUp: GPUParticles2D = $ParticlesDashUp
-@onready var particleDashDown: GPUParticles2D = $ParticlesDashDown
+@onready var dashSide: GPUParticles2D = $ParticlesDashSide
+@onready var dashUp: GPUParticles2D = $ParticlesDashUp
+@onready var dashDown: GPUParticles2D = $ParticlesDashDown
+@onready var walking: GPUParticles2D = $ParticlesWalking
+@onready var land: GPUParticles2D = $ParticlesLand
+@onready var jump: GPUParticles2D = $ParticlesJump
 
 func _ready() -> void:
-	particleDashSide.process_material.color = Globals.dashSideColor
-	particleDashUp.process_material.color = Globals.dashUpColor
-	particleDashDown.process_material.color = Globals.dashDownColor
+	dashSide.process_material.color = Globals.dashSideColor
+	dashUp.process_material.color = Globals.dashUpColor
+	dashDown.process_material.color = Globals.dashDownColor

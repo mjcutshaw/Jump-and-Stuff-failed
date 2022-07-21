@@ -7,11 +7,8 @@ extends CharacterBody2D
 @onready var sm: Node = $StateMachine
 @onready var aim: Node2D = $Aim
 @onready var characterRig: Node2D = $CharacterRig
-@onready var soundJump: AudioStreamPlayer2D = $Sounds/SoundJump
-@onready var soundLand:AudioStreamPlayer2D = $Sounds/SoundLand
-@onready var soundWalk: AudioStreamPlayer2D = $Sounds/SoundWalk
-@onready var soundBonk: AudioStreamPlayer2D = $Sounds/SoundBonk
-@onready var soundDash: AudioStreamPlayer2D = $Sounds/SoundDash
+@onready var sounds: Node2D = $Sounds
+@onready var particles: Node2D = $CharacterRig/Particles
 @onready var particlesWalking: GPUParticles2D = $CharacterRig/Particles/ParticlesWalking
 #TODO: make the intensity based on velocity/distance
 @onready var particlesLand: GPUParticles2D = $CharacterRig/Particles/ParticlesLand
@@ -33,6 +30,7 @@ extends CharacterBody2D
 
 var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
 
+#TODO: move to baseClass
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
 var moveStrength: Vector2 = Vector2.ZERO

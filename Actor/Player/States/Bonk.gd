@@ -14,7 +14,7 @@ func enter() -> void:
 	player.velocity = Vector2(300 * player.wallDirection.x, 800)
 	var tween = create_tween()
 	tween.tween_property(player.characterRig, "scale", Vector2(0.2, 0.8), .05)
-	player.soundBonk.play()
+	player.sounds.soundBonk.play()
 
 
 func exit() -> void:

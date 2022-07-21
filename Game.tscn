@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=16 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
 [ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
 [ext_resource type="Script" path="res://Utility/DrawCollision.gd" id="10_pqpfw"]
-[ext_resource type="PackedScene" uid="uid://637l4lrhobsq" path="res://Prefab/AbilityBlocks/AbilityWall.tscn" id="11_lr6op"]
 [ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="12_t3s5q"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -111,19 +110,11 @@ text = "Debug"
 
 [node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)
-ability = 2
-
-[node name="Collectable2" parent="Playground" instance=ExtResource("2_2c3h4")]
-position = Vector2(-253, -7)
-ability = 7
+ability = 1
 
 [node name="AbilityReset" parent="Playground" instance=ExtResource("12_t3s5q")]
 position = Vector2(624, -167)
 ability = 1
-
-[node name="AbilityWall" parent="Playground" instance=ExtResource("11_lr6op")]
-position = Vector2(242, -14)
-ability = 8
 
 [node name="Ground" type="Node2D" parent="Playground"]
 

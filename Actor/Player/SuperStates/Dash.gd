@@ -10,7 +10,7 @@ var dashSpeed: int = dashDistance/dashTime
 func enter() -> void:
 	super.enter()
 
-	player.soundDash.play()
+	player.sounds.soundDash.play()
 	GameStats.dashes += 1
 
 

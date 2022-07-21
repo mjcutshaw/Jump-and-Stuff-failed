@@ -65,6 +65,11 @@ _global_script_classes=[{
 "path": "res://Actor/Player/Resources/PlayerAbilites.gd"
 }, {
 "base": "Node2D",
+"class": &"PlayerSounds",
+"language": &"GDScript",
+"path": "res://Actor/Player/Scripts/Sounds.gd"
+}, {
+"base": "Node2D",
 "class": &"Portal",
 "language": &"GDScript",
 "path": "res://Prefab/Interactables/Scripts/Portal.gd"
@@ -96,6 +101,7 @@ _global_script_class_icons={
 "OneWayPlatform": "",
 "Player": "",
 "PlayerAbilities": "",
+"PlayerSounds": "",
 "Portal": "",
 "StatsMenuBase": "",
 "VisibleCollisionShape2D": "",

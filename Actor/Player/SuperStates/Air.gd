@@ -68,7 +68,7 @@ func state_check(_delta: float) -> int:
 	if player.is_on_floor():
 		landed_visuals(player.previousVelocity)
 		player.particlesLand.restart()
-		player.soundLand.play()
+		player.sounds.soundLand.play()
 		consecutive_jump_logic()
 		if player.moveDirection.x != 0:
 			return State.Walk

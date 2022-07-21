@@ -10,8 +10,8 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.soundJump.stop()
-	player.soundJump.pitch_scale = 1
+	player.sounds.soundJump.stop()
+	player.sounds.soundJump.pitch_scale = 1
 	player.previousVelocity = player.velocity
 
 

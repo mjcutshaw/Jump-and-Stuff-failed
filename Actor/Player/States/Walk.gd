@@ -20,7 +20,7 @@ func exit() -> void:
 	super.exit()
 
 	player.particlesWalking.emitting = false
-	player.soundWalk.stop()
+	player.sounds.soundWalk.stop()
 	player.previousVelocity = player.velocity
 	goIdle = false
 
@@ -58,9 +58,9 @@ func visual(_delta) -> void:
 func sound(_delta: float) -> void:
 	super.sound(_delta)
 
-	if !player.soundWalk.playing:
-		player.soundWalk.pitch_scale = randf_range(0.8, 1.2)
-		player.soundWalk.play()
+	if !player.sounds.soundWalk.playing:
+		player.sounds.soundWalk.pitch_scale = randf_range(0.8, 1.2)
+		player.sounds.soundWalk.play()
 
 
 func handle_input(_event: InputEvent) -> int:

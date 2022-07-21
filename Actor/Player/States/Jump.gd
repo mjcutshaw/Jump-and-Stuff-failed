@@ -11,7 +11,7 @@ func enter() -> void:
 #	jump_ground_logic()
 	player.velocity.y = jumpVelocityMax
 	player.jumped = true
-	player.soundJump.play()
+	player.sounds.soundJump.play()
 	player.particlesJump.restart()
 
 
@@ -64,19 +64,19 @@ func state_check(_delta: float) -> int:
 func jump_ground_logic():
 	if player.canJumpDouble:
 		player.velocity.y = jumpVelocityMax * jumpDoubleVelocityModifier
-		player.soundJump.pitch_scale = 1.25
+		player.sounds.soundJump.pitch_scale = 1.25
 		player.particlesJumpDouble.restart()
-		player.soundJump.play()
+		player.sounds.soundJump.play()
 		player.jumpConsectutiveTimer.stop()
 		player.jumpedDouble = true
 		player.canJumpDouble = false
 		print("double jump")
 	elif player.canJumpTriple:
 		player.velocity.y = jumpVelocityMax * jumpTripleVelocityModifier
-		player.soundJump.pitch_scale = 1.5
+		player.sounds.soundJump.pitch_scale = 1.5
 		flip()
 		player.particlesJumpTriple.restart()
-		player.soundJump.play()
+		player.sounds.soundJump.play()
 		player.jumpConsectutiveTimer.stop()
 		player.jumpedTriple = true
 		player.canJumpTriple = false
@@ -84,7 +84,7 @@ func jump_ground_logic():
 	else:
 		player.velocity.y = jumpVelocityMax
 		player.jumped = true
-		player.soundJump.play()
+		player.sounds.soundJump.play()
 		player.particlesJump.restart()
 		print("single jump")
 
