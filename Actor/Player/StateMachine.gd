@@ -1,8 +1,6 @@
 extends Node
 
 
-
-
 @onready var states = {
 	BaseState.State.Spawn: $Spawn,
 	BaseState.State.Die: $Die,
@@ -33,7 +31,8 @@ var currentState: BaseState
 var previousState: BaseState
 var currentStateName: String
 var previousStateName: String
-@onready var player: Player = get_parent()
+
+@onready var player: Player = owner
 
 
 func change_state(newState: int) -> void:
@@ -41,15 +40,12 @@ func change_state(newState: int) -> void:
 		currentState.exit()
 		previousState = currentState
 		previousStateName = previousState.name
-		
-		#TODO: look into not calling super state exit if super states are the same
-		if currentState.get_groups() != previousState.get_groups():
-			print("different super state")
 	
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
 #	print(previousStateName + " to " + currentStateName)
+#TODO: change to signals
 	player.currentState = currentState.name
 	player.statelabel.text = currentState.name
 

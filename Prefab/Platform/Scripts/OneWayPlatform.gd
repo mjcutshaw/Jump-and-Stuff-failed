@@ -14,14 +14,14 @@ class_name OneWayPlatform
 	set(v):
 		width = v
 		set_shape()
-		update()
+		queue_redraw()
 
 @export var height: int = 1 :
 	get: return height
 	set(v):
 		height = v
 		set_shape()
-		update()
+		queue_redraw()
 
 @export var halfBlock: bool = false:
 	get: return halfBlock
@@ -33,12 +33,12 @@ var heightGrid
 
 
 func set_shape():
-	widthGrid = width * Globals.TILE_SIZE
+	widthGrid = width * Util.TILE_SIZE
 	
 	if halfBlock:
-		heightGrid = height * Globals.TILE_SIZE * 0.5
+		heightGrid = height * Util.TILE_SIZE * 0.5
 	else: 
-		heightGrid = height * Globals.TILE_SIZE
+		heightGrid = height * Util.TILE_SIZE
 		
 	$CollisionShape2D.shape.size.x = widthGrid
 	$CollisionShape2D.shape.size.y = heightGrid

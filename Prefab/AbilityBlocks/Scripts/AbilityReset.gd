@@ -23,8 +23,8 @@ func ability_rest(body: Player) -> void:
 		body.reset(ability)
 		lockOutTimer.start()
 		modulate = Color(Color.DARK_GRAY, .2)
-		set_deferred("monitoring", false)
+		detector.set_deferred("monitoring", false)
 
 func cooldown() -> void:
 	modulate = Color.YELLOW
-	set_deferred("monitoring", true)
+	detector.set_deferred("monitoring", true)

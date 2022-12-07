@@ -1,7 +1,11 @@
 extends Resource
-class_name PlayerAbilities
+class_name PlayerInfo
 
-#TODO: all abilities should get an upgrade and shartds/modifires/charms
+
+## Stats ##
+var baseSpeed: int = 15
+
+## Abilities ##
 enum abiliyList {
 	Null,
 	All,
@@ -21,7 +25,6 @@ enum abiliyList {
 	Climb,
 	}
 
-
 var unlockedJump: bool = false
 var unlockedJumpAir: bool = false
 var unlockedJumpCrouch: bool = false
@@ -36,11 +39,11 @@ var unlockedGroundPound: bool = false
 var unlockedGrapple: bool = false
 var unlockedClimb: bool = false
 
-
-
 var maxJump: int = 1
 var maxJumpAir: int = 0
 var maxDash: int = 1
+
+var remaining
 
 
 func unlock_ability(ability: int) -> void:

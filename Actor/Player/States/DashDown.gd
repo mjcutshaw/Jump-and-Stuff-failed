@@ -7,8 +7,8 @@ var currentDashTime: float = 0
 func enter() -> void:
 	super.enter()
 
-	player.consume(Abilities.abiliyList.DashDown, 1)
-	player.pass_through_collisions(Globals.DASH_DOWN, false)
+	player.consume(pInfo.abiliyList.DashDown, 1)
+	player.pass_through_collisions(CollisionLayer.DashDown, false)
 	currentDashTime = dashTime
 	player.velocity.y = max(dashSpeed, abs(player.velocity.y))
 	player.particlesDashDown.restart()
@@ -17,7 +17,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.pass_through_collisions(Globals.DASH_DOWN, true)
+	player.pass_through_collisions(CollisionLayer.DashDown, true)
 	player.particlesDashDown.emitting = false
 
 

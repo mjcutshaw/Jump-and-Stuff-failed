@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dm44y8v73jngw"]
 
-[ext_resource type="PackedScene" uid="uid://du6cj4sel1rxc" path="res://Actor/Player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://x7qeo88j2tof" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
 [ext_resource type="PackedScene" uid="uid://b03yneqby6tot" path="res://Prefab/Interactables/Collectable.tscn" id="2_2c3h4"]
 [ext_resource type="Script" path="res://UI/Scripts/Gui.gd" id="2_gjups"]
@@ -32,11 +32,13 @@ script = ExtResource("2_gjups")
 
 [node name="Annoucements" type="MarginContainer" parent="Gui"]
 process_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
 offset_right = 106.0
 offset_bottom = 50.0
+grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
@@ -49,6 +51,7 @@ script = ExtResource("1_fuyfm")
 
 [node name="GameTimer" type="MarginContainer" parent="Gui"]
 process_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -120.0
@@ -67,9 +70,14 @@ offset_bottom = 46.0
 visible = false
 
 [node name="PauseMenu" parent="Gui" instance=ExtResource("2_rq07h")]
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DevConsole" parent="Gui" instance=ExtResource("6_3uhkl")]
 visible = false
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DebugOverlay" type="MarginContainer" parent="Gui"]
 visible = false
@@ -154,7 +162,7 @@ script = ExtResource("10_pqpfw")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-491, -686)
+position = Vector2(-480, -688)
 shape = SubResource("RectangleShape2D_3wmbc")
 script = ExtResource("10_pqpfw")
 
@@ -165,3 +173,6 @@ shape = SubResource("1")
 script = ExtResource("10_pqpfw")
 
 [node name="Player" parent="Playground" instance=ExtResource("1")]
+
+[node name="Camera2D" type="Camera2D" parent="Playground/Player"]
+current = true

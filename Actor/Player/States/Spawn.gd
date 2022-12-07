@@ -13,7 +13,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	
+	player.characterRig.scale = Vector2(1,1)
 
 
 func physics(_delta) -> void:
@@ -33,15 +33,16 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
+#TODO: make functions to call
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		return State.Walk
 	if Input.is_action_just_pressed("jump"):
 		return State.Jump
-	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(PlayerAbilities.abiliyList.DashSide):
+	if Input.is_action_just_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(pInfo.abiliyList.DashSide):
 		return State.DashSide
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(Abilities.abiliyList.DashDown):
+	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(pInfo.abiliyList.DashDown):
 		return State.DashDown
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(Abilities.abiliyList.DashUp):
+	if Input.is_action_just_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(pInfo.abiliyList.DashUp):
 		return State.DashUp
 	
 	return State.Null

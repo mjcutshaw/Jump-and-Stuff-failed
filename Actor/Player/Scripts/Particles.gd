@@ -10,6 +10,6 @@ extends Node2D
 @onready var jump: GPUParticles2D = $ParticlesJump
 
 func _ready() -> void:
-	dashSide.process_material.color = Globals.dashSideColor
-	dashUp.process_material.color = Globals.dashUpColor
-	dashDown.process_material.color = Globals.dashDownColor
+	dashSide.process_material.color = AbilityColor.dashSideColor
+	dashUp.process_material.color = AbilityColor.dashUpColor
+	dashDown.process_material.color = AbilityColor.dashDownColor

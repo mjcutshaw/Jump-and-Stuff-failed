@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5ytpnhrbqusp"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cxg7ok3hxbon6" path="res://Assests/XboxSeriesX_Diagram.png" id="1_djork"]
+[ext_resource type="Texture2D" uid="uid://cxg7ok3hxbon6" path="res://Assets/XboxSeriesX_Diagram.png" id="1_djork"]
 
 [node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 

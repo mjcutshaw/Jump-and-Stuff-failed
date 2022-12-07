@@ -3,7 +3,7 @@ extends MoveState
 
 
 var dashTime = 0.3
-var dashDistance: int = 10 * Globals.TILE_SIZE
+var dashDistance: int = 10 * Util.TILE_SIZE
 var dashSpeed: int = dashDistance/dashTime
 
 

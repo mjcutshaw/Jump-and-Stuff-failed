@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 
 func show_timer(toggle):
 	settings.showTimer = toggle
+	
 	EventBus.emit_signal("settings_update")

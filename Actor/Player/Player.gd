@@ -1,9 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-#TODO: make movement velocity, enviroment velocity. change state velocity to movement velocity
-#TODO: add hitbox and hurtboxd
-#TODO: change collision shape to capsule and add ground detection raycasts
+
 @onready var sm: Node = $StateMachine
 @onready var aim: Node2D = $Aim
 @onready var characterRig: Node2D = $CharacterRig
@@ -32,7 +30,7 @@ extends CharacterBody2D
 @onready var oneWayResetTimer: Timer = $Timers/OneWayTimer
 @onready var statelabel: Label = $Labels/StateLabel
 
-var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
+var Abilities: Resource = preload("res://Actor/Player/Resources/PlayerInfo.tres")
 
 var moveDirection: Vector2 = Vector2.ZERO
 var lastDirection: Vector2 = Vector2.ZERO
@@ -66,10 +64,18 @@ var jumpCornerCorrectionHorizontal: int = 15
 
 
 var remainingJump: int = 0
-var remainingJumpAir: int = 0
-var remainingDashSide: int = 0
-var remainingDashUp: int = 0
-var remainingDashDown: int = 0
+var remainingJumpAir: int = 0 #TODO: update these two to below
+var remainingDashSide: int = 0:
+	set(v):
+		remainingDashSide = clamp(v, 0, Abilities.maxDash)
+
+var remainingDashUp: int = 0:
+	set(v):
+		remainingDashUp = clamp(v, 0, Abilities.maxDash)
+
+var remainingDashDown: int = 0:
+	set(v):
+		remainingDashDown = clamp(v, 0, Abilities.maxDash)
 
 
 func _ready() -> void:
@@ -117,19 +123,24 @@ func can_use_ability(ability: int) -> bool:
 
 func consume(ability: int, amount: int) -> void:
 	#TODO: Use 99 remove all or all a third input to do that
+	#turn into set variable
 	if ability == Abilities.abiliyList.All:
 		set_jump_air(-amount)
-		set_dash(-amount)
+		remainingDashUp -= amount
+		remainingDashSide -= amount
+		remainingDashDown -= amount
 	elif ability == Abilities.abiliyList.JumpAir:
 		set_jump_air(-amount)
 	elif ability == Abilities.abiliyList.Dash:
-		set_dash(-amount)
+		remainingDashUp -= amount
+		remainingDashSide -= amount
+		remainingDashDown -= amount
 	elif ability == Abilities.abiliyList.DashSide:
-		set_dash_side(-amount)
+		remainingDashSide -= amount
 	elif ability == Abilities.abiliyList.DashUp:
-		set_dash_up(-amount)
+		remainingDashUp -= amount
 	elif ability == Abilities.abiliyList.DashDown:
-		set_dash_down(-amount)
+		remainingDashDown -= amount
 	else:
 		print("Null Ability Consume")
 	EventBus.emit_signal("ability_check")
@@ -137,18 +148,22 @@ func consume(ability: int, amount: int) -> void:
 
 func reset(ability: int) -> void:
 	if ability == Abilities.abiliyList.All:
-		set_dash(Abilities.maxDash)
 		set_jump_air(Abilities.maxJumpAir)
+		remainingDashUp = Abilities.maxDash
+		remainingDashSide = Abilities.maxDash
+		remainingDashDown = Abilities.maxDash
 	elif ability == Abilities.abiliyList.JumpAir:
 		set_jump_air(Abilities.maxJumpAir)
 	elif ability == Abilities.abiliyList.Dash:
-		set_dash(Abilities.maxDash)
+		remainingDashUp = Abilities.maxDash
+		remainingDashSide = Abilities.maxDash
+		remainingDashDown = Abilities.maxDash
 	elif ability == Abilities.abiliyList.DashSide:
-		set_dash_side(Abilities.maxDash)
+		remainingDashSide = Abilities.maxDash
 	elif ability ==  Abilities.abiliyList.DashUp:
-		set_dash_up(Abilities.maxDash)
+		remainingDashUp = Abilities.maxDash
 	elif ability == Abilities.abiliyList.DashDown:
-		set_dash_down(Abilities.maxDash)
+		remainingDashDown = Abilities.maxDash
 	else:
 		print("Null Ability Reset")
 	EventBus.emit_signal("ability_check")
@@ -157,23 +172,6 @@ func reset(ability: int) -> void:
 func set_jump_air(amount: int) -> void:
 	remainingJumpAir = clamp(remainingJumpAir + amount, 0, Abilities.maxJump)
 
-
-func set_dash(amount: int) -> void:
-	set_dash_side(amount)
-	set_dash_up(amount)
-	set_dash_down(amount)
-
-
-func set_dash_side(amount: int) -> void:
-	remainingDashSide = clamp(remainingDashSide + amount, 0, Abilities.maxDash)
-
-
-func set_dash_up(amount: int) -> void:
-	remainingDashUp = clamp(remainingDashUp + amount, 0, Abilities.maxDash)
-
-
-func set_dash_down(amount: int) -> void:
-	remainingDashDown = clamp(remainingDashDown + amount, 0, Abilities.maxDash)
 
 
 func attempt_vertical_corner_correction(amount: int, delta) -> void:
@@ -212,14 +210,14 @@ func one_way_reset() -> void:
 	if moveDirection.y == 1:
 		oneWayResetTimer.start()
 	else:
-		pass_through_collisions(Globals.SEMISOLID, true)
+		pass_through_collisions(CollisionLayer.Semisolid, true)
 
 
 func one_way_reset_timeout() -> void:
 	if moveDirection.y == 1:
 		oneWayResetTimer.start()
 	else:
-		pass_through_collisions(Globals.SEMISOLID, true)
+		pass_through_collisions(CollisionLayer.Semisolid, true)
 
 func align_with_floor() -> void:
 	#FIXME: change to character rig and might need to use raycast for ground detectionw

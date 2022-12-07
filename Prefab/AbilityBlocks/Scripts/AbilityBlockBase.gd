@@ -3,7 +3,7 @@ class_name AbilityBlockBase
 
 #TODO: change name from ability block
 
-var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
+var Abilities = ResourceLoader.load("res://Actor/Player/Resources/PlayerInfo.tres")
 @export var ability: PlayerAbilities.abiliyList
 @onready var detector: Area2D = $%Detector
 

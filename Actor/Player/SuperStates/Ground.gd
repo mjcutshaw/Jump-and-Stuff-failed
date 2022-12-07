@@ -10,13 +10,13 @@ var crouchFriction: float = 0.02
 func enter() -> void:
 	super.enter()
 
-	player.reset(Abilities.abiliyList.All)
+	player.reset(pInfo.abiliyList.All) #TODO: signal
 
 
 func exit() -> void:
 	super.exit()
 
-	player.coyoteTimer.start()
+	player.coyoteTimer.start() #TODO: change to jump
 
 
 func physics(_delta) -> void:
@@ -38,7 +38,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	squash_and_strech(_delta)
+	squash_and_strech(_delta) #TODO: not working
 	
 
 
@@ -49,7 +49,7 @@ func handle_input(_event: InputEvent) -> int:
 
 	if Input.is_action_just_pressed("jump"):
 		if Input.is_action_pressed("move_down"):
-				player.pass_through_collisions(Globals.SEMISOLID, false)
+				player.pass_through_collisions(CollisionLayer.Semisolid, false)
 		else:
 			if player.jumpFlip:
 				print("jump flip")

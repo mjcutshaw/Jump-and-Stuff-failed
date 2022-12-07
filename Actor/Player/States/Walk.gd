@@ -14,6 +14,7 @@ func enter() -> void:
 	super.enter()
 
 	player.particlesWalking.emitting = true
+	
 
 
 func exit() -> void:
@@ -27,10 +28,6 @@ func exit() -> void:
 
 func physics(_delta) -> void:
 	super.physics(_delta)
-	#TODO: https://kidscancode.org/godot_recipes/2d/2d_align_surface/
-#	rotation = player.get_floor_normal().angle() + PI/2
-#	player.set_up_direction(player.transform.y * 128)
-#	player.velocity = player.velocity.rotated(rotation)
 	
 
 	if player.moveDirection.x == 0:
@@ -46,7 +43,8 @@ func physics(_delta) -> void:
 			velocity_logic(moveSpeed)
 	else:
 		#TODO: change to reusable function
-		player.velocity.x = max(lerp(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+		player.velocity.x = max(move_toward(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+		
 
 func visual(_delta) -> void:
 	super.visual(_delta)

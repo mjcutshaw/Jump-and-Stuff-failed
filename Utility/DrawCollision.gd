@@ -2,14 +2,14 @@
 extends CollisionShape2D
 class_name VisibleCollisionShape2D
 
-#TODO: should be able to extend this for various scripts
+
 
 @export var color: Color = Color.BLACK:
 	get: return color
 	set(v):
 		color = v
 
-		update()
+		queue_redraw()
 
 func _draw()->void:
 	if shape is CircleShape2D:
@@ -28,4 +28,4 @@ func _draw()->void:
 
 func set_color(new_color):
 	color = new_color
-	update()
+	queue_redraw()

@@ -1,11 +1,11 @@
 extends Node2D
 
-@onready var dashSideTracker: ColorRect = $DashSide
-@onready var dashUpTracker: ColorRect = $DashUp
-@onready var dashDownTracker: ColorRect = $DashDown
+@onready var dashSideTracker: Line2D = $DashSide
+@onready var dashUpTracker: Line2D = $DashUp
+@onready var dashDownTracker: Line2D = $DashDown
 @onready var player: Player = get_parent().get_parent()
 
-var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
+var Abilities: Resource = preload("res://Actor/Player/Resources/PlayerInfo.tres")
 
 
 func _ready() -> void:
@@ -47,20 +47,20 @@ func tracker_update() -> void:
 
 func color_dash_side() -> void:
 	if player.remainingDashSide > 0:
-		dashSideTracker.color = Globals.dashSideColor
+		dashSideTracker.default_color = AbilityColor.dashSideColor
 	else:
-		dashSideTracker.color = Globals.dashUsedColor
+		dashSideTracker.default_color = AbilityColor.dashUsedColor
 
 
 func color_dash_up() -> void:
 	if player.remainingDashUp > 0:
-		dashUpTracker.color = Globals.dashUpColor
+		dashUpTracker.default_color = AbilityColor.dashUpColor
 	else:
-		dashUpTracker.color = Globals.dashUsedColor
+		dashUpTracker.default_color = AbilityColor.dashUsedColor
 
 
 func color_dash_down() -> void:
 	if player.remainingDashDown > 0:
-		dashDownTracker.color = Globals.dashDownColor
+		dashDownTracker.default_color = AbilityColor.dashDownColor
 	else:
-		dashDownTracker.color = Globals.dashUsedColor
+		dashDownTracker.default_color = AbilityColor.dashUsedColor

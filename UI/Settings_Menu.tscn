@@ -9,12 +9,13 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
 shader = ExtResource("1_pki12")
-shader_param/blur = 1.77778
-shader_param/brightness = 0.822222
+shader_parameter/blur = 1.77778
+shader_parameter/brightness = 0.822222
 
 [node name="SettingsMenu" type="ColorRect"]
 process_mode = 3
 material = SubResource("ShaderMaterial_t38au")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -22,6 +23,7 @@ grow_vertical = 2
 script = ExtResource("2_cmpbl")
 
 [node name="M" type="MarginContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 20
@@ -36,7 +38,7 @@ offset_right = 1260.0
 offset_bottom = 780.0
 
 [node name="ButtonMargins" type="MarginContainer" parent="M/H"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2i(250, 0)
 offset_right = 250.0
 offset_bottom = 760.0
 theme_override_constants/margin_left = 50
@@ -61,6 +63,7 @@ offset_right = 175.0
 offset_bottom = 430.0
 
 [node name="M" type="MarginContainer" parent="M/H/ButtonMargins/V/M/P"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 15
@@ -254,6 +257,7 @@ offset_right = 936.0
 offset_bottom = 710.0
 
 [node name="M" type="MarginContainer" parent="M/H/SettingsMargins/P"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme_override_constants/margin_left = 30

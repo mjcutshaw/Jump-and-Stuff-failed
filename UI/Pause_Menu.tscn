@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://UI/Buttons/Scripts/Quit.gd" id="3_yek56"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t38au"]
-shader = ExtResource( "1_gyrlt" )
-shader_param/blur = 0.0
-shader_param/brightness = 1.0
+shader = ExtResource("1_gyrlt")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 1.0
 
 [sub_resource type="Shortcut" id="Shortcut_4x1e4"]
 
@@ -169,21 +169,24 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xmpa4"]
 _data = {
-"Pause": SubResource( "Animation_piasa" ),
-"RESET": SubResource( "Animation_jl88c" ),
-"Unpause": SubResource( "Animation_ki2uy" )
+"Pause": SubResource("Animation_piasa"),
+"RESET": SubResource("Animation_jl88c"),
+"Unpause": SubResource("Animation_ki2uy")
 }
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 3
 visible = false
-material = SubResource( "ShaderMaterial_t38au" )
+material = SubResource("ShaderMaterial_t38au")
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( "2_3bbvq" )
+script = ExtResource("2_3bbvq")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -191,73 +194,55 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-minimum_size = Vector2(512, 256)
-offset_left = 384.0
-offset_top = 272.0
-offset_right = 896.0
-offset_bottom = 528.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
-offset_right = 512.0
-offset_bottom = 256.0
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
-offset_left = 16.0
-offset_right = 496.0
-offset_bottom = 240.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_right = 480.0
-offset_bottom = 48.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Pause"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 52.0
-offset_right = 480.0
-offset_bottom = 56.0
+layout_mode = 2
 
 [node name="Resume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 60.0
-offset_right = 480.0
-offset_bottom = 102.0
+layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Quit")
-shortcut = SubResource( "Shortcut_4x1e4" )
+shortcut = SubResource("Shortcut_4x1e4")
 text = "Resume"
 
 [node name="Reset" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 106.0
-offset_right = 480.0
-offset_bottom = 148.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Reset"
-script = ExtResource( "3_ar1nt" )
+script = ExtResource("3_ar1nt")
 
 [node name="Options" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 152.0
-offset_right = 480.0
-offset_bottom = 194.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
 
 [node name="Quit" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
-offset_top = 198.0
-offset_right = 480.0
-offset_bottom = 240.0
+layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_bottom = NodePath("../Resume")
 text = "Quit"
-script = ExtResource( "3_yek56" )
+script = ExtResource("3_yek56")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Unpause"
 libraries = {
-"": SubResource( "AnimationLibrary_xmpa4" )
+"": SubResource("AnimationLibrary_xmpa4")
 }
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Reset" to="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Reset" method="_on_reset_pressed"]

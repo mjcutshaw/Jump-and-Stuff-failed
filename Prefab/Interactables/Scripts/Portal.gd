@@ -21,13 +21,13 @@ func _ready():
 	if dashDirection == 0:
 		print("null Portal")
 	elif dashDirection == 1:
-		self.modulate = Globals.dashSideColor
+		self.modulate = AbilityColor.dashSideColor
 		add_to_group("PortalDashSide")
 	elif dashDirection == 2:
-		self.modulate = Globals.dashUpColor
+		self.modulate = AbilityColor.dashUpColor
 		add_to_group("PortalDashUp")
 	elif dashDirection == 3:
-		self.modulate = Globals.dashDownColor
+		self.modulate = AbilityColor.dashDownColor
 		add_to_group("PortalDashDown")
 	elif dashDirection == 4:
 		add_to_group("PortalAny")

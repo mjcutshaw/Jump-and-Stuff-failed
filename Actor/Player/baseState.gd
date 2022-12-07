@@ -28,17 +28,18 @@ enum State {
 	WallGrab,
 	WallClimb,
 }
-#TODO: rename variables
-var Abilities = ResourceLoader.load("res://Resources/PlayerAbilities.tres")
-var settings = ResourceLoader.load("res://Resources/Settings.tres")
+
+var pInfo: Resource = preload("res://Actor/Player/Resources/PlayerInfo.tres")
+var settings: Resource = preload("res://Resources/Settings.tres")
 #TODO: change off actual name
-var GameStats = ResourceLoader.load("res://Resources/GameStats.tres")
+var GameStats: Resource = preload("res://Resources/GameStats.tres")
 var player: Player
 
 
 
 func enter() -> void:
 	pass
+
 
 func exit() -> void:
 	pass

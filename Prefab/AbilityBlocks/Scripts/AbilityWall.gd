@@ -1,6 +1,5 @@
 extends AbilityBlockBase
 
-
 #TODO: let multiple abilities destroy blocks
 #TODO: scale the blocks
 
@@ -13,20 +12,20 @@ func _ready() -> void:
 	valid_block(get_name(), global_position)
 	
 	if ability == Abilities.abiliyList.DashSide:
-		set_collission(Globals.DASH_SIDE, true)
-		set_collission(Globals.DASH_UP, false)
-		set_collission(Globals.DASH_DOWN, false)
-		self.modulate = Globals.dashSideColor
+		set_collission(CollisionLayer.DashSide, true)
+		set_collission(CollisionLayer.DashUp, false)
+		set_collission(CollisionLayer.DashDown, false)
+		self.modulate = AbilityColor.dashSideColor
 	elif ability == Abilities.abiliyList.DashUp:
-		set_collission(Globals.DASH_UP, true)
-		set_collission(Globals.DASH_SIDE, false)
-		set_collission(Globals.DASH_DOWN, false)
-		self.modulate = Globals.dashUpColor
+		set_collission(CollisionLayer.DashUp, true)
+		set_collission(CollisionLayer.DashSide, false)
+		set_collission(CollisionLayer.DashDown, false)
+		self.modulate = AbilityColor.dashUpColor
 	elif ability == Abilities.abiliyList.DashDown:
-		set_collission(Globals.DASH_DOWN, true)
-		set_collission(Globals.DASH_UP, false)
-		set_collission(Globals.DASH_SIDE, false)
-		self.modulate = Globals.dashDownColor
+		set_collission(CollisionLayer.DashDown, true)
+		set_collission(CollisionLayer.DashUp, false)
+		set_collission(CollisionLayer.DashSide, false)
+		self.modulate = AbilityColor.dashDownColor
 
 #TODO: figure way to add to base class
 func set_collission(collisionLayer, collisionBool):

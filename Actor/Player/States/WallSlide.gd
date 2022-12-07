@@ -1,8 +1,8 @@
 extends WallState
 
 
-var slideSpeed: int = 7 * Globals.TILE_SIZE
-var quickSlideSpeed: int = 12 * Globals.TILE_SIZE
+var slideSpeed: int = 7 * Util.TILE_SIZE
+var quickSlideSpeed: int = 12 * Util.TILE_SIZE
 
 
 func enter() -> void:

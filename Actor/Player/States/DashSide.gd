@@ -11,8 +11,8 @@ var groundDash: bool = false
 func enter() -> void:
 	super.enter()
 
-	player.consume(Abilities.abiliyList.DashSide, 1)
-	player.pass_through_collisions(Globals.DASH_SIDE, false)
+	player.consume(pInfo.abiliyList.DashSide, 1)
+	player.pass_through_collisions(CollisionLayer.DashSide, false)
 	currentDashTime = dashTime
 	dashDirection = player.facing
 	player.velocity.x = dashDirection * max(dashSpeed, abs(player.velocity.x))
@@ -24,7 +24,7 @@ func enter() -> void:
 func exit() -> void:
 	super.exit()
 
-	player.pass_through_collisions(Globals.DASH_SIDE, true)
+	player.pass_through_collisions(CollisionLayer.DashSide, true)
 	player.particlesDashSide.emitting = false
 
 
@@ -50,7 +50,7 @@ func handle_input(_event: InputEvent) -> int:
 	if Input.is_action_just_pressed("jump"):
 		if groundDash:
 			currentjumpBoostTime = jumpBoostTime
-		if player.can_use_ability(Abilities.abiliyList.JumpAir):
+		if player.can_use_ability(pInfo.abiliyList.JumpAir):
 			currentjumpBoostTime = jumpBoostTime
 
 	return State.Null

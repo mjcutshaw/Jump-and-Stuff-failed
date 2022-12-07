@@ -16,7 +16,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	player.velocity.x = lerp(player.velocity.x, 0, friction)
+	player.velocity.x = move_toward(player.velocity.x, 0, friction)
 
 
 func visual(_delta) -> void:
@@ -42,9 +42,7 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if !player.is_on_floor():
-		return State.Fall
-	elif player.moveDirection.x != 0:
+	if player.moveDirection.x != 0:
 		return State.Walk
 
 	return State.Null
