@@ -1,7 +1,6 @@
 extends DashState
 
 #TODO: dashing with a quick jump press to wave dash
-var currentDashTime: float = 0
 
 
 func enter() -> void:
@@ -9,7 +8,7 @@ func enter() -> void:
 
 	player.consume(pInfo.abiliyList.DashDown, 1)
 	player.pass_through_collisions(CollisionLayer.DashDown, false)
-	currentDashTime = dashTime
+
 	player.velocity.y = max(dashSpeed, abs(player.velocity.y))
 	player.particlesDashDown.restart()
 
@@ -24,7 +23,6 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	currentDashTime -= _delta
 	player.velocity.x = 0
 
 
@@ -39,7 +37,11 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_pressed("jump"):
+		if player.can_use_ability(pInfo.abiliyList.JumpAir):
+			return State.JumpAir
+		else:
+			return State.Fall
 
 	return State.Null
 
@@ -49,14 +51,10 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if currentDashTime > 0:
-		return State.Null
-
 	if player.is_on_floor():
 		if player.moveDirection.x != 0:
 			return State.Walk
 		return State.Idle
 	
-	return State.Fall
 
-#	return State.Null
+	return State.Null

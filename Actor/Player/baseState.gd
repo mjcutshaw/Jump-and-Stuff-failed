@@ -22,7 +22,6 @@ enum State {
 	DashDown,
 	DashUp,
 	WallDash,
-	GroundPound,
 	Glide,
 	WallSlide,
 	WallGrab,

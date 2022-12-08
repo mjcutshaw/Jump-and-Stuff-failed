@@ -20,7 +20,6 @@ enum abiliyList {
 	DashDown,
 	DashWall,
 	Glide,
-	GroundPound,
 	Grapple,
 	Climb,
 	}
@@ -35,7 +34,6 @@ var unlockedDashUp: bool = false
 var unlockedDashDown: bool = false
 var unlockedDashWall: bool = false
 var unlockedGlide: bool = false
-var unlockedGroundPound: bool = false
 var unlockedGrapple: bool = false
 var unlockedClimb: bool = false
 

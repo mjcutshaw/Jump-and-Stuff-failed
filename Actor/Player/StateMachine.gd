@@ -19,7 +19,6 @@ extends Node
 	BaseState.State.DashSide: $DashSide,
 	BaseState.State.DashDown: $DashDown,
 	BaseState.State.DashUp: $DashUp,
-	BaseState.State.GroundPound: $GroundPound,
 	BaseState.State.Glide: $Glide,
 	BaseState.State.WallSlide: $WallSlide,
 	BaseState.State.WallGrab: $WallGrab,

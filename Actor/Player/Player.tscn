@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://x7qeo88j2tof"]
+[gd_scene load_steps=58 format=3 uid="uid://x7qeo88j2tof"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" path="res://Actor/Player/States/JumpCrouch.gd" id="11_35x33"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpAir.gd" id="11_bak4t"]
 [ext_resource type="Script" path="res://Actor/Player/States/DashUp.gd" id="12_hwflk"]
-[ext_resource type="Script" path="res://Actor/Player/States/GroundPound.gd" id="12_n7gfn"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpDash.gd" id="12_rdy2p"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpFlip.gd" id="13_7jawe"]
 [ext_resource type="Script" path="res://Actor/Player/States/JumpLong.gd" id="13_gt4tq"]
@@ -540,9 +539,6 @@ script = ExtResource("7_dblma")
 
 [node name="DashUp" type="Node" parent="StateMachine"]
 script = ExtResource("12_hwflk")
-
-[node name="GroundPound" type="Node" parent="StateMachine"]
-script = ExtResource("12_n7gfn")
 
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource("16_xbsxy")

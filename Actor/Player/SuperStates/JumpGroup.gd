@@ -54,8 +54,6 @@ func handle_input(_event: InputEvent) -> int:
 			player.velocity.y = max(player.velocity.y, jumpVelocityMin)
 		jump_canceled()
 		return State.Fall
-	if Input.is_action_just_pressed("ground_pound"):
-		return State.GroundPound
 
 	return State.Null
 
