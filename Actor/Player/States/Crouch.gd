@@ -20,7 +20,7 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 
 	#TODO: slow faster if player changes moveDriection
-	player.velocity.x = lerp(player.velocity.x, 0, crouchFriction)
+	player.velocity.x = move_toward(player.velocity.x, 0, crouchFriction)
 	if abs(player.velocity.x) < crouchSpeedMin:
 		player.velocity.x = 0
 
@@ -43,11 +43,6 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("crouch"):
-		if player.moveDirection.x != 0:
-			return State.Walk
-		else:
-			return State.Idle
 	if Input.is_action_just_pressed("jump"):
 		if abs(player.velocity.x) > 30:
 			return State.JumpLong
@@ -63,6 +58,10 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if Input.is_action_just_released("crouch"):
+		if player.moveDirection.x != 0:
+			return State.Walk
+		else:
+			return State.Idle
 
 	return State.Null

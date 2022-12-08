@@ -30,8 +30,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_pressed("crouch"): 
 		return State.Crouch
 
 	return State.Null

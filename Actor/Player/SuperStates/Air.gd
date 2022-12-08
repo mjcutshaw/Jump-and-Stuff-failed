@@ -72,6 +72,8 @@ func state_check(_delta: float) -> int:
 		consecutive_jump_logic()
 		if player.moveDirection.x != 0:
 			return State.Walk
+		elif Input.is_action_pressed("crouch"): #Lookat: best way?
+			return State.Crouch
 		else:
 			return State.Idle
 
