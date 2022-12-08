@@ -25,10 +25,14 @@ func aim_direction() -> void:
 	player.aimStrength =  Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 	#todo: change deadzone to settings
 	var deadzone_radius: = 0.2
+	
 	if player.aimStrength.length() > deadzone_radius:
 		player.aimDirection = player.aimStrength
+	elif player.moveStrength.length() > deadzone_radius:
+		player.aimDirection = player.moveStrength
 	else:
 		player.aimDirection = Vector2.ZERO
+
 
 func aim()-> void:
 	var cast: Vector2 = player.aimDirection.normalized() * raycast.target_position.length()

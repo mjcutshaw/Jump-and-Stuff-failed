@@ -510,9 +510,6 @@ script = ExtResource("4")
 [node name="JumpCrouch" type="Node" parent="StateMachine"]
 script = ExtResource("11_35x33")
 
-[node name="JumpDash" type="Node" parent="StateMachine"]
-script = ExtResource("12_rdy2p")
-
 [node name="JumpLong" type="Node" parent="StateMachine"]
 script = ExtResource("13_gt4tq")
 
@@ -539,6 +536,9 @@ script = ExtResource("7_dblma")
 
 [node name="DashUp" type="Node" parent="StateMachine"]
 script = ExtResource("12_hwflk")
+
+[node name="DashJump" type="Node" parent="StateMachine"]
+script = ExtResource("12_rdy2p")
 
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource("16_xbsxy")

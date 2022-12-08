@@ -10,7 +10,7 @@ extends Node
 	BaseState.State.Crouch: $Crouch,
 	BaseState.State.Jump: $Jump,
 	BaseState.State.JumpCrouch: $JumpCrouch,
-	BaseState.State.JumpDash: $JumpDash,
+	BaseState.State.DashJump: $DashJump,
 	BaseState.State.JumpLong: $JumpLong,
 	BaseState.State.JumpAir: $JumpAir,
 	BaseState.State.JumpWall: $JumpWall,

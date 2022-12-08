@@ -24,6 +24,7 @@ var dashJumpBoostVelocityModifier: float = 1.25
 var terminalVelocity: int = 30 * Util.TILE_SIZE
 var moveSpeedApex: int = 13 * Util.TILE_SIZE
 
+var dashBufferState: int
 
 func enter() -> void:
 	super.enter()
@@ -61,13 +62,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	#TODO: figure a better way so it is not spammed
-	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(pInfo.abiliyList.DashSide):
-		return State.DashSide
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_down") and player.can_use_ability(pInfo.abiliyList.DashDown):
-		return State.DashDown
-	if Input.is_action_pressed("dash") and Input.is_action_pressed("move_up") and player.can_use_ability(pInfo.abiliyList.DashUp):
-		return State.DashUp
+	
 
 	return State.Null
 
@@ -117,6 +112,27 @@ func neutral_move_direction_logic() -> void:
 		player.neutralMoveDirection = true
 	else:
 		player.neutralMoveDirection = false
+
+
+func dash_pressed_buffer() -> void:
+#	var initial_direction = player.aimDirection.round()
+	await get_tree().create_timer(0.1).timeout
+	dash_pressed_logic()
+
+func dash_pressed_logic() -> void: #TODO: change to aimdirection
+	if Input.is_action_pressed("jump"):
+		dashBufferState = BaseState.State.DashJump
+	elif player.moveDirection.round() == Vector2.UP:
+		dashBufferState = BaseState.State.DashUp
+	elif player.moveDirection.round() == Vector2.DOWN:
+		dashBufferState = BaseState.State.DashDown
+	elif player.is_on_floor():
+		dashBufferState = BaseState.State.DashSide #Todo: fix the double
+	elif !player.is_on_floor():
+		dashBufferState = BaseState.State.DashSide
+	else:
+		dashBufferState = BaseState.State.Null
+		EventBus.emit_signal("error", "null dash pressed logic")
 
 
 func wall_direction_logic() -> void:

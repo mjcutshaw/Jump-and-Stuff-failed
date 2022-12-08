@@ -19,6 +19,7 @@ enum abiliyList {
 	DashUp,
 	DashDown,
 	DashWall,
+	DashJump,
 	Glide,
 	Grapple,
 	Climb,

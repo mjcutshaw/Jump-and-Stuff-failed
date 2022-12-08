@@ -50,6 +50,8 @@ func handle_input(_event: InputEvent) -> int:
 			return State.Jump
 		else:
 			player.jumpBufferTimer.start()
+	if Input.is_action_just_pressed("dash"): 
+		dash_pressed_buffer()
 
 	return State.Null
 
@@ -76,6 +78,18 @@ func state_check(_delta: float) -> int:
 			return State.Crouch
 		else:
 			return State.Idle
+	
+	if dashBufferState != BaseState.State.Null:
+		if player.can_use_ability(pInfo.abiliyList.DashSide) and dashBufferState == BaseState.State.DashSide:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashSide
+		if player.can_use_ability(pInfo.abiliyList.DashUp) and dashBufferState == BaseState.State.DashUp:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashUp
+		if player.can_use_ability(pInfo.abiliyList.DashDown) and dashBufferState == BaseState.State.DashDown:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashDown
+		
 
 	return State.Null
 

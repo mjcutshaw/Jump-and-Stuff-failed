@@ -11,7 +11,7 @@ enum State {
 	Crouch,
 	Jump,
 	JumpCrouch,
-	JumpDash,
+	DashJump,
 	JumpFlip,
 	JumpLong,
 	JumpAir,

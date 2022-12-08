@@ -54,7 +54,8 @@ func handle_input(_event: InputEvent) -> int:
 			if player.jumpFlip:
 				print("jump flip")
 			return State.Jump
-	
+	if Input.is_action_just_pressed("dash"): 
+		dash_pressed_buffer()
 	
 
 	return State.Null
@@ -71,5 +72,29 @@ func state_check(_delta: float) -> int:
 		return State.Jump
 	if !player.is_on_floor():
 		return State.Fall
+	
+	if dashBufferState != BaseState.State.Null:
+		if player.can_use_ability(pInfo.abiliyList.DashJump) and dashBufferState == BaseState.State.DashJump:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashJump
+		if player.can_use_ability(pInfo.abiliyList.DashSide) and dashBufferState == BaseState.State.DashSide:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashSide
+		if player.can_use_ability(pInfo.abiliyList.DashUp) and dashBufferState == BaseState.State.DashUp:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashUp
+		if player.can_use_ability(pInfo.abiliyList.DashDown) and dashBufferState == BaseState.State.DashDown:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashDown
+#	if !player.bufferJumpTimer.is_stopped():
+#		player.bufferJumpTimer.stop()
+#		return State.Jump
+#	if !player.is_on_floor():
+#		player.coyoteJumpTimer.start()
+#		return State.Fall
+#	if player.inWater:
+#		return State.Swim
+#	if player.fallDamage:
+#		return State.FallDamage
 
 	return State.Null

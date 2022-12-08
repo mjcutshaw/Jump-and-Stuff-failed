@@ -65,7 +65,7 @@ func state_check(_delta: float) -> int:
 		return State.Null
 	
 	if currentjumpBoostTime > 0:
-		return State.JumpDash
+		return State.DashJump
 	
 	if player.is_on_floor():
 		if player.moveDirection.x != 0:

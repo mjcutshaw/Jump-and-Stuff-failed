@@ -52,6 +52,21 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	
+	if dashBufferState != BaseState.State.Null:
+		if player.can_use_ability(pInfo.abiliyList.DashJump) and dashBufferState == BaseState.State.DashJump:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashJump
+		if player.can_use_ability(pInfo.abiliyList.DashSide) and dashBufferState == BaseState.State.DashSide:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashSide
+		if player.can_use_ability(pInfo.abiliyList.DashUp) and dashBufferState == BaseState.State.DashUp:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashUp
+		if player.can_use_ability(pInfo.abiliyList.DashDown) and dashBufferState == BaseState.State.DashDown:
+			dashBufferState = BaseState.State.Null
+			return BaseState.State.DashDown
+#	if player.dashContactTimer.is_stopped() and player.is_on_floor():
+#		return State.Idle
+#		#TODO add stun state
 
 	return State.Null
