@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerAbilities
 
-#TODO: all abilities should get an upgrade and shartds/modifires/charms
+#TODO: delete
 enum abiliyList {
 	Null,
 	All,

@@ -163,9 +163,11 @@ shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 
 window/size/viewport_width=1280
 window/size/viewport_height=800
+window/size/window_width_override=1024
+window/size/window_height_override=640
 window/stretch/mode="canvas_items"
-window/size/width=1280
-window/size/height=800
+window/size/width=1024
+window/size/height=640
 
 [editor_plugins]
 
@@ -262,7 +264,7 @@ dash={
 }
 crouch={
 "deadzone": 0.5,
-"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
 spin={

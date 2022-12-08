@@ -61,7 +61,6 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	
 	#TODO: figure a better way so it is not spammed
 	if Input.is_action_pressed("dash") and (Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")) and player.can_use_ability(pInfo.abiliyList.DashSide):
 		return State.DashSide
@@ -135,32 +134,33 @@ func facing(face) -> void:
 
 func squash_and_strech(_delta):
 #	#TODO: not squishing the on the x
-#	if !player.is_on_floor():
-#		player.characterRig.scale.y = range_lerp(abs(player.velocity.y), 0, abs(jumpVelocityMax), 0.75, 1.25)
-#		player.characterRig.scale.x = range_lerp(abs(player.velocity.y), 0, abs(jumpVelocityMax), 1.25, 0.75)
-#
-#	player.characterRig.scale.x = lerp(player.characterRig.scale.x, 1.0, 1.0 - pow(0.01, _delta))
-#	player.characterRig.scale.y = lerp(player.characterRig.scale.y, 1.0, 1.0 - pow(0.01, _delta))
+	if !player.is_on_floor():
+		player.characterRig.scale.y = remap(abs(player.velocity.y), 0, abs(jumpVelocityMax), 0.75, 1.25)
+		player.characterRig.scale.x = remap(abs(player.velocity.y), 0, abs(jumpVelocityMax), 1.25, 0.75)
+
+	player.characterRig.scale.x = lerp(player.characterRig.scale.x, 1.0, 1.0 - pow(0.01, _delta))
+	player.characterRig.scale.y = lerp(player.characterRig.scale.y, 1.0, 1.0 - pow(0.01, _delta))
 	pass
 
 
 func landed_visuals(fallVelocity):
 #	#FIXME: change previous velocity to fall speed
-#	player.characterRig.scale.x = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 1.2, 1.25)
-#	player.characterRig.scale.y = range_lerp(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 0.8, 0.5)
-#
-#	#TODO: find a better place for vibrations
-#	if settings.toggleVibration:
-#		Input.start_joy_vibration(0,0.5,0,0.2)
+	player.characterRig.scale.x = remap(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 1.2, 1.25)
+	player.characterRig.scale.y = remap(abs(fallVelocity.y), 0.0, abs(jumpHeightMax), 0.8, 0.5)
+
+	#TODO: find a better place for vibrations
+	if settings.toggleVibration:
+		Input.start_joy_vibration(0,0.5,0,0.2)
 	pass
 
 
 func speed_bend():
 #	#TODO: variable to decide direction
 #	#TODO: try using tween
-#	player.characterRig.skew = range_lerp(-player.velocity.x, 0, abs(moveSpeed), 0.0, 0.1)
+	player.characterRig.skew = remap(-player.velocity.x, 0, abs(moveSpeed), 0.0, 0.1)
 	pass
 
 
 func gravity_logic(amount, _delta) -> void:
 	player.velocity.y += amount * _delta
+

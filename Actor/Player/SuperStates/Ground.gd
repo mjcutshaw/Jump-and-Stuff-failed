@@ -2,9 +2,9 @@ class_name GroundState
 extends MoveState
 
 
-var acceleration: float = 0.3
-var friction: float = 0.2
-var crouchFriction: float = 0.02
+var acceleration: float = 0.3 * Util.TILE_SIZE
+var friction: float = 0.2 * Util.TILE_SIZE
+var crouchFriction: float = 0.02 * Util.TILE_SIZE
 
 
 func enter() -> void:
@@ -38,7 +38,7 @@ func physics(_delta) -> void:
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	squash_and_strech(_delta) #TODO: not working
+	squash_and_strech(_delta)
 	
 
 
@@ -54,6 +54,7 @@ func handle_input(_event: InputEvent) -> int:
 			if player.jumpFlip:
 				print("jump flip")
 			return State.Jump
+	
 	
 
 	return State.Null
