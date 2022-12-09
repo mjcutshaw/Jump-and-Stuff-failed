@@ -1,6 +1,6 @@
 extends JumpState
 
-
+#TODO: consecutive jump states
 func enter() -> void:
 	super.enter()
 

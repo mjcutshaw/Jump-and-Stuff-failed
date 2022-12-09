@@ -654,14 +654,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="StateLabel" type="Label" parent="Labels"]
-layout_mode = 0
 offset_left = -17.0
 offset_top = -90.0
 offset_right = 22.0
 offset_bottom = -67.0
 
 [node name="VelocityLabel" type="Label" parent="Labels"]
-layout_mode = 0
 offset_left = -17.0
 offset_top = -117.0
 offset_right = 22.0

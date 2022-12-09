@@ -8,9 +8,9 @@
 [ext_resource type="Script" path="res://UI/Scripts/GameTimer.gd" id="3_8xw6d"]
 [ext_resource type="PackedScene" uid="uid://bfprvsnajjd16" path="res://UI/Settings_Menu.tscn" id="5_08yut"]
 [ext_resource type="PackedScene" uid="uid://drwlygfx7p5bv" path="res://UI/DevConsole.tscn" id="6_3uhkl"]
+[ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="8_1avei"]
 [ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
 [ext_resource type="Script" path="res://Utility/DrawCollision.gd" id="10_pqpfw"]
-[ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="12_t3s5q"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -42,9 +42,7 @@ grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
-offset_top = 23.0
-offset_right = 126.0
-offset_bottom = 46.0
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_fuyfm")
@@ -62,9 +60,7 @@ theme_override_constants/margin_right = 20
 script = ExtResource("3_8xw6d")
 
 [node name="Label" type="Label" parent="Gui/GameTimer"]
-offset_top = 23.0
-offset_right = 100.0
-offset_bottom = 46.0
+layout_mode = 2
 
 [node name="SettingsMenu" parent="Gui" instance=ExtResource("5_08yut")]
 visible = false
@@ -88,26 +84,17 @@ theme_override_constants/margin_top = 20
 script = ExtResource("8_sb0xg")
 
 [node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 66.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Gui/DebugOverlay"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 66.0
+layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Gui/DebugOverlay/MarginContainer"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 60.0
-offset_bottom = 36.0
+layout_mode = 2
 text = "Debug"
 
 [node name="MenuManager" type="CanvasLayer" parent="Gui"]
@@ -116,13 +103,13 @@ text = "Debug"
 
 [node name="Playground" type="Node2D" parent="."]
 
-[node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
-position = Vector2(96, 0)
+[node name="AbilityReset" parent="Playground" instance=ExtResource("8_1avei")]
+position = Vector2(0, -296)
 ability = 1
 
-[node name="AbilityReset" parent="Playground" instance=ExtResource("12_t3s5q")]
-position = Vector2(624, -167)
-ability = 1
+[node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
+position = Vector2(96, 0)
+ability = 0
 
 [node name="Ground" type="Node2D" parent="Playground"]
 
