@@ -6,6 +6,7 @@ extends GroundState
 #TODO: make friction when changing directions
 #TODO: timer that slows the player down after being in it for too long
 #TODO: walk on fluids, might be its own state
+#FIXME: jump flip not working
 
 var goIdle: bool = false
 var rotation: float
@@ -68,6 +69,13 @@ func handle_input(_event: InputEvent) -> int:
 
 	if Input.is_action_pressed("crouch"): 
 		return State.Crouch
+	if Input.is_action_just_pressed("jump"):
+		if Input.is_action_pressed("move_down"):
+			player.pass_through_collisions(CollisionLayer.Semisolid, false)
+		else:
+			if player.jumpFlip:
+				print("jump flip")
+			return State.Jump
 
 	return State.Null
 
@@ -79,7 +87,7 @@ func state_check(_delta: float) -> int:
 
 	if player.jumpFlip:
 		return State.Jump
-	if player.moveDirection.x == 0 and goIdle:
+	if player.moveDirection.x == 0:
 		return State.Idle
 
 	return State.Null

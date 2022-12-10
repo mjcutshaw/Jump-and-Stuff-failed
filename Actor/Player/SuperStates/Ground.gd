@@ -4,7 +4,7 @@ extends MoveState
 
 var acceleration: float = 0.3 * Util.TILE_SIZE
 var friction: float = 0.2 * Util.TILE_SIZE
-var crouchFriction: float = 0.02 * Util.TILE_SIZE
+var crouchFriction: float = 0.1 * Util.TILE_SIZE
 
 
 func enter() -> void:
@@ -47,13 +47,6 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("jump"):
-		if Input.is_action_pressed("move_down"):
-				player.pass_through_collisions(CollisionLayer.Semisolid, false)
-		else:
-			if player.jumpFlip:
-				print("jump flip")
-			return State.Jump
 	if Input.is_action_just_pressed("dash"): 
 		dash_pressed_buffer()
 	
