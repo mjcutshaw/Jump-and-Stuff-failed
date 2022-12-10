@@ -1,11 +1,11 @@
 extends JumpState
 
-#TODO: probably remove
+@export var velocityModifier: float = 1.25
 
 func enter() -> void:
 	super.enter()
 
-	player.velocity.y = jumpVelocityMax * jumpCrouchVelocityModifier
+	player.velocity.y = jumpVelocityMax * velocityModifier
 	player.velocity.x = 0
 	player.particlesJumpTriple.restart()
 	player.sounds.soundJump.pitch_scale = 2

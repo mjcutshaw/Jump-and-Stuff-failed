@@ -1,11 +1,12 @@
 extends JumpState
 
+@export var velocityModifier: float = 1.35
 #FIXME: long jump broke in left direction
 func enter() -> void:
 	super.enter()
 
 	player.velocity.y = jumpVelocityMax
-	player.velocity.x = moveSpeed * jumpLongVelocityModifier * player.facing
+	player.velocity.x = moveSpeed * velocityModifier * player.facing
 	player.particlesJumpTriple.restart()
 	player.sounds.soundJump.pitch_scale = 0.5
 	player.sounds.soundJump.play()
