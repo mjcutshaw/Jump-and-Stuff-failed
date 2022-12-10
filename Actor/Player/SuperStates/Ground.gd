@@ -47,7 +47,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_pressed("dash"): 
+	if Input.is_action_just_pressed("dash") and !Input.is_action_pressed("crouch"): #TODO: move to node states
 		dash_pressed_buffer()
 	
 
