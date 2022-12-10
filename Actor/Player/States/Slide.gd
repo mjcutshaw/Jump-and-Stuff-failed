@@ -1,32 +1,27 @@
-extends WallState
-
-#TODO: ledge detection to climb up
+extends GroundState
 
 func enter() -> void:
 	super.enter()
 
-	player.particlesWallClimb.restart()
+	
 
 
 func exit() -> void:
 	super.exit()
 
-	player.particlesWallClimb.emitting = false
-	if !player.is_on_wall():
-		player.velocity.y = 0
+#	player.previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-#	if player.moveDirection.y == 1:
-	player.velocity.y = moveSpeed * player.moveDirection.y
+	
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(-player.lastWallDirection.x)
+	
 
 
 func sound(_delta: float) -> void:
@@ -40,8 +35,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if Input.is_action_just_released("grab"):
-		return State.WallSlide
+	
 
 	return State.Null
 
@@ -51,7 +45,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.moveDirection.y == 0:
-		return State.WallGrab
+	
 
 	return State.Null

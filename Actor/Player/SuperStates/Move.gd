@@ -12,8 +12,7 @@ var jumpTimeAtApex: float = 0.8
 var jumpApexHeight: float = 40
 var jumpDoubleVelocityModifier: float = 1.25
 var jumpTripleVelocityModifier: float = 1.5
-var jumpCrouchVelocityModifier: float = 1.25
-var jumpLongVelocityModifier: float = 1.35
+
 var dashJumpBoostVelocityModifier: float = 1.25
 @onready var gravityJump: float = 2 * jumpHeightMax / pow(jumpTimeToPeak, 2)
 @onready var gravityFall: float = 2 * jumpHeightMax / pow(jumpTimeToDescent, 2)
