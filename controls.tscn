@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://8sqw3cc83xl0"]
 
 [ext_resource type="Texture2D" uid="uid://cxg7ok3hxbon6" path="res://Assets/XboxSeriesX_Diagram.png" id="1_djork"]
 
@@ -44,17 +44,17 @@ offset_bottom = 306.0
 text = "Charge"
 
 [node name="Grapple" type="Label" parent="."]
-offset_left = 120.0
-offset_top = 144.0
-offset_right = 182.0
-offset_bottom = 170.0
+offset_left = -544.0
+offset_top = -296.0
+offset_right = -482.0
+offset_bottom = -270.0
 text = "Grapple"
 
 [node name="Burrow" type="Label" parent="."]
-offset_left = -432.0
-offset_top = 72.0
-offset_right = -154.0
-offset_bottom = 98.0
+offset_left = -544.0
+offset_top = -336.0
+offset_right = -448.0
+offset_bottom = -310.0
 text = "Burrow"
 
 [node name="Bash" type="Label" parent="."]
@@ -91,6 +91,13 @@ offset_top = -320.0
 offset_right = 470.0
 offset_bottom = -294.0
 text = "Grab"
+
+[node name="Jump" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 72.0
+offset_right = 350.0
+offset_bottom = 98.0
+text = "Jump"
 
 [node name="Spoilers" type="Label" parent="."]
 offset_left = -128.0

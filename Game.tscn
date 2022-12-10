@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dm44y8v73jngw"]
 
-[ext_resource type="PackedScene" uid="uid://x7qeo88j2tof" path="res://Actor/Player/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dbgos0206e8x1" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
 [ext_resource type="PackedScene" uid="uid://b03yneqby6tot" path="res://Prefab/Interactables/Collectable.tscn" id="2_2c3h4"]
 [ext_resource type="Script" path="res://UI/Scripts/Gui.gd" id="2_gjups"]
@@ -42,7 +42,9 @@ grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
-layout_mode = 2
+offset_top = 23.0
+offset_right = 126.0
+offset_bottom = 46.0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_fuyfm")
@@ -60,7 +62,9 @@ theme_override_constants/margin_right = 20
 script = ExtResource("3_8xw6d")
 
 [node name="Label" type="Label" parent="Gui/GameTimer"]
-layout_mode = 2
+offset_top = 23.0
+offset_right = 100.0
+offset_bottom = 46.0
 
 [node name="SettingsMenu" parent="Gui" instance=ExtResource("5_08yut")]
 visible = false
@@ -84,17 +88,26 @@ theme_override_constants/margin_top = 20
 script = ExtResource("8_sb0xg")
 
 [node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 66.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Gui/DebugOverlay"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 66.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Gui/DebugOverlay/MarginContainer"]
-layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 36.0
 text = "Debug"
 
 [node name="MenuManager" type="CanvasLayer" parent="Gui"]
@@ -109,7 +122,7 @@ ability = 1
 
 [node name="Collectable" parent="Playground" instance=ExtResource("2_2c3h4")]
 position = Vector2(96, 0)
-ability = 0
+ability = 1
 
 [node name="Ground" type="Node2D" parent="Playground"]
 

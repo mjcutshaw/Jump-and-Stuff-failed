@@ -1,4 +1,4 @@
-extends WallState
+extends DashState
 
 
 func enter() -> void:
@@ -16,13 +16,13 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	player.velocity = Vector2.ZERO
+	
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-	facing(-player.lastWallDirection.x)
+	
 
 
 func sound(_delta: float) -> void:
@@ -36,10 +36,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	if settings.toggleGrab and Input.is_action_just_pressed("grab"):
-		return State.WallSlide
-	if !settings.toggleGrab and Input.is_action_just_released("grab"):
-		return State.WallSlide
+	
 
 	return State.Null
 
@@ -49,7 +46,6 @@ func state_check(_delta: float) -> int:
 	if newState:
 		return newState
 
-	if player.moveDirection.y != 0:
-		return State.WallClimb
+	
 
 	return State.Null

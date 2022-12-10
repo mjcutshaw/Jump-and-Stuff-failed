@@ -19,11 +19,11 @@ extends Node
 	BaseState.State.DashSide: $DashSide,
 	BaseState.State.DashDown: $DashDown,
 	BaseState.State.DashUp: $DashUp,
+	BaseState.State.DashWall: $DashWall,
+	BaseState.State.DashClimb: $DashClimb,
 	BaseState.State.Glide: $Glide,
 	BaseState.State.WallSlide: $WallSlide,
-	BaseState.State.WallGrab: $WallGrab,
-	BaseState.State.WallDash: $WallDash,
-	BaseState.State.WallClimb: $WallClimb,
+	BaseState.State.Slide: $Slide,
 }
 
 var currentState: BaseState
@@ -43,7 +43,7 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-#	print(previousStateName + " to " + currentStateName)
+	print(previousStateName + " to " + currentStateName)
 #TODO: change to signals
 	player.currentState = currentState.name
 	player.statelabel.text = currentState.name

@@ -19,7 +19,8 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	#TODO: slow faster if player changes moveDriection
+	#TODO: slow faster if player changes moveDirection
+	
 	player.velocity.x = move_toward(player.velocity.x, 0, crouchFriction)
 	if abs(player.velocity.x) < crouchSpeedMin:
 		player.velocity.x = 0
