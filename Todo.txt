@@ -300,6 +300,9 @@ screen wrap https://kidscancode.org/godot_recipes/2d/screen_wrap/
 align character to ground https://kidscancode.org/godot_recipes/2d/2d_align_surface/
 #TODO: Planet align
 
+wall hooks:
+	grapple can pull to
+
 Break blocks 
 	Spelunky kaizo hacks has you break a block for a Ledge, but then there is a lava behind it to make you move quick
 

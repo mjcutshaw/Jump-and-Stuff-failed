@@ -4,6 +4,7 @@ class_name PlayerInfo
 
 ## Stats ##
 var baseSpeed: int = 15
+var baseJump: int = 4
 
 ## Abilities ##
 enum abiliyList {

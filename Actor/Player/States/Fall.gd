@@ -1,6 +1,7 @@
 extends AirState
 
 #TODO: make friction when changing directions
+
 func enter() -> void:
 	super.enter()
 
@@ -15,7 +16,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	neutral_air_momentum_logic()
+	neutral_air_momentum_logic() #FIXME: broken
 	if player.moveDirection.y != 1: ## No velocity when holding down ##
 		fall_speed_logic(terminalVelocity)
 	gravity_logic(gravityFall, _delta)

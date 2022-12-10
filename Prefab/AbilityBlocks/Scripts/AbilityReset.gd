@@ -5,7 +5,7 @@ extends AbilityBlockBase
 
 @onready var lockOutTimer: Timer = $LockOutTimer
 @export var lockOutTime: float = 4
-
+#TODO: modulate through colors
 
 
 func _ready() -> void:
@@ -16,6 +16,18 @@ func _ready() -> void:
 	lockOutTimer.wait_time = lockOutTime
 	
 	valid_block(get_name(), global_position)
+
+#func _process(delta: float) -> void:
+#	while ability == Abilities.abiliyList.Dash and lockOutTimer.is_stopped():
+#		blockColor = AbilityColor.dashSideColor
+#		modulate = blockColor
+#		await get_tree().create_timer(.2).timeout
+#		blockColor = AbilityColor.dashUpColor
+#		modulate = blockColor
+#		await get_tree().create_timer(.2).timeout
+#		blockColor = AbilityColor.dashDownColor
+#		modulate = blockColor
+
 
 
 func ability_rest(body: Player) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://x7qeo88j2tof"]
+[gd_scene load_steps=58 format=3 uid="uid://dbgos0206e8x1"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -25,9 +25,9 @@
 [ext_resource type="Script" path="res://Actor/Player/States/Glide.gd" id="16_xbsxy"]
 [ext_resource type="Script" path="res://Actor/Player/States/WallSlide.gd" id="18_e75om"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/DropShadow.gd" id="18_ef8so"]
-[ext_resource type="Script" path="res://Actor/Player/States/WallGrab.gd" id="19_qbb2g"]
-[ext_resource type="Script" path="res://Actor/Player/States/WallDash.gd" id="20_75ug7"]
-[ext_resource type="Script" path="res://Actor/Player/States/WallClimb.gd" id="22_xu4ye"]
+[ext_resource type="Script" path="res://Actor/Player/States/DashWall.gd" id="25_k1peo"]
+[ext_resource type="Script" path="res://Actor/Player/States/DashClimb.gd" id="26_v65me"]
+[ext_resource type="Script" path="res://Actor/Player/States/Slide.gd" id="27_38jwh"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Sounds.gd" id="29_ki6s2"]
 [ext_resource type="AudioStream" uid="uid://0q1wp2okv2ph" path="res://Assets/Sounds/Actor/Player/error_007.ogg" id="30_rcrkl"]
 [ext_resource type="AudioStream" uid="uid://beuo0eqvxuw5e" path="res://Assets/Sounds/Actor/Player/FOOTSTEPS (A) Walking Loop 01.ogg" id="31_su22v"]
@@ -540,20 +540,20 @@ script = ExtResource("12_hwflk")
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource("12_rdy2p")
 
+[node name="DashWall" type="Node" parent="StateMachine"]
+script = ExtResource("25_k1peo")
+
+[node name="DashClimb" type="Node" parent="StateMachine"]
+script = ExtResource("26_v65me")
+
 [node name="Glide" type="Node" parent="StateMachine"]
 script = ExtResource("16_xbsxy")
 
 [node name="WallSlide" type="Node" parent="StateMachine"]
 script = ExtResource("18_e75om")
 
-[node name="WallGrab" type="Node" parent="StateMachine"]
-script = ExtResource("19_qbb2g")
-
-[node name="WallDash" type="Node" parent="StateMachine"]
-script = ExtResource("20_75ug7")
-
-[node name="WallClimb" type="Node" parent="StateMachine"]
-script = ExtResource("22_xu4ye")
+[node name="Slide" type="Node" parent="StateMachine"]
+script = ExtResource("27_38jwh")
 
 [node name="Sounds" type="Node2D" parent="."]
 script = ExtResource("29_ki6s2")
@@ -654,12 +654,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="StateLabel" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = -17.0
 offset_top = -90.0
 offset_right = 22.0
 offset_bottom = -67.0
 
 [node name="VelocityLabel" type="Label" parent="Labels"]
+layout_mode = 0
 offset_left = -17.0
 offset_top = -117.0
 offset_right = 22.0
