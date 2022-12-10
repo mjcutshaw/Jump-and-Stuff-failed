@@ -1,5 +1,5 @@
 extends DashState
-
+#LOOKAT: ground dash seperate>
 #TODO: grab dash combos from g3.5 
 var currentDashTime: float = 0
 var dashDirection: int = 0

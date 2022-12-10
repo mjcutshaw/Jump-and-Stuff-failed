@@ -1,27 +1,16 @@
-class_name DashState
-extends MoveState
-#TODO: remove super states
-
-var dashTime = 0.3
-var dashDistance: int = 10 * Util.TILE_SIZE
-var dashSpeed: int = dashDistance/dashTime
+extends AirState
 
 
 func enter() -> void:
 	super.enter()
 
-	player.sounds.soundDash.play()
-	GameStats.dashes += 1
+	
 
 
 func exit() -> void:
 	super.exit()
 
-	if player.moveDirection == Vector2.ZERO:
-		player.neutralMoveDirection = true
-	else:
-		player.neutralMoveDirection = false
-		velocity_logic(moveSpeed)
+#	player.previousVelocity = player.velocity
 
 
 func physics(_delta) -> void:
@@ -32,6 +21,12 @@ func physics(_delta) -> void:
 
 func visual(_delta) -> void:
 	super.visual(_delta)
+
+	
+
+
+func sound(_delta: float) -> void:
+	super.sound(_delta)
 
 	
 
