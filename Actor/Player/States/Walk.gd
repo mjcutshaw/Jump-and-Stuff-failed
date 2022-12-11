@@ -43,7 +43,7 @@ func physics(_delta) -> void:
 		else:
 			velocity_logic(moveSpeed)
 	else:
-		#TODO: change to reusable function
+		#FIXME: rework with momentum. get from 3.5
 		player.velocity.x = max(move_toward(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
 		
 

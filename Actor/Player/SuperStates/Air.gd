@@ -1,7 +1,7 @@
 class_name AirState
 extends MoveState
 
-
+#TODO: needs accel
 #TODO: will need locks/grace period to switch movedirction to velocity direction after being redirected
 
 func enter() -> void:

@@ -12,7 +12,6 @@ extends CharacterBody2D
 @onready var soundBonk: AudioStreamPlayer2D = $Sounds/SoundBonk
 @onready var soundDash: AudioStreamPlayer2D = $Sounds/SoundDash 
 @onready var particlesWalking: GPUParticles2D = $CharacterRig/Particles/ParticlesWalking
-#TODO: make the intensity based on velocity/distance
 @onready var particlesLand: GPUParticles2D = $CharacterRig/Particles/ParticlesLand
 @onready var particlesJump: GPUParticles2D = $CharacterRig/Particles/ParticlesJump
 @onready var particlesJumpWall: GPUParticles2D =  $CharacterRig/Particles/ParticlesJumpWall

@@ -1,6 +1,7 @@
 extends DashState
 #LOOKAT: ground dash seperate>
 #TODO: grab dash combos from g3.5 
+#TODO: previous velocity = velocity on exit
 var currentDashTime: float = 0
 var dashDirection: int = 0
 var jumpBoostTime: float = 0.10
