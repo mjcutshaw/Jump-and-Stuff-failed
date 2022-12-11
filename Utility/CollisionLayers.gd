@@ -13,11 +13,11 @@ const Hazard: int = 7
 #const SAND: int = 
 #const SNOW: int = 
 #const ICE: int = 
-#const Target: int = 13
+
 const DashSide: int = 14
 const DashUp: int = 15
 const DashDown: int = 16 
-const HookShot: int = 17
-const Burrow: int = 18
-const SwimDash: int = 19
-const Pogo: int = 20
+const Burrow: int = 17
+const SwimDash: int = 18
+const Pogo: int = 19
+const HookShot: int = 20

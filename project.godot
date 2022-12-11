@@ -333,15 +333,18 @@ slide={
 
 [layer_names]
 
-2d_physics/layer_1="Ground"
-2d_physics/layer_2="Semisolid"
-2d_physics/layer_3="Hazard"
-2d_physics/layer_4="Dash Side"
-2d_physics/layer_5="Dash Up"
-2d_physics/layer_6="Dash Down"
+2d_physics/layer_2="Ground"
+2d_physics/layer_3="Semisolid"
+2d_physics/layer_5="Interactable"
 2d_physics/layer_7="Player"
-2d_physics/layer_8="Collectable"
-2d_physics/layer_9="Interactable"
+2d_physics/layer_8="Hazard"
+2d_physics/layer_15="DashSide"
+2d_physics/layer_16="DashUp"
+2d_physics/layer_17="DashDown"
+2d_physics/layer_18="Burrow"
+2d_physics/layer_19="SwimDash"
+2d_physics/layer_20="Pogo"
+2d_physics/layer_21="Hookshot"
 
 [physics]
 
