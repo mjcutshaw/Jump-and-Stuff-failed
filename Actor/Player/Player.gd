@@ -81,6 +81,7 @@ func _ready() -> void:
 	sm.init()
 	set_timers()
 	EventBus.emit_signal("ability_check")
+
 #	DebugOverlay.add_stat("Velocity", self, "velocity")
 #	DebugOverlay.add_stat("State", self, "currentState")
 
@@ -195,7 +196,8 @@ func attempt_horizontal_corner_correction(amount: int, delta) -> void:
 
 func pass_through_collisions(collisionLayer, collisionBool):
 	coyoteTimer.stop()
-	self.set_collision_mask_value(collisionLayer, collisionBool)
+	set_collision_mask_value(collisionLayer, collisionBool)
+	
 
 
 func _on_jump_consectutive_timer_timeout() -> void:
@@ -221,7 +223,7 @@ func one_way_reset_timeout() -> void:
 func align_with_floor() -> void:
 	#FIXME: buggy, might need to use raycast for ground detectionw
 	if is_on_floor():
-		characterRig.rotation = get_floor_normal().angle() + PI/2
+		rotation = get_floor_normal().angle() + PI/2
 #	if !is_on_floor():
 #		rotation = 0
 #		if get_floor_normal().dot(Vector2.UP) < 0.9 and !is_input:

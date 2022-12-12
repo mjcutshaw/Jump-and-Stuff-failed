@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=18 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://dbgos0206e8x1" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -23,6 +23,12 @@ size = Vector2(64, 1500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5qon"]
 size = Vector2(64, 1500)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iv5au"]
+radius = 263.65
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87at4"]
+size = Vector2(417, 65)
 
 [node name="Game" type="Node"]
 
@@ -127,7 +133,8 @@ ability = 1
 [node name="Ground" type="Node2D" parent="Playground"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Playground/Ground"]
-collision_mask = 64
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
@@ -170,6 +177,30 @@ script = ExtResource("10_pqpfw")
 modulate = Color(0, 0, 0, 1)
 position = Vector2(4608, -160)
 shape = SubResource("1")
+script = ExtResource("10_pqpfw")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(968, -336)
+shape = SubResource("CircleShape2D_iv5au")
+script = ExtResource("10_pqpfw")
+
+[node name="Polygon2D" type="StaticBody2D" parent="Playground/Ground"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Playground/Ground/Polygon2D"]
+polygon = PackedVector2Array(3035, -687, 3370, -861, 3693, -1011, 3956, -1149, 4106, -1285, 4279, -1531, 4400, -1732, 4440, -1834, 4414, -1972, 4301, -2105, 4182, -2210, 4807, -1817, 4153, -830)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Playground/Ground"]
+position = Vector2(128, -264)
+collision_layer = 4
+collision_mask = 0
+
+[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D2"]
+position = Vector2(198.5, 22.5)
+shape = SubResource("RectangleShape2D_87at4")
+one_way_collision = true
 script = ExtResource("10_pqpfw")
 
 [node name="Player" parent="Playground" instance=ExtResource("1")]
