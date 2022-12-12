@@ -315,12 +315,12 @@ texture = SubResource("PlaceholderTexture2D_sb4aq")
 
 [node name="Eye" type="Line2D" parent="CharacterRig/Body"]
 position = Vector2(-8, -4)
-points = PackedVector2Array(8, -48, 12, -48)
+points = PackedVector2Array(8, -52, 8, -44)
 width = 4.0
 
-[node name="Mouth" type="Line2D" parent="CharacterRig/Body"]
-position = Vector2(0, -40)
-points = PackedVector2Array(0, 0, 16, 0)
+[node name="Eye2" type="Line2D" parent="CharacterRig/Body"]
+position = Vector2(1, -4)
+points = PackedVector2Array(8, -52, 8, -44)
 width = 4.0
 
 [node name="AbilityTracker" type="Node2D" parent="CharacterRig"]
