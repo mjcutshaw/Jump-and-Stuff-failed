@@ -1,12 +1,13 @@
 extends BaseState
 
 #TODO: visuals break on jump
+var transformTime: float = 0.4
 
 func enter() -> void:
 	super.enter()
 
 	var tween = create_tween()
-	tween.tween_property(player.characterRig, "scale", Vector2(1,1), .4).from(Vector2(0,0))
+	tween.tween_property(player.characterRig, "scale", Vector2(1,1), transformTime).from(Vector2(0,0))
 	
 
 
