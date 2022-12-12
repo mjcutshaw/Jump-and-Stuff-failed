@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dm44y8v73jngw"]
+[gd_scene load_steps=22 format=3 uid="uid://dm44y8v73jngw"]
 
 [ext_resource type="PackedScene" uid="uid://dbgos0206e8x1" path="res://Actor/Player/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://UI/Scripts/AbilityUnlocked.gd" id="1_fuyfm"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://boyluuvyf4kq1" path="res://Prefab/AbilityBlocks/AbilityReset.tscn" id="8_1avei"]
 [ext_resource type="Script" path="res://UI/Scripts/DebugOverlay.gd" id="8_sb0xg"]
 [ext_resource type="Script" path="res://Utility/DrawCollision.gd" id="10_pqpfw"]
+[ext_resource type="Script" path="res://DrawPoly.gd" id="11_bhqqu"]
+[ext_resource type="Script" path="res://Prefab/ShapedPoly.gd" id="12_8l5up"]
+[ext_resource type="Texture2D" uid="uid://bglis536qnw0t" path="res://Assets/texture_08.png" id="13_3evuh"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6400, 64)
@@ -30,6 +33,12 @@ radius = 263.65
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87at4"]
 size = Vector2(417, 65)
 
+[sub_resource type="Curve2D" id="Curve2D_xs77c"]
+_data = {
+"points": PackedVector2Array(-433.91, 64.6723, 0, 0, -2973, -718, -84.757, -7.41624, 84.757, 7.41624, -2714, -782, -84.757, -37.0812, 84.757, 37.0812, -2431, -687, -67.3477, -42.6536, 67.3477, 42.6536, -2051, -400, -210, -112, 210, 112, -1264, -10, 0, 0, 0, 0, -1667, -50, 186.676, 633.568, -186.676, -633.568, -3125, -58, 0, 0, 0, 0, -3097, -694, 0, 0, 0, 0, -2973, -718)
+}
+point_count = 9
+
 [node name="Game" type="Node"]
 
 [node name="Gui" type="CanvasLayer" parent="."]
@@ -48,9 +57,7 @@ grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
-offset_top = 23.0
-offset_right = 126.0
-offset_bottom = 46.0
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_fuyfm")
@@ -68,9 +75,7 @@ theme_override_constants/margin_right = 20
 script = ExtResource("3_8xw6d")
 
 [node name="Label" type="Label" parent="Gui/GameTimer"]
-offset_top = 23.0
-offset_right = 100.0
-offset_bottom = 46.0
+layout_mode = 2
 
 [node name="SettingsMenu" parent="Gui" instance=ExtResource("5_08yut")]
 visible = false
@@ -94,26 +99,17 @@ theme_override_constants/margin_top = 20
 script = ExtResource("8_sb0xg")
 
 [node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 66.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Gui/DebugOverlay"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 90.0
-offset_bottom = 66.0
+layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="Label" type="Label" parent="Gui/DebugOverlay/MarginContainer"]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 60.0
-offset_bottom = 36.0
+layout_mode = 2
 text = "Debug"
 
 [node name="MenuManager" type="CanvasLayer" parent="Gui"]
@@ -169,7 +165,7 @@ script = ExtResource("10_pqpfw")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-480, -688)
+position = Vector2(-1257, -1654)
 shape = SubResource("RectangleShape2D_3wmbc")
 script = ExtResource("10_pqpfw")
 
@@ -185,25 +181,44 @@ position = Vector2(968, -336)
 shape = SubResource("CircleShape2D_iv5au")
 script = ExtResource("10_pqpfw")
 
-[node name="Polygon2D" type="StaticBody2D" parent="Playground/Ground"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Playground/Ground/Polygon2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Playground/Ground/StaticBody2D"]
 polygon = PackedVector2Array(3035, -687, 3370, -861, 3693, -1011, 3956, -1149, 4106, -1285, 4279, -1531, 4400, -1732, 4440, -1834, 4414, -1972, 4301, -2105, 4182, -2210, 4807, -1817, 4153, -830)
+script = ExtResource("11_bhqqu")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Playground/Ground"]
+[node name="Polygon2D" type="Polygon2D" parent="Playground/Ground/StaticBody2D/CollisionPolygon2D"]
+color = Color(0, 0, 0, 1)
+
+[node name="Semisolid" type="StaticBody2D" parent="Playground/Ground"]
 position = Vector2(128, -264)
 collision_layer = 4
 collision_mask = 0
 
-[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/StaticBody2D2"]
+[node name="VisibleCollisionShape2D" type="CollisionShape2D" parent="Playground/Ground/Semisolid"]
 position = Vector2(198.5, 22.5)
 shape = SubResource("RectangleShape2D_87at4")
 one_way_collision = true
 script = ExtResource("10_pqpfw")
 
+[node name="ShapedPoly" type="StaticBody2D" parent="Playground/Ground"]
+position = Vector2(-386, -1170)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("12_8l5up")
+
+[node name="Polygon2D" type="Polygon2D" parent="Playground/Ground/ShapedPoly"]
+texture_repeat = 2
+texture = ExtResource("13_3evuh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Playground/Ground/ShapedPoly"]
+
+[node name="Line2D" type="Line2D" parent="Playground/Ground/ShapedPoly"]
+
+[node name="Path2D" type="Path2D" parent="Playground/Ground/ShapedPoly"]
+position = Vector2(-217, 13)
+curve = SubResource("Curve2D_xs77c")
+
 [node name="Player" parent="Playground" instance=ExtResource("1")]
 
 [node name="Camera2D" type="Camera2D" parent="Playground/Player"]
 current = true
+zoom = Vector2(0.5, 0.5)
