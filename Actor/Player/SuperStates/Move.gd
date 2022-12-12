@@ -118,7 +118,7 @@ func dash_pressed_buffer() -> void:
 	await get_tree().create_timer(0.1).timeout
 	dash_pressed_logic()
 
-func dash_pressed_logic() -> void: #TODO: change to aimdirection
+func dash_pressed_logic() -> void: #TODO: change to aimdirection #FIXME: being double triggered
 	if Input.is_action_pressed("jump"):
 		dashBufferState = BaseState.State.DashJump
 	elif player.moveDirection.round() == Vector2.UP:

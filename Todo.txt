@@ -1,5 +1,10 @@
 #TODO 
 
+from fancy pants
+	slide/skate on a line that can move up and down, also vertical 
+	zipline, up and down movement
+	snow board (burrow), free movement, vs dash passage that locks controls
+
 item that guides through a maze
 
 Second form with other abilities

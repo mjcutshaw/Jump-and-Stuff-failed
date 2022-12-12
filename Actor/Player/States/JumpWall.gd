@@ -1,6 +1,7 @@
 extends JumpState
 
-
+#TODO: chain walljumps to not have to move direction
+#TODO: look into fancy pants 3 direction jumps
 var wallHop: bool = false
 
 func enter() -> void:

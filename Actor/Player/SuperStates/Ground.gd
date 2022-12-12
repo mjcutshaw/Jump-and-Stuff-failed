@@ -22,7 +22,7 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	player.velocity.y = 10
+#	player.velocity.y = 10
 	
 #	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
 #		await get_tree().create_timer(.1).timeout

@@ -32,7 +32,7 @@ func visual(_delta) -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT).set_parallel(true)
 #	tween.tween_property(player.characterRig, "position", Vector2(0,-16), transformTime).from_current()
 	tween.tween_property(player.characterRig, "scale", Vector2(1 * player.facing, 0.5), transformTime).from_current()
-
+	#TODO: change to player, need to change all instances
 
 func sound(_delta: float) -> void:
 	super.sound(_delta)
