@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dbgos0206e8x1"]
+[gd_scene load_steps=61 format=3 uid="uid://dbgos0206e8x1"]
 
 [ext_resource type="Script" path="res://Actor/Player/StateMachine.gd" id="1"]
 [ext_resource type="Script" path="res://Actor/Player/Player.gd" id="2"]
@@ -38,6 +38,9 @@
 [ext_resource type="Script" path="res://Actor/Player/Scripts/AimIndicator.gd" id="35_cjw02"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/Aim.gd" id="35_v2wm8"]
 [ext_resource type="Script" path="res://Actor/Player/Scripts/HookableIndicator.gd" id="36_1t10s"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sb4aq"]
+size = Vector2(32, 64)
 
 [sub_resource type="Curve" id="Curve_wyqxj"]
 _data = [Vector2(0, 0.5), 0.0, 3.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -280,6 +283,9 @@ sampling_rate = 22050.0
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOGGVorbis_rp22o"]
 packet_sequence = SubResource("OGGPacketSequence_tmauh")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vbkqt"]
+size = Vector2(32, 8)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvy8w"]
 radius = 35.0
 height = 130.0
@@ -290,7 +296,7 @@ height = 138.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 64
-collision_mask = 447
+collision_mask = 446
 floor_snap_length = 10.0
 script = ExtResource("2")
 metadata/_edit_lock_ = true
@@ -302,18 +308,10 @@ metadata/_edit_lock_ = true
 [node name="Body" type="Node2D" parent="CharacterRig"]
 metadata/_edit_group_ = true
 
-[node name="Body" type="ColorRect" parent="CharacterRig/Body"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -64.0
-offset_right = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.403922, 0, 0.564706, 1)
+[node name="Body" type="Sprite2D" parent="CharacterRig/Body"]
+modulate = Color(0.368627, 0.47451, 0.580392, 1)
+position = Vector2(0, -32)
+texture = SubResource("PlaceholderTexture2D_sb4aq")
 
 [node name="Eye" type="Line2D" parent="CharacterRig/Body"]
 position = Vector2(-8, -4)
@@ -615,10 +613,8 @@ target_position = Vector2(0, 300)
 collision_mask = 63
 
 [node name="Sprite2D" type="Sprite2D" parent="DropShadow"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-4.76837e-07, 1.9108)
-scale = Vector2(0.53125, 0.0707703)
+modulate = Color(0.745098, 0.47451, 1, 1)
+texture = SubResource("PlaceholderTexture2D_vbkqt")
 
 [node name="Aim" type="Node2D" parent="."]
 visible = false

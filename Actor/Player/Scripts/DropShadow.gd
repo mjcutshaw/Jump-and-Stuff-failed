@@ -17,8 +17,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	shadow.scale.x = lerp(.5, shadow.position.y, .002)
-	shadow.scale.y = lerp(.05, shadow.position.y, .0005 )
+	shadow.scale.x = lerp(.5, shadow.position.y, .01)
+	shadow.scale.y = lerp(.05, shadow.position.y, .005 )
 	
 	if raycastRight.is_colliding() or raycastLeft.is_colliding():
 		shadow.visible = true
