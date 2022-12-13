@@ -19,6 +19,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Utility/AbilityColors.gd"
 }, {
+"base": "Node2D",
+"class": &"Aim",
+"language": &"GDScript",
+"path": "res://Actor/Player/Scripts/Aim.gd"
+}, {
 "base": "MoveState",
 "class": &"AirState",
 "language": &"GDScript",
@@ -39,6 +44,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Actor/Player/SuperStates/Dash.gd"
 }, {
+"base": "Node2D",
+"class": &"DropShadow",
+"language": &"GDScript",
+"path": "res://Actor/Player/Scripts/DropShadow.gd"
+}, {
 "base": "Resource",
 "class": &"GameStats",
 "language": &"GDScript",
@@ -48,6 +58,11 @@ _global_script_classes=[{
 "class": &"GroundState",
 "language": &"GDScript",
 "path": "res://Actor/Player/SuperStates/Ground.gd"
+}, {
+"base": "GroundState",
+"class": &"Idle",
+"language": &"GDScript",
+"path": "res://Actor/Player/States/Idle.gd"
 }, {
 "base": "AirState",
 "class": &"JumpState",
@@ -84,6 +99,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Actor/Player/Scripts/Sounds.gd"
 }, {
+"base": "Node",
+"class": &"PlayerStateMachine",
+"language": &"GDScript",
+"path": "res://Actor/Player/StateMachine.gd"
+}, {
 "base": "Resource",
 "class": &"PlayerStats",
 "language": &"GDScript",
@@ -109,6 +129,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://Utility/DrawCollision.gd"
 }, {
+"base": "GroundState",
+"class": &"Walk",
+"language": &"GDScript",
+"path": "res://Actor/Player/States/Walk.gd"
+}, {
 "base": "MoveState",
 "class": &"WallState",
 "language": &"GDScript",
@@ -117,12 +142,15 @@ _global_script_classes=[{
 _global_script_class_icons={
 "AbilityBlockBase": "",
 "AbilityColor": "",
+"Aim": "",
 "AirState": "",
 "BaseState": "",
 "CollisionLayer": "",
 "DashState": "",
+"DropShadow": "",
 "GameStats": "",
 "GroundState": "",
+"Idle": "",
 "JumpState": "",
 "MoveState": "",
 "OneWayPlatform": "",
@@ -130,11 +158,13 @@ _global_script_class_icons={
 "PlayerAbilities": "",
 "PlayerInfo": "",
 "PlayerSounds": "",
+"PlayerStateMachine": "",
 "PlayerStats": "",
 "Portal": "",
 "StatsMenuBase": "",
 "Util": "",
 "VisibleCollisionShape2D": "",
+"Walk": "",
 "WallState": ""
 }
 

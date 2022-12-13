@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerStateMachine
 
 
 @onready var states = {
@@ -43,10 +44,8 @@ func change_state(newState: int) -> void:
 	currentState = states[newState]
 	currentState.enter()
 	currentStateName = currentState.name
-	print(previousStateName + " to " + currentStateName)
-#TODO: change to signals
+	EventBus.emit_signal("debugState", previousStateName + " to " + currentStateName)
 	player.currentState = currentState.name
-	player.statelabel.text = currentState.name
 
 
 func init() -> void:

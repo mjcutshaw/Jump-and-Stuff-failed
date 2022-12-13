@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name DropShadow
 
 @onready var raycastRight: RayCast2D = $RayCast2D
 @onready var raycastLeft: RayCast2D = $RayCast2D2

@@ -35,9 +35,9 @@ size = Vector2(417, 65)
 
 [sub_resource type="Curve2D" id="Curve2D_xs77c"]
 _data = {
-"points": PackedVector2Array(-433.91, 64.6723, 0, 0, -2973, -718, -84.757, -7.41624, 84.757, 7.41624, -2714, -782, -84.757, -37.0812, 84.757, 37.0812, -2431, -687, -67.3477, -42.6536, 67.3477, 42.6536, -2051, -400, -210, -112, 210, 112, -1264, -10, 0, 0, 0, 0, -1667, -50, 186.676, 633.568, -186.676, -633.568, -3125, -58, 0, 0, 0, 0, -3097, -694, 0, 0, 0, 0, -2973, -718)
+"points": PackedVector2Array(-433.91, 64.6723, 0, 0, -2939, -696, -84.757, -7.41624, 84.757, 7.41624, -2749, -772, -84.757, -37.0812, 84.757, 37.0812, -2431, -687, -67.3477, -42.6536, 67.3477, 42.6536, -2051, -400, -210, -112, 210, 112, -1264, -10, 0, 0, 0, 0, -1667, -50, 186.676, 633.568, -186.676, -633.568, -3125, -58, 0, 0, 0, 0, -3163, -775, 0, 0, 0, 0, -2973, -718, 0, 0, 0, 0, -2939, -696)
 }
-point_count = 9
+point_count = 10
 
 [node name="Game" type="Node"]
 
@@ -57,7 +57,9 @@ grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="AbilityUnlocked" type="Label" parent="Gui/Annoucements"]
-layout_mode = 2
+offset_top = 23.0
+offset_right = 126.0
+offset_bottom = 46.0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("1_fuyfm")
@@ -75,7 +77,9 @@ theme_override_constants/margin_right = 20
 script = ExtResource("3_8xw6d")
 
 [node name="Label" type="Label" parent="Gui/GameTimer"]
-layout_mode = 2
+offset_top = 23.0
+offset_right = 100.0
+offset_bottom = 46.0
 
 [node name="SettingsMenu" parent="Gui" instance=ExtResource("5_08yut")]
 visible = false
@@ -91,7 +95,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DebugOverlay" type="MarginContainer" parent="Gui"]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 20
@@ -99,22 +102,48 @@ theme_override_constants/margin_top = 20
 script = ExtResource("8_sb0xg")
 
 [node name="Panel" type="Panel" parent="Gui/DebugOverlay"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 126.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Gui/DebugOverlay"]
-layout_mode = 2
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 126.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="Gui/DebugOverlay/MarginContainer"]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Gui/DebugOverlay/MarginContainer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 60.0
+offset_bottom = 96.0
+
+[node name="FPS" type="Label" parent="Gui/DebugOverlay/MarginContainer/VBoxContainer"]
+offset_right = 50.0
+offset_bottom = 26.0
+text = "Debug"
+
+[node name="State" type="Label" parent="Gui/DebugOverlay/MarginContainer/VBoxContainer"]
+offset_top = 30.0
+offset_right = 50.0
+offset_bottom = 56.0
+text = "Debug"
+
+[node name="Velocity" type="Label" parent="Gui/DebugOverlay/MarginContainer/VBoxContainer"]
+offset_top = 60.0
+offset_right = 50.0
+offset_bottom = 86.0
 text = "Debug"
 
 [node name="MenuManager" type="CanvasLayer" parent="Gui"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Gui"]
+visible = false
 
 [node name="Playground" type="Node2D" parent="."]
 
@@ -127,6 +156,7 @@ position = Vector2(96, 0)
 ability = 1
 
 [node name="Ground" type="Node2D" parent="Playground"]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Playground/Ground"]
 collision_layer = 2
@@ -200,7 +230,7 @@ one_way_collision = true
 script = ExtResource("10_pqpfw")
 
 [node name="ShapedPoly" type="StaticBody2D" parent="Playground/Ground"]
-position = Vector2(-386, -1170)
+position = Vector2(-229, 24)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("12_8l5up")
@@ -214,7 +244,7 @@ texture = ExtResource("13_3evuh")
 [node name="Line2D" type="Line2D" parent="Playground/Ground/ShapedPoly"]
 
 [node name="Path2D" type="Path2D" parent="Playground/Ground/ShapedPoly"]
-position = Vector2(-217, 13)
+position = Vector2(-410, -24)
 curve = SubResource("Curve2D_xs77c")
 
 [node name="Player" parent="Playground" instance=ExtResource("1")]

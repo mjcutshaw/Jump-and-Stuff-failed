@@ -16,8 +16,8 @@ signal checkpoint(data)
 
 signal settings_update
 
-
-
+signal debugState(info)
+signal debugVelocity(info)
 
 signal level_completed(data)
 signal level_started(data)

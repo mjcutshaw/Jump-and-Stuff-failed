@@ -297,6 +297,7 @@ height = 138.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 64
 collision_mask = 446
+floor_max_angle = 1.72264
 floor_snap_length = 10.0
 script = ExtResource("2")
 metadata/_edit_lock_ = true
@@ -438,24 +439,6 @@ process_material = SubResource("ParticlesMaterial_lk21w")
 
 [node name="Raycasts" type="Node2D" parent="."]
 
-[node name="Ground" type="Node2D" parent="Raycasts"]
-
-[node name="Right" type="RayCast2D" parent="Raycasts/Ground"]
-position = Vector2(16, 0)
-target_position = Vector2(0, 2)
-
-[node name="MidRight" type="RayCast2D" parent="Raycasts/Ground"]
-position = Vector2(8, 0)
-target_position = Vector2(0, 2)
-
-[node name="MidLeft" type="RayCast2D" parent="Raycasts/Ground"]
-position = Vector2(-8, 0)
-target_position = Vector2(0, 2)
-
-[node name="Left" type="RayCast2D" parent="Raycasts/Ground"]
-position = Vector2(-16, 0)
-target_position = Vector2(0, 2)
-
 [node name="Walls" type="Node2D" parent="Raycasts"]
 
 [node name="Left" type="Node2D" parent="Raycasts/Walls"]
@@ -465,7 +448,7 @@ position = Vector2(-16, -48)
 target_position = Vector2(-10, 0)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Walls/Left"]
-position = Vector2(-16, -8)
+position = Vector2(-15, -24)
 target_position = Vector2(-10, 0)
 
 [node name="Right" type="Node2D" parent="Raycasts/Walls"]
@@ -475,7 +458,7 @@ position = Vector2(16, -48)
 target_position = Vector2(10, 0)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Walls/Right"]
-position = Vector2(16, -8)
+position = Vector2(17, -24)
 target_position = Vector2(10, 0)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -598,6 +581,8 @@ one_shot = true
 one_shot = true
 
 [node name="DropShadow" type="Node2D" parent="."]
+process_mode = 4
+visible = false
 script = ExtResource("18_ef8so")
 
 [node name="RayCast2D" type="RayCast2D" parent="DropShadow"]
@@ -617,6 +602,7 @@ modulate = Color(0.745098, 0.47451, 1, 1)
 texture = SubResource("PlaceholderTexture2D_vbkqt")
 
 [node name="Aim" type="Node2D" parent="."]
+process_mode = 4
 visible = false
 position = Vector2(0, -32)
 script = ExtResource("35_v2wm8")
@@ -646,25 +632,5 @@ visible = false
 script = ExtResource("36_1t10s")
 
 [node name="Grapple" type="Line2D" parent="."]
-
-[node name="Labels" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="StateLabel" type="Label" parent="Labels"]
-layout_mode = 0
-offset_left = -17.0
-offset_top = -90.0
-offset_right = 22.0
-offset_bottom = -67.0
-
-[node name="VelocityLabel" type="Label" parent="Labels"]
-layout_mode = 0
-offset_left = -17.0
-offset_top = -117.0
-offset_right = 22.0
-offset_bottom = -94.0
 
 [connection signal="timeout" from="Timers/JumpConsectutiveTimer" to="." method="_on_jump_consectutive_timer_timeout"]

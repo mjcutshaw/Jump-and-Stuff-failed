@@ -1,4 +1,5 @@
 extends Node2D
+class_name  Aim
 
 @onready var player = get_parent()
 @onready var raycast: RayCast2D = $RayCast2D

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnrkpotbrx3ij"]
+
+[ext_resource type="Script" path="res://Prefab/ShapedPoly.gd" id="1_nr2ob"]
+[ext_resource type="Texture2D" uid="uid://bglis536qnw0t" path="res://Assets/texture_08.png" id="2_hp4dg"]
+
+[sub_resource type="Curve2D" id="Curve2D_xs77c"]
+_data = {
+"points": PackedVector2Array(-433.91, 64.6723, 0, 0, -2939, -696, -84.757, -7.41624, 84.757, 7.41624, -2749, -772, -84.757, -37.0812, 84.757, 37.0812, -2431, -687, -67.3477, -42.6536, 67.3477, 42.6536, -2051, -400, -210, -112, 210, 112, -1264, -10, 0, 0, 0, 0, -1667, -50, 186.676, 633.568, -186.676, -633.568, -3125, -58, 0, 0, 0, 0, -3163, -775, 0, 0, 0, 0, -2973, -718, 0, 0, 0, 0, -2939, -696)
+}
+point_count = 10
+
+[node name="ShapedPoly" type="StaticBody2D"]
+position = Vector2(-229, 24)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_nr2ob")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_hp4dg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-410, -24)
+curve = SubResource("Curve2D_xs77c")

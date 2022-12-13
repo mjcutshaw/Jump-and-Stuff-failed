@@ -1,5 +1,5 @@
 extends GroundState
-
+class_name Walk
 #TODO: looking into dampening the acceleration to get going fast, then takes longer to get to top speed
 #FIXME: jump flip is not correctly implemented and only works flipping from the right
 #TODO: create ledge stop detection. to quickly stop in movedirection = 0 when coming to a ledge
@@ -31,21 +31,29 @@ func physics(_delta) -> void:
 	super.physics(_delta)
 	
 
-	if player.moveDirection.x == 0:
-		await get_tree().create_timer(.2).timeout
-		goIdle = true
-	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
-		await get_tree().create_timer(.1).timeout
-		if Input.is_action_pressed("jump"):
-#			print("jump flip phyics")
-			#TODO: work on jump jumpflip
-			player.jumpFlip = true
-		else:
-			velocity_logic(moveSpeed)
-	else:
+#	if player.moveDirection.x == 0:
+#		await get_tree().create_timer(.2).timeout
+#		goIdle = true
+#	if player.moveDirection.x != sign(player.velocity.x) and player.velocity.x > 0 and player.moveDirection.x != 0:
+#		await get_tree().create_timer(.1).timeout
+#		if Input.is_action_pressed("jump"):
+##			print("jump flip phyics")
+#			#TODO: work on jump jumpflip
+#			player.jumpFlip = true
+#		else:
+#			velocity_logic(moveSpeed)
+#	else:
 		#FIXME: rework with momentum. get from 3.5
-		player.velocity.x = max(move_toward(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
-		
+#	player.velocity.x = max(move_toward(abs(player.velocity.x), moveSpeed, acceleration), abs(player.velocity.x)) * player.moveStrength.x
+	
+	if player.moveDirection.x != 0:
+		if abs(player.velocity.x) < moveSpeed:
+			player.velocity.x = move_toward(abs(player.velocity.x), moveSpeed, acceleration) * player.moveDirection.x
+	else:
+		player.velocity.x = move_toward(player.velocity.x, 0, friction)
+	
+	if player.is_on_wall():
+		player.velocity.x = 0
 
 func visual(_delta) -> void:
 	super.visual(_delta)

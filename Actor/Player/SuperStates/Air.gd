@@ -38,7 +38,7 @@ func handle_input(_event: InputEvent) -> int:
 	if newState:
 		return newState
 
-	#TODO: make extention of wall detection for jumping and wall grabs
+	#TODO: make extention of wall detection for jumping
 	if Input.is_action_just_pressed("jump"):
 		if !player.wallCoyoteTimer.is_stopped():
 			player.wallCoyoteTimer.stop()

@@ -1,5 +1,5 @@
 extends GroundState
-
+class_name Idle
 
 func enter() -> void:
 	super.enter()

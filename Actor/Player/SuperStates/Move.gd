@@ -42,16 +42,15 @@ func exit() -> void:
 func physics(_delta) -> void:
 	super.physics(_delta)
 
-	player.move_and_slide()
-	move_direction_logic()
-	move_strength_logic()
-	wall_direction_logic()
+	
+	get_move_input()
+#	wall_direction_logic()
 
 
 func visual(_delta) -> void:
 	super.visual(_delta)
 
-#	squash_and_strech(_delta)
+	squash_and_strech(_delta)
 	speed_bend()
 	player.align_with_floor()
 
@@ -75,20 +74,19 @@ func state_check(_delta: float):
 
 	return State.Null
 
-
-func move_direction_logic() -> void:
-	#TODO: get_vector(), check out aim node
-	player.moveDirection.x = - int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
-	player.moveDirection.y = - int(Input.is_action_pressed("move_up")) + int(Input.is_action_pressed("move_down"))
+func get_move_input() -> void:
+	var deadzoneRadius: float = 0.2
+	#TODO: make deadzone radius in settings
+	var inputStrength: = Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	)
+	player.moveStrength =  inputStrength if inputStrength.length() > deadzoneRadius else Vector2.ZERO
 	
-	if player.moveDirection.x != 0:
+	player.moveDirection =  player.moveStrength.normalized()
+	
+	if player.moveDirection != Vector2.ZERO:
 		player.lastDirection = player.moveDirection
-
-
-func move_strength_logic() -> void:
-	#TODO: look into get_axis()
-	player.moveStrength.x = - Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
-	player.moveStrength.y = - Input.get_action_strength("move_right") + Input.get_action_strength("move_down")
 
 
 func velocity_logic(speed) -> void:
